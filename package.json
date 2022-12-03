@@ -1,0 +1,54 @@
+{
+  "name": "create-young-proj",
+  "version": "0.0.0",
+  "description": "create project from template",
+  "main": "index.mjs",
+  "bin": {
+    "create-young-proj": "index.mjs",
+    "cyp": "index.mjs"
+  },
+  "files": [
+    "index.js",
+    "template-*",
+    "dist"
+  ],
+  "engines": {
+    "node": "^14.18.0 || >=16.0.0"
+  },
+  "scripts": {
+    "dev": "unbuild --stub",
+    "build": "unbuild",
+    "format": "rome format * --write",
+    "release": "changelogen && bumpp --commit --tag --no-push",
+    "push": "pnpm publish --access public"
+  },
+  "keywords": [
+    "cli",
+    "project template",
+    "young project",
+    "vue"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BluesYoung-web/create-young-proj.git"
+  },
+  "bugs": {
+    "url": "https://github.com/BluesYoung-web/create-young-proj/issues"
+  },
+  "homepage": "https://github.com/BluesYoung-web/create-young-proj/tree/main/packages/create-vite#readme",
+  "author": "BluesYoung-web",
+  "license": "MIT",
+  "devDependencies": {
+    "bumpp": "^8.2.1",
+    "changelogen": "^0.4.0",
+    "cross-spawn": "^7.0.3",
+    "kolorist": "^1.6.0",
+    "minimist": "^1.2.7",
+    "prompts": "^2.4.2",
+    "rome": "^10.0.1",
+    "unbuild": "^1.0.1"
+  },
+  "dependencies": {
+    "@types/node": "16"
+  }
+}
