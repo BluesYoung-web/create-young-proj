@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2022-12-03 15:14:08
- * @LastEditTime: 2022-12-03 15:28:48
+ * @LastEditTime: 2022-12-03 15:56:35
  * @Description:
  */
 import fs from 'node:fs';
@@ -41,13 +41,18 @@ const FRAMEWORKS: Framework[] = [
     color: green,
     variants: [
       {
+        name: 'vue-thin',
+        display: 'Vue3 + TS + Pinia + Unocss',
+        color: green,
+      },
+      {
         name: 'vue-admin',
-        display: 'Vue3 + ElementPlus + TS + Unocss',
+        display: 'Vue3 + ElementPlus + TS + Pinia + Unocss',
         color: blue,
       },
       {
         name: 'vue-mobile',
-        display: 'Vue3 + Vant + TS + Unocss',
+        display: 'Vue3 + Vant + TS + Pinia + Unocss',
         color: blue,
       },
     ],
@@ -86,6 +91,7 @@ const TEMPLATES = FRAMEWORKS.map(
 
 const renameFiles: Record<string, string | undefined> = {
   _gitignore: '.gitignore',
+  _env: '.env',
 };
 
 const defaultTargetDir = 'vite-project';
