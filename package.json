@@ -46,9 +46,7 @@
     "minimist": "^1.2.7",
     "prompts": "^2.4.2",
     "rome": "^10.0.1",
-    "unbuild": "^1.0.1"
-  },
-  "dependencies": {
+    "unbuild": "^1.0.1",
     "@types/node": "16"
   }
 }
