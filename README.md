@@ -29,4 +29,4 @@
 
 ## template-admin-server
 
-基于 [midwayjs] 开发的后端服务程序
+基于 [midwayjs](https://www.midwayjs.org/) 开发的后端服务程序
