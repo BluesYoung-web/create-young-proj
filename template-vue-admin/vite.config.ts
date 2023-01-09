@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2022-12-03 15:57:40
- * @LastEditTime: 2022-12-03 16:18:08
+ * @LastEditTime: 2023-01-05 14:14:02
  * @Description:
  */
 import { fileURLToPath, URL } from 'node:url';
@@ -16,6 +16,7 @@ import Unocss from 'unocss/vite';
 // 自动导入
 import AutoImport from 'unplugin-auto-import/vite';
 import AutoComopnents from 'unplugin-vue-components/vite';
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 
 // 自动路由及布局
 import Pages from 'vite-plugin-pages';
@@ -36,15 +37,24 @@ export default ({ command, mode }: ConfigEnv): UserConfigExport => {
         dirs: 'src/views',
         exclude: ['**/components/*.{vue,tsx}', '_*'],
       }),
-      Layouts({ defaultLayout: 'default' }),
+      Layouts({ defaultLayout: 'default/index' }),
       AutoComopnents({
         dirs: ['src/components'],
         dts: './src/auto-components.d.ts',
         extensions: ['vue', 'tsx'],
+        resolvers: [ElementPlusResolver()],
       }),
       AutoImport({
         dts: './src/auto-imports.d.ts',
-        imports: ['vue', 'vue-router', '@vueuse/core', 'pinia'],
+        imports: [
+          'vue',
+          'vue-router',
+          '@vueuse/core',
+          'pinia',
+          {
+            'element-plus': ['ElMessage', 'ElMessageBox', 'ElLoadingService'],
+          },
+        ],
       }),
       Unocss(),
       legacy({
@@ -59,6 +69,9 @@ export default ({ command, mode }: ConfigEnv): UserConfigExport => {
     },
     server: {
       host: true,
+      proxy: {
+        '/api': 'http://192.168.10.168:3000',
+      },
     },
   });
 };
