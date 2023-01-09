@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2022-12-03 15:14:08
- * @LastEditTime: 2022-12-03 15:56:35
+ * @LastEditTime: 2023-01-09 16:24:21
  * @Description:
  */
 import fs from 'node:fs';
@@ -32,6 +32,10 @@ type FrameworkVariant = {
   display: string;
   color: ColorFunc;
   customCommand?: string;
+  /**
+   * 待实现，暂时禁用选项
+   */
+  wip?: boolean;
 };
 
 const FRAMEWORKS: Framework[] = [
@@ -51,9 +55,15 @@ const FRAMEWORKS: Framework[] = [
         color: blue,
       },
       {
+        name: 'admin-server',
+        display: 'Node Server Based on Midwayjs',
+        color: blue,
+      },
+      {
         name: 'vue-mobile',
         display: 'Vue3 + Vant + TS + Pinia + Unocss',
         color: blue,
+        wip: true,
       },
     ],
   },
@@ -168,6 +178,7 @@ async function init() {
               return {
                 title: variantColor(variant.display || variant.name),
                 value: variant.name,
+                disabled: variant.wip,
               };
             }),
         },
