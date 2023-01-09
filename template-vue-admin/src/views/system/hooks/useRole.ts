@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2022-10-27 09:25:09
- * @LastEditTime: 2023-01-06 16:48:24
+ * @LastEditTime: 2023-01-09 14:20:07
  * @Description:
  */
 import type { RoleItem, ApiItem } from '@/typings';
@@ -73,6 +73,7 @@ export const useRoleBase = () => {
 
   const tableHead: TableHeadItem<RoleItem>[] = [
     { label: '角色ID', prop: 'id' },
+    { label: '角色关键字', prop: 'keyword' },
     { label: '角色名称', prop: 'name' },
     { label: '角色描述', prop: 'desc' },
     { label: '创建信息', prop: 'creator' },
