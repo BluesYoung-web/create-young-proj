@@ -3,7 +3,8 @@
 🚧 WIP
 
 - [x] template-vue-thin
-- [ ] template-vue-admin
+- [x] template-vue-admin
+- [x] template-admin-server
 - [ ] template-vue-mobile
 
 ## template-vue-thin
@@ -19,3 +20,13 @@
 `API` 自动导入，组件自动导入
 
 基于文件目录的自动路由
+
+## template-vue-admin
+
+在 `template-vue-thin` 的基础上加入 `element-plus` 开发的后台管理系统模板
+
+与 `template-admin-server` 配套使用
+
+## template-admin-server
+
+基于 [midwayjs] 开发的后端服务程序
