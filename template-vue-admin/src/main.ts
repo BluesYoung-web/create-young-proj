@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2022-12-03 15:57:40
- * @LastEditTime: 2023-01-04 14:30:48
+ * @LastEditTime: 2023-01-10 15:09:29
  * @Description:
  */
 // polyfill
@@ -13,6 +13,7 @@ import 'uno.css';
 import 'element-plus/dist/index.css';
 
 import { createApp } from 'vue';
+import { server } from 'virtual:local-server';
 import App from './App.vue';
 
 (async () => {
@@ -23,9 +24,8 @@ import App from './App.vue';
     viteEnv = import.meta.env;
     console.log('🚀 ~ file: main.ts ~ line 19 ~ viteEnv', viteEnv);
   } else if (import.meta.env.DEV) {
-    // 开发环境，内网其他设备访问请切换为局域网 ip
-    // 端口号与环境变量的 SERVER_PORT 保持一致
-    viteEnv = await (await fetch(`http://127.0.0.1:3000/get/env`)).json();
+    // 开发环境，局域网 ip
+    viteEnv = await (await fetch(server + '/get/env')).json();
     console.log('🚀 ~ file: main.ts ~ line 24 ~ viteEnv', viteEnv);
   } else {
     // 部署环境，需要配合 nginx 使用

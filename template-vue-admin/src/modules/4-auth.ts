@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2022-03-01 19:40:13
- * @LastEditTime: 2023-01-09 09:19:41
+ * @LastEditTime: 2023-01-11 10:32:35
  * @Description: 权限校验
  */
 import { router } from './1-router';
@@ -84,7 +84,6 @@ export const install: UserModule = (app) => {
       (await casdoorLogin(code, state)) as UserKey;
       getToken() && (await generateNavData());
       location.search = '';
-      changeTitle(to);
       return true;
     } else 
     */
@@ -99,12 +98,10 @@ export const install: UserModule = (app) => {
         await generateNavData();
         if (hasPermission(to.meta.authPath)) {
           // 拥有对应页面的权限
-          changeTitle(to);
           return true;
         }
         if (!hasPermission(to.meta.authPath)) {
           // 已登录，并且无权限
-          changeTitle(from);
           return '/403';
         }
       } else {
@@ -117,6 +114,13 @@ export const install: UserModule = (app) => {
 
   router.afterEach((to) => {
     const { addView } = useTagsStore();
+    const nav = FlatNavArr.value.find((item) => item.component === to.path);
+    if (nav && nav.title) {
+      // console.log('before: ', to.meta);
+      to.meta.title = nav.title as string;
+      // console.log('after: ', to.meta);
+    }
     addView(to);
+    changeTitle(to);
   });
 };
