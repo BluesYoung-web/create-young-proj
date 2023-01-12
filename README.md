@@ -6,6 +6,8 @@
 - [x] template-vue-admin
 - [x] template-admin-server
 - [ ] template-vue-mobile
+- [ ] template-nuxt3
+- [ ] template-ssr
 
 ## template-vue-thin
 
