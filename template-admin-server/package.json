@@ -45,7 +45,7 @@
     "start": "cross-env NODE_ENV=production node ./boot.mjs",
     "dev": "cross-env NODE_ENV=local midway-bin dev --ts",
     "build": "midway-bin build -c",
-    "format": "rome format . --write"
+    "format": "rome format * --write"
   },
   "midway-bin-clean": [
     ".vscode/.tsbuildinfo",

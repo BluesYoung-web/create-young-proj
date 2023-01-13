@@ -8,7 +8,7 @@
     "dev:server": "nitropack dev",
     "build": "vite build && nitropack build",
     "preview": "vite preview --host",
-    "format": "rome format .* --write",
+    "format": "rome format * --write",
     "release": "changelogen && bumpp --no-push"
   },
   "dependencies": {
