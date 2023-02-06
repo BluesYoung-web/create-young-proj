@@ -5,9 +5,10 @@
 - [x] template-vue-thin
 - [x] template-vue-admin
 - [x] template-admin-server
-- [ ] template-vue-mobile
+- [x] template-vue-mobile
 - [ ] template-nuxt3
 - [ ] template-ssr
+- [ ] template-solidjs-ssr
 
 ## template-vue-thin
 
@@ -32,3 +33,9 @@
 ## template-admin-server
 
 基于 [midwayjs](https://www.midwayjs.org/) 开发的后端服务程序
+
+## template-vue-mobile
+
+在 `template-vue-thin` 的基础上加入 `vant4` 开发的移动端模板
+
+目前测试过的最低兼容为 支付宝/钉钉 内置浏览器(`Chrome69`)
