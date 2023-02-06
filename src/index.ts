@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2022-12-03 15:14:08
- * @LastEditTime: 2023-01-09 16:24:21
+ * @LastEditTime: 2023-02-01 14:39:39
  * @Description:
  */
 import fs from 'node:fs';
@@ -61,7 +61,24 @@ const FRAMEWORKS: Framework[] = [
       },
       {
         name: 'vue-mobile',
-        display: 'Vue3 + Vant + TS + Pinia + Unocss',
+        display: 'Vue3 + Vant4 + TS + Pinia + Unocss',
+        color: blue,
+      },
+      {
+        name: 'nuxt3',
+        display: 'Nuxt3 + TS + Pinia + Unocss',
+        color: blue,
+        wip: true,
+      },
+      {
+        name: 'ssr',
+        display: 'NestJS + TS + Pinia + Tailwindcss',
+        color: blue,
+        wip: true,
+      },
+      {
+        name: 'solidjs-ssr',
+        display: 'SolidJS + TS + Pinia + Unocss',
         color: blue,
         wip: true,
       },
