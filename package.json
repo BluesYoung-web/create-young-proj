@@ -1,6 +1,6 @@
 {
   "name": "create-young-proj",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "create project from template",
   "main": "index.mjs",
   "bin": {
@@ -18,8 +18,8 @@
   "scripts": {
     "dev": "unbuild --stub",
     "build": "unbuild",
-    "format": "rome format * --write",
-    "release": "changelogen && bumpp --commit --tag --no-push",
+    "format": "rome format . --write",
+    "release": "changelogen && bumpp --no-push",
     "push": "pnpm publish --access public"
   },
   "keywords": [
