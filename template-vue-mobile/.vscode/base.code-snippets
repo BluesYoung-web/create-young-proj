@@ -1,0 +1,24 @@
+{
+  "mobile base": {
+    "prefix": "base",
+    "body": [
+      "<route lang=\"yaml\">",
+      "meta:",
+      "  auth: true",
+      "  title: $1",
+      "  layout: sub",
+      "</route>",
+      "",
+      "<script lang=\"ts\" setup>",
+      "$2",
+      "</script>",
+      "",
+      "<template>",
+      "  <div>",
+      "    $1",
+      "  </div>",
+      "</template>",
+    ],
+    "description": "mobile base"
+  }
+}

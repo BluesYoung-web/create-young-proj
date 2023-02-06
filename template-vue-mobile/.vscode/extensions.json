@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "vue.volar",
+    "rome.rome",
+    "obkoro1.korofileheader",
+    "vue.vscode-typescript-vue-plugin",
+    "antfu.unocss",
+    "voorjaar.windicss-intellisense"
+  ]
+}

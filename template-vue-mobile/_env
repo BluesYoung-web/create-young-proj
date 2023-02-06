@@ -1,0 +1,6 @@
+# 部署环境 dev | test | online
+DEPLOY_ENV=dev
+# DEPLOY_ENV=test
+# DEPLOY_ENV=online
+# node 服务监听的端口号
+LISTEN_PORT=3003
