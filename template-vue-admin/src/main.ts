@@ -15,6 +15,7 @@ import 'element-plus/dist/index.css';
 import { createApp } from 'vue';
 import { server } from 'virtual:local-server';
 import App from './App.vue';
+import { CurrentVersion } from './stores';
 
 (async () => {
   // 获取环境变量
@@ -33,6 +34,7 @@ import App from './App.vue';
     console.log('🚀 ~ file: main.ts ~ line 28 ~ viteEnv', viteEnv);
   }
   window.__YOUNG_VITE_ENV__ = viteEnv;
+  CurrentVersion.value = viteEnv.VITE_CURRENT_VERSION;
 
   const app = createApp(App);
   Object.values(

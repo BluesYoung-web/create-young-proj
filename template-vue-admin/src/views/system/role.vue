@@ -7,7 +7,6 @@
 <route lang="yaml">
 meta:
   title: 角色列表
-  authPath: /system/role
 </route>
 
 <script lang="ts" setup>

@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2022-03-01 14:01:31
- * @LastEditTime: 2023-01-09 09:19:53
+ * @LastEditTime: 2023-05-18 16:21:55
  * @Description: 网络请求
  */
 import { useHttp } from '@bluesyoung/http';
@@ -27,8 +27,12 @@ export const http = useHttp<ResponseMsg>({
     start: startLoading,
     end: endLoading,
   },
-  fail: (err) => {
+  fail: (err: any) => {
     console.log('🚀 ~ file: 3-net.ts:60 ~ err', err, typeof err);
+    if (err?.response?.status === 401) {
+      ElMessage.error('无权限，请联系管理员');
+    }
+
     if (typeof err === 'string') {
       // 通用失败，弹出提示信息
       ElMessage.error(err);

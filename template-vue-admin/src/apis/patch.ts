@@ -5,7 +5,6 @@
  * @Description:
  */
 import { http } from '@/modules/3-net';
-import type { ApiItem, RoleItem, UserItem } from '@/typings';
 
 const method = 'PATCH';
 

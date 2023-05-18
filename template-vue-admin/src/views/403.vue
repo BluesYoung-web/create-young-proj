@@ -1,12 +1,13 @@
 <!--
  * @Author: zhangyang
  * @Date: 2022-10-27 11:32:57
- * @LastEditTime: 2023-01-04 19:42:03
+ * @LastEditTime: 2023-05-18 15:49:39
  * @Description: 
 -->
 <route lang="yaml">
 meta:
   title: 403
+  auth: false
 </route>
 
 <script lang="ts" setup>

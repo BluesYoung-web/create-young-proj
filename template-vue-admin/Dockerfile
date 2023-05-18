@@ -1,5 +1,5 @@
 # 拉取基础镜像
-FROM node:16-alpine as builder
+FROM node:18-alpine as builder
 
 # 维护者
 MAINTAINER BluesYoung "bluesyoung_web@163.com"
@@ -23,7 +23,7 @@ COPY . /app
 RUN yarn build
 
 # 打包完成，构建最终的极简镜像
-FROM node:16-alpine
+FROM node:18-alpine
 
 # 工作目录
 WORKDIR /app

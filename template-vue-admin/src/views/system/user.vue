@@ -7,7 +7,6 @@
 <route lang="yaml">
 meta:
   title: 用户管理
-  authPath: /system/user
 </route>
 
 <script lang="ts" setup>

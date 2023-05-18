@@ -7,7 +7,6 @@
 <route lang="yaml">
 meta:
   title: 接口管理
-  authPath: /system/api
 </route>
 
 <script lang="ts" setup>

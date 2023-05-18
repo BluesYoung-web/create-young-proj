@@ -1,9 +1,15 @@
 <!--
  * @Author: zhangyang
  * @Date: 2022-10-25 11:54:36
- * @LastEditTime: 2022-12-07 15:33:23
+ * @LastEditTime: 2023-05-18 15:49:57
  * @Description: 
 -->
+<route lang="yaml">
+meta:
+  title: 入口
+  auth: false
+</route>
+
 <script lang="ts" setup>
 const router = useRouter();
 onMounted(() => {

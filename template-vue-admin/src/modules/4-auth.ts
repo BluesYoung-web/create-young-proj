@@ -1,12 +1,12 @@
 /*
  * @Author: zhangyang
  * @Date: 2022-03-01 19:40:13
- * @LastEditTime: 2023-01-11 10:32:35
+ * @LastEditTime: 2023-05-18 16:17:02
  * @Description: 权限校验
  */
 import { router } from './1-router';
 import type { RouteLocationNormalized } from 'vue-router';
-import { useNavStore, useTagsStore, useUserStore, getToken } from '@/stores';
+import { useNavStore, useTagsStore, useUserStore, getToken, getLoginInfo } from '@/stores';
 import { apis } from './3-net';
 
 const changeTitle = (route: RouteLocationNormalized) => {
@@ -49,16 +49,23 @@ export const clearChildren = <T extends Record<string, any>>(arr: T[]) => {
   return arr;
 };
 
-export const generateNavData = async () => {
-  const info = await apis.post.getCurrUserInfo();
+export const generateNavData = async (force = false) => {
+  const info = getLoginInfo();
 
   if (!info) {
+    // 登录过期
+    ElMessage.error('登录过期，请重新登录！');
+    router.replace('/base/login');
     return;
   }
 
-  const menu = Object.values(await apis.get.getMenuTree());
-  CurrUserInfo.value = info;
+  const menu = Object.values(await apis.get.getMenuTree(force)) as any[];
   RawNav.value = menu;
+
+  // 刷新右上角角色信息
+  apis.post.getCurrUserInfo().then((res) => {
+    CurrUserInfo.value = res;
+  });
 
   // 后端获取用户可见节点
   const navArr: NavArrItem[] = menu;
@@ -78,29 +85,20 @@ export const hasPermission = (path: string) => {
 
 export const install: UserModule = (app) => {
   router.beforeEach(async (to, from) => {
-    /* 授权登录，暂未启用
-    const { code, state } = Object.fromEntries(new URLSearchParams(location.search));
-    if (code && state) {
-      (await casdoorLogin(code, state)) as UserKey;
-      getToken() && (await generateNavData());
-      location.search = '';
-      return true;
-    } else 
-    */
     if (to.path !== '/base/login') {
       // 页面无需权限
-      if (!to.meta.authPath) {
+      if (to.meta.auth === false) {
         return true;
       }
       // 已登录
       if (getToken()) {
         // 生成权限树
         await generateNavData();
-        if (hasPermission(to.meta.authPath)) {
+        if (hasPermission(to.path)) {
           // 拥有对应页面的权限
           return true;
         }
-        if (!hasPermission(to.meta.authPath)) {
+        if (!hasPermission(to.path)) {
           // 已登录，并且无权限
           return '/403';
         }

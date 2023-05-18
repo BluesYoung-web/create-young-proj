@@ -1,10 +1,10 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-01-04 10:15:03
- * @LastEditTime: 2023-01-05 14:26:22
+ * @LastEditTime: 2023-05-18 15:45:18
  * @Description: 路由模块
  */
-import { createRouter, createWebHashHistory, type RouteRecordRaw } from 'vue-router';
+import { createRouter, createWebHashHistory } from 'vue-router';
 import { setupLayouts } from 'virtual:generated-layouts';
 import routes from '~pages';
 
@@ -26,9 +26,9 @@ declare module 'vue-router' {
      */
     noCache?: boolean;
     /**
-     * 鉴权路径，不设置则为白名单页面
+     * 设置 false 不参与鉴权，否则鉴权路径为当前路由
      */
-    authPath?: string;
+    auth?: false;
     /**
      * 页面布局，对应 layouts 目录下的布局页面，不写默认为 default/index
      */
@@ -37,24 +37,6 @@ declare module 'vue-router' {
 }
 
 export const finalRoutes = setupLayouts(routes);
-export const navMap = new Map<string, string>();
-
-/**
- * 生成权限节点映射表
- */
-const generateNavMap = (raw: RouteRecordRaw[], base = '') => {
-  for (const route of raw) {
-    if (route.children) {
-      generateNavMap(route.children, route.path);
-    } else {
-      const meta = route.meta;
-      if (meta && meta.authPath) {
-        navMap.set(meta.authPath, `${base}${route.path.startsWith('/') ? '' : '/'}${route.path}`);
-      }
-    }
-  }
-};
-generateNavMap(finalRoutes);
 
 export const router = createRouter({
   history: createWebHashHistory(),

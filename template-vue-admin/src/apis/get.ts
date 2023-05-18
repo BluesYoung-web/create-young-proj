@@ -1,12 +1,11 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-01-04 19:31:22
- * @LastEditTime: 2023-01-09 09:07:32
+ * @LastEditTime: 2023-05-18 16:07:52
  * @Description:
  */
 import { http } from '@/modules/3-net';
 import { useNavStore } from '@/stores';
-import { ApiItem } from '@/typings';
 
 const method = 'GET';
 

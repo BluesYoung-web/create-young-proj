@@ -1,18 +1,19 @@
 <!--
  * @Author: zhangyang
  * @Date: 2020-12-03 15:02:28
- * @LastEditTime: 2023-01-09 09:24:29
+ * @LastEditTime: 2023-05-18 15:49:25
  * @Description: 404
 -->
 <route lang="yaml">
 meta:
   title: 页面不存在
   layout: 'blank'
+  auth: false
 </route>
 <template>
   <div>
     <div class="g-container">
-      <div class="rail">
+      <div class="rail pointer-events-none">
         <div class="stamp four">4</div>
         <div class="stamp zero">0</div>
         <div class="stamp four">4</div>

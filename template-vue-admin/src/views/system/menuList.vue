@@ -7,7 +7,6 @@
 <route lang="yaml">
 meta:
   title: 菜单管理
-  authPath: /system/menuList
 </route>
 
 <script lang="ts" setup>
@@ -185,7 +184,7 @@ getList()
           </ElFormItem>
           <ElFormItem label="路径" prop="component" :rules="form.parentId === 0 ? {} :
             { message: '请输入合法的路径, eg: /path/page', trigger: 'blur', validator: (_: any, v: string) => v.trim() === '' || /\/(.*)\/(.*)/.test(v) }
-          ">
+            ">
             <ElInput v-model="form.component" />
           </ElFormItem>
         </ElForm>
