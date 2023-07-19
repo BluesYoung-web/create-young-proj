@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2022-12-03 15:14:08
- * @LastEditTime: 2023-02-01 14:39:39
+ * @LastEditTime: 2023-07-19 16:17:01
  * @Description:
  */
 import fs from 'node:fs';
@@ -65,6 +65,11 @@ const FRAMEWORKS: Framework[] = [
         color: blue,
       },
       {
+        name: 'uni-app',
+        display: 'Vue3 + uni-app + TS + Pinia + Unocss',
+        color: blue,
+      },
+      {
         name: 'nuxt3',
         display: 'Nuxt3 + TS + Pinia + Unocss',
         color: blue,
@@ -118,8 +123,10 @@ const TEMPLATES = FRAMEWORKS.map(
 
 const renameFiles: Record<string, string | undefined> = {
   _gitignore: '.gitignore',
-  _env: '.env',
+  // _env: '.env',
 };
+
+const renameEnvBatch = /_env.*/;
 
 const defaultTargetDir = 'vite-project';
 
@@ -263,7 +270,7 @@ async function init() {
   const templateDir = path.resolve(fileURLToPath(import.meta.url), '../..', `template-${template}`);
 
   const write = (file: string, content?: string) => {
-    const targetPath = path.join(root, renameFiles[file] ?? file);
+    const targetPath = path.join(root, renameFiles[file] ?? renameEnvBatch.test(file) ? file.replace('_', '.') : file);
     if (content) {
       fs.writeFileSync(targetPath, content);
     } else {

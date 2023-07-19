@@ -6,6 +6,7 @@
 - [x] template-vue-admin
 - [x] template-admin-server
 - [x] template-vue-mobile
+- [x] template-uni-app
 - [ ] template-nuxt3
 - [ ] template-ssr
 - [ ] template-solidjs-ssr
@@ -39,3 +40,7 @@
 在 `template-vue-thin` 的基础上加入 `vant4` 开发的移动端模板
 
 目前测试过的最低兼容为 支付宝/钉钉 内置浏览器(`Chrome69`)
+
+## template-uni-app
+
+基于 `Vue3` + `uni-app` 开发的通用小程序模板，[详见](./template-uni-app/README.md)
