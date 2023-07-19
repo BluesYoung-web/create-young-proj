@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-07-18 15:01:00
- * @LastEditTime: 2023-07-18 15:17:10
+ * @LastEditTime: 2023-07-19 10:32:34
  * @Description:
  */
 import { YoungStorageKeys } from '@/config';
@@ -14,8 +14,18 @@ export type LocationInfo = {
   timer: number;
 };
 export type NavInfo = {
+  /**
+   * 系统状态栏高度
+   */
   statusBarH: number;
+  /**
+   * 自定义导航栏高度 = 胶囊下距离 + 胶囊上距离 - 状态栏高度
+   */
   customBarH: number;
+  /**
+   * 底部安全距离
+   */
+  safeBottom: number;
 };
 
 export const getLocationInfo = () => uni.getStorageSync(YoungStorageKeys.位置信息) as LocationInfo;

@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-07-18 14:24:35
- * @LastEditTime: 2023-07-18 14:55:24
+ * @LastEditTime: 2023-07-19 10:32:44
  * @Description:
  */
 import type { SubscribeMessage } from '@/config';
@@ -53,9 +53,12 @@ export const getSystemInfo = () => {
         customBar = statusBar + (e.titleBarHeight || 0);
         // #endif
 
+        const safeBottom = e.screenHeight - (e.safeArea ? (e.safeArea.height + e.safeArea.top) : 0);
+
         setNavbarHeihgt({
           statusBarH: statusBar,
           customBarH: customBar,
+          safeBottom
         });
         _resolve(e);
       },

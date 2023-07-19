@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-07-18 11:03:01
- * @LastEditTime: 2023-07-18 18:02:24
+ * @LastEditTime: 2023-07-19 11:44:47
  * @Description:
  */
 import { resolve } from 'node:path';
@@ -21,6 +21,11 @@ export default defineConfig({
   },
   plugins: [
     polyfillFormData(),
+    // 仅用于增加语法提示，实际导入依靠 uni-app 的 easycom
+    AutoComponents({
+      dts: true,
+      globs: ['src/uni_modules/**/components/**/*.vue', 'src/components/**/*.vue']
+    }),
     uni(),
     // https://github.com/antfu/unocss
     Unocss(),
@@ -31,8 +36,6 @@ export default defineConfig({
       dts: true,
       vueTemplate: true,
     }),
-    AutoComponents({
-      dts: true,
-    }),
+
   ],
 });

@@ -1,7 +1,7 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-18 17:44:06
- * @LastEditTime: 2023-07-18 17:56:33
+ * @LastEditTime: 2023-07-19 10:34:41
  * @Description:
 -->
 <script lang="ts" setup>
@@ -62,10 +62,6 @@ const tabChange = (index: number) => {
 </template>
 
 <style lang="scss" scoped>
-.placeholder {
-  height: calc(44px + 8px + env(safe-area-inset-bottom));
-}
-
 .t-tabbar {
   display: flex;
   // position: relative;
