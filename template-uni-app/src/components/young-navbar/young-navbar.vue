@@ -1,13 +1,10 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-19 09:03:51
- * @LastEditTime: 2023-07-19 09:55:54
+ * @LastEditTime: 2023-07-19 16:47:55
  * @Description:
 -->
 <script lang="ts" setup>
-import { Pages } from '@/config';
-import { getNavbarHeihgt } from '@/store';
-import { back, relaunch } from '@/utils';
 interface Props {
   /**
    * 是否是自定义导航

@@ -1,11 +1,9 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-07-18 14:29:41
- * @LastEditTime: 2023-07-18 14:48:53
+ * @LastEditTime: 2023-07-19 16:51:26
  * @Description: 地图相关(基于腾讯地图)
  */
-import { getMapApiKey } from '@/config';
-
 export type TxLocationSearchRes = {
   address: string;
   title: string;
@@ -43,9 +41,8 @@ export const searchLoaction = (args: TxLocationSearch) => {
 
   return new Promise<TxLocationSearchRes[]>((resolve, reject): void => {
     uni.request({
-      url: `https://apis.map.qq.com/ws/place/v1/search?boundary=nearby(${latitude},${longitude},1000)${
-        keyword ? `&keyword=${keyword}` : ''
-      }&page_size=${page_size}&page_index=${page_index}&key=${getMapApiKey()}`,
+      url: `https://apis.map.qq.com/ws/place/v1/search?boundary=nearby(${latitude},${longitude},1000)${keyword ? `&keyword=${keyword}` : ''
+        }&page_size=${page_size}&page_index=${page_index}&key=${getMapApiKey()}`,
       success: (res) => {
         resolve((res.data as unknown as { data: TxLocationSearchRes[] }).data);
       },

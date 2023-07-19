@@ -6,7 +6,6 @@
 -->
 <script lang="ts" setup>
 import { Pages } from '@/config';
-import { tabbar } from '@/utils';
 import { isHttpUrl } from '@bluesyoung/utils';
 type Tabbar = {
   selectedIconPath: string;

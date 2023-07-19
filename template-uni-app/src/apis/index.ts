@@ -1,10 +1,9 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-07-18 15:35:24
- * @LastEditTime: 2023-07-19 15:47:29
+ * @LastEditTime: 2023-07-19 16:47:49
  * @Description:
  */
-import { hideLoading, showErrorModal, showLoading } from '@/utils';
 import { useHttp } from './lib';
 import { useGet, usePost } from './requests';
 

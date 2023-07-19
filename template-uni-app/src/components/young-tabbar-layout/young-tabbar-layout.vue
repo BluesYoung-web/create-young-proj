@@ -1,20 +1,16 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-18 18:04:48
- * @LastEditTime: 2023-07-19 11:50:40
+ * @LastEditTime: 2023-07-19 16:49:58
  * @Description:
 -->
 <script lang="ts" setup>
-import { getNavbarHeihgt } from '@/store';
-
 withDefaults(defineProps<{
   scrollY?: boolean;
-  tabbar?: boolean;
   bg?: string;
   top?: number | string;
 }>(), {
   scrollY: true,
-  tabbar: true,
   bg: 'transparent',
   top: 0
 });
@@ -26,6 +22,6 @@ const bottom = getNavbarHeihgt().safeBottom;
     <scroll-view :scroll-y="scrollY" class="flex-1" :style="{ backgroundColor: bg }">
       <slot></slot>
     </scroll-view>
-    <young-tabbar :z="tabbar ? 999 : 99" />
+    <young-tabbar :z="999" />
   </div>
 </template>

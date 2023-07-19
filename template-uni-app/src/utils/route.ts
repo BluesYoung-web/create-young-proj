@@ -1,10 +1,10 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-07-18 15:24:39
- * @LastEditTime: 2023-07-18 15:28:44
+ * @LastEditTime: 2023-07-19 16:51:49
  * @Description:
  */
-import { type Pages, TabbarArr } from '@/config';
+import type { Pages } from '@/config';
 
 interface IRoute {
   /**

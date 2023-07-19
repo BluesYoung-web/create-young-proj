@@ -1,11 +1,10 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-07-18 14:24:35
- * @LastEditTime: 2023-07-19 10:32:44
+ * @LastEditTime: 2023-07-19 16:51:57
  * @Description:
  */
 import type { SubscribeMessage } from '@/config';
-import { setNavbarHeihgt, useSystemInfo } from '@/store';
 
 /**
  * 订阅指定的消息

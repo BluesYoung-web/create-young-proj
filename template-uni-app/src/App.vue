@@ -1,14 +1,10 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-02-13 14:58:26
- * @LastEditTime: 2023-07-19 15:54:48
+ * @LastEditTime: 2023-07-19 16:47:25
  * @Description:
 -->
 <script setup lang="ts">
-import { getUuid, setUuid } from '@/store';
-import { showModal } from '@/utils';
-import { getSystemInfo } from '@/utils';
-
 onLaunch(async () => {
   console.log('App Launch');
   console.log('环境变量：', import.meta.env);

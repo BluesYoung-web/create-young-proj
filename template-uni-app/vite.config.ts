@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-07-18 11:03:01
- * @LastEditTime: 2023-07-19 15:36:20
+ * @LastEditTime: 2023-07-19 16:45:11
  * @Description:
  */
 import { resolve } from 'node:path';
@@ -39,6 +39,12 @@ export default ({ command, mode }: ConfigEnv) => {
         imports: ['vue', 'uni-app', 'pinia'],
         dts: true,
         vueTemplate: true,
+        dirs: [
+          resolve(__dirname, 'src/apis/**'),
+          resolve(__dirname, 'src/config/**'),
+          resolve(__dirname, 'src/store/**'),
+          resolve(__dirname, 'src/utils/**'),
+        ]
       }),
 
       multiConf(mode)

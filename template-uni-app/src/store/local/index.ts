@@ -1,10 +1,9 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-07-18 15:01:00
- * @LastEditTime: 2023-07-19 10:32:34
+ * @LastEditTime: 2023-07-19 16:50:39
  * @Description:
  */
-import { YoungStorageKeys } from '@/config';
 import { randomId } from '@bluesyoung/utils';
 
 export type LocationInfo = {

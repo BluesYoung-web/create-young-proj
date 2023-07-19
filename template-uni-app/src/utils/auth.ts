@@ -1,13 +1,9 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-07-18 14:28:16
- * @LastEditTime: 2023-07-19 12:09:03
+ * @LastEditTime: 2023-07-19 16:51:04
  * @Description: 权限相关
  */
-import { getLocationInfo, removeLocationInfo, setLocationInfo } from '@/store';
-import { showModal } from '.';
-import { AuthLocationEvents } from '@/config';
-
 /**
  * 获取微信授权码
  */

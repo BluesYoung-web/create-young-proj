@@ -1,13 +1,10 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-18 11:23:36
- * @LastEditTime: 2023-07-19 15:54:28
+ * @LastEditTime: 2023-07-19 16:50:03
  * @Description:
 -->
 <script lang="ts" setup>
-import { apis } from '@/apis';
-import { getNavbarHeihgt } from '@/store';
-
 const testGet = async () => {
   const res = await apis.get.getByUserName('BluesYoung-web');
   console.log("🚀 ~ file: index.vue:12 ~ test ~ res:", res);
@@ -34,7 +31,7 @@ onMounted(() => {
 <template>
   <div>
     <young-navbar isback />
-    <young-tabbar-layout tabbar :top="navBar.customBarH" bg="#F0F0F0">
+    <young-tabbar-layout :top="navBar.customBarH" bg="#F0F0F0">
       <h1 class="text-32">我是页面</h1>
       <view class="uni-primary">主色</view>
       <view class="uni-success">成功色</view>
