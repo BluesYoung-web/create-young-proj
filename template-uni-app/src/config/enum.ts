@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-07-18 14:51:02
- * @LastEditTime: 2023-07-18 17:51:16
+ * @LastEditTime: 2023-07-19 12:17:58
  * @Description:
  */
 
@@ -42,3 +42,5 @@ export enum Pages {
  * tabbar 页面
  */
 export const TabbarArr = [Pages.首页, Pages.个人中心] as const;
+
+export enum UIEvents { }

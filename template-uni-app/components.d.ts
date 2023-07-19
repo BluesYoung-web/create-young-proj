@@ -81,6 +81,7 @@ declare module 'vue' {
     UniUi: typeof import('./src/uni_modules/uni-ui/components/uni-ui/uni-ui.vue')['default']
     UploadFile: typeof import('./src/uni_modules/uni-file-picker/components/uni-file-picker/upload-file.vue')['default']
     UploadImage: typeof import('./src/uni_modules/uni-file-picker/components/uni-file-picker/upload-image.vue')['default']
+    YoungLoading: typeof import('./src/components/young-loading/young-loading.vue')['default']
     YoungNavbar: typeof import('./src/components/young-navbar/young-navbar.vue')['default']
     YoungTabbar: typeof import('./src/components/young-tabbar/young-tabbar.vue')['default']
     YoungTabbarLayout: typeof import('./src/components/young-tabbar-layout/young-tabbar-layout.vue')['default']

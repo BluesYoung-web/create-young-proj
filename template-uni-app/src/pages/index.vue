@@ -1,7 +1,7 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-18 11:23:36
- * @LastEditTime: 2023-07-19 11:42:53
+ * @LastEditTime: 2023-07-19 14:28:05
  * @Description:
 -->
 <script lang="ts" setup>
@@ -17,8 +17,17 @@ const testPost = async () => {
   await apis.post.createRepo('BluesYoung-web');
 };
 const navBar = getNavbarHeihgt();
+
+const loadingEl = ref();
+
 onLoad(() => {
   uni.hideTabBar();
+});
+
+onMounted(() => {
+  setTimeout(() => {
+    loadingEl.value?.stop();
+  }, 3e3);
 });
 </script>
 
@@ -40,5 +49,7 @@ onLoad(() => {
         <text>这是一个带头像和双标题的基础卡片，此示例展示了一个完整的卡片。</text>
       </uni-card>
     </young-tabbar-layout>
+
+    <young-loading ref="loadingEl" />"
   </div>
 </template>
