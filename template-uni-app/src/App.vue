@@ -1,7 +1,7 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-02-13 14:58:26
- * @LastEditTime: 2023-07-19 16:47:25
+ * @LastEditTime: 2023-07-19 17:23:20
  * @Description:
 -->
 <script setup lang="ts">
@@ -51,7 +51,7 @@ onHide(() => {
 </script>
 
 <style lang="scss">
-@import './uni_modules/uni-scss/index.scss';
+@import '@dcloudio/uni-ui/lib/uni-scss/index.scss';
 
 page {
   background-color: #f6f7fb;
