@@ -1,0 +1,62 @@
+{
+  "lazyCodeLoading": "requiredComponents",
+  "pages": [
+    {
+      "path": "pages/index",
+      "style": {
+        "navigationBarTitleText": "demo",
+        "navigationBarBackgroundColor": "#E60012",
+        "navigationBarTextStyle": "white",
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/my",
+      "style": {
+        "navigationBarTitleText": "demo",
+        "navigationBarBackgroundColor": "#E60012",
+        "navigationBarTextStyle": "white",
+        "navigationStyle": "custom"
+      }
+    }
+  ],
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#3cc51f",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/my",
+        "text": "我的"
+      }
+    ]
+  },
+  "globalStyle": {
+    "pageOrientation": "portrait",
+    "navigationBarTitleText": "demo",
+    "navigationBarTextStyle": "white",
+    "navigationBarBackgroundColor": "#0D0D0D",
+    "backgroundColor": "#F2EAE0",
+    "backgroundColorTop": "#F2EAE0",
+    "backgroundColorBottom": "#F4F5F6",
+    "mp-360": {
+      "navigationStyle": "custom"
+    },
+    "h5": {
+      "maxWidth": 1190,
+      "navigationBarTextStyle": "black",
+      "navigationBarBackgroundColor": "#FFFFFF"
+    }
+  },
+  "easycom": {
+    "autoscan": true,
+    "custom": {
+      "^uni-(.*)": "@dcloudio/uni-ui/lib/uni-$1/uni-$1.vue"
+    }
+  }
+}
