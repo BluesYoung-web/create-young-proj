@@ -1,0 +1,14 @@
+###
+ # @Author: zhangyang
+ # @Date: 2023-07-19 15:26:04
+ # @LastEditTime: 2023-07-19 15:52:20
+ # @Description: 测试配置，需要传递 --mode=test 才会启用
+###
+
+# 非标准 mode 时需要，可能的取值为 development 或者 production
+# NODE_ENV = production
+
+# 下面为应用需要使用的环境变量，需要以 VITE_ 开头
+VITE_APP_ID = tochangetowxappid
+
+VITE_API_BASE_URL = https://api.github.com

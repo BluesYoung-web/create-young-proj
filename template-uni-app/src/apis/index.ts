@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-07-18 15:35:24
- * @LastEditTime: 2023-07-18 17:15:53
+ * @LastEditTime: 2023-07-19 15:47:29
  * @Description:
  */
 import { hideLoading, showErrorModal, showLoading } from '@/utils';
@@ -9,7 +9,7 @@ import { useHttp } from './lib';
 import { useGet, usePost } from './requests';
 
 const http = useHttp({
-  baseURL: 'https://api.github.com',
+  baseURL: import.meta.env.VITE_API_BASE_URL,
   loading: {
     start: showLoading,
     end: hideLoading,

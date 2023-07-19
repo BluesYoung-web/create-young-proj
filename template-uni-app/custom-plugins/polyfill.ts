@@ -1,9 +1,11 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-07-18 15:58:06
- * @LastEditTime: 2023-07-19 08:14:10
+ * @LastEditTime: 2023-07-19 14:32:28
  * @Description:
  */
+import type { Plugin } from 'vite';
+
 export const polyfillFormData = () => {
   return {
     name: 'vite-plugin-uni-axios',
@@ -26,5 +28,5 @@ export const polyfillFormData = () => {
         }
       }
     },
-  };
+  } as Plugin;
 };
