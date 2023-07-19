@@ -24,7 +24,8 @@ export const setLocationInfo = (v: LocationInfo) =>
 export const removeLocationInfo = () => uni.removeStorageSync(YoungStorageKeys.位置信息);
 
 export const getUuid = () => uni.getStorageSync(YoungStorageKeys.唯一标识) as string;
-export const setUuid = () => uni.setStorageSync(YoungStorageKeys.唯一标识, randomId() + randomId() + randomId() + randomId());
+export const setUuid = () =>
+  uni.setStorageSync(YoungStorageKeys.唯一标识, randomId() + randomId() + randomId() + randomId());
 
 export const setNavbarHeihgt = (v: NavInfo) => uni.setStorageSync(YoungStorageKeys.导航栏高度, v);
 export const getNavbarHeihgt = () => uni.getStorageSync(YoungStorageKeys.导航栏高度) as NavInfo;

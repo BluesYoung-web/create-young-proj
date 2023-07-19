@@ -19,14 +19,14 @@ export function showLoading(title = '加载中...', mask = true) {
     mask,
     title,
   });
-};
+}
 
 /**
  * 隐藏loading
  */
 export function hideLoading() {
   --loadingCount === 0 && uni.hideLoading();
-};
+}
 
 /**
  * 展示 toast
@@ -39,9 +39,7 @@ export function showToast(options?: UniApp.ShowToastOptions) {
     mask,
     ...options,
   });
-};
-
-
+}
 
 let hasModel = false;
 const modalPage = new Set<string>();
@@ -89,7 +87,7 @@ export async function showModal(options: UniApp.ShowModalOptions) {
       },
     });
   });
-};
+}
 
 /**
  * 显示错误弹窗 只有确定按钮
@@ -97,4 +95,4 @@ export async function showModal(options: UniApp.ShowModalOptions) {
  */
 export function showErrorModal(errMsg: string) {
   return showModal({ content: errMsg, showCancel: false });
-};
+}

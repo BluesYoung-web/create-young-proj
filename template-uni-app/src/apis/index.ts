@@ -12,27 +12,26 @@ const http = useHttp({
   baseURL: 'https://api.github.com',
   loading: {
     start: showLoading,
-    end: hideLoading
+    end: hideLoading,
   },
   headers: {
     getCommonHeaders: () => ({
-      Accept: 'application/vnd.github.v3+json'
+      Accept: 'application/vnd.github.v3+json',
     }),
     getAuthHeaders: () => {
       const token = 'todo: change to the real token that you used';
       return {
-        Authorization: `Bearer ${token}`
+        Authorization: `Bearer ${token}`,
       };
-    }
+    },
   },
   fail: (err) => {
     // todo: 错误逻辑处理
     showErrorModal(err.toString());
-  }
+  },
 });
-
 
 export const apis = {
   get: useGet(http),
-  post: usePost(http)
+  post: usePost(http),
 };

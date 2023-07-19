@@ -6,7 +6,6 @@
  */
 import { type Pages, TabbarArr } from '@/config';
 
-
 interface IRoute {
   /**
    * 路由类型
@@ -40,7 +39,7 @@ enum ENUM_ROUTE_TYPE {
   TAB = 'switchTab',
   RELAUNCH = 'reLaunch',
   BACK = 'navigateBack',
-};
+}
 
 const params2Url = (params: Record<string, any>, encode = false) => {
   const arr = [];

@@ -83,7 +83,8 @@ export const authLocation = async (cancelback = true, isShowModal = true) =>
             resolve(position);
           } catch (error) {
             console.log(error);
-            if (isShowModal) { // 是否显示弹窗
+            if (isShowModal) {
+              // 是否显示弹窗
               showModal({
                 title: '获取位置时发生异常，您可点击小程序右上角-设置-允许获取位置',
                 confirmText: '去设置',
@@ -91,7 +92,10 @@ export const authLocation = async (cancelback = true, isShowModal = true) =>
                   if (res.confirm) {
                     uni.openSetting({
                       success: async (e) => {
-                        console.log(e.authSetting['scope.userLocation'], `e.authSetting['scope.userLocation']`);
+                        console.log(
+                          e.authSetting['scope.userLocation'],
+                          `e.authSetting['scope.userLocation']`,
+                        );
                         if (e.authSetting['scope.userLocation']) {
                           const position = await locate();
                           resolve(position);

@@ -25,7 +25,6 @@ export default defineConfig({
     // https://github.com/antfu/unocss
     Unocss(),
 
-
     // https://github.com/antfu/unplugin-auto-import
     AutoImport({
       imports: ['vue', 'uni-app', 'pinia'],
@@ -34,6 +33,6 @@ export default defineConfig({
     }),
     AutoComponents({
       dts: true,
-    })
+    }),
   ],
 });

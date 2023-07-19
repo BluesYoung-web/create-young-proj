@@ -15,9 +15,9 @@ export const usePost = (http: Http) => {
       await AuthReq({
         url: `/user/repos`,
         params: {
-          name
-        }
-      })
+          name,
+        },
+      });
     },
   };
 };

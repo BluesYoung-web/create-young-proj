@@ -17,9 +17,9 @@ type Simplify<T> = {
 type SetRequired<T, K extends keyof T> = Simplify<
   // 将要设置为可选类型的结构取出并设置为必选
   Required<Pick<T, K>> &
-  // 取并集
-  // 排除需要设置为可选属性的结构，其余的保持不变
-  Pick<T, Exclude<keyof T, K>>
+    // 取并集
+    // 排除需要设置为可选属性的结构，其余的保持不变
+    Pick<T, Exclude<keyof T, K>>
 >;
 
 export type AllMethod = Lowercase<Method>;
@@ -150,8 +150,7 @@ export const useHttp = <Msg extends Record<string, any> = DefaultMsg, Fns extend
 ) => {
   const finalConfig = defu(config, defaultConfig);
 
-  const { baseURL, lazyBaseURL, method, timeout, headers, checkFn, loading, fail } =
-    finalConfig;
+  const { baseURL, lazyBaseURL, method, timeout, headers, checkFn, loading, fail } = finalConfig;
 
   const net = axios.create({
     method,
