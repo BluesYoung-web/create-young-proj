@@ -1,11 +1,12 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-07-18 14:28:16
- * @LastEditTime: 2023-07-18 15:06:05
+ * @LastEditTime: 2023-07-19 12:09:03
  * @Description: 权限相关
  */
 import { getLocationInfo, removeLocationInfo, setLocationInfo } from '@/store';
 import { showModal } from '.';
+import { AuthLocationEvents } from '@/config';
 
 /**
  * 获取微信授权码
@@ -74,12 +75,12 @@ export const authLocation = async (cancelback = true, isShowModal = true) =>
         if (conf.authSetting['scope.userLocation']) {
           // 同意过定位授权
           const position = await locate();
-          uni.$emit('sure_location', true);
+          uni.$emit(AuthLocationEvents.同意授权, true);
           resolve(position);
         } else {
           try {
             const position = await locate();
-            uni.$emit('sure_location', true);
+            uni.$emit(AuthLocationEvents.同意授权, true);
             resolve(position);
           } catch (error) {
             console.log(error);
@@ -106,7 +107,7 @@ export const authLocation = async (cancelback = true, isShowModal = true) =>
                     });
                   } else {
                     removeLocationInfo();
-                    cancelback && uni.$emit('enable_location', false);
+                    cancelback && uni.$emit(AuthLocationEvents.启用授权, false);
                     reject(false);
                   }
                 },
@@ -121,7 +122,7 @@ export const authLocation = async (cancelback = true, isShowModal = true) =>
         }
       },
       fail: (conf) => {
-        uni.$emit('enable_location');
+        uni.$emit(AuthLocationEvents.启用授权);
         reject(false);
       },
     });
