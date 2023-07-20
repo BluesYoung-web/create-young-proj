@@ -27,6 +27,7 @@
 - 🚀 可定制布局框架
 
   - 根据页面的配置，自动注册并导入对应的组件，可将一些全局组件丢入布局之中，避免频繁导入
+  - 可以在布局内部进行登录校验，避免各个页面频繁调用
   - [官方文档](https://www.npmjs.com/package/@uni-helper/vite-plugin-uni-layouts)
 
 
