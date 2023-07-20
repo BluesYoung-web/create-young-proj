@@ -100,6 +100,9 @@ devDependencies:
   '@uni-helper/uni-ui-types':
     specifier: ^0.5.10
     version: 0.5.10(@uni-helper/uni-app-types@0.5.8)
+  '@uni-helper/vite-plugin-uni-layouts':
+    specifier: ^0.1.2
+    version: 0.1.2
   '@uni-helper/vite-plugin-uni-pages':
     specifier: ^0.2.3
     version: 0.2.3(@types/lodash-es@4.17.8)(lodash-es@4.17.21)(lodash@4.17.21)
@@ -3228,6 +3231,17 @@ packages:
       '@dcloudio/types': 3.3.3
       '@uni-helper/uni-app-types': 0.5.8(typescript@4.9.5)
       vue3: /vue@3.3.4
+    dev: true
+
+  /@uni-helper/vite-plugin-uni-layouts@0.1.2:
+    resolution: {integrity: sha512-ToWPXx/jXjzr1yzHTAA7lCEP8wSLhqK1hM/n0dHg3oN268Rc+X/8+igl+VADvjejWYWR+oO5XbLy6+DQZfx3UQ==}
+    dependencies:
+      '@uni-helper/uni-env': 0.0.3
+      '@vue/compiler-dom': 3.3.4
+      fast-glob: 3.3.0
+      jsonc-parser: 3.2.0
+      magic-string: 0.30.1
+      scule: 1.0.0
     dev: true
 
   /@uni-helper/vite-plugin-uni-pages@0.2.3(@types/lodash-es@4.17.8)(lodash-es@4.17.21)(lodash@4.17.21):

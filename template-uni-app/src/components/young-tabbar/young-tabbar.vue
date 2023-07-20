@@ -1,12 +1,16 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-18 17:44:06
- * @LastEditTime: 2023-07-19 10:34:41
+ * @LastEditTime: 2023-07-20 12:03:39
  * @Description:
 -->
 <script lang="ts" setup>
 import { Pages } from '@/config';
-import { isHttpUrl } from '@bluesyoung/utils';
+import home from '@/static/home.png';
+import home_active from '@/static/home_active.png';
+import my from '@/static/my.png';
+import my_active from '@/static/my_active.png';
+
 type Tabbar = {
   selectedIconPath: string;
   iconPath: string;
@@ -19,14 +23,14 @@ withDefaults(defineProps<{ z?: number }>(), { z: 99 });
 const list = ref<Tabbar[]>([
   {
     text: '首页',
-    iconPath: 'home',
-    selectedIconPath: 'home-filled',
+    iconPath: home,
+    selectedIconPath: home_active,
     pagePath: Pages.首页
   },
   {
     text: '我的',
-    iconPath: 'contact',
-    selectedIconPath: 'contact-filled',
+    iconPath: my,
+    selectedIconPath: my_active,
     pagePath: Pages.个人中心
   }
 ]);
@@ -43,7 +47,9 @@ const tabChange = (index: number) => {
     return;
   }
   tabbar(list.value[index].pagePath);
-}
+};
+
+uni.hideTabBar();
 </script>
 
 <template>
@@ -51,9 +57,7 @@ const tabChange = (index: number) => {
     <view @click="tabChange(index)" v-for="(item, index) in list" :key="index" class="t-tabbar__item"
       :class="{ 't-bar__item_on': index === current }">
       <view style="position: relative;display:inline-block;">
-        <image v-if="isHttpUrl(item.selectedIconPath)" :src="current === index ? item.selectedIconPath : item.iconPath"
-          class="t-tabbar__icon"></image>
-        <uni-icons :type="current === index ? item.selectedIconPath : item.iconPath" />
+        <image :src="current === index ? item.selectedIconPath : item.iconPath" class="t-tabbar__icon"></image>
       </view>
       <view class="t-tabbar__label">{{ item.text }}</view>
     </view>

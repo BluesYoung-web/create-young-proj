@@ -24,6 +24,11 @@
   - 根据页面文件自动生成 `pages.json`
   - [官方文档](https://www.npmjs.com/package/@uni-helper/vite-plugin-uni-pages)
 
+- 🚀 可定制布局框架
+
+  - 根据页面的配置，自动注册并导入对应的组件，可将一些全局组件丢入布局之中，避免频繁导入
+  - [官方文档](https://www.npmjs.com/package/@uni-helper/vite-plugin-uni-layouts)
+
 ## 接口编写
 
 > 按需注入特定的类型，以实现完美的类型推导和自动完成

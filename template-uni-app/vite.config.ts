@@ -1,14 +1,16 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-07-18 11:03:01
- * @LastEditTime: 2023-07-20 10:25:17
+ * @LastEditTime: 2023-07-20 10:55:29
  * @Description:
  */
 import { resolve } from 'node:path';
 import { defineConfig } from 'vite';
 import type { ConfigEnv } from 'vite';
-import uni from '@dcloudio/vite-plugin-uni';
+import Uni from '@dcloudio/vite-plugin-uni';
 import UniPages from '@uni-helper/vite-plugin-uni-pages';
+import UniLayouts from "@uni-helper/vite-plugin-uni-layouts";
+
 import Unocss from 'unocss/vite';
 import AutoImport from 'unplugin-auto-import/vite';
 import AutoComponents from 'unplugin-vue-components/vite';
@@ -33,7 +35,8 @@ export default ({ command, mode }: ConfigEnv) => {
       }),
 
       UniPages(),
-      uni(),
+      UniLayouts(),
+      Uni(),
       // https://github.com/antfu/unocss
       Unocss(),
 
