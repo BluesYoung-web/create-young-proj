@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-07-19 14:32:45
- * @LastEditTime: 2023-07-19 15:48:53
+ * @LastEditTime: 2023-07-20 14:01:15
  * @Description:
  */
 import type { Plugin } from 'vite';
@@ -23,7 +23,7 @@ export const multiConf = (env: string) => {
       targetDir = config.build.outDir;
     },
     generateBundle(options, bundle) {
-      const appid = configEnv.VITE_APPID;
+      const appid = configEnv.VITE_APP_ID;
       const json = bundle['project.config.json'] as OutputAsset;
       if (json?.source && typeof json.source === 'string') {
         const jsonConf = JSON.parse(json.source);
@@ -69,9 +69,8 @@ export const multiConf = (env: string) => {
         };
 
         json.source = JSON.stringify(jsonConf, null, 2);
+        // console.log("🚀 ~ file: multiconf.ts:72 ~ generateBundle ~ jsonConf:", jsonConf);
       }
-      // console.log("🚀 ~ file: vite.config.ts:18 ~ generateBundle ~ bundle:", json)
-      // 处理生成的输出文件
     },
   } as Plugin;
 };
