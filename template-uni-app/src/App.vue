@@ -1,13 +1,16 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-02-13 14:58:26
- * @LastEditTime: 2023-07-19 17:23:20
+ * @LastEditTime: 2023-07-20 10:25:46
  * @Description:
 -->
 <script setup lang="ts">
+import { pages } from 'virtual:uni-pages';
+
 onLaunch(async () => {
   console.log('App Launch');
   console.log('环境变量：', import.meta.env);
+  console.log(pages);
   if (!getUuid()) {
     setUuid();
   }

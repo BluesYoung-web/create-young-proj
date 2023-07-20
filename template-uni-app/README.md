@@ -11,9 +11,18 @@
 - 📦 自动按需导入组件和 `API`, 减少冗余代码, 自定义的组件和方法亦可自动导入
   
   - 方法自动导入，基于 [unplugin-auto-import](https://www.npmjs.com/package/unplugin-auto-import)
-  - 组件自动导入，基于 `uni-app` 的 [easycom](https://uniapp.dcloud.net.cn/collocation/pages.html#easycom) 以及 [unplugin-vue-components](https://www.npmjs.com/package/unplugin-vue-components)
+  - 组件自动导入，基于 `uni-app` 的 [easycom](https://uniapp.dcloud.net.cn/collocation/pages.html#easycom)
+  - `ts` 类型提示：
+
+    - `@uni-helper/uni-app-types` 提供 `uni-app` 组件类型
+    - `@uni-helper/uni-ui-types` 提供 `uni-ui` 组件类型
 
 - 🛠️ 支持通过传递不同的 `mode` 值以使用不同的配置
+
+- 🚀 约定优于配置，基于文件目录的路由：
+  
+  - 根据页面文件自动生成 `pages.json`
+  - [官方文档](https://www.npmjs.com/package/@uni-helper/vite-plugin-uni-pages)
 
 ## 接口编写
 

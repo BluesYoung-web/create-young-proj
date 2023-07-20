@@ -3,21 +3,13 @@
   "pages": [
     {
       "path": "pages/index",
-      "style": {
-        "navigationBarTitleText": "demo",
-        "navigationBarBackgroundColor": "#E60012",
-        "navigationBarTextStyle": "white",
-        "navigationStyle": "custom"
-      }
+      "type": "home",
+      "needLogin": false
     },
     {
       "path": "pages/my",
-      "style": {
-        "navigationBarTitleText": "demo",
-        "navigationBarBackgroundColor": "#E60012",
-        "navigationBarTextStyle": "white",
-        "navigationStyle": "custom"
-      }
+      "type": "page",
+      "needLogin": true
     }
   ],
   "tabBar": {
@@ -41,6 +33,7 @@
     "navigationBarTitleText": "demo",
     "navigationBarTextStyle": "white",
     "navigationBarBackgroundColor": "#0D0D0D",
+    "navigationStyle": "custom",
     "backgroundColor": "#F2EAE0",
     "backgroundColorTop": "#F2EAE0",
     "backgroundColorBottom": "#F4F5F6",
@@ -59,5 +52,6 @@
       "^young-(.*)": "@/components/young-$1/young-$1.vue",
       "^uni-(.*)": "@dcloudio/uni-ui/lib/uni-$1/uni-$1.vue"
     }
-  }
+  },
+  "subPackages": []
 }

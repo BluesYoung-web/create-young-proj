@@ -664,5 +664,19 @@
     "prefix": "viewclass",
     "scope": "vue-html",
     "triggerAssist": true
+  },
+  "route": {
+    "body": [
+      "<route lang=\"json\">",
+      "{",
+      "  \"needLogin\": false,",
+      "  \"style\": {",
+          "",
+      "  }",
+      "}",
+      "</route>"
+    ],
+    "prefix": "<route",
+    "description": "页面配置",
   }
 }

@@ -1,11 +1,11 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-07-19 08:41:05
- * @LastEditTime: 2023-07-19 15:46:37
+ * @LastEditTime: 2023-07-20 09:45:01
  * @Description:
  */
 /// <reference types="vite/client" />
-
+/// <reference types="@uni-helper/vite-plugin-uni-pages/client" />
 declare module '*.vue' {
   import { DefineComponent } from 'vue'
   // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/ban-types

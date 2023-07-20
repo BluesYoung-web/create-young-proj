@@ -4,6 +4,12 @@
  * @LastEditTime: 2023-07-19 11:56:45
  * @Description:
 -->
+<route lang="json">
+{
+  "needLogin": true
+}
+</route>
+
 <script lang="ts" setup>
 onLoad(() => {
   uni.hideTabBar();

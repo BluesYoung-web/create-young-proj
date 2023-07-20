@@ -9,9 +9,6 @@ declare module 'vue' {
   export interface GlobalComponents {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    UniCard: typeof import('@dcloudio/uni-ui/lib/uni-card/uni-card.vue')['default']
-    UniIcons: typeof import('@dcloudio/uni-ui/lib/uni-icons/uni-icons.vue')['default']
-    UniNavBar: typeof import('@dcloudio/uni-ui/lib/uni-nav-bar/uni-nav-bar.vue')['default']
     YoungLoading: typeof import('./src/components/young-loading/young-loading.vue')['default']
     YoungNavbar: typeof import('./src/components/young-navbar/young-navbar.vue')['default']
     YoungTabbar: typeof import('./src/components/young-tabbar/young-tabbar.vue')['default']

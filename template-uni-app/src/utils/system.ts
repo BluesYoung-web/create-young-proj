@@ -52,12 +52,12 @@ export const getSystemInfo = () => {
         customBar = statusBar + (e.titleBarHeight || 0);
         // #endif
 
-        const safeBottom = e.screenHeight - (e.safeArea ? (e.safeArea.height + e.safeArea.top) : 0);
+        const safeBottom = e.screenHeight - (e.safeArea ? e.safeArea.height + e.safeArea.top : 0);
 
         setNavbarHeihgt({
           statusBarH: statusBar,
           customBarH: customBar,
-          safeBottom
+          safeBottom,
         });
         _resolve(e);
       },

@@ -1,9 +1,15 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-18 11:23:36
- * @LastEditTime: 2023-07-19 16:50:03
+ * @LastEditTime: 2023-07-20 10:07:11
  * @Description:
 -->
+<route lang="json">
+{
+  "needLogin": false
+}
+</route>
+
 <script lang="ts" setup>
 const testGet = async () => {
   const res = await apis.get.getByUserName('BluesYoung-web');

@@ -41,8 +41,9 @@ export const searchLoaction = (args: TxLocationSearch) => {
 
   return new Promise<TxLocationSearchRes[]>((resolve, reject): void => {
     uni.request({
-      url: `https://apis.map.qq.com/ws/place/v1/search?boundary=nearby(${latitude},${longitude},1000)${keyword ? `&keyword=${keyword}` : ''
-        }&page_size=${page_size}&page_index=${page_index}&key=${getMapApiKey()}`,
+      url: `https://apis.map.qq.com/ws/place/v1/search?boundary=nearby(${latitude},${longitude},1000)${
+        keyword ? `&keyword=${keyword}` : ''
+      }&page_size=${page_size}&page_index=${page_index}&key=${getMapApiKey()}`,
       success: (res) => {
         resolve((res.data as unknown as { data: TxLocationSearchRes[] }).data);
       },

@@ -43,4 +43,4 @@ export enum Pages {
  */
 export const TabbarArr = [Pages.首页, Pages.个人中心] as const;
 
-export enum UIEvents { }
+export enum UIEvents {}
