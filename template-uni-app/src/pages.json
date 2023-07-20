@@ -4,7 +4,7 @@
     {
       "path": "pages/index",
       "type": "home",
-      "needLogin": false,
+      "needLogin": true,
       "layout": "tabbar"
     },
     {
@@ -12,6 +12,10 @@
       "type": "page",
       "needLogin": true,
       "layout": "tabbar"
+    },
+    {
+      "path": "pages/demo/index",
+      "type": "page"
     }
   ],
   "tabBar": {

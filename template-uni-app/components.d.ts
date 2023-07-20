@@ -10,8 +10,8 @@ declare module 'vue' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     YoungLoading: typeof import('./src/components/young-loading/young-loading.vue')['default']
+    YoungLoadingMini: typeof import('./src/components/young-loading-mini/young-loading-mini.vue')['default']
     YoungNavbar: typeof import('./src/components/young-navbar/young-navbar.vue')['default']
     YoungTabbar: typeof import('./src/components/young-tabbar/young-tabbar.vue')['default']
-    YoungTabbarLayout: typeof import('./src/components/young-tabbar-layout/young-tabbar-layout.vue')['default']
   }
 }

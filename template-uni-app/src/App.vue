@@ -1,7 +1,7 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-02-13 14:58:26
- * @LastEditTime: 2023-07-20 10:25:46
+ * @LastEditTime: 2023-07-20 15:31:59
  * @Description:
 -->
 <script setup lang="ts">
@@ -10,7 +10,9 @@ import { pages } from 'virtual:uni-pages';
 onLaunch(async () => {
   console.log('App Launch');
   console.log('环境变量：', import.meta.env);
-  console.log(pages);
+  const { pagesInfo } = storeToRefs(useSystemInfo());
+  pagesInfo.value = pages;
+
   if (!getUuid()) {
     setUuid();
   }

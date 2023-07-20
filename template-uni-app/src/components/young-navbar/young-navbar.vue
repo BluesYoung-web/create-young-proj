@@ -1,7 +1,7 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-19 09:03:51
- * @LastEditTime: 2023-07-19 16:47:55
+ * @LastEditTime: 2023-07-20 15:18:33
  * @Description:
 -->
 <script lang="ts" setup>
@@ -98,8 +98,8 @@ const handleLeftClick = () => {
             <slot name="back" />
           </template>
           <template v-else>
-            <!-- <image v-if="pagesCount === 1" src="../static/home.png" class="w20px h20px"></image>
-            <image v-else src="../static/back.png" class="w20px h20px"></image> -->
+            <image v-if="pagesCount === 1" src="@/static/h.png" class="w20px h20px"></image>
+            <image v-else src="@/static/back.png" class="w20px h20px"></image>
           </template>
           <slot name="backText" />
         </view>

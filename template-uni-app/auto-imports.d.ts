@@ -125,6 +125,7 @@ declare global {
   const useCssVars: typeof import('vue')['useCssVars']
   const useGet: typeof import('./src/apis/requests/get')['useGet']
   const useHttp: typeof import('./src/apis/lib/index')['useHttp']
+  const useHttpLoading: typeof import('./src/store/system')['useHttpLoading']
   const usePost: typeof import('./src/apis/requests/post')['usePost']
   const useSlots: typeof import('vue')['useSlots']
   const useSystemInfo: typeof import('./src/store/system')['useSystemInfo']
@@ -262,6 +263,7 @@ declare module 'vue' {
     readonly useCssVars: UnwrapRef<typeof import('vue')['useCssVars']>
     readonly useGet: UnwrapRef<typeof import('./src/apis/requests/get')['useGet']>
     readonly useHttp: UnwrapRef<typeof import('./src/apis/lib/index')['useHttp']>
+    readonly useHttpLoading: UnwrapRef<typeof import('./src/store/system')['useHttpLoading']>
     readonly usePost: UnwrapRef<typeof import('./src/apis/requests/post')['usePost']>
     readonly useSlots: UnwrapRef<typeof import('vue')['useSlots']>
     readonly useSystemInfo: UnwrapRef<typeof import('./src/store/system')['useSystemInfo']>
@@ -393,6 +395,7 @@ declare module '@vue/runtime-core' {
     readonly useCssVars: UnwrapRef<typeof import('vue')['useCssVars']>
     readonly useGet: UnwrapRef<typeof import('./src/apis/requests/get')['useGet']>
     readonly useHttp: UnwrapRef<typeof import('./src/apis/lib/index')['useHttp']>
+    readonly useHttpLoading: UnwrapRef<typeof import('./src/store/system')['useHttpLoading']>
     readonly usePost: UnwrapRef<typeof import('./src/apis/requests/post')['usePost']>
     readonly useSlots: UnwrapRef<typeof import('vue')['useSlots']>
     readonly useSystemInfo: UnwrapRef<typeof import('./src/store/system')['useSystemInfo']>

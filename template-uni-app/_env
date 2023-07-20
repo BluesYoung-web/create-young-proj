@@ -1,1 +1,3 @@
-VITE_COMMON = 此处存放公共配置
+# 此处存放公共配置
+
+VITE_CUSTOM_LOADING = true

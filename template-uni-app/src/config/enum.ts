@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-07-18 14:51:02
- * @LastEditTime: 2023-07-19 12:17:58
+ * @LastEditTime: 2023-07-20 15:35:06
  * @Description:
  */
 
@@ -37,10 +37,11 @@ export enum YoungStorageKeys {
 export enum Pages {
   首页 = '/pages/index',
   个人中心 = '/pages/my',
+  测试子页面 = '/pages/demo/index',
 }
 /**
  * tabbar 页面
  */
-export const TabbarArr = [Pages.首页, Pages.个人中心] as const;
+export const TabbarArr = [Pages.首页, Pages.个人中心];
 
 export enum UIEvents {}

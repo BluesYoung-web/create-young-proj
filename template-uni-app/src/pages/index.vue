@@ -1,12 +1,12 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-18 11:23:36
- * @LastEditTime: 2023-07-20 11:26:18
+ * @LastEditTime: 2023-07-20 15:24:46
  * @Description:
 -->
 <route lang="json">
 {
-  "needLogin": false,
+  "needLogin": true,
   "layout": "tabbar"
 }
 </route>
@@ -23,7 +23,7 @@ const testPost = async () => {
 </script>
 
 <template>
-  <young-navbar isback />
+  <young-navbar :isback="false" />
   <h1 class="text-32">我是页面</h1>
   <view class="uni-primary">主色</view>
   <view class="uni-success">成功色</view>
@@ -34,7 +34,7 @@ const testPost = async () => {
   <button @click="testPost">点我测试 Post 请求</button>
 
   <uni-card title="基础卡片" sub-title="副标题" extra="额外信息"
-    thumbnail="https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/unicloudlogo.png">
+    thumbnail="https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/unicloudlogo.png" @click="to(Pages.测试子页面)">
     <text>这是一个带头像和双标题的基础卡片，此示例展示了一个完整的卡片。</text>
   </uni-card>
 </template>

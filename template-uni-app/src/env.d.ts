@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-07-19 08:41:05
- * @LastEditTime: 2023-07-20 09:45:01
+ * @LastEditTime: 2023-07-20 15:05:15
  * @Description:
  */
 /// <reference types="vite/client" />
@@ -19,9 +19,10 @@ declare module '*.vue' {
  */
 declare interface ImportMetaEnv {
   /**
-   * 公共配置
+   * 接口是否使用自定义 loading
+   * src/components/young-loading-mini/young-loading-mini.vue
    */
-  VITE_COMMON: string;
+  VITE_CUSTOM_LOADING: boolean;
 
   /**
    * 微信小程序 appid
