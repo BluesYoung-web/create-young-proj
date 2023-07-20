@@ -103,6 +103,9 @@ devDependencies:
   '@uni-helper/vite-plugin-uni-layouts':
     specifier: ^0.1.2
     version: 0.1.2
+  '@uni-helper/vite-plugin-uni-manifest':
+    specifier: ^0.1.3
+    version: 0.1.3
   '@uni-helper/vite-plugin-uni-pages':
     specifier: ^0.2.3
     version: 0.2.3(@types/lodash-es@4.17.8)(lodash-es@4.17.21)(lodash@4.17.21)
@@ -3244,6 +3247,17 @@ packages:
       scule: 1.0.0
     dev: true
 
+  /@uni-helper/vite-plugin-uni-manifest@0.1.3:
+    resolution: {integrity: sha512-sG6/MR/jvojn53uRhCHAY/6cSkdiU7FhZV786CxPDjL97I9T7OUKcNoTtsTHdwSTwoihpH6jqF0DPqju0VUbJw==}
+    dependencies:
+      chokidar: 3.5.3
+      colorette: 2.0.20
+      consola: 2.15.3
+      fast-glob: 3.3.0
+      type-fest: 3.13.1
+      unconfig: 0.3.9
+    dev: true
+
   /@uni-helper/vite-plugin-uni-pages@0.2.3(@types/lodash-es@4.17.8)(lodash-es@4.17.21)(lodash@4.17.21):
     resolution: {integrity: sha512-NHIO1JR5K+VgSU1kUKPFF/FqMkPK2KeaNJJDiDQdamomYh4duISKKfnYtu38dLIfNGxDqW0xYQ8wzpD/DdZmtg==}
     dependencies:
@@ -4292,6 +4306,10 @@ packages:
 
   /concat-map@0.0.1:
     resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
+    dev: true
+
+  /consola@2.15.3:
+    resolution: {integrity: sha512-9vAdYbHj6x2fLKC4+oPH0kFzY/orMZyG2Aj+kNylHxKGJ/Ed4dpNyAQYwJOdqO4zdM7XpVHmyejQDcQHrnuXbw==}
     dev: true
 
   /consola@3.2.3:
@@ -7095,6 +7113,11 @@ packages:
   /type-fest@0.21.3:
     resolution: {integrity: sha512-t0rzBq87m3fVcduHDUFhKmyyX+9eo6WQjZvf51Ea/M0Q7+T374Jp1aUiyUl0GKxp8M/OETVHSDvmkyPgvX+X2w==}
     engines: {node: '>=10'}
+    dev: true
+
+  /type-fest@3.13.1:
+    resolution: {integrity: sha512-tLq3bSNx+xSpwvAJnzrK0Ep5CLNWjvFTOp71URMaAEWBfRb9nnJiBoUe0tF8bI4ZFO3omgBR6NvnbzVUT3Ly4g==}
+    engines: {node: '>=14.16'}
     dev: true
 
   /type-is@1.6.18:

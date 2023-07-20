@@ -14,8 +14,8 @@
   - 组件自动导入，基于 `uni-app` 的 [easycom](https://uniapp.dcloud.net.cn/collocation/pages.html#easycom)
   - `ts` 类型提示：
 
-    - `@uni-helper/uni-app-types` 提供 `uni-app` 组件类型
-    - `@uni-helper/uni-ui-types` 提供 `uni-ui` 组件类型
+    - `@uni-helper/uni-app-types` 提供 `uni-app` 组件类型提示
+    - `@uni-helper/uni-ui-types` 提供 `uni-ui` 组件类型提示
 
 - 🛠️ 支持通过传递不同的 `mode` 值以使用不同的配置
 
@@ -28,6 +28,14 @@
 
   - 根据页面的配置，自动注册并导入对应的组件，可将一些全局组件丢入布局之中，避免频繁导入
   - [官方文档](https://www.npmjs.com/package/@uni-helper/vite-plugin-uni-layouts)
+
+
+### 针对 `uni-app` 的改进
+
+> 使用 `pages.config.ts` 和 `manifest.config.ts` 替代原有的 `json` 配置，增强了类型提示与配置合法性校验
+
+**`pages.json` 和 `manifest.json` 现在是由插件自动生成，尽量不要手动修改，以免造成意外的 `bug`**
+
 
 ## 接口编写
 
