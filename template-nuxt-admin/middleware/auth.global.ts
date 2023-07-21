@@ -1,12 +1,19 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-07-21 10:02:19
- * @LastEditTime: 2023-07-21 10:10:08
+ * @LastEditTime: 2023-07-21 17:29:56
  * @Description:
  */
 export default defineNuxtRouteMiddleware(async (to, from) => {
+  const { addView } = useTagsStore();
+
+  // todo: remove test condition
+  addView(to);
+  return;
+
   // 页面无需登录
   if (to.meta.auth === false) {
+    addView(to);
     return;
   }
 
@@ -20,6 +27,7 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
     // 已登录进入登录页
     return navigateTo('/');
   } else {
+    addView(to);
     return;
   }
 });

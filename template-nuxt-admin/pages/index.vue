@@ -1,15 +1,16 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-21 09:27:14
- * @LastEditTime: 2023-07-21 09:55:18
+ * @LastEditTime: 2023-07-21 17:37:55
  * @Description:
 -->
 <script setup lang="ts">
-
+navigateTo({
+  path: '/home/index',
+  replace: true
+});
 </script>
 
 <template>
-  <div>
-    <VanButton type="primary" @click="apis.get.getUserInfo">点我</VanButton>
-  </div>
+  <div />
 </template>

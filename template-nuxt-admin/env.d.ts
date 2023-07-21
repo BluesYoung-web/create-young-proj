@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-05-26 11:50:06
- * @LastEditTime: 2023-07-20 19:27:23
+ * @LastEditTime: 2023-07-21 12:24:06
  * @Description:
  */
 
@@ -13,6 +13,26 @@ interface ImportMetaEnv {
    * 后台服务器地址
    */
   NUXT_PUBLIC_API_BASE: string;
+  /**
+   * 后台标题
+   */
+  NUXT_PUBLIC_TITLE: string;
+  /**
+   * 后台副标题
+   */
+  NUXT_PUBLIC_SUB_TITLE?: string;
+  /**
+   * slogan
+   */
+  NUXT_PUBLIC_SLOGAN?: string;
+  /**
+   * 登录背景图
+   */
+  NUXT_PUBLIC_LOGIN_BG: string;
+  /**
+   * 后台 logo
+   */
+  NUXT_PUBLIC_LOGIN_LOGO: string;
 };
 
 declare interface Window {

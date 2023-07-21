@@ -77,6 +77,14 @@ export default defineNuxtConfig({
       // 兼容钉钉浏览器
       target: 'es2015',
       sourcemap: false
+    },
+    css: {
+      preprocessorOptions: {
+        scss: {
+          javascriptEnabled: true,
+          additionalData: '@import "~/styles/variable.scss";',
+        }
+      }
     }
   }
 });

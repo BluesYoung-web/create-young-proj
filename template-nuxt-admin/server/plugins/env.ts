@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2022-12-30 17:19:42
- * @LastEditTime: 2023-07-21 10:38:03
+ * @LastEditTime: 2023-07-21 16:01:36
  * @Description:
  */
 import { resolve } from 'node:path';
@@ -17,13 +17,29 @@ export default defineNitroPlugin(async (nitroApp) => {
       // 此处可以放置通用的环境变量
       // 由于频繁修改 package.json 会浪费 docker 性能，故将版本信息放于此处
       // 优先读取环境变量中的版本信息(自己打的 Tag)
-      NUXT_PUBLIC_CURRENT_VERSION: process.env.PROJECT_VERSION || '0.0.1',
-    }
+      NUXT_PUBLIC_CURRENT_VERSION: process.env.PROJECT_VERSION || 'v0.0.1',
+
+      NUXT_PUBLIC_TITLE: 'XXX-后台管理系统',
+      NUXT_PUBLIC_SUB_TITLE: '做XXX我们是认真的！',
+      NUXT_PUBLIC_SLOGAN: 'XXXXX, XXXXX',
+      NUXT_PUBLIC_LOGIN_BG:
+        'https://images.unsplash.com/photo-1608634769432-f9b6524aa2bf?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=1001&ixid=MnwxfDB8MXxyYW5kb218MHw5NDczNDU2Nnx8fHx8fHwxNjg5OTI2MjM3&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=648',
+      NUXT_PUBLIC_LOGIN_LOGO: '/favicon.ico',
+    },
   });
 
   for (const key in config) {
     if (process.env[key]) {
-      console.log('系统环境变量优先: ', key, ' = ', process.env[key], ' -> ', config[key], ' -> ', '覆盖');
+      console.log(
+        '系统环境变量优先: ',
+        key,
+        ' = ',
+        process.env[key],
+        ' -> ',
+        config[key],
+        ' -> ',
+        '覆盖',
+      );
       config[key] = process.env[key];
     } else {
       process.env[key] = config[key];
