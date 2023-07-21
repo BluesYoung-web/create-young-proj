@@ -1,0 +1,49 @@
+<!--
+ * @Author: zhangyang
+ * @Date: 2023-06-12 15:00:07
+ * @LastEditTime: 2023-06-30 10:57:37
+ * @Description: 
+-->
+<script lang="ts" setup>
+import type { NuxtError } from '#app';
+
+const props = defineProps<{
+  error: NuxtError;
+}>();
+
+let timer: NodeJS.Timer;
+
+const i = ref(5);
+
+const clear = () => {
+  clearError();
+  clearInterval(timer);
+  location.replace('/');
+};
+
+onMounted(() => {
+  if (process.server) {
+    return;
+  }
+  console.log(props.error);
+  if (process.dev) {
+    console.log('开发模式，不自动清理');
+    return;
+  }
+  timer = setInterval(() => {
+    i.value--;
+    if (i.value === 0) {
+      clear();
+    }
+  }, 1e3);
+});
+</script>
+<template>
+  <div class="flex w-full h-full flex-col justify-center items-center">
+    <div class="text-5xl my-6">{{ error.statusCode }}</div>
+    <div class="text-lg my-2">{{ error.statusMessage || '出错啦~' }}</div>
+
+    <div class="mb-2">{{ i }}s 后自动跳转首页</div>
+    <ElButton @click="clear">立即返回首页</ElButton>
+  </div>
+</template>

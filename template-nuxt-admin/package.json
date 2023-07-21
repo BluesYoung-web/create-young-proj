@@ -1,0 +1,43 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "@bluesyoung/logger": "^0.0.1",
+    "@element-plus/nuxt": "^1.0.5",
+    "@iconify/json": "^2.2.93",
+    "@nuxt/devtools": "latest",
+    "@pinia/nuxt": "^0.4.11",
+    "@types/file-saver": "^2.0.5",
+    "@types/node": "18",
+    "@types/qrcode": "^1.5.1",
+    "@unocss/nuxt": "^0.53.5",
+    "@vant/nuxt": "^1.0.2",
+    "@vueuse/nuxt": "^10.2.1",
+    "dayjs": "^1.11.9",
+    "element-plus": "^2.3.8",
+    "nuxt": "^3.6.5",
+    "nuxt-lazy-load": "^3.0.4",
+    "pinia": "^2.1.4",
+    "sass": "^1.64.0",
+    "vant": "^4.6.2"
+  },
+  "dependencies": {
+    "@bluesyoung/http": "0.3.1",
+    "@bluesyoung/ui-vue3-element-plus": "^0.10.2",
+    "@bluesyoung/utils": "^0.1.0",
+    "c12": "^1.4.2",
+    "file-saver": "^2.0.5",
+    "http-proxy": "^1.18.1",
+    "jszip": "^3.10.1",
+    "qrcode": "^1.5.3",
+    "sortablejs": "^1.15.0",
+    "vue-cropper": "^0.6.2"
+  }
+}
