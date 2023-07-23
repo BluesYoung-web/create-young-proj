@@ -1,13 +1,12 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-21 11:55:27
- * @LastEditTime: 2023-07-21 18:03:33
+ * @LastEditTime: 2023-07-23 15:56:16
  * @Description:
 -->
 <script lang="ts" setup>
 const { cachedViews, visitedViews } = storeToRefs(useTagsStore());
 const route = useRoute();
-const path = computed(() => route.path);
 const name = computed(() => route.name);
 const isCached = computed(() => {
   // 无需缓存的界面
@@ -22,19 +21,7 @@ const isCached = computed(() => {
 
 <template>
   <section class="app-mian-height">
-    <NuxtPage>
-      <template #default="{ Component: PageComponent }">
-        <div>
-          <KeepAlive>
-            <Component v-if="isCached" :is="PageComponent" :key="path" />
-          </KeepAlive>
-          <Component v-if="!isCached" :is="PageComponent" :key="path" />
-        </div>
-      </template>
-    </NuxtPage>
-    <KeepAlive>
-      <NuxtPage />
-    </KeepAlive>
+    <NuxtPage :keepalive="isCached" />
   </section>
 </template>
 
