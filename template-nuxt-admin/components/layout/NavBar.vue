@@ -1,7 +1,7 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-21 16:38:20
- * @LastEditTime: 2023-07-21 17:03:13
+ * @LastEditTime: 2023-07-23 17:01:28
  * @Description:
 -->
 <script lang="ts" setup>
@@ -11,7 +11,7 @@ const { isCollapse } = storeToRefs(useNavStore());
 <template>
   <div class="nav-bar-container flex justify-between">
     <div class="left-panel">
-      <div class="fold-unfold i-mdi-menu-close" :class="[isCollapse ? '' : 'rotate-180']"
+      <div class="fold-unfold i-ep-expand" :class="[isCollapse ? '' : 'rotate-180']"
         :title="`${(isCollapse ? '展开' : '收起')}菜单`" @click="isCollapse = !isCollapse" />
     </div>
     <div class="right-panel">

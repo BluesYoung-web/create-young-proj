@@ -1,7 +1,7 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-21 17:05:40
- * @LastEditTime: 2023-07-23 16:47:59
+ * @LastEditTime: 2023-07-23 17:00:42
  * @Description:
 -->
 <script lang="ts" setup>
@@ -10,7 +10,7 @@ import type { RouteLocationNormalized, RouteRecordRaw } from '.nuxt/vue-router';
 const route = useRoute();
 const tagsState = useTagsStore();
 
-const { visitedViews, cachedViews } = storeToRefs(tagsState);
+const { visitedViews } = storeToRefs(tagsState);
 
 const tabClick = (e: any) => {
   const currentName = e.paneName;
@@ -41,6 +41,21 @@ const removeTab = (currentName: any) => {
     navigateTo('/');
   }
 };
+
+const closeCurrentTab = () => {
+  removeTab(route.path);
+};
+
+const closeOtherTab = () => {
+  const currentName = route.path;
+  const to = visitedViews.value.find((r) => r.path === currentName as string);
+  to && tagsState.delOtherViews(to);
+}
+
+const closeAllTab = () => {
+  tagsState.delAllViews();
+  navigateTo('/');
+};
 </script>
 
 <template>
@@ -57,27 +72,33 @@ const removeTab = (currentName: any) => {
       </ElTabs>
     </div>
     <div class="tabs-action">
-      <!-- <ElDropdown trigger="click">
-        <el-icon color="rgba(0, 0, 0, 0.65)" :size="20">
-          <Menu />
-        </el-icon>
+      <ElDropdown trigger="click">
+        <ElIcon color="rgba(0, 0, 0, 0.65)" :size="20">
+          <div class="i-ep-menu" />
+        </ElIcon>
         <template #dropdown>
           <ElDropdownMenu>
             <ElDropdownItem @click="closeCurrentTab">
-              <el-icon :size="14"><FolderRemove /></el-icon>
+              <ElIcon :size="14">
+                <div class="i-ep-folder-remove" />
+              </ElIcon>
               关闭当前
             </ElDropdownItem>
             <ElDropdownItem @click="closeOtherTab">
-              <el-icon :size="14"><Close /></el-icon>
+              <ElIcon :size="14">
+                <div class="i-ep-close" />
+              </ElIcon>
               关闭其他
             </ElDropdownItem>
             <ElDropdownItem @click="closeAllTab">
-              <el-icon :size="14"><FolderDelete /></el-icon>
+              <ElIcon :size="14">
+                <div class="i-ep-folder-delete" />
+              </ElIcon>
               关闭所有
             </ElDropdownItem>
           </ElDropdownMenu>
         </template>
-      </ElDropdown> -->
+      </ElDropdown>
     </div>
   </div>
 </template>
@@ -89,12 +110,6 @@ const removeTab = (currentName: any) => {
 
   :deep(.el-icon) {
     transition: all 0.3s;
-  }
-
-  :deep(.el-icon):hover {
-    color: $base-color-default;
-    transition: all 0.3s;
-    transform: rotate(90deg);
   }
 }
 
