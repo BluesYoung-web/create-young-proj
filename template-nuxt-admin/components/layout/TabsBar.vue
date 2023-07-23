@@ -1,30 +1,45 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-21 17:05:40
- * @LastEditTime: 2023-07-21 17:48:54
+ * @LastEditTime: 2023-07-23 16:47:59
  * @Description:
 -->
 <script lang="ts" setup>
-import bg from '~/assets/tabbar_bg.png';
+import type { RouteLocationNormalized, RouteRecordRaw } from '.nuxt/vue-router';
 
-const tabbar_bg = `url('${bg}')`;
-
+const route = useRoute();
 const tagsState = useTagsStore();
 
-const { visitedViews } = storeToRefs(tagsState);
-
-watchEffect(() => {
-  console.log(visitedViews.value);
-});
+const { visitedViews, cachedViews } = storeToRefs(tagsState);
 
 const tabClick = (e: any) => {
-  console.log("🚀 ~ file: TabsBar.vue:13 ~ tabClick ~ e:", e)
-
+  const currentName = e.paneName;
+  if (isActive(currentName)) {
+    return;
+  }
+  navigateTo(currentName);
 };
 
-const removeTab = (e: any) => {
-  console.log("🚀 ~ file: TabsBar.vue:20 ~ removeTab ~ e:", e)
+const isActive = (view: RouteLocationNormalized) => view.path === route.path;
+const isAffix = (route: RouteLocationNormalized | RouteRecordRaw) => route?.meta?.affix ?? false;
 
+const toLastView = (visitedViews: RouteLocationNormalized[]) => {
+  const lastView = visitedViews.slice(-1)[0];
+  if (lastView) {
+    navigateTo(lastView.fullPath);
+  }
+};
+
+const removeTab = (currentName: any) => {
+  const to = visitedViews.value.find((r) => r.path === currentName as string);
+  if (to) {
+    tagsState.delView(to);
+    isActive(to) && toLastView(visitedViews.value);
+  }
+
+  if (visitedViews.value.length === 0) {
+    navigateTo('/');
+  }
 };
 </script>
 
@@ -34,7 +49,7 @@ const removeTab = (e: any) => {
       <ElTabs v-if="visitedViews.length > 0" type="card" v-model="$route.path" @tab-click="tabClick"
         @tab-remove="removeTab">
         <ElTabPane v-for="item in visitedViews" type="card" :key="item.path" :path="item.path"
-          :label="(item.meta.title as string)" :name="item.path" :closable="!(item.meta && item.meta.affix)">
+          :label="(item.meta.title as string)" :name="item.path" :closable="!isAffix(item)">
           <template #label>
             {{ item.meta.title }}
           </template>
@@ -135,16 +150,16 @@ const removeTab = (e: any) => {
 
     .el-tabs__item.is-active {
       background-color: #e8f4ff;
-      -webkit-mask-image: v-bind('tabbar_bg');
-      mask-image: v-bind('tabbar_bg');
+      -webkit-mask-image: url('/tabbar_bg.png');
+      mask-image: url('/tabbar_bg.png');
       -webkit-mask-size: 100% 100%;
       mask-size: 100% 100%;
     }
 
     .el-tabs__item:not(.is_active):hover {
       background-color: #f6f8f9;
-      -webkit-mask-image: v-bind('tabbar_bg');
-      mask-image: v-bind('tabbar_bg');
+      -webkit-mask-image: url('/tabbar_bg.png');
+      mask-image: url('/tabbar_bg.png');
       -webkit-mask-size: 100% 100%;
       mask-size: 100% 100%;
     }
