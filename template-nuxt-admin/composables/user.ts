@@ -1,8 +1,8 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-06-21 12:03:42
- * @LastEditTime: 2023-06-26 17:17:59
- * @Description: 
+ * @LastEditTime: 2023-07-24 11:33:21
+ * @Description:
  */
 export const useUserStore = defineStore('useUserStore', () => {
   const cookie = useCookie<UserLoginRes>('token');
@@ -12,12 +12,15 @@ export const useUserStore = defineStore('useUserStore', () => {
   const nick = computed(() => cookie.value?.nickname);
   const token = computed(() => cookie.value?.token);
 
+  const SaveFlag = useLocalStorage('n天免登', true);
+
   return {
     cookie,
     hasLogin,
     avatar,
     nick,
-    token
+    token,
+    SaveFlag,
   };
 });
 

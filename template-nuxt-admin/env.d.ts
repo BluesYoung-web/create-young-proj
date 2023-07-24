@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-05-26 11:50:06
- * @LastEditTime: 2023-07-21 12:24:06
+ * @LastEditTime: 2023-07-24 10:31:33
  * @Description:
  */
 
@@ -9,6 +9,10 @@
  * 环境变量
  */
 interface ImportMetaEnv {
+  /**
+   * 当前版本
+   */
+  NUXT_PUBLIC_CURRENT_VERSION: string;
   /**
    * 后台服务器地址
    */

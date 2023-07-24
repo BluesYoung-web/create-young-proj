@@ -318,6 +318,11 @@
     file-saver "^2.0.5"
     xlsx "^0.18.5"
 
+"@bluesyoung/ui-vue3@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.npmmirror.com/@bluesyoung/ui-vue3/-/ui-vue3-0.1.1.tgz#5017b82e83f92ba6ee8fea52baab2732c9d4b785"
+  integrity sha512-lu+B9NCUq2b1npOKdE4/GwmrytbAYBRvSsVKHpa/CcNE/qAdJsU7/0+rW8pN17sASN5bXtISvfCRwTv8eoltFw==
+
 "@bluesyoung/utils@^0.1.0":
   version "0.1.0"
   resolved "https://registry.npmmirror.com/@bluesyoung/utils/-/utils-0.1.0.tgz#a80263e4bcabfacba0653389ad88a585f2f74a49"

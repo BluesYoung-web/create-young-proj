@@ -1,7 +1,7 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-21 16:31:41
- * @LastEditTime: 2023-07-21 16:37:41
+ * @LastEditTime: 2023-07-24 12:19:09
  * @Description:
 -->
 <script lang="ts" setup>
@@ -17,7 +17,8 @@ const loginOut = () => {
     message: '确认退出登录？',
     showCancelButton: true
   }).then(() => {
-    cookie.value && (cookie.value.uuid = '');
+    // @ts-ignore
+    cookie.value = undefined;
     navigateTo(`/login?redirect=${encodeURIComponent(location.href.replace(location.origin, ''))}`);
   }).catch(() => null);
 };

@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2022-12-30 17:19:42
- * @LastEditTime: 2023-07-24 10:23:23
+ * @LastEditTime: 2023-07-24 11:44:49
  * @Description:
  */
 import { resolve } from 'node:path';
@@ -23,8 +23,8 @@ export default defineNitroPlugin(async (nitroApp) => {
       NUXT_PUBLIC_SUB_TITLE: '做XXX我们是认真的！',
       NUXT_PUBLIC_SLOGAN: 'XXXXX, XXXXX',
       NUXT_PUBLIC_LOGIN_BG:
-        'https://images.unsplash.com/photo-1608634769432-f9b6524aa2bf?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=1001&ixid=MnwxfDB8MXxyYW5kb218MHw5NDczNDU2Nnx8fHx8fHwxNjg5OTI2MjM3&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=648',
-      NUXT_PUBLIC_LOGIN_LOGO: '/favicon.ico',
+        'https://dogefs.s3.ladydaily.com/~/source/unsplash/photo-1688380692117-63178554d76d?ixid=M3wyNjY4NDZ8MHwxfHRvcGljfHxhZXU2ckwtajZld3x8fHx8Mnx8MTY5MDAxMDMzNnw&ixlib=rb-4.0.3&w=1920&h=1080&fmt=webp',
+      NUXT_PUBLIC_LOGIN_LOGO: 'https://api.iconify.design/logos:nuxt-icon.svg?color=%23f74d49',
     },
   });
 
