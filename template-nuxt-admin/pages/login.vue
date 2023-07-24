@@ -41,11 +41,12 @@ const loginHandler = () => {
     try {
       if (valid) {
         const { enter } = useFullscreen();
+        const { width, height } = useWindowSize();
 
         const data = await apis.post.login(form);
         if (data) {
           cookie.value = data;
-          enter();
+          height.value > width.value && enter();
           await generateNavData();
           navigateTo('/');
         }

@@ -1,11 +1,11 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-06-21 12:03:42
- * @LastEditTime: 2023-07-24 11:33:21
+ * @LastEditTime: 2023-07-24 14:05:13
  * @Description:
  */
 export const useUserStore = defineStore('useUserStore', () => {
-  const cookie = useCookie<UserLoginRes>('token');
+  const cookie = useLocalStorage<UserLoginRes>('token', {} as UserLoginRes);
 
   const hasLogin = computed(() => !!cookie.value?.uuid);
   const avatar = computed(() => cookie.value?.headimgurl);

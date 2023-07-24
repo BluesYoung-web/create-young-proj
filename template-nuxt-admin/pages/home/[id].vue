@@ -1,7 +1,7 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-21 17:35:12
- * @LastEditTime: 2023-07-24 09:10:52
+ * @LastEditTime: 2023-07-24 14:06:55
  * @Description:
 -->
 <script lang="ts" setup>
@@ -12,7 +12,9 @@ definePageMeta({
 });
 
 const { nick } = storeToRefs(useUserStore());
-console.log('init', nick.value);
+onMounted(() => {
+  generateNavData();
+});
 </script>
 
 <template>

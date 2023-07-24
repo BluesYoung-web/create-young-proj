@@ -1,7 +1,7 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-21 16:31:41
- * @LastEditTime: 2023-07-24 12:19:09
+ * @LastEditTime: 2023-07-24 14:02:26
  * @Description:
 -->
 <script lang="ts" setup>
@@ -26,7 +26,7 @@ const loginOut = () => {
 <template>
   <ElDropdown class="avatar-container" trigger="click">
     <div class="inline-flex justify-center items-center mx-2 hover:cursor-pointer">
-      <ElAvatar v-if="avatar" :src="avatar" />
+      <ElAvatar v-if="avatar" :src="avatar" data-not-lazy loading="lazy" />
       <ElAvatar v-else color="transparent">
         <div class="text-xl i-noto-v1-man-technologist-light-skin-tone" />
       </ElAvatar>
