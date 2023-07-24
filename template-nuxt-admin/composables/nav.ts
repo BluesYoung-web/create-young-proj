@@ -8,6 +8,7 @@ export const useNavStore = defineStore('useNavStore', () => {
   const title = ref('');
   const sub_title = ref('');
   const nav_arr = ref<NavArrItem[]>([]);
+  const flat_nav_arr = ref<NavArrItem[]>([]);
 
   const active_nav = ref('');
 
@@ -34,6 +35,7 @@ export const useNavStore = defineStore('useNavStore', () => {
     sub_title,
     nav_arr,
     active_nav,
+    flat_nav_arr,
     isLoading,
     isCollapse,
   };

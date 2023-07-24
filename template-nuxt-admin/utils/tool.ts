@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-05-28 16:01:24
- * @LastEditTime: 2023-07-24 14:28:30
+ * @LastEditTime: 2023-07-24 16:28:20
  * @Description:
  */
 import { randomId } from '@bluesyoung/utils';
@@ -118,9 +118,10 @@ export function useScrollOver(distance = 40) {
 
 /**
  * 生成用户导航栏
+ * todo: 实现
  */
 export function generateNavData() {
-  const { nav_arr } = storeToRefs(useNavStore());
+  const { nav_arr, flat_nav_arr } = storeToRefs(useNavStore());
 
   const arr: NavArrItem[] = [
     {
