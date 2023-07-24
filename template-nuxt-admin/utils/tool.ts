@@ -1,10 +1,12 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-05-28 16:01:24
- * @LastEditTime: 2023-07-24 12:12:10
+ * @LastEditTime: 2023-07-24 14:28:30
  * @Description:
  */
 import { randomId } from '@bluesyoung/utils';
+import YoungChangePassword from '@/components/YoungChangePassword.vue';
+import { createVNode, render } from 'vue';
 
 /**
  * 补0函数
@@ -35,20 +37,20 @@ export function html2text(html: string) {
     return '';
   }
   return html.toString().replace(/<[^>]+>/g, '');
-};
+}
 
 /**
  * 响应式的屏幕大小
  */
 export const WindowSize = reactive({
   'lt-sm': useMediaQuery('(max-width: 639.9px)'),
-  'sm': useMediaQuery('(min-width: 640px)'),
+  sm: useMediaQuery('(min-width: 640px)'),
   'lt-md': useMediaQuery('(max-width: 767.9px)'),
-  'md': useMediaQuery('(min-width: 768px)'),
+  md: useMediaQuery('(min-width: 768px)'),
   'lt-lg': useMediaQuery('(max-width: 1023.9px)'),
-  'lg': useMediaQuery('(min-width: 1024px)'),
+  lg: useMediaQuery('(min-width: 1024px)'),
   'lt-xl': useMediaQuery('(max-width: 1279.9px)'),
-  'xl': useMediaQuery('(min-width: 1280px)'),
+  xl: useMediaQuery('(min-width: 1280px)'),
   'lt-2xl': useMediaQuery('(max-width: 1535.9px)'),
   '2xl': useMediaQuery('(min-width: 1536px)'),
 });
@@ -61,21 +63,16 @@ export function moreThanOnePage(query: {
   limit: number;
 }) {
   return query.total > query.limit;
-};
+}
 
 /**
  * 当前浏览器是否支持下载
  */
 export function isSupportDownload() {
-  const NotAllowed = [
-    /Alipay/img,
-    /BYTEDANCE/img,
-    /DINGTALK/img,
-    /MICROMESSENGER/img
-  ];
+  const NotAllowed = [/Alipay/gim, /BYTEDANCE/gim, /DINGTALK/gim, /MICROMESSENGER/gim];
 
   return !NotAllowed.some((reg) => reg.test(navigator.userAgent));
-};
+}
 
 /**
  * 登录校验
@@ -84,23 +81,28 @@ export function checkLogin(force = true) {
   const { hasLogin } = storeToRefs(useUserStore());
 
   if (!hasLogin.value) {
-    force && showDialog({
-      title: '温馨提示',
-      message: '未登录，请登录后再继续！',
-      showCancelButton: true
-    }).then(() => {
-      navigateTo(`/login?redirect=${encodeURIComponent(location.href.replace(location.origin, ''))}`);
-    }).catch(() => {
-      navigateTo({
-        path: '/',
-        replace: true
-      });
-    });
+    force &&
+      showDialog({
+        title: '温馨提示',
+        message: '未登录，请登录后再继续！',
+        showCancelButton: true,
+      })
+        .then(() => {
+          navigateTo(
+            `/login?redirect=${encodeURIComponent(location.href.replace(location.origin, ''))}`,
+          );
+        })
+        .catch(() => {
+          navigateTo({
+            path: '/',
+            replace: true,
+          });
+        });
     return false;
   } else {
     return true;
   }
-};
+}
 
 /**
  * 页面滚动是否超过一定距离
@@ -112,7 +114,7 @@ export function useScrollOver(distance = 40) {
   return {
     scrolled,
   };
-};
+}
 
 /**
  * 生成用户导航栏
@@ -1192,4 +1194,22 @@ export function generateNavData() {
   ];
 
   nav_arr.value = arr;
-};
+}
+
+/**
+ * 修改密码
+ */
+export function useChangePassword() {
+  const appendTo = document.createElement('div');
+
+  const vnode = createVNode(YoungChangePassword, {
+    onDestroy: () => {
+      document.body.removeChild(appendTo);
+    },
+  });
+  render(vnode, appendTo);
+
+  document.body.appendChild(appendTo);
+
+  vnode.component!.exposed?.show();
+}

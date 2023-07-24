@@ -1,15 +1,11 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-21 16:31:41
- * @LastEditTime: 2023-07-24 14:02:26
+ * @LastEditTime: 2023-07-24 15:04:21
  * @Description:
 -->
 <script lang="ts" setup>
 const { avatar, nick, cookie } = storeToRefs(useUserStore());
-
-const changePassword = async () => {
-  showToast('todo: change password');
-};
 
 const loginOut = () => {
   showDialog({
@@ -36,7 +32,7 @@ const loginOut = () => {
     </div>
     <template #dropdown>
       <ElDropdownMenu class="user-dropdown">
-        <ElDropdownItem @click="changePassword">
+        <ElDropdownItem @click="useChangePassword">
           <div>修改密码</div>
         </ElDropdownItem>
         <ElDropdownItem @click="loginOut">

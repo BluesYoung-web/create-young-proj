@@ -1,7 +1,7 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-21 10:03:11
- * @LastEditTime: 2023-07-24 12:21:45
+ * @LastEditTime: 2023-07-24 15:01:48
  * @Description:
 -->
 <script lang="ts" setup>
@@ -48,6 +48,7 @@ const loginHandler = () => {
           cookie.value = data;
           height.value > width.value && enter();
           await generateNavData();
+          showSuccessToast('登录成功！');
           navigateTo('/');
         }
       } else {
@@ -80,7 +81,7 @@ onMounted(() => {
     <div v-if="SubTitle" v-html="SubTitle" class="sub-title" />
 
     <ElCard class="w-430px mt-3%" lt-sm="w-[96%] mx-[2%]">
-      <ElForm ref="formRef" :model="form" class="h-68">
+      <ElForm ref="formRef" :model="form">
         <VanTabs v-model:active="loginType" size="large" @change="formRef?.resetFields?.()">
           <VanTab name="account" title="账密登录">
             <ElFormItem prop="mobile" :rules="[
@@ -114,7 +115,7 @@ onMounted(() => {
         <ElFormItem>
           <div class="flex justify-between w-full">
             <ElCheckbox v-model="SaveFlag">三天之内免登录</ElCheckbox>
-            <ElButton v-show="loginType === 'account'" type="warning" @click="" link>忘记密码？</ElButton>
+            <ElButton v-show="loginType === 'account'" type="warning" @click="useChangePassword" link>忘记密码？</ElButton>
           </div>
         </ElFormItem>
       </ElForm>
@@ -131,7 +132,6 @@ onMounted(() => {
       <div class="mb-5% text-[#c0c0c0] text-16px">{{ Version }}</div>
     </div>
   </div>
-  <!-- <PanChangePassword ref="ChangePasswordRef" /> -->
 </template>
 
 <style lang="scss" scoped>
