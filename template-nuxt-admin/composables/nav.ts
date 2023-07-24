@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-06-01 12:03:44
- * @LastEditTime: 2023-07-24 12:12:08
+ * @LastEditTime: 2023-07-24 17:04:36
  * @Description:
  */
 export const useNavStore = defineStore('useNavStore', () => {
@@ -16,7 +16,7 @@ export const useNavStore = defineStore('useNavStore', () => {
   const isCollapse = ref(false);
 
   watch(
-    () => WindowSize['lt-md'],
+    () => WindowSize['lt-lg'],
     (v) => {
       isCollapse.value = v;
     },

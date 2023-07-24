@@ -1,7 +1,7 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-21 11:49:00
- * @LastEditTime: 2023-07-24 10:20:55
+ * @LastEditTime: 2023-07-24 17:01:55
  * @Description:
 -->
 <script lang="ts" setup>
@@ -91,10 +91,6 @@ onMounted(() => {
         &.is-collapse {
           width: calc(100% - $base-left-menu-width-min);
         }
-      }
-
-      .app-main-container {
-        padding: 20px;
       }
     }
   }
