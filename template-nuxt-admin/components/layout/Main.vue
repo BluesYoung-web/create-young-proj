@@ -1,7 +1,7 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-21 11:55:27
- * @LastEditTime: 2023-07-23 15:56:16
+ * @LastEditTime: 2023-07-24 09:11:27
  * @Description:
 -->
 <script lang="ts" setup>
@@ -20,16 +20,14 @@ const isCached = computed(() => {
 </script>
 
 <template>
-  <section class="app-mian-height">
+  <main class="app-mian-height w-full">
     <NuxtPage :keepalive="isCached" />
-  </section>
+  </main>
 </template>
 
 <style scoped lang="scss">
 .app-mian-height {
   min-height: $base-app-main-height;
-
-  // padding: 20px;
   background-color: inherit;
 }
 </style>

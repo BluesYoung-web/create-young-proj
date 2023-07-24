@@ -1,7 +1,7 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-21 12:03:00
- * @LastEditTime: 2023-07-21 12:06:50
+ * @LastEditTime: 2023-07-24 10:05:41
  * @Description:
 -->
 <script setup lang="ts">
@@ -10,9 +10,8 @@ const fullYear = new Date().getFullYear();
 
 <template>
   <div class="layout-footer-container">
-    Copyright
-    &copy;
-    {{ fullYear }} - Current
+    &copy;{{ fullYear }} - Current
+    By&nbsp;<a href="https://gitee.com/BluesYoung-web" target="_blank">BluesYoung-web</a>
   </div>
 </template>
 

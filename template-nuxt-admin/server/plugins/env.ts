@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2022-12-30 17:19:42
- * @LastEditTime: 2023-07-21 16:01:36
+ * @LastEditTime: 2023-07-24 10:23:23
  * @Description:
  */
 import { resolve } from 'node:path';
@@ -77,5 +77,13 @@ export default defineNitroPlugin(async (nitroApp) => {
     }, 6e4);
     </script>
     `);
+
+    // 移动端调试控制台
+    if (process.env.NODE_ENV === 'development' || process.env.NUXT_PUBLIC_ENABLE_CONSOLE) {
+      html.bodyAppend.push(`
+      <script src="//cdn.bootcdn.net/ajax/libs/eruda/2.3.3/eruda.js"></script>
+      <script>eruda.init();</script>
+      `);
+    }
   });
 });
