@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-05-25 19:45:20
- * @LastEditTime: 2023-07-20 19:22:07
+ * @LastEditTime: 2023-07-24 08:57:57
  * @Description:
  */
 import { resolve } from 'node:path';
@@ -25,7 +25,12 @@ export default defineNuxtConfig({
           rel: 'preload',
           as: 'image',
           href: '/image_placeholder.svg',
-        }
+        },
+        {
+          rel: 'preload',
+          as: 'image',
+          href: '/tabbar_bg.png',
+        },
       ],
       script: [
         {
@@ -36,10 +41,10 @@ export default defineNuxtConfig({
               window.alert('您的浏览器版本过低，请尝试使用其他浏览器或将浏览器升级至最新版本后重试！');
               window.alert(e);
             }
-          `
-        }
-      ]
-    }
+          `,
+        },
+      ],
+    },
   },
 
   lazyLoad: {
@@ -62,29 +67,36 @@ export default defineNuxtConfig({
     enabled: true,
   },
 
-  modules: ['@vueuse/nuxt', '@unocss/nuxt', '@element-plus/nuxt', '@pinia/nuxt', '@vant/nuxt', 'nuxt-lazy-load'],
+  modules: [
+    '@vueuse/nuxt',
+    '@unocss/nuxt',
+    '@element-plus/nuxt',
+    '@pinia/nuxt',
+    '@vant/nuxt',
+    'nuxt-lazy-load',
+  ],
 
   unocss: {
     preflight: true,
   },
 
   pinia: {
-    autoImports: ['defineStore', 'storeToRefs', 'acceptHMRUpdate']
+    autoImports: ['defineStore', 'storeToRefs', 'acceptHMRUpdate'],
   },
 
   vite: {
     build: {
       // 兼容钉钉浏览器
       target: 'es2015',
-      sourcemap: false
+      sourcemap: false,
     },
     css: {
       preprocessorOptions: {
         scss: {
           javascriptEnabled: true,
           additionalData: '@import "~/styles/variable.scss";',
-        }
-      }
-    }
-  }
+        },
+      },
+    },
+  },
 });
