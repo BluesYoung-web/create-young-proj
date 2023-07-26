@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-05-25 19:45:20
- * @LastEditTime: 2023-07-26 10:29:53
+ * @LastEditTime: 2023-07-26 16:47:03
  * @Description:
  */
 import { resolve } from 'node:path';
@@ -37,7 +37,10 @@ export default defineNuxtConfig({
           innerHTML: `
             this.globalThis || (this.globalThis = this);
             window.onerror = function(e) {
-              if (e.toString().includes('ResizeObserver loop limit exceeded')) return;
+              if (e.toString().includes('ResizeObserver loop')) {
+                location.reload();
+                return;
+              }
               console.log(e);
               window.alert('您的浏览器版本过低，请尝试使用其他浏览器或将浏览器升级至最新版本后重试！');
               window.alert(e);

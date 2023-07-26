@@ -1,15 +1,11 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-07-21 10:02:19
- * @LastEditTime: 2023-07-21 17:29:56
+ * @LastEditTime: 2023-07-26 10:47:14
  * @Description:
  */
 export default defineNuxtRouteMiddleware(async (to, from) => {
   const { addView } = useTagsStore();
-
-  // todo: remove test condition
-  addView(to);
-  return;
 
   // 页面无需登录
   if (to.meta.auth === false) {
@@ -18,6 +14,7 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
   }
 
   const { hasLogin } = storeToRefs(useUserStore());
+  const { nav_arr } = storeToRefs(useNavStore());
 
   if (!hasLogin.value && to.path !== '/login') {
     // 页面需要登录，但是未登录
@@ -27,6 +24,7 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
     // 已登录进入登录页
     return navigateTo('/');
   } else {
+    nav_arr.value.length === 0 && (await generateNavData());
     addView(to);
     return;
   }

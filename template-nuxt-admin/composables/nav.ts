@@ -7,8 +7,18 @@
 export const useNavStore = defineStore('useNavStore', () => {
   const title = ref('');
   const sub_title = ref('');
+  /**
+   * 树形导航数组(仅可见)
+   */
   const nav_arr = ref<NavArrItem[]>([]);
+  /**
+   * 拍平之后的导航数组(仅可见，用于快速搜索)
+   */
   const flat_nav_arr = ref<NavArrItem[]>([]);
+  /**
+   * 拥有权限的路由
+   */
+  const auth_routes = ref<string[]>([]);
 
   const active_nav = ref('');
 
@@ -36,6 +46,7 @@ export const useNavStore = defineStore('useNavStore', () => {
     nav_arr,
     active_nav,
     flat_nav_arr,
+    auth_routes,
     isLoading,
     isCollapse,
   };
