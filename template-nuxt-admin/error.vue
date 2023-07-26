@@ -1,8 +1,8 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-06-12 15:00:07
- * @LastEditTime: 2023-06-30 10:57:37
- * @Description: 
+ * @LastEditTime: 2023-07-26 10:01:31
+ * @Description:
 -->
 <script lang="ts" setup>
 import type { NuxtError } from '#app';
@@ -21,11 +21,15 @@ const clear = () => {
   location.replace('/');
 };
 
+const NotShowError = computed(() => {
+  return props.error.message === 'Request failed with status code 401';
+});
+
 onMounted(() => {
   if (process.server) {
     return;
   }
-  console.log(props.error);
+  console.log(props.error, props.error.statusCode);
   if (process.dev) {
     console.log('开发模式，不自动清理');
     return;
@@ -39,7 +43,7 @@ onMounted(() => {
 });
 </script>
 <template>
-  <div class="flex w-full h-full flex-col justify-center items-center">
+  <div v-if="!NotShowError" class="flex w-full h-full flex-col justify-center items-center">
     <div class="text-5xl my-6">{{ error.statusCode }}</div>
     <div class="text-lg my-2">{{ error.statusMessage || '出错啦~' }}</div>
 
