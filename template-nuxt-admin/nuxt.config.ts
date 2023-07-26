@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-05-25 19:45:20
- * @LastEditTime: 2023-07-24 09:55:46
+ * @LastEditTime: 2023-07-26 10:29:53
  * @Description:
  */
 import { resolve } from 'node:path';
@@ -76,10 +76,6 @@ export default defineNuxtConfig({
     '@vant/nuxt',
     'nuxt-lazy-load',
   ],
-
-  unocss: {
-    preflight: true,
-  },
 
   pinia: {
     autoImports: ['defineStore', 'storeToRefs', 'acceptHMRUpdate'],

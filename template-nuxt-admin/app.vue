@@ -1,11 +1,10 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-05-25 19:53:07
- * @LastEditTime: 2023-07-21 17:58:29
+ * @LastEditTime: 2023-07-26 10:26:50
  * @Description:
 -->
 <script lang="ts" setup>
-import 'element-plus/dist/index.css';
 import { ElConfigProvider } from 'element-plus';
 // @ts-ignore
 import locale from 'element-plus/dist/locale/zh-cn.mjs';
@@ -34,6 +33,9 @@ app.hook('page:finish', () => {
 </template>
 
 <style lang="scss">
+@import '@unocss/reset/tailwind.css';
+@import 'element-plus/dist/index.css';
+@import 'vant/lib/index.css';
 @import '~/styles/index.scss';
 </style>
 
