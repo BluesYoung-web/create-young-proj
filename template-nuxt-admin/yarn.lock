@@ -310,10 +310,10 @@
     consola "^3.1.0"
     defu "^6.1.2"
 
-"@bluesyoung/ui-vue3-element-plus@0.10.3":
-  version "0.10.3"
-  resolved "https://registry.npmmirror.com/@bluesyoung/ui-vue3-element-plus/-/ui-vue3-element-plus-0.10.3.tgz#8ab1af7d5e9ef50a8d7fcc69c89ce9bf5dce87ee"
-  integrity sha512-g8YXcrKmpvZObrK2eKYCt5N6AA8LgFXrMIE6F5D2a6Db9o2Ez70u/TY/k/YUImOhfCEgL/fDLOT0mfSSQGbk3g==
+"@bluesyoung/ui-vue3-element-plus@0.10.4":
+  version "0.10.4"
+  resolved "https://registry.npmmirror.com/@bluesyoung/ui-vue3-element-plus/-/ui-vue3-element-plus-0.10.4.tgz#9eb7a4bb5715aee6c92f2832e6c5032f24f69314"
+  integrity sha512-umsQec3/ZkOxmrQKF+NmgaYw/Ebd4chkGwxCoyHQGnDR8cy70FqNUFTcxYaKBpA0BnidbgBslZJcB5BjWBMn1g==
   dependencies:
     file-saver "^2.0.5"
     xlsx "^0.18.5"
