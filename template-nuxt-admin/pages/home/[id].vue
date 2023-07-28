@@ -1,7 +1,7 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-21 17:35:12
- * @LastEditTime: 2023-07-24 14:06:55
+ * @LastEditTime: 2023-07-28 11:02:15
  * @Description:
 -->
 <script lang="ts" setup>
@@ -12,9 +12,6 @@ definePageMeta({
 });
 
 const { nick } = storeToRefs(useUserStore());
-onMounted(() => {
-  generateNavData();
-});
 </script>
 
 <template>
@@ -22,6 +19,5 @@ onMounted(() => {
     <div class="text-4xl my-20px text-center font-bold">
       欢迎回来，{{ nick }}
     </div>
-    <VanButton @click="navigateTo('/login')">Click Me</VanButton>
   </div>
 </template>

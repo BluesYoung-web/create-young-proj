@@ -1,7 +1,7 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-21 10:03:11
- * @LastEditTime: 2023-07-24 15:01:48
+ * @LastEditTime: 2023-07-28 11:06:30
  * @Description:
 -->
 <script lang="ts" setup>
@@ -47,7 +47,6 @@ const loginHandler = () => {
         if (data) {
           cookie.value = data;
           height.value > width.value && enter();
-          await generateNavData();
           showSuccessToast('登录成功！');
           navigateTo('/');
         }
