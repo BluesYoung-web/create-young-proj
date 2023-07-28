@@ -1,11 +1,11 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-25 16:45:39
- * @LastEditTime: 2023-07-26 16:22:55
+ * @LastEditTime: 2023-07-28 11:08:42
  * @Description:
 -->
 <script lang="ts" setup>
-import { YoungTable, YoungDialog, YoungPagination, YoungSearchForm } from '@bluesyoung/ui-vue3-element-plus';
+import { YoungTablePro, YoungDialog, YoungPagination, YoungSearchForm } from '@bluesyoung/ui-vue3-element-plus';
 import { useRoleApi, useRoleBase, useRoleMenu } from './hooks/useRole';
 
 definePageMeta({
@@ -42,7 +42,7 @@ getList();
   <br />
 
   <ElCard>
-    <YoungTable :table-data="tableData" :table-head="tableHead">
+    <YoungTablePro :table-data="tableData" :table-head="tableHead">
       <template #operate>
         <ElTableColumn label="操作" width="300px" fixed="right">
           <template #default="scope">
@@ -53,7 +53,7 @@ getList();
           </template>
         </ElTableColumn>
       </template>
-    </YoungTable>
+    </YoungTablePro>
     <YoungPagination v-model:page="query.pageNum" v-model:limit="query.pageSize" :total="query.total"
       @page-change="getList" />
   </ElCard>

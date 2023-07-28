@@ -1,17 +1,17 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-07-26 15:51:14
- * @LastEditTime: 2023-07-26 16:24:32
+ * @LastEditTime: 2023-07-28 11:22:35
  * @Description:
  */
 import type {
+  SelectOptionItem,
   TableDataItem,
   TableHeadItem,
   YoungSearchScheme,
 } from '@bluesyoung/ui-vue3-element-plus';
-import { useFormMode, useQuery } from '@bluesyoung/ui-vue3-element-plus';
+import { YoungSelect, useFormMode, useQuery } from '@bluesyoung/ui-vue3-element-plus';
 import { deepClone } from '@bluesyoung/utils';
-import { ElSwitch } from 'element-plus';
 
 export const useRoleBase = () => {
   const FORM_TEMP: RoleItem = {
@@ -53,22 +53,35 @@ export const useRoleBase = () => {
     },
   );
 
+  const options: SelectOptionItem[] = [
+    { label: '禁用', value: 0 },
+    { label: '启用', value: 1 },
+  ];
+
   const tableHead: TableHeadItem<RoleItem>[] = [
     { label: '角色ID', prop: 'id' },
     { label: '角色关键字', prop: 'keyword' },
     { label: '角色名称', prop: 'name' },
     { label: '角色描述', prop: 'desc' },
     { label: '创建信息', prop: 'creator' },
-    { label: '启用状态', prop: 'status', render: (row) => h(ElSwitch, {
-        modelValue: row.status,
-        activeValue: 1,
-        inactiveValue: 0,
-        onChange: async (status) => {
-          row.status = status as 0 | 1;
-          await apis.patch.changeRoleItem(row);
-          ElMessage.success('修改成功！');
-        },
-      })
+    {
+      label: '启用状态',
+      prop: 'status',
+      render: (row) =>
+        h(YoungSelect, {
+          modelValue: row.status,
+          options,
+          'onUpdate:modelValue': async (status) => {
+            // 状态未修改
+            if (status === row.status) {
+              return;
+            }
+
+            row.status = status as 0 | 1;
+            await apis.patch.changeRoleItem(row);
+            ElMessage.success('修改成功！');
+          },
+        }),
     },
   ];
   const tableData = ref<TableDataItem<RoleItem>[]>([]);
@@ -119,8 +132,8 @@ export const useRoleBase = () => {
       attrs: {
         placeholder: '角色状态',
       },
-      options: [{ label: '禁用', value: 0 }, { label: '启用', value: 1 }],
-    }
+      options,
+    },
   };
 
   return {

@@ -1,11 +1,11 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-25 16:45:17
- * @LastEditTime: 2023-07-26 15:42:07
+ * @LastEditTime: 2023-07-28 11:23:19
  * @Description:
 -->
 <script lang="ts" setup>
-import { YoungTable, useFormMode, YoungDialog, YoungSelect } from '@bluesyoung/ui-vue3-element-plus';
+import { YoungTablePro, useFormMode, YoungDialog, YoungSelect } from '@bluesyoung/ui-vue3-element-plus';
 import type { TableHeadItem } from '@bluesyoung/ui-vue3-element-plus';
 import { deepClone, isArray } from '@bluesyoung/utils';
 import { ElButton } from 'element-plus';
@@ -216,6 +216,11 @@ const tableHead: TableHeadItem<NavArrItem>[] = [
       modelValue: row.visible,
       options: [{ label: '显示', value: 1 }, { label: '隐藏', value: 0 }],
       'onUpdate:modelValue': async (e: number) => {
+        // 状态未修改
+        if (e === row.visible) {
+          return;
+        }
+
         row.visible = e;
         await apis.patch.changeMenuItem({ ...row, visible: e });
         ElMessage.success('菜单修改成功！');
@@ -266,7 +271,7 @@ getList();
     </div>
     <br />
     <!-- 节点列表 -->
-    <YoungTable :table-data="tableData" :table-head="tableHead" :tree-props="{ children: 'children' }" row-key="id"
+    <YoungTablePro :table-data="tableData" :table-head="tableHead" :tree-props="{ children: 'children' }" row-key="id"
       :expand-row-keys="[...expandKeys]" @expand-change="expandChange" />
     <!-- 添加 / 编辑 -->
     <YoungDialog width="370px" :is-add="isAdd" :is-edit="isEdit" @sure="sure" @clear="clear">

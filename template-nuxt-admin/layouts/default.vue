@@ -1,7 +1,7 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-21 11:49:00
- * @LastEditTime: 2023-07-24 17:01:55
+ * @LastEditTime: 2023-07-28 11:27:05
  * @Description:
 -->
 <script lang="ts" setup>
@@ -11,9 +11,10 @@ const { enter, isSupported } = useFullscreen();
 onMounted(() => {
   const { innerWidth, innerHeight } = window;
   if (innerHeight > innerWidth) {
+    isCollapse.value = true;
     showDialog({
-      title: '温馨提示',
-      message: '为了您的用户体验，请全屏进行使用',
+      title: '推荐使用场景',
+      message: '系统浏览器 + 全屏模式 + 横屏使用',
       confirmButtonText: '进入全屏'
     }).then(async () => {
       try {
