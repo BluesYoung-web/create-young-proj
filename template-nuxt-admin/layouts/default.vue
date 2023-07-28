@@ -1,7 +1,7 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-21 11:49:00
- * @LastEditTime: 2023-07-28 17:14:46
+ * @LastEditTime: 2023-07-28 17:41:44
  * @Description:
 -->
 <script lang="ts" setup>
@@ -102,7 +102,8 @@ onMounted(() => {
   @screen lt-lg {
     .layout-container-vertical {
       @apply block;
-      margin-left: $base-left-menu-width-min;
+      margin-left: 0;
+      // margin-left: $base-left-menu-width-min;
       margin-top: $base-top-bar-height !important;
 
       &.is-collapse {
@@ -110,11 +111,12 @@ onMounted(() => {
       }
 
       .layout-header {
-        width: calc(100% - $base-left-menu-width-min) !important;
+        // width: calc(100% - $base-left-menu-width-min) !important;
+        width: 100% !important;
 
-        &.is-collapse {
-          width: 100% !important;
-        }
+        // &.is-collapse {
+        //   width: 100% !important;
+        // }
       }
     }
   }

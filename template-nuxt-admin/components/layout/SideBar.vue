@@ -1,7 +1,7 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-21 12:25:23
- * @LastEditTime: 2023-07-28 16:31:54
+ * @LastEditTime: 2023-07-28 17:39:48
  * @Description:
 -->
 <script lang="ts" setup>
@@ -48,8 +48,9 @@ const { isCollapse, nav_arr } = storeToRefs(useNavStore());
 
   @screen lt-lg {
     & {
-      @apply block;
-      width: $base-left-menu-width-min;
+      @apply hidden;
+      // @apply block;
+      // width: $base-left-menu-width-min;
     }
   }
 
@@ -57,11 +58,11 @@ const { isCollapse, nav_arr } = storeToRefs(useNavStore());
     width: $base-left-menu-width-min;
     border-right: 0;
 
-    @screen lt-lg {
-      & {
-        @apply hidden;
-      }
-    }
+    // @screen lt-lg {
+    //   & {
+    //     @apply hidden;
+    //   }
+    // }
   }
 
   :deep(.el-scrollbar__wrap) {
