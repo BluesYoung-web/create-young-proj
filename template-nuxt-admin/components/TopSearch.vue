@@ -1,14 +1,15 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-21 17:01:21
- * @LastEditTime: 2023-07-24 16:25:53
+ * @LastEditTime: 2023-07-28 17:32:46
  * @Description:
 -->
 <script lang="ts" setup>
 import type { SelectOptionItem } from '@bluesyoung/ui-vue3-element-plus';
 import { YoungCmdPopup } from '@bluesyoung/ui-vue3';
+import { isHttpUrl } from '@bluesyoung/utils';
 
-const { flat_nav_arr } = storeToRefs(useNavStore());
+const { flat_nav_arr, nav_arr } = storeToRefs(useNavStore());
 
 const cmdRef = ref();
 const searchStr = ref('');
@@ -26,11 +27,16 @@ const remoteMethod = (query: string) => {
 
 const goPage = (url: string) => {
   if (url) {
-    navigateTo(url);
+    if (isHttpUrl(url)) {
+      window.open(url);
+    } else {
+      navigateTo(url);
+    }
     searchStr.value = '';
     cmdRef.value?.hide();
   }
 };
+
 </script>
 
 <template>
@@ -45,10 +51,23 @@ const goPage = (url: string) => {
           快捷菜单搜索：
         </div>
         <ElSelect :ref="el" class="w-260px" v-model="searchStr" filterable remote reserve-keyword
-          placeholder="请输入菜单关键字，快捷键 Ctrl + K" :remote-method="remoteMethod" @change="goPage">
+          placeholder="请输入菜单关键字，点击选中即可跳转" :remote-method="remoteMethod" @change="goPage">
           <ElOption v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
         </ElSelect>
+
+        <br />
+        <ElTree :data="nav_arr" size="large" :props="{
+          children: 'children',
+          label: 'title'
+        }" accordion class="w-full self-start" @node-click="(n: NavArrItem) => goPage(n.component)" />
       </div>
     </template>
   </YoungCmdPopup>
 </template>
+
+<style lang="scss" scoped>
+:deep(.el-tree-node__label) {
+  font-size: 16px;
+  line-height: 20px;
+}
+</style>
