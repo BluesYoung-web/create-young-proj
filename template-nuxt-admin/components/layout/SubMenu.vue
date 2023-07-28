@@ -1,7 +1,7 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-21 14:06:48
- * @LastEditTime: 2023-07-21 16:22:42
+ * @LastEditTime: 2023-07-28 15:59:48
  * @Description:
 -->
 <script lang="ts" setup>
@@ -15,6 +15,12 @@ const props = withDefaults(defineProps<{
 
 const randomKey = randomId();
 const visibleMenu = computed(() => props.menuList.filter((n) => +n.visible === 1));
+const { isCollapse } = storeToRefs(useNavStore());
+const collapseMenu = () => {
+  if (WindowSize['lt-lg']) {
+    isCollapse.value = true;
+  }
+};
 </script>
 
 <template>
@@ -29,7 +35,7 @@ const visibleMenu = computed(() => props.menuList.filter((n) => +n.visible === 1
       <LayoutSubMenu :menuList="subItem.children" />
     </ElSubMenu>
     <ElMenuItem v-else :index="subItem.component + randomKey + index">
-      <YoungLink :to="subItem.component">
+      <YoungLink :to="subItem.component" @click="collapseMenu">
         <ElIcon>
           <div v-if="subItem.icon" :class="subItem.icon" />
         </ElIcon>

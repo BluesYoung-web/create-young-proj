@@ -1,7 +1,7 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-21 11:55:27
- * @LastEditTime: 2023-07-24 17:02:01
+ * @LastEditTime: 2023-07-28 17:15:07
  * @Description:
 -->
 <script lang="ts" setup>
@@ -30,5 +30,12 @@ const isCached = computed(() => {
   min-height: $base-app-main-height;
   background-color: inherit;
   padding: 20px;
+
+  @screen lt-lg {
+    & {
+      min-height: -webkit-calc($base-app-main-height + $base-tabs-bar-height) !important;
+      min-height: calc($base-app-main-height + $base-tabs-bar-height) !important;
+    }
+  }
 }
 </style>

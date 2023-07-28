@@ -1,7 +1,7 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-21 12:25:23
- * @LastEditTime: 2023-07-21 16:24:15
+ * @LastEditTime: 2023-07-28 16:31:54
  * @Description:
 -->
 <script lang="ts" setup>
@@ -14,7 +14,8 @@ const { isCollapse, nav_arr } = storeToRefs(useNavStore());
 
     <ElScrollbar>
       <ElMenu background-color="#001529" text-color="hsla(0,0%,100%,.65)" active-text-color="#fff" unique-opened
-        :collapse="isCollapse">
+        :collapse="isCollapse || WindowSize['lt-lg']" :menu-trigger="WindowSize['lt-lg'] ? 'click' : 'hover'"
+        :collapse-transition="false">
         <LayoutSubMenu :menuList="nav_arr" />
       </ElMenu>
     </ElScrollbar>
@@ -45,9 +46,22 @@ const { isCollapse, nav_arr } = storeToRefs(useNavStore());
   box-shadow: 2px 0 6px rgb(0 21 41 / 35%);
   transition: width $base-transition-time;
 
+  @screen lt-lg {
+    & {
+      @apply block;
+      width: $base-left-menu-width-min;
+    }
+  }
+
   &.is-collapse {
     width: $base-left-menu-width-min;
     border-right: 0;
+
+    @screen lt-lg {
+      & {
+        @apply hidden;
+      }
+    }
   }
 
   :deep(.el-scrollbar__wrap) {

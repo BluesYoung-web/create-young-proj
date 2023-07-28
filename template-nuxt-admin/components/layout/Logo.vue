@@ -1,7 +1,7 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-21 12:21:02
- * @LastEditTime: 2023-07-23 16:17:20
+ * @LastEditTime: 2023-07-28 16:53:30
  * @Description:
 -->
 <script lang="ts" setup>
@@ -15,7 +15,7 @@ const logo = window.__YOUNG_ENV__.NUXT_PUBLIC_LOGIN_LOGO;
   <div class="logo-container flex-center">
     <NuxtLink to="/">
       <img class="logo" alt="logo" :src="logo" />
-      <h1 class="title" v-if="!isCollapse">{{ title }}</h1>
+      <h1 class="title" v-if="!(isCollapse || WindowSize['lt-lg'])">{{ title }}</h1>
     </NuxtLink>
   </div>
 </template>

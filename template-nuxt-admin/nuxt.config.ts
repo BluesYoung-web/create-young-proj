@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-05-25 19:45:20
- * @LastEditTime: 2023-07-26 16:47:03
+ * @LastEditTime: 2023-07-28 17:35:11
  * @Description:
  */
 import { resolve } from 'node:path';
@@ -38,7 +38,6 @@ export default defineNuxtConfig({
             this.globalThis || (this.globalThis = this);
             window.onerror = function(e) {
               if (e.toString().includes('ResizeObserver loop')) {
-                location.reload();
                 return;
               }
               console.log(e);
