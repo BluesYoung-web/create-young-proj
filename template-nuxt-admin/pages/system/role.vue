@@ -1,7 +1,7 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-25 16:45:39
- * @LastEditTime: 2023-07-28 11:08:42
+ * @LastEditTime: 2023-07-31 11:05:49
  * @Description:
 -->
 <script lang="ts" setup>
@@ -61,7 +61,8 @@ getList();
   <YoungDialog :is-add="base.isAdd" :diff-form="base.form" :is-edit="base.isEdit" width="520px" @sure="base.sure"
     @clear="base.clear">
     <template #body>
-      <ElForm ref="baseFormRef" :model="base.form" label-width="120px">
+      <ElForm ref="baseFormRef" :model="base.form" label-width="120px"
+        :label-position="WindowSize['lt-lg'] ? 'top' : 'left'">
         <ElFormItem label="角色名称(中文)" prop="name" :rules="[{ required: true, message: '请填写角色名称', trigger: 'blur' }]">
           <ElInput v-model="base.form.name" class="!w-300px" />
         </ElFormItem>

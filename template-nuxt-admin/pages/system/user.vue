@@ -1,7 +1,7 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-25 16:46:00
- * @LastEditTime: 2023-07-26 16:45:19
+ * @LastEditTime: 2023-07-31 11:35:37
  * @Description:
 -->
 <script lang="ts" setup>
@@ -191,7 +191,7 @@ getList();
 
   <YoungDialog :is-add="isAdd" :diff-form="form" :is-edit="isEdit" width="520px" @sure="sure" @clear="clear">
     <template #body>
-      <ElForm ref="formRef" :model="form" label-width="100px">
+      <ElForm ref="formRef" :model="form" label-width="100px" :label-position="WindowSize['lt-lg'] ? 'top' : 'left'">
         <ElFormItem label="用户名" prop="username" :rules="{ required: true, message: '请输用户名', trigger: 'blur' }">
           <ElInput v-model="form.username" class="!w-300px" />
         </ElFormItem>

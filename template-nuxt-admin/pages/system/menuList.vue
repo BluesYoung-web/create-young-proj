@@ -1,7 +1,7 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-25 16:45:17
- * @LastEditTime: 2023-07-28 11:23:19
+ * @LastEditTime: 2023-07-31 11:32:44
  * @Description:
 -->
 <script lang="ts" setup>
@@ -274,9 +274,9 @@ getList();
     <YoungTablePro :table-data="tableData" :table-head="tableHead" :tree-props="{ children: 'children' }" row-key="id"
       :expand-row-keys="[...expandKeys]" @expand-change="expandChange" />
     <!-- 添加 / 编辑 -->
-    <YoungDialog width="370px" :is-add="isAdd" :is-edit="isEdit" @sure="sure" @clear="clear">
+    <YoungDialog width="370px" :is-add="isAdd" :diff-form="form" :is-edit="isEdit" @sure="sure" @clear="clear">
       <template #body>
-        <ElForm ref="formRef" :model="form" label-width="80px">
+        <ElForm ref="formRef" :model="form" label-width="80px" :label-position="WindowSize['lt-lg'] ? 'top' : 'left'">
           <ElFormItem label="上级目录">
             <ElCascader :model-value="form.parentId" :props="{
               label: 'title',

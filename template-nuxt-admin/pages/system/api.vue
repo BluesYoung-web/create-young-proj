@@ -1,7 +1,7 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-25 16:44:56
- * @LastEditTime: 2023-07-26 16:44:26
+ * @LastEditTime: 2023-07-31 11:36:37
  * @Description:
 -->
 <script lang="ts" setup>
@@ -142,7 +142,7 @@ getList();
   </ElCard>
   <YoungDialog :is-add="isAdd" :is-edit="isEdit" :diff-form="form" width="520px" @sure="sure" @clear="clear">
     <template #body>
-      <ElForm ref="formRef" :model="form" label-width="100px">
+      <ElForm ref="formRef" :model="form" label-width="100px" :label-position="WindowSize['lt-lg'] ? 'top' : 'left'">
         <ElFormItem label="分组名称" prop="category" :rules="{ required: true, message: '请填写分组名称', trigger: 'blur' }">
           <ElInput v-model="form.category" class="!w-300px" />
         </ElFormItem>
