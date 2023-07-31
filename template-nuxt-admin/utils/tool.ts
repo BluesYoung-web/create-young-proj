@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-05-28 16:01:24
- * @LastEditTime: 2023-07-25 16:26:19
+ * @LastEditTime: 2023-07-31 14:45:23
  * @Description:
  */
 import { randomId } from '@bluesyoung/utils';
@@ -118,23 +118,25 @@ export function useScrollOver(distance = 40) {
 
 /**
  * 生成用户导航栏
- * todo: 实现
  */
-export async function generateNavData(force = false) {
+export async function generateNavData() {
   const { hasLogin } = storeToRefs(useUserStore());
   if (!hasLogin.value) {
     showNotify({
       type: 'danger',
-      message: '登录过期，请重新登录！'
+      message: '登录过期，请重新登录！',
     });
 
     return navigateTo('/login');
   }
 
   // 清除没有子元素的children
-  const clearChildren = <T extends Record<string, any>>(arr: T[]) => {
+  const clearChildren = (arr: NavArrItem[]) => {
     for (const item of arr) {
-      if (item?.children?.length === 0) {
+      if (
+        item?.children?.length === 0 ||
+        item.children?.filter((n) => +n.visible === 1).length === 0
+      ) {
         delete item.children;
       } else if (item.children) {
         clearChildren(item.children);
@@ -147,11 +149,6 @@ export async function generateNavData(force = false) {
 
   const tree = await apis.get.getUserMenuTree();
   const menu = Object.values(tree);
-
-  /**
-   * 最终导航数组
-   */
-  nav_arr.value = clearChildren(menu.filter((item) => +item.visible === 1));
 
   let role_route: string[] = [];
   const generateRoleRoute = (arr: NavArrItem[], num?: number): string[] => {
@@ -175,6 +172,20 @@ export async function generateNavData(force = false) {
   };
 
   auth_routes.value = generateRoleRoute(menu, 1);
+
+  /**
+   * 最终导航数组
+   */
+  nav_arr.value = clearChildren(menu.filter((item) => +item.visible === 1));
+}
+
+/**
+ * 权限校验
+ * @param path
+ */
+export function hasPermission(path: string) {
+  const { auth_routes } = storeToRefs(useNavStore());
+  return ['/', ...auth_routes.value].includes(path);
 }
 
 /**

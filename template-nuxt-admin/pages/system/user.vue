@@ -1,7 +1,7 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-25 16:46:00
- * @LastEditTime: 2023-07-31 11:35:37
+ * @LastEditTime: 2023-07-31 14:39:16
  * @Description:
 -->
 <script lang="ts" setup>
@@ -69,7 +69,7 @@ const tableHead: TableHeadItem<Form>[] = [
   { prop: 'creator', label: '创建信息' },
   {
     prop: 'op', label: '操作', width: '300px', fixed: 'right', render: (row) => h('div', [
-      h(ElButton, {
+      hasPermission('/access/system/update/user') && h(ElButton, {
         type: 'primary',
         text: true,
         class: '!p-0',
@@ -77,7 +77,7 @@ const tableHead: TableHeadItem<Form>[] = [
       }, {
         default: () => '编辑'
       }),
-      h(ElButton, {
+      hasPermission('/access/system/update/user') && h(ElButton, {
         type: 'warning',
         text: true,
         class: '!p-0',
@@ -85,7 +85,7 @@ const tableHead: TableHeadItem<Form>[] = [
       }, {
         default: () => '修改密码'
       }),
-      h(ElButton, {
+      hasPermission('/access/system/del/user') && h(ElButton, {
         type: 'danger',
         text: true,
         class: '!p-0',
@@ -176,7 +176,7 @@ getList();
   <ElCard>
     <YoungSearchForm v-model="query" :search-scheme="queryScheme" :on-search="getList" :on-reset="reset">
       <template #btns>
-        <ElButton type="success" @click="isAdd = true">添加用户</ElButton>
+        <ElButton v-permission="'/access/system/create/user'" type="success" @click="isAdd = true">添加用户</ElButton>
       </template>
     </YoungSearchForm>
   </ElCard>

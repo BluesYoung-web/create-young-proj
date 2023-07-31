@@ -1,7 +1,7 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-06-12 15:00:07
- * @LastEditTime: 2023-07-26 10:01:31
+ * @LastEditTime: 2023-07-31 12:10:16
  * @Description:
 -->
 <script lang="ts" setup>
@@ -45,7 +45,7 @@ onMounted(() => {
 <template>
   <div v-if="!NotShowError" class="flex w-full h-full flex-col justify-center items-center">
     <div class="text-5xl my-6">{{ error.statusCode }}</div>
-    <div class="text-lg my-2">{{ error.statusMessage || '出错啦~' }}</div>
+    <div class="text-lg my-2">{{ error.message || error.statusMessage || '出错啦~' }}</div>
 
     <div class="mb-2">{{ i }}s 后自动跳转首页</div>
     <ElButton @click="clear">立即返回首页</ElButton>

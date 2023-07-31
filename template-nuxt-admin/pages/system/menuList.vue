@@ -1,7 +1,7 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-25 16:45:17
- * @LastEditTime: 2023-07-31 11:32:44
+ * @LastEditTime: 2023-07-31 14:21:34
  * @Description:
 -->
 <script lang="ts" setup>
@@ -304,6 +304,12 @@ getList();
           </ElFormItem>
           <ElFormItem label="排序">
             <ElInput v-model.number="form.sort" />
+          </ElFormItem>
+          <ElFormItem label="是否显示">
+            <ElRadioGroup v-model="form.visible">
+              <ElRadio :label="1">显示</ElRadio>
+              <ElRadio :label="0">隐藏</ElRadio>
+            </ElRadioGroup>
           </ElFormItem>
           <ElFormItem label="路径" prop="component" :rules="form.parentId === 0 ? {} :
             { message: '请输入合法的路径, eg: /path/page', trigger: 'blur', validator: (_: any, v: string) => v.trim() === '' || /\/(.*)\/(.*)/.test(v) }

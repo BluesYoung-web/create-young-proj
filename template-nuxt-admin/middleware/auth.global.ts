@@ -1,10 +1,14 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-07-21 10:02:19
- * @LastEditTime: 2023-07-26 10:47:14
+ * @LastEditTime: 2023-07-31 12:16:20
  * @Description:
  */
 export default defineNuxtRouteMiddleware(async (to, from) => {
+  if (to.matched.length === 0) {
+    throw createError({ message: '页面不存在', statusCode: 404 });
+  }
+
   const { addView } = useTagsStore();
 
   // 页面无需登录
@@ -25,7 +29,11 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
     return navigateTo('/');
   } else {
     nav_arr.value.length === 0 && (await generateNavData());
-    addView(to);
-    return;
+    if (hasPermission(to.path)) {
+      addView(to);
+      return;
+    } else {
+      throw createError({ message: '无权限，请联系系统管理员', statusCode: 403 });
+    }
   }
 });
