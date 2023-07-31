@@ -31,7 +31,7 @@
   "dependencies": {
     "@bluesyoung/http": "0.3.1",
     "@bluesyoung/ui-vue3": "^0.1.1",
-    "@bluesyoung/ui-vue3-element-plus": "0.11",
+    "@bluesyoung/ui-vue3-element-plus": "0.11.1",
     "@bluesyoung/utils": "^0.1.0",
     "c12": "^1.4.2",
     "file-saver": "^2.0.5",
