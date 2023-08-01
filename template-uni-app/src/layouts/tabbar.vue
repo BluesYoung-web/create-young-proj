@@ -17,12 +17,12 @@ onMounted(() => {
 });
 </script>
 <template>
+  <slot name="nav"></slot>
   <young-loading ref="loadingEl" />
   <young-loading-mini ref="httpLoadingEl" />
-  <div class="flex flex-col" :style="{ height: `calc(100vh - ${customBarH}px - ${safeBottom}px - 44px)` }">
-    <scroll-view scroll-y class="flex-1 bg-transparent">
-      <slot></slot>
-    </scroll-view>
-    <young-tabbar :z="999" />
-  </div>
+  <scroll-view scroll-y class="flex flex-col bg-transparent"
+    :style="{ height: `calc(100vh - ${customBarH}px - ${safeBottom}px - 44px)` }">
+    <slot></slot>
+  </scroll-view>
+  <young-tabbar :z="999" />
 </template>
