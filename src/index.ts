@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2022-12-03 15:14:08
- * @LastEditTime: 2023-08-01 09:49:38
+ * @LastEditTime: 2023-08-01 14:23:20
  * @Description:
  */
 import fs from 'node:fs';
@@ -36,6 +36,10 @@ type FrameworkVariant = {
    * 待实现，暂时禁用选项
    */
   wip?: boolean;
+  /**
+   * 已淘汰
+   */
+  deprecated?: boolean;
 };
 
 const FRAMEWORKS: Framework[] = [
@@ -50,8 +54,8 @@ const FRAMEWORKS: Framework[] = [
         color: green,
       },
       {
-        name: 'vue-admin',
-        display: 'Vue3 + ElementPlus + TS + Pinia + Unocss',
+        name: 'nuxt-admin',
+        display: 'Nuxt3 + ElementPlus + Vant + TS + Pinia + Unocss',
         color: blue,
       },
       {
@@ -86,6 +90,12 @@ const FRAMEWORKS: Framework[] = [
         display: 'SolidJS + TS + Pinia + Unocss',
         color: blue,
         wip: true,
+      },
+      {
+        name: 'vue-admin',
+        display: 'Vue3 + ElementPlus + TS + Pinia + Unocss',
+        color: blue,
+        deprecated: true,
       },
     ],
   },
@@ -203,7 +213,7 @@ async function init() {
               return {
                 title: variantColor(variant.display || variant.name),
                 value: variant.name,
-                disabled: variant.wip,
+                disabled: variant.wip || variant.deprecated,
               };
             }),
         },

@@ -3,7 +3,7 @@
 🚧 WIP
 
 - [x] template-vue-thin
-- [x] template-vue-admin
+- [x] <del>template-vue-admin</del> template-nuxt-admin
 - [x] template-admin-server
 - [x] template-vue-mobile
 - [x] template-uni-app
@@ -25,9 +25,11 @@
 
 基于文件目录的自动路由
 
-## template-vue-admin
+## <del>template-vue-admin</del> template-nuxt-admin
 
-在 `template-vue-thin` 的基础上加入 `element-plus` 开发的后台管理系统模板
+<del>在 `template-vue-thin` 的基础上加入 `element-plus` 开发的后台管理系统模板</del>
+
+基于 `nuxt3` 开发，完整性更高，开发体验及用户体验都更好
 
 与 `template-admin-server` 配套使用
 
