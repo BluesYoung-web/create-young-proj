@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2022-12-03 15:14:08
- * @LastEditTime: 2023-07-19 16:17:01
+ * @LastEditTime: 2023-08-01 09:49:38
  * @Description:
  */
 import fs from 'node:fs';
@@ -123,6 +123,7 @@ const TEMPLATES = FRAMEWORKS.map(
 
 const renameFiles: Record<string, string | undefined> = {
   _gitignore: '.gitignore',
+  _npmrc: '.npmrc',
   // _env: '.env',
 };
 
@@ -270,7 +271,10 @@ async function init() {
   const templateDir = path.resolve(fileURLToPath(import.meta.url), '../..', `template-${template}`);
 
   const write = (file: string, content?: string) => {
-    const targetPath = path.join(root, renameFiles[file] ?? renameEnvBatch.test(file) ? file.replace('_', '.') : file);
+    const targetPath = path.join(
+      root,
+      renameFiles[file] ?? renameEnvBatch.test(file) ? file.replace('_', '.') : file,
+    );
     if (content) {
       fs.writeFileSync(targetPath, content);
     } else {
