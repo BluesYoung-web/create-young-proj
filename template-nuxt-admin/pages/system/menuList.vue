@@ -1,7 +1,7 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-25 16:45:17
- * @LastEditTime: 2023-07-31 14:21:34
+ * @LastEditTime: 2023-08-02 10:44:39
  * @Description:
 -->
 <script lang="ts" setup>
@@ -66,10 +66,10 @@ const topMenuOption = ref<Partial<NavArrItem>[]>([]);
 /**
  * 生成节点映射
  */
-const nodeMap = new Map<string | number, NavArrItem>();
+const nodeMap = new Map<string, NavArrItem>();
 const generateNodeMap = (list: NavArrItem[]) => {
   for (const node of list) {
-    nodeMap.set(node.id, node);
+    nodeMap.set(node.id.toString(), node);
     if (node.children && node.children?.length > 0) {
       generateNodeMap(node.children);
     }
@@ -287,10 +287,10 @@ getList();
               @update:model-value="(e: any) => form.parentId = e[e.length - 1]" />
           </ElFormItem>
           <ElFormItem label="英文名称" prop="name" :rules="{ required: true, message: '请输入英文名', trigger: 'blur' }">
-            <ElInput v-model="form.name" placeholder="请输入英文名" />
+            <ElInput v-model.trim="form.name" placeholder="请输入英文名" />
           </ElFormItem>
           <ElFormItem label="标题" prop="title" :rules="{ required: true, message: '请输入页面标题', trigger: 'blur' }">
-            <ElInput v-model="form.title" placeholder="请输入页面标题" />
+            <ElInput v-model.trim="form.title" placeholder="请输入页面标题" />
           </ElFormItem>
           <ElFormItem label="图标">
             <ElSelect v-model="form.icon" class="select_icon" placeholder="请选择图标">
@@ -303,7 +303,7 @@ getList();
             </ElSelect>
           </ElFormItem>
           <ElFormItem label="排序">
-            <ElInput v-model.number="form.sort" />
+            <ElInputNumber v-model.number="form.sort" />
           </ElFormItem>
           <ElFormItem label="是否显示">
             <ElRadioGroup v-model="form.visible">
@@ -314,7 +314,7 @@ getList();
           <ElFormItem label="路径" prop="component" :rules="form.parentId === 0 ? {} :
             { message: '请输入合法的路径, eg: /path/page', trigger: 'blur', validator: (_: any, v: string) => v.trim() === '' || /\/(.*)\/(.*)/.test(v) }
             ">
-            <ElInput v-model="form.component" />
+            <ElInput v-model.trim="form.component" />
           </ElFormItem>
         </ElForm>
       </template>

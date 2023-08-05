@@ -1,7 +1,7 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-25 16:46:00
- * @LastEditTime: 2023-07-31 14:39:16
+ * @LastEditTime: 2023-08-02 10:42:08
  * @Description:
 -->
 <script lang="ts" setup>
@@ -193,20 +193,20 @@ getList();
     <template #body>
       <ElForm ref="formRef" :model="form" label-width="100px" :label-position="WindowSize['lt-lg'] ? 'top' : 'left'">
         <ElFormItem label="用户名" prop="username" :rules="{ required: true, message: '请输用户名', trigger: 'blur' }">
-          <ElInput v-model="form.username" class="!w-300px" />
+          <ElInput v-model.trim="form.username" class="!w-300px" />
         </ElFormItem>
         <ElFormItem label="昵称" prop="nickname" :rules="{ required: true, message: '请输昵称(用于右上角展示)', trigger: 'blur' }">
-          <ElInput v-model="form.nickname" class="!w-300px" />
+          <ElInput v-model.trim="form.nickname" class="!w-300px" />
         </ElFormItem>
         <ElFormItem label="手机号" prop="mobile" :rules="{ required: true, message: '请输手机号', trigger: 'blur' }">
-          <ElInput v-model="form.mobile" :maxlength="11" class="!w-300px" />
+          <ElInput v-model.trim="form.mobile" :maxlength="11" class="!w-300px" />
         </ElFormItem>
         <ElFormItem label="角色">
           <YoungSelect v-model="form.roleId" placeholder="请选择角色" :options="roleList" />
         </ElFormItem>
         <ElFormItem v-if="isAdd" label="初始密码" prop="initPassword"
           :rules="{ required: true, message: '请输初始密码', trigger: 'blur' }">
-          <ElInput v-model="form.initPassword" class="!w-300px" />
+          <ElInput v-model.trim="form.initPassword" class="!w-300px" />
         </ElFormItem>
       </ElForm>
     </template>

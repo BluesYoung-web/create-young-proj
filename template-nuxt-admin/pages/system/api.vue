@@ -1,7 +1,7 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-25 16:44:56
- * @LastEditTime: 2023-07-31 11:36:37
+ * @LastEditTime: 2023-08-02 10:39:43
  * @Description:
 -->
 <script lang="ts" setup>
@@ -144,10 +144,10 @@ getList();
     <template #body>
       <ElForm ref="formRef" :model="form" label-width="100px" :label-position="WindowSize['lt-lg'] ? 'top' : 'left'">
         <ElFormItem label="分组名称" prop="category" :rules="{ required: true, message: '请填写分组名称', trigger: 'blur' }">
-          <ElInput v-model="form.category" class="!w-300px" />
+          <ElInput v-model.trim="form.category" class="!w-300px" />
         </ElFormItem>
         <ElFormItem label="接口描述" prop="desc" :rules="{ required: true, message: '请填写接口描述', trigger: 'blur' }">
-          <ElInput v-model="form.desc" class="!w-300px" />
+          <ElInput v-model.trim="form.desc" class="!w-300px" />
         </ElFormItem>
         <ElFormItem label="请求方法">
           <YoungSelect v-model="form.method" class="!w-300px"
@@ -155,7 +155,7 @@ getList();
         </ElFormItem>
         <ElFormItem label="接口路径" prop="path"
           :rules="{ message: '请填写合法的接口路径, eg: /user/list', trigger: 'blur', validator: (_: any, v: string) => /\/(.*)\/(.*)/.test(v) }">
-          <ElInput v-model="form.path" class="!w-300px" />
+          <ElInput v-model.trim="form.path" class="!w-300px" />
         </ElFormItem>
         <ElFormItem label="关联角色">
           <YoungSelect v-model="form.roleIds" multiple placeholder="请选择角色" class="!w-300px" :options="roleList" />

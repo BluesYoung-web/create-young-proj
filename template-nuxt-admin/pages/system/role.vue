@@ -1,7 +1,7 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-25 16:45:39
- * @LastEditTime: 2023-07-31 11:05:49
+ * @LastEditTime: 2023-08-02 10:41:36
  * @Description:
 -->
 <script lang="ts" setup>
@@ -64,13 +64,13 @@ getList();
       <ElForm ref="baseFormRef" :model="base.form" label-width="120px"
         :label-position="WindowSize['lt-lg'] ? 'top' : 'left'">
         <ElFormItem label="角色名称(中文)" prop="name" :rules="[{ required: true, message: '请填写角色名称', trigger: 'blur' }]">
-          <ElInput v-model="base.form.name" class="!w-300px" />
+          <ElInput v-model.trim="base.form.name" class="!w-300px" />
         </ElFormItem>
         <ElFormItem label="关键字(英文)" prop="keyword" :rules="[{ required: true, message: '请填写关键字', trigger: 'blur' }]">
-          <ElInput v-model="base.form.keyword" class="!w-300px" />
+          <ElInput v-model.trim="base.form.keyword" class="!w-300px" />
         </ElFormItem>
         <ElFormItem label="角色描述">
-          <ElInput v-model="base.form.desc" class="!w-300px" />
+          <ElInput v-model.trim="base.form.desc" class="!w-300px" />
         </ElFormItem>
       </ElForm>
     </template>

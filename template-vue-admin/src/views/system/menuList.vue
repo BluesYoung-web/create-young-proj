@@ -1,7 +1,7 @@
 <!--
  * @Author: zhangyang
  * @Date: 2022-05-30 16:28:37
- * @LastEditTime: 2023-01-06 11:35:16
+ * @LastEditTime: 2023-08-02 10:44:18
  * @Description: 菜单管理
 -->
 <route lang="yaml">
@@ -180,7 +180,7 @@ getList()
             <ElInput v-model="form.title" placeholder="请输入页面标题" />
           </ElFormItem>
           <ElFormItem label="排序">
-            <ElInput v-model.number="form.sort" />
+            <ElInputNumber v-model.number="form.sort" />
           </ElFormItem>
           <ElFormItem label="路径" prop="component" :rules="form.parentId === 0 ? {} :
             { message: '请输入合法的路径, eg: /path/page', trigger: 'blur', validator: (_: any, v: string) => v.trim() === '' || /\/(.*)\/(.*)/.test(v) }

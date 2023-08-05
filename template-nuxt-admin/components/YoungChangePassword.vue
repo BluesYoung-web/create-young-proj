@@ -1,7 +1,7 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-24 14:21:55
- * @LastEditTime: 2023-07-24 14:59:34
+ * @LastEditTime: 2023-08-02 10:38:16
  * @Description:
 -->
 <script lang="ts" setup>
@@ -65,16 +65,16 @@ defineExpose({
           { required: true, trigger: 'blur', message: '请输入手机号' },
           { message: '请输入合法的手机号', trigger: 'blur', validator: (_: any, v: string) => isMobile(v) }
         ]" class="mt-20px">
-          <ElInput v-model="form.mobile" placeholder="请输入手机号" maxlength="11" class="!h-52px" clearable />
+          <ElInput v-model.trim="form.mobile" placeholder="请输入手机号" maxlength="11" class="!h-52px" clearable />
         </ElFormItem>
         <ElFormItem prop="vercode" :rules="[{ required: true, trigger: 'blur', message: '请输入验证码' }]">
-          <YoungCodeInput v-model="form.vercode" :tel="form.mobile" />
+          <YoungCodeInput v-model.trim="form.vercode" :tel="form.mobile" />
         </ElFormItem>
         <ElFormItem prop="password" :rules="[
           { required: true, trigger: 'blur', message: '请输入密码' },
           { min: 8, max: 16, trigger: 'blur', message: '请输入8-16位字符！' }
         ]">
-          <ElInput type="password" v-model="form.password" minlength="8" maxlength="16" placeholder="请输入密码"
+          <ElInput type="password" v-model.trim="form.password" minlength="8" maxlength="16" placeholder="请输入密码"
             class="!h-52px" clearable show-password @keyup.enter="sure" />
         </ElFormItem>
       </ElForm>
