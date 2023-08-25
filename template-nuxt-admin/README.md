@@ -1,5 +1,7 @@
 # 基于 Nuxt 3 的后台
 
+> **受限于 Nuxt3 的 keep-alive 机制，setup 直接执行 / onMounted 包裹的，需要替换为 useTabReOpen 包裹的**
+
 ## 使用响应式布局
 
 兼容 `PC` 端与移动端

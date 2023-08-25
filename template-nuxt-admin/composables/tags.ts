@@ -1,31 +1,37 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-07-21 17:13:59
- * @LastEditTime: 2023-07-21 17:18:41
+ * @LastEditTime: 2023-08-25 16:49:28
  * @Description:
  */
 import type { RouteLocationNormalized } from 'vue-router';
 
-type CachedView = string | symbol | null | undefined;
+// hack nuxt3 的 keep-alive 没办法像 vue3 那样自由控制
+export const useTabReOpen = (cbk: Function = () => console.log('this tab page is reopen')) => {
+  const tagState = useTagsStore();
+  const route = useRoute();
 
-interface TagsViewState {
-  /**
-   * 访问过的页面，路由对象
-   */
-  visitedViews: RouteLocationNormalized[];
-  /**
-   * 已缓存的页面名称
-   */
-  cachedViews: CachedView[];
-}
+  tagState.$onAction(({ name, args, after }) => {
+    if (name === 'addToCache') {
+      if (args[0].name === route.name) {
+        after(() => cbk());
+      }
+    }
+  });
+
+  cbk();
+};
+
 // @ts-ignore
 export const useTagsStore = defineStore('useTagsStore', {
   state: () => {
-    const state = reactive<TagsViewState>({
-      visitedViews: [],
-      cachedViews: [],
-    });
-    return state;
+    const visitedViews = ref<RouteLocationNormalized[]>([]);
+    const cachedViews = ref<string[]>([]);
+
+    return {
+      visitedViews,
+      cachedViews,
+    };
   },
   actions: {
     /**
@@ -54,10 +60,10 @@ export const useTagsStore = defineStore('useTagsStore', {
      */
     addToCache(view: RouteLocationNormalized) {
       // 查询该标签是否已缓存
-      if (this.cachedViews.includes(view.name)) {
+      if (this.cachedViews.includes(view.name as string)) {
         null;
       } else if (!view.meta?.noCache) {
-        this.cachedViews.push(view.name);
+        this.cachedViews.push(view.name as string);
       }
     },
     /**
@@ -80,7 +86,7 @@ export const useTagsStore = defineStore('useTagsStore', {
      * 删除页面缓存
      */
     delCachedView(view: RouteLocationNormalized) {
-      const index = this.cachedViews.indexOf(view.name);
+      const index = this.cachedViews.indexOf(view.name as string);
       index > -1 && this.cachedViews.splice(index, 1);
     },
     /**
