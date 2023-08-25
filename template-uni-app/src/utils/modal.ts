@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-07-18 14:12:25
- * @LastEditTime: 2023-07-18 14:24:22
+ * @LastEditTime: 2023-08-25 16:22:55
  * @Description: ui 交互，弹窗之类的
  */
 import { sleep } from '@bluesyoung/utils';
@@ -14,18 +14,41 @@ let loadingCount = 0;
  * @param title - 提示文本
  */
 export function showLoading(title = '加载中...', mask = true) {
+  const { fullscreenLoading, smallLoading } = storeToRefs(useHttpLoading());
+
+  if (fullscreenLoading.value) {
+    return;
+  }
+
   loadingCount++;
-  uni.showLoading({
-    mask,
-    title,
-  });
+
+  if (import.meta.env.VITE_CUSTOM_LOADING) {
+    smallLoading.value = true;
+  } else {
+    uni.showLoading({
+      mask,
+      title,
+    });
+  }
 }
 
 /**
  * 隐藏loading
  */
 export function hideLoading() {
-  --loadingCount === 0 && uni.hideLoading();
+  const { smallLoading, fullscreenLoading } = storeToRefs(useHttpLoading());
+
+  if (fullscreenLoading.value) {
+    return;
+  }
+
+  if (--loadingCount === 0) {
+    if (import.meta.env.VITE_CUSTOM_LOADING) {
+      smallLoading.value = false;
+    } else {
+      uni.hideLoading();
+    }
+  }
 }
 
 /**

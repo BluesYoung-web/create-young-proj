@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-07-18 15:20:04
- * @LastEditTime: 2023-07-20 15:00:01
+ * @LastEditTime: 2023-08-25 16:20:11
  * @Description:
  */
 import type { PageMetaDatum } from '@uni-helper/vite-plugin-uni-pages';
@@ -15,6 +15,7 @@ export const useSystemInfo = defineStore('useSystemInfo', () => {
 });
 
 export const useHttpLoading = defineStore('useHttpLoading', () => {
-  const httpLoadingEl = ref();
-  return { httpLoadingEl };
+  const fullscreenLoading = ref(false);
+  const smallLoading = ref(false);
+  return { smallLoading, fullscreenLoading };
 });

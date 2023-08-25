@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-07-18 15:35:24
- * @LastEditTime: 2023-07-20 15:06:25
+ * @LastEditTime: 2023-08-25 16:20:46
  * @Description:
  */
 import { useHttp } from './lib';
@@ -11,20 +11,10 @@ const http = useHttp({
   baseURL: import.meta.env.VITE_API_BASE_URL,
   loading: {
     start: () => {
-      if (import.meta.env.VITE_CUSTOM_LOADING) {
-        const { httpLoadingEl } = storeToRefs(useHttpLoading());
-        httpLoadingEl.value?.start();
-      } else {
-        showLoading();
-      }
+      showLoading();
     },
     end: () => {
-      if (import.meta.env.VITE_CUSTOM_LOADING) {
-        const { httpLoadingEl } = storeToRefs(useHttpLoading());
-        httpLoadingEl.value?.end();
-      } else {
-        hideLoading();
-      }
+      hideLoading();
     },
   },
   headers: {

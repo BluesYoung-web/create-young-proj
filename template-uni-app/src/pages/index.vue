@@ -1,7 +1,7 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-18 11:23:36
- * @LastEditTime: 2023-07-20 15:24:46
+ * @LastEditTime: 2023-08-25 16:31:55
  * @Description:
 -->
 <route lang="json">
@@ -20,6 +20,13 @@ const testGet = async () => {
 const testPost = async () => {
   await apis.post.createRepo('BluesYoung-web');
 };
+
+const { fullscreenLoading } = storeToRefs(useHttpLoading());
+fullscreenLoading.value = true;
+
+setTimeout(() => {
+  fullscreenLoading.value = false;
+}, 3e3);
 </script>
 
 <template>
