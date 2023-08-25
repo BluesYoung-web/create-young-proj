@@ -5,13 +5,19 @@
       "path": "pages/index",
       "type": "home",
       "needLogin": true,
-      "layout": "tabbar"
+      "layout": "tabbar",
+      "navbar": {
+        "isback": false
+      }
     },
     {
       "path": "pages/my",
       "type": "page",
       "needLogin": true,
-      "layout": "tabbar"
+      "layout": "tabbar",
+      "navbar": {
+        "isback": false
+      }
     },
     {
       "path": "pages/demo/index",

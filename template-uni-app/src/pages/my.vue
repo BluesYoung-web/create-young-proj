@@ -1,13 +1,16 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-18 17:53:43
- * @LastEditTime: 2023-08-25 16:32:16
+ * @LastEditTime: 2023-08-25 16:39:28
  * @Description:
 -->
 <route lang="json">
 {
   "needLogin": true,
-  "layout": "tabbar"
+  "layout": "tabbar",
+  "navbar": {
+    "isback": false
+  }
 }
 </route>
 
@@ -21,10 +24,5 @@ setTimeout(() => {
 </script>
 
 <template>
-  <template #nav>
-    <young-navbar :isback="false" />
-  </template>
-  <template #default>
-    <h1 class="text-32">我是个人中心</h1>
-  </template>
+  <h1 class="text-32">我是个人中心</h1>
 </template>
