@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-07-18 14:12:25
- * @LastEditTime: 2023-07-18 14:24:22
+ * @LastEditTime: 2023-08-22 09:09:17
  * @Description: ui 交互，弹窗之类的
  */
 import { sleep } from '@bluesyoung/utils';
@@ -49,7 +49,7 @@ const modalPage = new Set<string>();
  */
 export async function showModal(options: UniApp.ShowModalOptions) {
   const page = getCurrentPages();
-  const route = page[page.length - 1].route || '';
+  const route = page[page.length - 1]?.route || '';
   if (modalPage.has(route)) {
     hasModel = true;
   } else {
