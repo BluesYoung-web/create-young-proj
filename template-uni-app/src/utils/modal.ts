@@ -72,7 +72,7 @@ const modalPage = new Set<string>();
  */
 export async function showModal(options: UniApp.ShowModalOptions) {
   const page = getCurrentPages();
-  const route = page[page.length - 1].route || '';
+  const route = page[page.length - 1]?.route || '';
   if (modalPage.has(route)) {
     hasModel = true;
   } else {
