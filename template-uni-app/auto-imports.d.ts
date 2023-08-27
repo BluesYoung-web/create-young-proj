@@ -32,6 +32,7 @@ declare global {
   const getLocationInfo: typeof import('./src/store/local/index')['getLocationInfo']
   const getMapApiKey: typeof import('./src/config/map')['getMapApiKey']
   const getNavbarHeihgt: typeof import('./src/store/local/index')['getNavbarHeihgt']
+  const getReqUrl: typeof import('./src/apis/index')['getReqUrl']
   const getSystemInfo: typeof import('./src/utils/system')['getSystemInfo']
   const getUuid: typeof import('./src/store/local/index')['getUuid']
   const getWxCode: typeof import('./src/utils/auth')['getWxCode']
@@ -170,6 +171,7 @@ declare module 'vue' {
     readonly getLocationInfo: UnwrapRef<typeof import('./src/store/local/index')['getLocationInfo']>
     readonly getMapApiKey: UnwrapRef<typeof import('./src/config/map')['getMapApiKey']>
     readonly getNavbarHeihgt: UnwrapRef<typeof import('./src/store/local/index')['getNavbarHeihgt']>
+    readonly getReqUrl: UnwrapRef<typeof import('./src/apis/index')['getReqUrl']>
     readonly getSystemInfo: UnwrapRef<typeof import('./src/utils/system')['getSystemInfo']>
     readonly getUuid: UnwrapRef<typeof import('./src/store/local/index')['getUuid']>
     readonly getWxCode: UnwrapRef<typeof import('./src/utils/auth')['getWxCode']>
@@ -302,6 +304,7 @@ declare module '@vue/runtime-core' {
     readonly getLocationInfo: UnwrapRef<typeof import('./src/store/local/index')['getLocationInfo']>
     readonly getMapApiKey: UnwrapRef<typeof import('./src/config/map')['getMapApiKey']>
     readonly getNavbarHeihgt: UnwrapRef<typeof import('./src/store/local/index')['getNavbarHeihgt']>
+    readonly getReqUrl: UnwrapRef<typeof import('./src/apis/index')['getReqUrl']>
     readonly getSystemInfo: UnwrapRef<typeof import('./src/utils/system')['getSystemInfo']>
     readonly getUuid: UnwrapRef<typeof import('./src/store/local/index')['getUuid']>
     readonly getWxCode: UnwrapRef<typeof import('./src/utils/auth')['getWxCode']>

@@ -1,30 +1,33 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-07-18 15:35:24
- * @LastEditTime: 2023-07-20 15:06:25
+ * @LastEditTime: 2023-08-25 16:42:53
  * @Description:
  */
 import { useHttp } from './lib';
 import { useGet, usePost } from './requests';
 
+/**
+ * 自动根据对应的环境，使用对应的接口地址，避免重复打包
+ */
+const EnvConfig = {
+  develop: 'https://dev.req.cn',
+  trial: 'https://test.req.cn',
+  release: 'https://online.req.cn',
+};
+
+export const getReqUrl = (): string =>
+  // @ts-ignore
+  import.meta.env.VITE_API_BASE_URL || EnvConfig[__wxConfig.envVersion];
+
 const http = useHttp({
-  baseURL: import.meta.env.VITE_API_BASE_URL,
+  baseURL: getReqUrl(),
   loading: {
     start: () => {
-      if (import.meta.env.VITE_CUSTOM_LOADING) {
-        const { httpLoadingEl } = storeToRefs(useHttpLoading());
-        httpLoadingEl.value?.start();
-      } else {
-        showLoading();
-      }
+      showLoading();
     },
     end: () => {
-      if (import.meta.env.VITE_CUSTOM_LOADING) {
-        const { httpLoadingEl } = storeToRefs(useHttpLoading());
-        httpLoadingEl.value?.end();
-      } else {
-        hideLoading();
-      }
+      hideLoading();
     },
   },
   headers: {

@@ -1,11 +1,10 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-20 10:55:54
- * @LastEditTime: 2023-07-20 15:40:22
+ * @LastEditTime: 2023-08-25 16:21:46
  * @Description: todo: 默认布局，按需调整
 -->
 <script lang="ts" setup>
-const { httpLoadingEl } = storeToRefs(useHttpLoading());
 const { pagesInfo } = storeToRefs(useSystemInfo());
 
 onLoad(() => {
@@ -19,6 +18,6 @@ onLoad(() => {
 </script>
 
 <template>
-  <young-loading-mini ref="httpLoadingEl" />
+  <young-loading-mini />
   <slot />
 </template>
