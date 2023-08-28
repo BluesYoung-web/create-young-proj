@@ -1,7 +1,7 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-25 16:46:00
- * @LastEditTime: 2023-08-02 10:42:08
+ * @LastEditTime: 2023-08-25 16:55:17
  * @Description:
 -->
 <script lang="ts" setup>
@@ -170,7 +170,7 @@ const queryScheme: YoungSearchScheme<Query> = {
 
 const roleList = ref<SelectOptionItem<number>[]>([]);
 
-getList();
+useTabReOpen(getList);
 </script>
 <template>
   <ElCard>

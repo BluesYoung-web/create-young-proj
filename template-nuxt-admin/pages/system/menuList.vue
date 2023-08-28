@@ -1,7 +1,7 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-25 16:45:17
- * @LastEditTime: 2023-08-02 10:44:39
+ * @LastEditTime: 2023-08-25 16:55:00
  * @Description:
 -->
 <script lang="ts" setup>
@@ -261,7 +261,7 @@ const tableHead: TableHeadItem<NavArrItem>[] = [
   }
 ];
 
-getList();
+useTabReOpen(getList);
 </script>
 
 <template>
