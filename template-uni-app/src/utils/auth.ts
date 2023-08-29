@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-07-18 14:28:16
- * @LastEditTime: 2023-07-19 16:51:04
+ * @LastEditTime: 2023-08-29 10:22:48
  * @Description: 权限相关
  */
 /**
@@ -123,3 +123,73 @@ export const authLocation = async (cancelback = true, isShowModal = true) =>
       },
     });
   });
+
+/**
+ * 获取本机支持的生物认证信息
+ */
+export const getAuthInfo = async () => {
+  return new Promise<UniApp.CheckIsSupportSoterAuthenticationRes['supportMode'] | false>(
+    (resolve) => {
+      uni.checkIsSupportSoterAuthentication({
+        success(res) {
+          resolve(res.supportMode);
+        },
+        fail(err) {
+          console.log('🚀 ~ file: auth.ts:234 ~ fail ~ err:', err);
+          resolve(false);
+        },
+      });
+    },
+  );
+};
+
+/**
+ * 检查本机是否录入过指纹
+ */
+export const checkFingerPrint = async () => {
+  return new Promise<boolean>((resolve) => {
+    uni.checkIsSoterEnrolledInDevice({
+      checkAuthMode: 'fingerPrint',
+      success: () => resolve(true),
+      fail: () => resolve(false),
+    });
+  });
+};
+
+/**
+ * 指纹认证
+ */
+export const fingerPrintAuth = async (signStr: string, authContent = '请验证本机指纹') => {
+  return new Promise<boolean>(async (resolve) => {
+    const authMethods = await getAuthInfo();
+    if (authMethods && authMethods.includes('fingerPrint')) {
+      uni.checkIsSupportSoterAuthentication({
+        async success(res) {
+          if (res.supportMode.includes('fingerPrint') && (await checkFingerPrint())) {
+            uni.startSoterAuthentication({
+              requestAuthModes: ['fingerPrint'],
+              challenge: signStr,
+              authContent,
+              success(res) {
+                console.log('success', res);
+                resolve(true);
+              },
+              fail(err) {
+                console.log('fail', err);
+                resolve(false);
+              },
+            });
+          } else {
+            resolve(false);
+          }
+        },
+        fail(err) {
+          console.log('fail', err);
+          resolve(false);
+        },
+      });
+    } else {
+      resolve(false);
+    }
+  });
+};
