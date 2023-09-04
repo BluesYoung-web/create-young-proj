@@ -1,7 +1,7 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-21 17:05:40
- * @LastEditTime: 2023-07-23 17:00:42
+ * @LastEditTime: 2023-09-04 09:27:21
  * @Description:
 -->
 <script lang="ts" setup>
@@ -61,7 +61,7 @@ const closeAllTab = () => {
 <template>
   <div class="tabs-bar-container">
     <div class="tabs-content">
-      <ElTabs v-if="visitedViews.length > 0" type="card" v-model="$route.path" @tab-click="tabClick"
+      <ElTabs v-if="visitedViews.length > 0" type="card" :model-value="$route.path" @tab-click="tabClick"
         @tab-remove="removeTab">
         <ElTabPane v-for="item in visitedViews" type="card" :key="item.path" :path="item.path"
           :label="(item.meta.title as string)" :name="item.path" :closable="!isAffix(item)">
