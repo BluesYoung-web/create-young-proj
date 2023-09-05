@@ -19,7 +19,6 @@
     "dev": "unbuild --stub",
     "build": "unbuild",
     "format": "rome format . --write",
-    "release": "changelogen && bumpp --no-push",
     "push": "pnpm publish --access public"
   },
   "keywords": [
@@ -39,14 +38,12 @@
   "author": "BluesYoung-web",
   "license": "MIT",
   "devDependencies": {
-    "bumpp": "^8.2.1",
-    "changelogen": "^0.4.0",
+    "@types/node": "16",
     "cross-spawn": "^7.0.3",
     "kolorist": "^1.6.0",
     "minimist": "^1.2.7",
     "prompts": "^2.4.2",
     "rome": "^10.0.1",
-    "unbuild": "^1.0.1",
-    "@types/node": "16"
+    "unbuild": "^1.0.1"
   }
 }
