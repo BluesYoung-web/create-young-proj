@@ -1,5 +1,25 @@
 # 基于 uni-app + vue3 + ts + pinia + unocss 的小程序模板
 
+## 配套 git 提交工具
+
+### 安装
+
+```bash
+npm i -g young-commit
+```
+
+### 使用
+
+- 正常使用 `git add` 将要提交的文件添加到暂存区
+
+- 提交步骤使用 `yc` 或者 `young-commit` 进行提交
+
+#### 命令选项
+
+- `yc -i` 初始化(仅刚创建项目时使用，会自动执行 `git init`)
+
+- `yc -r` 进行版本发布，会根据之前的提交及最近一个 `tag` 生成 `changelog`
+
 ## Feature
 
 - 🚀 `Vue3` + `TS` 快速开发，类型友好，将 🐛 扼杀在摇篮之中
