@@ -1,6 +1,6 @@
 {
   "name": "create-young-proj",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "create project from template",
   "main": "index.mjs",
   "bin": {
