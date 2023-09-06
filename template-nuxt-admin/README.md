@@ -1,5 +1,7 @@
 # 基于 Nuxt 3 的后台
 
+[![code style](https://antfu.me/badge-code-style.svg)](https://github.com/antfu/eslint-config)
+
 ## 配套 git 提交工具
 
 ### 安装
@@ -9,6 +11,8 @@ npm i -g young-commit
 ```
 
 ### 使用
+
+> **依赖 which 命令，Windows 环境请在 git bash 内执行！！！**
 
 - 正常使用 `git add` 将要提交的文件添加到暂存区
 
@@ -20,7 +24,9 @@ npm i -g young-commit
 
 - `yc -r` 进行版本发布，会根据之前的提交及最近一个 `tag` 生成 `changelog`
 
-> **受限于 Nuxt3 的 keep-alive 机制，setup 直接执行 / onMounted 包裹的，需要替换为 useTabReOpen 包裹的**
+## ⚠️ 注意
+
+接口需要传递数组数据的，需要序列化为逗号拼接的字符串之后再传递！！！
 
 ## 使用响应式布局
 
@@ -33,7 +39,7 @@ npm i -g young-commit
 ### 抛出错误
 
 ```ts
-throw createError({ statusCode: 404, message: '数据迷路了' });
+throw createError({ statusCode: 404, message: '数据迷路了' })
 ```
 
 ### 响应式屏幕尺寸

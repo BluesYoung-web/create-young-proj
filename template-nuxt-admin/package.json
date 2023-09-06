@@ -1,44 +1,64 @@
 {
   "name": "nuxt-app",
+  "version": "0.0.0",
   "private": true,
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev --host",
     "generate": "nuxt generate",
     "preview": "nuxt preview --host",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "dependencies": {
+    "@bluesyoung/casdoor-auth": "^0.1.0",
+    "@bluesyoung/http": "^0.3.4",
+    "@bluesyoung/ui-vue3": "^0.1.1",
+    "@bluesyoung/ui-vue3-element-plus": "0.11.6",
+    "@bluesyoung/utils": "0.2.1",
+    "@wangeditor/editor": "^5.1.23",
+    "@wangeditor/editor-for-vue": "^5.1.12",
+    "c12": "^1.4.2",
+    "file-saver": "^2.0.5",
+    "http-proxy": "^1.18.1",
+    "jszip": "^3.10.1",
+    "md5": "^2.3.0",
+    "qrcode": "^1.5.3",
+    "sortablejs": "^1.15.0",
+    "vue-cropper": "^1.0.9"
   },
   "devDependencies": {
+    "@antfu/eslint-config": "^0.41.0",
     "@bluesyoung/logger": "^0.0.1",
     "@element-plus/nuxt": "^1.0.5",
     "@iconify/json": "^2.2.93",
     "@nuxt/devtools": "^0.8.2",
     "@pinia/nuxt": "^0.4.11",
     "@types/file-saver": "^2.0.5",
-    "@types/node": "20.5.7",
+    "@types/md5": "^2.3.2",
+    "@types/node": "20.5.9",
     "@types/qrcode": "^1.5.1",
-    "@unocss/nuxt": "^0.55.4",
+    "@unocss/nuxt": "^0.55.6",
     "@vant/nuxt": "^1.0.2",
     "@vueuse/nuxt": "^10.2.1",
+    "add": "^2.0.6",
     "dayjs": "^1.11.9",
     "element-plus": "^2.3.8",
-    "nuxt": "^3.7.0",
+    "eslint": "^8.48.0",
+    "lint-staged": "^14.0.1",
+    "nuxt": "^3.7.1",
     "nuxt-lazy-load": "^3.0.4",
     "pinia": "^2.1.4",
     "sass": "^1.64.0",
+    "simple-git-hooks": "^2.9.0",
+    "typescript": "^5.2.2",
     "vant": "^4.6.2"
   },
-  "dependencies": {
-    "@bluesyoung/http": "0.3.4",
-    "@bluesyoung/ui-vue3": "^0.1.1",
-    "@bluesyoung/ui-vue3-element-plus": "0.11.5",
-    "@bluesyoung/utils": "^0.2.1",
-    "c12": "^1.4.2",
-    "file-saver": "^2.0.5",
-    "http-proxy": "^1.18.1",
-    "jszip": "^3.10.1",
-    "qrcode": "^1.5.3",
-    "sortablejs": "^1.15.0",
-    "vue-cropper": "^0.6.2"
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
+  },
+  "lint-staged": {
+    "*": "eslint . --fix"
   }
 }
