@@ -5,7 +5,7 @@
  * @Description:
  * @unocss-include
  */
-import type { SelectOptionItem } from '@bluesyoung/ui-vue3-element-plus';
+import type { SelectOptionItem } from '@bluesyoung/ui-vue3-element-plus'
 
 export const MenuIcons = [
   'i-icon-park-solid-analysis',
@@ -19,9 +19,9 @@ export const MenuIcons = [
   'i-icon-park-solid-add-user',
   'i-typcn-device-desktop',
   'i-icon-park-solid-application-two',
-] as const;
+] as const
 
-export const MenuIconList: SelectOptionItem[] = MenuIcons.map((label) => ({
+export const MenuIconList: SelectOptionItem[] = MenuIcons.map(label => ({
   label,
   value: label,
-}));
+}))

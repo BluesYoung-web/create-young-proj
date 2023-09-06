@@ -5,42 +5,43 @@
  * @Description:
 -->
 <script lang="ts" setup>
-const { isCollapse } = storeToRefs(useNavStore());
-const { enter, isSupported } = useFullscreen();
+const { isCollapse } = storeToRefs(useNavStore())
+const { enter, isSupported } = useFullscreen()
 
-const fullTip = useLocalStorage('全屏提示', false);
+const fullTip = useLocalStorage('全屏提示', false)
 
 onMounted(() => {
-  const { innerWidth, innerHeight } = window;
+  const { innerWidth, innerHeight } = window
   if (innerHeight > innerWidth) {
-    isCollapse.value = true;
+    isCollapse.value = true
 
-    if (fullTip.value) {
-      return;
-    }
+    if (fullTip.value)
+      return
 
     if (!isSupported.value) {
       showDialog({
         title: '推荐使用场景',
         message: '系统浏览器 + 横屏使用',
-      }).finally(() => fullTip.value = true);
-    } else {
+      }).finally(() => fullTip.value = true)
+    }
+    else {
       showDialog({
         title: '推荐使用场景',
         message: '系统浏览器 + 全屏模式 + 横屏使用',
-        confirmButtonText: '进入全屏'
+        confirmButtonText: '进入全屏',
       }).then(async () => {
         try {
-          await enter();
-        } catch (e) {
-          showDialog({
-            message: '您的设备暂不支持全屏功能，请解锁系统方向锁定后横屏使用！'
-          });
+          await enter()
         }
-      }).catch(() => null).finally(() => fullTip.value = true);;
+        catch (e) {
+          showDialog({
+            message: '您的设备暂不支持全屏功能，请解锁系统方向锁定后横屏使用！',
+          })
+        }
+      }).catch(() => null).finally(() => fullTip.value = true)
     }
   }
-});
+})
 </script>
 
 <template>

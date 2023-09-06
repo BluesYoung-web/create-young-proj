@@ -5,17 +5,19 @@
  * @Description:
 -->
 <script lang="ts" setup>
-const { isCollapse } = storeToRefs(useNavStore());
+const { isCollapse } = storeToRefs(useNavStore())
 
-const title = window.__YOUNG_ENV__.NUXT_PUBLIC_TITLE;
-const logo = window.__YOUNG_ENV__.NUXT_PUBLIC_LOGIN_LOGO;
+const title = window.__YOUNG_ENV__.NUXT_PUBLIC_TITLE
+const logo = window.__YOUNG_ENV__.NUXT_PUBLIC_LOGIN_LOGO
 </script>
 
 <template>
   <div class="logo-container flex-center">
     <NuxtLink to="/">
-      <img class="logo" alt="logo" :src="logo" />
-      <h1 class="title" v-if="!(isCollapse || WindowSize['lt-lg'])">{{ title }}</h1>
+      <img class="logo" alt="logo" :src="logo">
+      <h1 v-if="!(isCollapse || WindowSize['lt-lg'])" class="title">
+        {{ title }}
+      </h1>
     </NuxtLink>
   </div>
 </template>

@@ -5,22 +5,23 @@
  * @Description:
 -->
 <script lang="ts" setup>
-import { ElConfigProvider } from 'element-plus';
-// @ts-ignore
-import locale from 'element-plus/dist/locale/zh-cn.mjs';
+import { ElConfigProvider } from 'element-plus'
 
-const app = useNuxtApp();
-const { isLoading } = storeToRefs(useNavStore());
+// @ts-expect-error
+import locale from 'element-plus/dist/locale/zh-cn.mjs'
+
+const app = useNuxtApp()
+const { isLoading } = storeToRefs(useNavStore())
 
 app.hook('page:start', () => {
-  console.log('loading...');
-  isLoading.value = true;
-});
+  console.log('loading...')
+  isLoading.value = true
+})
 
 app.hook('page:finish', () => {
-  console.log('loading end ...');
-  isLoading.value = false;
-});
+  console.log('loading end ...')
+  isLoading.value = false
+})
 </script>
 
 <template>
@@ -38,4 +39,3 @@ app.hook('page:finish', () => {
 @import 'vant/lib/index.css';
 @import '~/styles/index.scss';
 </style>
-

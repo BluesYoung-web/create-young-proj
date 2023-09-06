@@ -1,10 +1,10 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-05-25 19:45:20
- * @LastEditTime: 2023-07-28 17:35:11
+ * @LastEditTime: 2023-09-06 16:13:06
  * @Description:
  */
-import { resolve } from 'node:path';
+import { resolve } from 'node:path'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -56,7 +56,7 @@ export default defineNuxtConfig({
     // native: true,
     // js 实现，仅指令生效 v-lazy-load
     // directiveOnly: true,
-    // @ts-ignore js 实现的占位图
+    // @ts-expect-error js 实现的占位图
     defaultImage: '/image_placeholder.svg',
   },
 
@@ -66,9 +66,10 @@ export default defineNuxtConfig({
     },
   },
 
-  devtools: {
-    enabled: true,
-  },
+  // 开发调试工具，按需启用
+  // devtools: {
+  //   enabled: true,
+  // },
 
   modules: [
     '@vueuse/nuxt',
@@ -98,4 +99,4 @@ export default defineNuxtConfig({
       },
     },
   },
-});
+})

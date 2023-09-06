@@ -4,9 +4,10 @@
  * @LastEditTime: 2023-06-17 16:20:40
  * @Description:
  */
-import { type ServerOptions as HTTPProxyOptions } from 'http-proxy';
-import ProxyModule from 'http-proxy';
-import type { H3Event } from 'h3';
+import { type ServerOptions as HTTPProxyOptions } from 'http-proxy'
+import ProxyModule from 'http-proxy'
+import type { H3Event } from 'h3'
+
 /**
  * @param target 接口代理的具体地址
  * @param defaults 代理配置
@@ -16,20 +17,20 @@ import type { H3Event } from 'h3';
  *   await proxy.handle(event);
  * });
  */
-export const createTransparentProxy = (target: string, defaults: HTTPProxyOptions = {}) => {
-  const proxy = ProxyModule.createProxy();
+export function createTransparentProxy(target: string, defaults: HTTPProxyOptions = {}) {
+  const proxy = ProxyModule.createProxy()
   const handle = (event: H3Event, opts: HTTPProxyOptions = {}) => {
     return new Promise<void>((resolve, reject) => {
       proxy.web(event.node.req, event.node.res, { target, ...defaults, ...opts }, (error: any) => {
-        if (error.code !== 'ECONNRESET') {
-          reject(error);
-        }
-        resolve();
-      });
-    });
-  };
+        if (error.code !== 'ECONNRESET')
+          reject(error)
+
+        resolve()
+      })
+    })
+  }
   return {
     proxy,
     handle,
-  };
-};
+  }
+}

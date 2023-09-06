@@ -5,16 +5,16 @@
  * @Description:
 -->
 <script lang="ts" setup>
-import { useFormMode, YoungDialog, YoungTablePro, YoungPagination, YoungSelect, useQuery, YoungSearchForm } from '@bluesyoung/ui-vue3-element-plus';
-import type { TableDataItem, TableHeadItem, SelectOptionItem, YoungSearchScheme } from '@bluesyoung/ui-vue3-element-plus';
-import { deepClone } from '@bluesyoung/utils';
-import { ElButton } from 'element-plus';
+import { YoungDialog, YoungPagination, YoungSearchForm, YoungSelect, YoungTablePro, useFormMode, useQuery } from '@bluesyoung/ui-vue3-element-plus'
+import type { SelectOptionItem, TableDataItem, TableHeadItem, YoungSearchScheme } from '@bluesyoung/ui-vue3-element-plus'
+import { deepClone } from '@bluesyoung/utils'
+import { ElButton } from 'element-plus'
 
 definePageMeta({
-  title: '用户管理'
-});
+  title: '用户管理',
+})
 
-interface Form extends UserItem { op?: any; };
+interface Form extends UserItem { op?: any };
 const FORM_TEMP: Form = {
   id: 0,
   username: '',
@@ -22,8 +22,8 @@ const FORM_TEMP: Form = {
   mobile: '',
   roleId: 1,
   status: 1,
-  initPassword: ''
-};
+  initPassword: '',
+}
 const {
   isAdd,
   isEdit,
@@ -33,33 +33,33 @@ const {
   clear,
   form,
   formRef,
-  validForm
+  validForm,
 } = useFormMode<Form>(FORM_TEMP, {
   addCbk: async () => {
-    const res = await validForm() as boolean;
+    const res = await validForm() as boolean
     if (res) {
-      const v = deepClone(form.value);
-      await apis.post.addUserItem(v);
-      ElMessage.success('新增成功！');
+      const v = deepClone(form.value)
+      await apis.post.addUserItem(v)
+      ElMessage.success('新增成功！')
     }
-    return res;
+    return res
   },
   modCbk: async () => {
-    const res = await validForm() as boolean;
+    const res = await validForm() as boolean
     if (res) {
-      const v = deepClone(form.value);
-      await apis.patch.changeUserItem(v);
-      ElMessage.success('修改成功！');
+      const v = deepClone(form.value)
+      await apis.patch.changeUserItem(v)
+      ElMessage.success('修改成功！')
     }
-    return res;
+    return res
   },
   delCbk: async (row) => {
-    await apis.delete.deleteUser(row.id.toString());
-    ElMessage.success('删除成功！');
-    query.value.pageNum = 1;
+    await apis.delete.deleteUser(row.id.toString())
+    ElMessage.success('删除成功！')
+    query.value.pageNum = 1
   },
   cgEffect: () => getList(),
-});
+})
 
 const tableHead: TableHeadItem<Form>[] = [
   { prop: 'id', label: '用户ID' },
@@ -68,67 +68,71 @@ const tableHead: TableHeadItem<Form>[] = [
   { prop: 'role_name', label: '角色名称' },
   { prop: 'creator', label: '创建信息' },
   {
-    prop: 'op', label: '操作', width: '300px', fixed: 'right', render: (row) => h('div', [
+    prop: 'op',
+    label: '操作',
+    width: '300px',
+    fixed: 'right',
+    render: row => h('div', [
       hasPermission('/access/system/update/user') && h(ElButton, {
         type: 'primary',
         text: true,
         class: '!p-0',
-        onClick: () => edit(row)
+        onClick: () => edit(row),
       }, {
-        default: () => '编辑'
+        default: () => '编辑',
       }),
       hasPermission('/access/system/update/user') && h(ElButton, {
         type: 'warning',
         text: true,
         class: '!p-0',
-        onClick: () => changePwd(row)
+        onClick: () => changePwd(row),
       }, {
-        default: () => '修改密码'
+        default: () => '修改密码',
       }),
       hasPermission('/access/system/del/user') && h(ElButton, {
         type: 'danger',
         text: true,
         class: '!p-0',
-        onClick: () => del(row)
+        onClick: () => del(row),
       }, {
-        default: () => '删除'
-      })
-    ])
-  }
-];
-const tableData = ref<TableDataItem<Form>[]>([]);
+        default: () => '删除',
+      }),
+    ]),
+  },
+]
+const tableData = ref<TableDataItem<Form>[]>([])
 
-const getList = async () => {
-  const { list: role_list } = await apis.get.getRoleList({ noPagination: true });
+async function getList() {
+  const { list: role_list } = await apis.get.getRoleList({ noPagination: true })
   roleList.value = (role_list || []).map((item: RoleItem) => {
     return {
       label: item.name,
-      value: item.id
-    };
-  });
+      value: item.id,
+    }
+  })
 
-  const { list, pageNum, pageSize, total } = await apis.get.getUserList(query.value);
-  tableData.value = deepClone(list || []);
+  const { list, pageNum, pageSize, total } = await apis.get.getUserList(query.value)
+  tableData.value = deepClone(list || [])
 
-  query.value.pageNum = +pageNum || 1;
-  query.value.pageSize = +pageSize || 50;
-  query.value.total = +total || 0;
-};
+  query.value.pageNum = +pageNum || 1
+  query.value.pageSize = +pageSize || 50
+  query.value.total = +total || 0
+}
 
-const changePwd = (e: UserItem) => {
+function changePwd(e: UserItem) {
   ElMessageBox.prompt('请输入新密码').then(async ({ value }) => {
     value = value.trim()
     if (value) {
-      await apis.patch.changeUserItem({ id: e.id, newPassword: value });
-      ElMessage.success('修改成功！');
+      await apis.patch.changeUserItem({ id: e.id, newPassword: value })
+      ElMessage.success('修改成功！')
     }
-  }).catch(() => null);
-};
+  }).catch(() => null)
+}
 
 interface Query extends BaseQuery {
-  username: string;
-  mobile: string;
-  status: 0 | 1;
+  username: string
+  mobile: string
+  status: 0 | 1
 }
 
 const { query, reset } = useQuery<Query>(
@@ -138,10 +142,10 @@ const { query, reset } = useQuery<Query>(
     total: 0,
     username: '',
     mobile: '',
-    status: 1
+    status: 1,
   },
   getList,
-);
+)
 const queryScheme: YoungSearchScheme<Query> = {
   username: {
     type: 'input',
@@ -155,8 +159,8 @@ const queryScheme: YoungSearchScheme<Query> = {
     tip: '手机号',
     attrs: {
       placeholder: '请输入手机号',
-      maxlength: 11
-    }
+      maxlength: 11,
+    },
   },
   status: {
     type: 'select',
@@ -165,28 +169,33 @@ const queryScheme: YoungSearchScheme<Query> = {
       placeholder: '用户状态',
     },
     options: [{ label: '禁用', value: 0 }, { label: '启用', value: 1 }],
-  }
-};
+  },
+}
 
-const roleList = ref<SelectOptionItem<number>[]>([]);
+const roleList = ref<SelectOptionItem<number>[]>([])
 
-useTabReOpen(getList);
+useTabReOpen(getList)
 </script>
+
 <template>
   <ElCard>
     <YoungSearchForm v-model="query" :search-scheme="queryScheme" :on-search="getList" :on-reset="reset">
       <template #btns>
-        <ElButton v-permission="'/access/system/create/user'" type="success" @click="isAdd = true">添加用户</ElButton>
+        <ElButton v-permission="'/access/system/create/user'" type="success" @click="isAdd = true">
+          添加用户
+        </ElButton>
       </template>
     </YoungSearchForm>
   </ElCard>
 
-  <br />
+  <br>
 
   <ElCard>
     <YoungTablePro :table-data="tableData" :table-head="tableHead" />
-    <YoungPagination v-model:page="query.pageNum" v-model:limit="query.pageSize" :total="query.total"
-      @page-change="getList" />
+    <YoungPagination
+      v-model:page="query.pageNum" v-model:limit="query.pageSize" :total="query.total"
+      @page-change="getList"
+    />
   </ElCard>
 
   <YoungDialog :is-add="isAdd" :diff-form="form" :is-edit="isEdit" width="520px" @sure="sure" @clear="clear">
@@ -204,8 +213,10 @@ useTabReOpen(getList);
         <ElFormItem label="角色">
           <YoungSelect v-model="form.roleId" placeholder="请选择角色" :options="roleList" />
         </ElFormItem>
-        <ElFormItem v-if="isAdd" label="初始密码" prop="initPassword"
-          :rules="{ required: true, message: '请输初始密码', trigger: 'blur' }">
+        <ElFormItem
+          v-if="isAdd" label="初始密码" prop="initPassword"
+          :rules="{ required: true, message: '请输初始密码', trigger: 'blur' }"
+        >
           <ElInput v-model.trim="form.initPassword" class="!w-300px" />
         </ElFormItem>
       </ElForm>

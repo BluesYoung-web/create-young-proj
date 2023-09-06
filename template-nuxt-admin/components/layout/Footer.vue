@@ -5,7 +5,7 @@
  * @Description:
 -->
 <script setup lang="ts">
-const fullYear = new Date().getFullYear();
+const fullYear = new Date().getFullYear()
 </script>
 
 <template>

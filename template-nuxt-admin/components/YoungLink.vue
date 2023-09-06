@@ -5,8 +5,9 @@
  * @Description:
 -->
 <script lang="ts" setup>
-import { isHttpUrl } from '@bluesyoung/utils';
-defineProps<{ to: string }>();
+import { isHttpUrl } from '@bluesyoung/utils'
+
+defineProps<{ to: string }>()
 </script>
 
 <template>

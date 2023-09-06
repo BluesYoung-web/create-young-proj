@@ -5,42 +5,42 @@
  * @Description:
 -->
 <script lang="ts" setup>
-import type { SelectOptionItem } from '@bluesyoung/ui-vue3-element-plus';
-import { YoungCmdPopup } from '@bluesyoung/ui-vue3';
-import { isHttpUrl } from '@bluesyoung/utils';
+import type { SelectOptionItem } from '@bluesyoung/ui-vue3-element-plus'
+import { YoungCmdPopup } from '@bluesyoung/ui-vue3'
+import { isHttpUrl } from '@bluesyoung/utils'
 
-const { flat_nav_arr, nav_arr } = storeToRefs(useNavStore());
+const { flat_nav_arr, nav_arr } = storeToRefs(useNavStore())
 
-const cmdRef = ref();
-const searchStr = ref('');
-const options = ref<SelectOptionItem<string>[]>([]);
+const cmdRef = ref()
+const searchStr = ref('')
+const options = ref<SelectOptionItem<string>[]>([])
 
-const remoteMethod = (query: string) => {
+function remoteMethod(query: string) {
   if (query) {
     options.value = flat_nav_arr.value
-      .filter((item) => +item.visible === 1 && item.title?.toLowerCase().includes(query.toLowerCase()))
-      .map((item) => ({ label: item.title || '', value: item.component }));
-  } else {
-    options.value = [];
+      .filter(item => +item.visible === 1 && item.title?.toLowerCase().includes(query.toLowerCase()))
+      .map(item => ({ label: item.title || '', value: item.component }))
   }
-};
+  else {
+    options.value = []
+  }
+}
 
-const goPage = (url: string) => {
+function goPage(url: string) {
   if (url) {
-    if (isHttpUrl(url)) {
-      window.open(url);
-    } else {
-      navigateTo(url);
-    }
-    searchStr.value = '';
-    cmdRef.value?.hide();
-  }
-};
+    if (isHttpUrl(url))
+      window.open(url)
+    else
+      navigateTo(url)
 
+    searchStr.value = ''
+    cmdRef.value?.hide()
+  }
+}
 </script>
 
 <template>
-  <ElButton v-bind="$attrs" circle @click="cmdRef?.show()" title="菜单搜索">
+  <ElButton v-bind="$attrs" circle title="菜单搜索" @click="cmdRef?.show()">
     <div class="i-ic-baseline-manage-search" />
   </ElButton>
 
@@ -50,16 +50,20 @@ const goPage = (url: string) => {
         <div class="text-xl mb-4">
           快捷菜单搜索：
         </div>
-        <ElSelect :ref="el" class="w-260px" v-model="searchStr" filterable remote reserve-keyword
-          placeholder="请输入菜单关键字，点击选中即可跳转" :remote-method="remoteMethod" @change="goPage">
+        <ElSelect
+          :ref="el" v-model="searchStr" class="w-260px" filterable remote reserve-keyword
+          placeholder="请输入菜单关键字，点击选中即可跳转" :remote-method="remoteMethod" @change="goPage"
+        >
           <ElOption v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
         </ElSelect>
 
-        <br />
-        <ElTree :data="nav_arr" size="large" :props="{
-          children: 'children',
-          label: 'title'
-        }" accordion class="w-full self-start" @node-click="(n: NavArrItem) => goPage(n.component)" />
+        <br>
+        <ElTree
+          :data="nav_arr" size="large" :props="{
+            children: 'children',
+            label: 'title',
+          }" accordion class="w-full self-start" @node-click="(n: NavArrItem) => goPage(n.component)"
+        />
       </div>
     </template>
   </YoungCmdPopup>

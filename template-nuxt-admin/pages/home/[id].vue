@@ -8,15 +8,15 @@
 definePageMeta({
   title: '工作台',
   auth: false,
-  noCache: true
-});
+  noCache: true,
+})
 
-const { nick } = storeToRefs(useUserStore());
-const { nav_arr } = storeToRefs(useNavStore());
+const { nick } = storeToRefs(useUserStore())
+const { nav_arr } = storeToRefs(useNavStore())
 
 onMounted(() => {
-  nav_arr.value.length === 0 && generateNavData();
-});
+  nav_arr.value.length === 0 && generateNavData()
+})
 </script>
 
 <template>

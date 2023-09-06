@@ -5,22 +5,21 @@
  * @Description:
 -->
 <script lang="ts" setup>
-import { randomId } from '@bluesyoung/utils';
+import { randomId } from '@bluesyoung/utils'
 
 const props = withDefaults(defineProps<{
-  menuList?: NavArrItem[];
+  menuList?: NavArrItem[]
 }>(), {
-  menuList: () => []
-});
+  menuList: () => [],
+})
 
-const randomKey = randomId();
-const visibleMenu = computed(() => props.menuList.filter((n) => +n.visible === 1));
-const { isCollapse } = storeToRefs(useNavStore());
-const collapseMenu = () => {
-  if (WindowSize['lt-lg']) {
-    isCollapse.value = true;
-  }
-};
+const randomKey = randomId()
+const visibleMenu = computed(() => props.menuList.filter(n => +n.visible === 1))
+const { isCollapse } = storeToRefs(useNavStore())
+function collapseMenu() {
+  if (WindowSize['lt-lg'])
+    isCollapse.value = true
+}
 </script>
 
 <template>
@@ -32,7 +31,7 @@ const collapseMenu = () => {
         </ElIcon>
         <span>{{ subItem.title }}</span>
       </template>
-      <LayoutSubMenu :menuList="subItem.children" />
+      <LayoutSubMenu :menu-list="subItem.children" />
     </ElSubMenu>
     <ElMenuItem v-else :index="subItem.component + randomKey + index">
       <YoungLink :to="subItem.component" @click="collapseMenu">

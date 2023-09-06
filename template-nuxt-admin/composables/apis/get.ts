@@ -4,18 +4,18 @@
  * @LastEditTime: 2023-07-26 11:58:32
  * @Description:
  */
-import type { YoungHttp, YoungHttpFreeReq, YoungHttpAuthReq } from '@bluesyoung/http';
+import type { YoungHttp, YoungHttpAuthReq, YoungHttpFreeReq } from '@bluesyoung/http'
 
-export const useGet = (http: YoungHttp) => {
-  const FreeReq: YoungHttpFreeReq = (args) => http.freeReq({ method: 'GET', ...args });
-  const AuthReq: YoungHttpAuthReq = (args) => http.authReq({ method: 'GET', ...args });
+export function useGet(http: YoungHttp) {
+  const FreeReq: YoungHttpFreeReq = args => http.freeReq({ method: 'GET', ...args })
+  const AuthReq: YoungHttpAuthReq = args => http.authReq({ method: 'GET', ...args })
 
   return {
     /**
      * 发送短信验证码
      */
     sendCode: async (phone: string) => {
-      showToast(`todo: ${phone}发送短信验证码`);
+      showToast(`todo: ${phone}发送短信验证码`)
       // await FreeReq({ url: '/v1/user/sendCode', params: { phone } });
     },
     /**
@@ -24,14 +24,14 @@ export const useGet = (http: YoungHttp) => {
     getUserMenuTree: async () => {
       return AuthReq<Record<number, NavArrItem>>({
         url: '/menu/tree',
-      });
+      })
     },
     /**
      * 获取角色列表
      */
     getRoleList: async (params: Partial<BaseQuery> = {}) =>
       AuthReq<PagesData>({
-        url: `/role/list`,
+        url: '/role/list',
         params,
       }),
     /**
@@ -64,8 +64,8 @@ export const useGet = (http: YoungHttp) => {
      */
     getRoleMenuTree: async (id: number) =>
       AuthReq<{
-        list: NavArrItem[];
-        accessIds: number[];
+        list: NavArrItem[]
+        accessIds: number[]
       }>({
         url: `/menu/all/${id}`,
       }),
@@ -74,10 +74,10 @@ export const useGet = (http: YoungHttp) => {
      */
     getRoleApis: async (id: number) =>
       AuthReq<{
-        list: ApiItem[];
-        accessIds: number[];
+        list: ApiItem[]
+        accessIds: number[]
       }>({
         url: `/api/all/category/${id}`,
       }),
-  };
-};
+  }
+}

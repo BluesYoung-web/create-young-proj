@@ -5,48 +5,54 @@
  * @Description:
 -->
 <script lang="ts" setup>
-import { YoungSlideVerify } from '@bluesyoung/ui-vue3';
-import { useVerifyCode } from '@bluesyoung/ui-vue3-element-plus';
-import { isNumber } from '@bluesyoung/utils';
-type Props = {
-  modelValue: string;
-  tel: string;
-  maxlength?: number;
-};
+import { YoungSlideVerify } from '@bluesyoung/ui-vue3'
+import { useVerifyCode } from '@bluesyoung/ui-vue3-element-plus'
+import { isNumber } from '@bluesyoung/utils'
 
-const emit = defineEmits<{
-  (e: 'update:modelValue', v: string): void;
-  (e: 'enter'): void;
-}>();
+interface Props {
+  modelValue: string
+  tel: string
+  maxlength?: number
+}
 
 const props = withDefaults(defineProps<Props>(), {
-  maxlength: 6
-});
+  maxlength: 6,
+})
+
+const emit = defineEmits<{
+  (e: 'update:modelValue', v: string): void
+  (e: 'enter'): void
+}>()
 
 const canGet = computed(() => {
-  return props.tel.length === 11;
-});
+  return props.tel.length === 11
+})
 
 const {
   getCode,
   tip,
   showSlider,
   pass,
-  cancel
+  cancel,
 } = useVerifyCode(async () => {
-  await apis.get.sendCode(props.tel);
-  ElMessage.success('短信已发送至您的手机，请注意查收！');
-});
-
+  await apis.get.sendCode(props.tel)
+  ElMessage.success('短信已发送至您的手机，请注意查收！')
+})
 </script>
+
 <template>
   <div class="w-full">
-    <ElInput :model-value="modelValue" :maxlength="maxlength" @update:model-value="(e) => emit('update:modelValue', e)"
-      class="!h-52px" placeholder="请输入验证码" @keyup.enter="emit('enter')">
+    <ElInput
+      :model-value="modelValue" :maxlength="maxlength" class="!h-52px"
+      placeholder="请输入验证码" @update:model-value="(e) => emit('update:modelValue', e)" @keyup.enter="emit('enter')"
+    >
       <template #suffix>
-        <ElLink v-if="isNumber(+tip)" type="primary" :disabled="!canGet" :underline="false" @click="getCode">{{ tip }}
+        <ElLink v-if="isNumber(+tip)" type="primary" :disabled="!canGet" :underline="false" @click="getCode">
+          {{ tip }}
         </ElLink>
-        <div v-else>{{ tip }}</div>
+        <div v-else>
+          {{ tip }}
+        </div>
       </template>
     </ElInput>
     <YoungSlideVerify :show="showSlider" @success="pass" @close="cancel" />

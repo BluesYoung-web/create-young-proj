@@ -5,24 +5,24 @@
  * @Description:
 -->
 <script lang="ts" setup>
-import { useFormMode, YoungDialog, YoungTablePro, YoungPagination, YoungSelect, useQuery, YoungSearchForm } from '@bluesyoung/ui-vue3-element-plus';
-import type { TableDataItem, TableHeadItem, SelectOptionItem, YoungSearchScheme } from '@bluesyoung/ui-vue3-element-plus';
-import { deepClone } from '@bluesyoung/utils';
-import { ElButton, ElTag } from 'element-plus';
+import { YoungDialog, YoungPagination, YoungSearchForm, YoungSelect, YoungTablePro, useFormMode, useQuery } from '@bluesyoung/ui-vue3-element-plus'
+import type { SelectOptionItem, TableDataItem, TableHeadItem, YoungSearchScheme } from '@bluesyoung/ui-vue3-element-plus'
+import { deepClone } from '@bluesyoung/utils'
+import { ElButton, ElTag } from 'element-plus'
 
 definePageMeta({
-  title: '接口管理'
-});
+  title: '接口管理',
+})
 
-interface Form extends ApiItem { op?: any; };
+interface Form extends ApiItem { op?: any };
 const FORM_TEMP: Form = {
   id: 0,
   path: '',
   desc: '',
   method: 'POST',
   category: '',
-  roleIds: []
-};
+  roleIds: [],
+}
 const {
   isAdd,
   isEdit,
@@ -32,33 +32,33 @@ const {
   clear,
   form,
   formRef,
-  validForm
+  validForm,
 } = useFormMode<Form>(FORM_TEMP, {
   addCbk: async () => {
-    const res = await validForm() as boolean;
+    const res = await validForm() as boolean
     if (res) {
-      const v = deepClone(form.value);
-      await apis.post.addApiItem(v);
-      ElMessage.success('新增成功！');
+      const v = deepClone(form.value)
+      await apis.post.addApiItem(v)
+      ElMessage.success('新增成功！')
     }
-    return res;
+    return res
   },
   modCbk: async () => {
-    const res = await validForm() as boolean;
+    const res = await validForm() as boolean
     if (res) {
-      const v = deepClone(form.value);
-      await apis.patch.changeApiItem(v);
-      ElMessage.success('修改成功！');
+      const v = deepClone(form.value)
+      await apis.patch.changeApiItem(v)
+      ElMessage.success('修改成功！')
     }
-    return res;
+    return res
   },
   delCbk: async (row) => {
-    await apis.delete.deleteApi(row.id.toString());
-    ElMessage.success('删除成功！');
-    query.value.pageNum = 1;
+    await apis.delete.deleteApi(row.id.toString())
+    ElMessage.success('删除成功！')
+    query.value.pageNum = 1
   },
   cgEffect: () => getList(),
-});
+})
 const tableHead: TableHeadItem<Form>[] = [
   { prop: 'id', label: '接口ID' },
   { prop: 'desc', label: '接口描述' },
@@ -66,41 +66,45 @@ const tableHead: TableHeadItem<Form>[] = [
   { prop: 'path', label: '接口路径' },
   { prop: 'creator', label: '创建信息' },
   {
-    prop: 'method', label: '接口方法', render: (row) => h(ElTag, {
+    prop: 'method',
+    label: '接口方法',
+    render: row => h(ElTag, {
       effect: 'dark',
-      type: MethodObj[row.method]
+      type: MethodObj[row.method],
     },
-      {
-        default: () => row.method
-      }
-    )
+    {
+      default: () => row.method,
+    },
+    ),
   },
   {
-    prop: 'op', label: '操作', render: (row) => h('div', [
+    prop: 'op',
+    label: '操作',
+    render: row => h('div', [
       h(ElButton, { type: 'primary', link: true, onClick: () => edit(row) }, { default: () => '编辑' }),
-      h(ElButton, { type: 'danger', link: true, onClick: () => del(row) }, { default: () => '删除' })
-    ])
-  }
-];
-const tableData = ref<TableDataItem<Form>[]>([]);
+      h(ElButton, { type: 'danger', link: true, onClick: () => del(row) }, { default: () => '删除' }),
+    ]),
+  },
+]
+const tableData = ref<TableDataItem<Form>[]>([])
 
-const getList = async () => {
-  const { list: role_list } = await apis.get.getRoleList({ noPagination: true });
+async function getList() {
+  const { list: role_list } = await apis.get.getRoleList({ noPagination: true })
   roleList.value = (role_list || []).map((item: RoleItem) => {
     return {
       label: item.name,
-      value: item.id
-    };
-  });
+      value: item.id,
+    }
+  })
 
-  const { list, pageNum, pageSize, total } = await apis.get.getApiList(query.value);
-  tableData.value = deepClone(list || []);
-  query.value.pageNum = +pageNum || 1;
-  query.value.pageSize = +pageSize || 50;
-  query.value.total = +total || 0;
-};
+  const { list, pageNum, pageSize, total } = await apis.get.getApiList(query.value)
+  tableData.value = deepClone(list || [])
+  query.value.pageNum = +pageNum || 1
+  query.value.pageSize = +pageSize || 50
+  query.value.total = +total || 0
+}
 
-type Query = BaseQuery & Partial<Form>;
+type Query = BaseQuery & Partial<Form>
 const { query, reset } = useQuery<Query>(
   {
     pageNum: 1,
@@ -109,7 +113,7 @@ const { query, reset } = useQuery<Query>(
     path: '',
   },
   getList,
-);
+)
 const queryScheme: YoungSearchScheme<Query> = {
   path: {
     type: 'input',
@@ -118,27 +122,32 @@ const queryScheme: YoungSearchScheme<Query> = {
       placeholder: '请输入接口路径',
     },
   },
-};
+}
 
-const roleList = ref<SelectOptionItem<number>[]>([]);
+const roleList = ref<SelectOptionItem<number>[]>([])
 
-useTabReOpen(getList);
+useTabReOpen(getList)
 </script>
+
 <template>
   <ElCard>
     <YoungSearchForm v-model="query" :search-scheme="queryScheme" :on-search="getList" :on-reset="reset">
       <template #btns>
-        <ElButton type="success" @click="isAdd = true">添加接口</ElButton>
+        <ElButton type="success" @click="isAdd = true">
+          添加接口
+        </ElButton>
       </template>
     </YoungSearchForm>
   </ElCard>
 
-  <br />
+  <br>
 
   <ElCard>
     <YoungTablePro :table-data="tableData" :table-head="tableHead" />
-    <YoungPagination v-model:page="query.pageNum" v-model:limit="query.pageSize" :total="query.total"
-      @page-change="getList" />
+    <YoungPagination
+      v-model:page="query.pageNum" v-model:limit="query.pageSize" :total="query.total"
+      @page-change="getList"
+    />
   </ElCard>
   <YoungDialog :is-add="isAdd" :is-edit="isEdit" :diff-form="form" width="520px" @sure="sure" @clear="clear">
     <template #body>
@@ -150,11 +159,15 @@ useTabReOpen(getList);
           <ElInput v-model.trim="form.desc" class="!w-300px" />
         </ElFormItem>
         <ElFormItem label="请求方法">
-          <YoungSelect v-model="form.method" class="!w-300px"
-            :options="Object.keys(MethodObj).map((item) => ({ label: item, value: item }))" />
+          <YoungSelect
+            v-model="form.method" class="!w-300px"
+            :options="Object.keys(MethodObj).map((item) => ({ label: item, value: item }))"
+          />
         </ElFormItem>
-        <ElFormItem label="接口路径" prop="path"
-          :rules="{ message: '请填写合法的接口路径, eg: /user/list', trigger: 'blur', validator: (_: any, v: string) => /\/(.*)\/(.*)/.test(v) }">
+        <ElFormItem
+          label="接口路径" prop="path"
+          :rules="{ message: '请填写合法的接口路径, eg: /user/list', trigger: 'blur', validator: (_: any, v: string) => /\/(.*)\/(.*)/.test(v) }"
+        >
           <ElInput v-model.trim="form.path" class="!w-300px" />
         </ElFormItem>
         <ElFormItem label="关联角色">

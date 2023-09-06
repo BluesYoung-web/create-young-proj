@@ -5,9 +5,9 @@
  * @Description:
 -->
 <script lang="ts" setup>
-const { isCollapse } = storeToRefs(useNavStore());
+const { isCollapse } = storeToRefs(useNavStore())
 
-const collapseHandler = () => {
+function collapseHandler() {
   if (WindowSize['lt-lg']) {
     /**
      * 触发 Ctrl + K 事件
@@ -19,20 +19,23 @@ const collapseHandler = () => {
       cancelable: true,
       composed: true,
       view: window,
-    });
+    })
 
-    document.body.dispatchEvent(event);
-  } else {
-    isCollapse.value = !isCollapse.value;
+    document.body.dispatchEvent(event)
   }
-};
+  else {
+    isCollapse.value = !isCollapse.value
+  }
+}
 </script>
 
 <template>
   <div class="nav-bar-container flex justify-between">
     <div class="left-panel">
-      <div class="fold-unfold i-ep-expand" :class="[isCollapse ? '' : 'rotate-180']"
-        :title="`${(isCollapse ? '展开' : '收起')}菜单`" @click="collapseHandler" />
+      <div
+        class="fold-unfold i-ep-expand" :class="[isCollapse ? '' : 'rotate-180']"
+        :title="`${(isCollapse ? '展开' : '收起')}菜单`" @click="collapseHandler"
+      />
     </div>
     <div class="right-panel">
       <TopSearch />

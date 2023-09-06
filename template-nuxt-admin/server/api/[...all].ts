@@ -5,6 +5,6 @@
  * @Description:
  */
 export default eventHandler(async (event) => {
-  const proxy = createTransparentProxy(process.env.NUXT_PUBLIC_API_BASE as string);
-  await proxy.handle(event);
-});
+  const proxy = createTransparentProxy(process.env.NUXT_PUBLIC_API_BASE as string)
+  await proxy.handle(event)
+})

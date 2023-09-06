@@ -5,14 +5,15 @@
  * @Description:
 -->
 <script lang="ts" setup>
-const { toggle, isFullscreen, isSupported } = useFullscreen();
+const { toggle, isFullscreen, isSupported } = useFullscreen()
 
-const title = computed(() => isFullscreen.value ? '退出全屏' : '全屏');
+const title = computed(() => isFullscreen.value ? '退出全屏' : '全屏')
 </script>
 
 <template>
-  <ElButton v-if="isSupported" circle @click="toggle" :title="title">
+  <ElButton v-if="isSupported" circle :title="title" @click="toggle">
     <div
-      :class="[isFullscreen ? 'i-fluent:full-screen-minimize-24-filled' : 'i-fluent:full-screen-maximize-24-filled']" />
+      :class="[isFullscreen ? 'i-fluent:full-screen-minimize-24-filled' : 'i-fluent:full-screen-maximize-24-filled']"
+    />
   </ElButton>
 </template>

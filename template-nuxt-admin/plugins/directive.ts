@@ -4,7 +4,7 @@
  * @LastEditTime: 2023-07-31 14:33:10
  * @Description:
  */
-import { isString } from '@bluesyoung/utils';
+import { isString } from '@bluesyoung/utils'
 
 export default defineNuxtPlugin((nuxtApp) => {
   /**
@@ -12,15 +12,15 @@ export default defineNuxtPlugin((nuxtApp) => {
    */
   nuxtApp.vueApp.directive('permission', {
     mounted(el, binding) {
-      const { value } = binding;
+      const { value } = binding
 
       if (isString(value) && value) {
-        if (!hasPermission(value as unknown as string)) {
-          el.parentNode && el.parentNode.removeChild(el);
-        }
-      } else {
-        throw new Error(`need value! Like v-permission="'/access/get/list'"`);
+        if (!hasPermission(value as unknown as string))
+          el.parentNode && el.parentNode.removeChild(el)
+      }
+      else {
+        throw new Error('need value! Like v-permission="\'/access/get/list\'"')
       }
     },
-  });
-});
+  })
+})

@@ -7,7 +7,7 @@
 <template>
   <div class="w-100vw h-100vh flex justify-center items-center bg-[#333] opacity-80 fixed top-0 z-999999">
     <svg class="nuxt-spa-loading" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37 25" fill="none" width="80">
-      <path d="M24.236 22.006h10.742L25.563 5.822l-8.979 14.31a4 4 0 0 1-3.388 1.874H2.978l11.631-20 5.897 10.567"></path>
+      <path d="M24.236 22.006h10.742L25.563 5.822l-8.979 14.31a4 4 0 0 1-3.388 1.874H2.978l11.631-20 5.897 10.567" />
     </svg>
   </div>
 </template>

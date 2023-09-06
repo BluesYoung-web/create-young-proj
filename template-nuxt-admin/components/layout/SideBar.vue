@@ -5,7 +5,7 @@
  * @Description:
 -->
 <script lang="ts" setup>
-const { isCollapse, nav_arr } = storeToRefs(useNavStore());
+const { isCollapse, nav_arr } = storeToRefs(useNavStore())
 </script>
 
 <template>
@@ -13,9 +13,11 @@ const { isCollapse, nav_arr } = storeToRefs(useNavStore());
     <LayoutLogo />
 
     <ElScrollbar>
-      <ElMenu background-color="#001529" text-color="hsla(0,0%,100%,.65)" active-text-color="#fff" unique-opened
-        :collapse="isCollapse || WindowSize['lt-lg']" menu-trigger="click" :collapse-transition="false">
-        <LayoutSubMenu :menuList="nav_arr" />
+      <ElMenu
+        background-color="#001529" text-color="hsla(0,0%,100%,.65)" active-text-color="#fff" unique-opened
+        :collapse="isCollapse || WindowSize['lt-lg']" menu-trigger="click" :collapse-transition="false"
+      >
+        <LayoutSubMenu :menu-list="nav_arr" />
       </ElMenu>
     </ElScrollbar>
   </div>

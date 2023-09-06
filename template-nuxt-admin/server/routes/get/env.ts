@@ -7,7 +7,7 @@
 export default defineEventHandler(async (event) => {
   const envObj = {
     NUXT_PUBLIC_CURRENT_VERSION: process.env.PROJECT_VERSION || 'v0.0.1',
-  };
+  }
 
-  return envObj;
-});
+  return envObj
+})

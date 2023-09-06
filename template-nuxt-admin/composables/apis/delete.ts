@@ -4,17 +4,17 @@
  * @LastEditTime: 2023-07-26 11:56:39
  * @Description:
  */
-import type { YoungHttp, YoungHttpAuthReq } from '@bluesyoung/http';
+import type { YoungHttp, YoungHttpAuthReq } from '@bluesyoung/http'
 
-export const useDelete = (http: YoungHttp) => {
-  const AuthReq: YoungHttpAuthReq = (args) => http.authReq({ method: 'DELETE', ...args });
+export function useDelete(http: YoungHttp) {
+  const AuthReq: YoungHttpAuthReq = args => http.authReq({ method: 'DELETE', ...args })
 
   const del = async (url: string, ids: string) => {
     await AuthReq({
       url,
       data: { ids },
-    });
-  };
+    })
+  }
 
   return {
     /**
@@ -33,5 +33,5 @@ export const useDelete = (http: YoungHttp) => {
      * 删除角色
      */
     deleteRole: async (ids: string) => del('/role/delete/batch', ids),
-  };
-};
+  }
+}

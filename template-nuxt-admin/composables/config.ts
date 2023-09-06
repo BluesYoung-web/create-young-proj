@@ -10,4 +10,4 @@ export const MethodObj = {
   PATCH: 'warning',
   PUT: '',
   DELETE: 'danger',
-} as const;
+} as const

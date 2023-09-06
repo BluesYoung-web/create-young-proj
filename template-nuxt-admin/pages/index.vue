@@ -6,13 +6,13 @@
 -->
 <script setup lang="ts">
 definePageMeta({
-  noCache: true
-});
+  noCache: true,
+})
 
 navigateTo({
   path: '/home/index',
-  replace: true
-});
+  replace: true,
+})
 </script>
 
 <template>

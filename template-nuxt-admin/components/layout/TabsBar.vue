@@ -1,70 +1,72 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-21 17:05:40
- * @LastEditTime: 2023-09-04 09:27:21
+ * @LastEditTime: 2023-09-06 16:07:49
  * @Description:
 -->
 <script lang="ts" setup>
-import type { RouteLocationNormalized, RouteRecordRaw } from '.nuxt/vue-router';
+import type { RouteLocationNormalized, RouteRecordRaw } from '#vue-router'
 
-const route = useRoute();
-const tagsState = useTagsStore();
+const route = useRoute()
+const tagsState = useTagsStore()
 
-const { visitedViews } = storeToRefs(tagsState);
+const { visitedViews } = storeToRefs(tagsState)
 
-const tabClick = (e: any) => {
-  const currentName = e.paneName;
-  if (isActive(currentName)) {
-    return;
-  }
-  navigateTo(currentName);
-};
+function tabClick(e: any) {
+  const currentName = e.paneName
+  if (isActive(currentName))
+    return
 
-const isActive = (view: RouteLocationNormalized) => view.path === route.path;
-const isAffix = (route: RouteLocationNormalized | RouteRecordRaw) => route?.meta?.affix ?? false;
-
-const toLastView = (visitedViews: RouteLocationNormalized[]) => {
-  const lastView = visitedViews.slice(-1)[0];
-  if (lastView) {
-    navigateTo(lastView.fullPath);
-  }
-};
-
-const removeTab = (currentName: any) => {
-  const to = visitedViews.value.find((r) => r.path === currentName as string);
-  if (to) {
-    tagsState.delView(to);
-    isActive(to) && toLastView(visitedViews.value);
-  }
-
-  if (visitedViews.value.length === 0) {
-    navigateTo('/');
-  }
-};
-
-const closeCurrentTab = () => {
-  removeTab(route.path);
-};
-
-const closeOtherTab = () => {
-  const currentName = route.path;
-  const to = visitedViews.value.find((r) => r.path === currentName as string);
-  to && tagsState.delOtherViews(to);
+  navigateTo(currentName)
 }
 
-const closeAllTab = () => {
-  tagsState.delAllViews();
-  navigateTo('/');
-};
+const isActive = (view: RouteLocationNormalized) => view.path === route.path
+const isAffix = (route: RouteLocationNormalized | RouteRecordRaw) => route?.meta?.affix ?? false
+
+function toLastView(visitedViews: RouteLocationNormalized[]) {
+  const lastView = visitedViews.slice(-1)[0]
+  if (lastView)
+    navigateTo(lastView.fullPath)
+}
+
+function removeTab(currentName: any) {
+  const to = visitedViews.value.find(r => r.path === currentName as string)
+  if (to) {
+    tagsState.delView(to)
+    isActive(to) && toLastView(visitedViews.value)
+  }
+
+  if (visitedViews.value.length === 0)
+    navigateTo('/')
+}
+
+function closeCurrentTab() {
+  removeTab(route.path)
+}
+
+function closeOtherTab() {
+  const currentName = route.path
+  const to = visitedViews.value.find(r => r.path === currentName as string)
+  to && tagsState.delOtherViews(to)
+}
+
+function closeAllTab() {
+  tagsState.delAllViews()
+  navigateTo('/')
+}
 </script>
 
 <template>
   <div class="tabs-bar-container">
     <div class="tabs-content">
-      <ElTabs v-if="visitedViews.length > 0" type="card" :model-value="$route.path" @tab-click="tabClick"
-        @tab-remove="removeTab">
-        <ElTabPane v-for="item in visitedViews" type="card" :key="item.path" :path="item.path"
-          :label="(item.meta.title as string)" :name="item.path" :closable="!isAffix(item)">
+      <ElTabs
+        v-if="visitedViews.length > 0" type="card" :model-value="$route.path" @tab-click="tabClick"
+        @tab-remove="removeTab"
+      >
+        <ElTabPane
+          v-for="item in visitedViews" :key="item.path" type="card" :path="item.path"
+          :label="item.meta.title as string" :name="item.path" :closable="!isAffix(item)"
+        >
           <template #label>
             {{ item.meta.title }}
           </template>

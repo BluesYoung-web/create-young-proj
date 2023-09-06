@@ -4,10 +4,10 @@
  * @LastEditTime: 2023-07-26 16:37:45
  * @Description:
  */
-import type { YoungHttp, YoungHttpAuthReq } from '@bluesyoung/http';
+import type { YoungHttp, YoungHttpAuthReq } from '@bluesyoung/http'
 
-export const usePatch = (http: YoungHttp) => {
-  const AuthReq: YoungHttpAuthReq = (args) => http.authReq({ method: 'PATCH', ...args });
+export function usePatch(http: YoungHttp) {
+  const AuthReq: YoungHttpAuthReq = args => http.authReq({ method: 'PATCH', ...args })
 
   return {
     /**
@@ -17,7 +17,7 @@ export const usePatch = (http: YoungHttp) => {
       await AuthReq({
         url: `/api/update/${id}`,
         data,
-      });
+      })
     },
     /**
      * 更新菜单信息
@@ -26,7 +26,7 @@ export const usePatch = (http: YoungHttp) => {
       await AuthReq({
         url: `/menu/update/${id}`,
         data,
-      });
+      })
     },
     /**
      * 更新角色
@@ -35,7 +35,7 @@ export const usePatch = (http: YoungHttp) => {
       await AuthReq({
         url: `/role/update/${id}`,
         data,
-      });
+      })
     },
     /**
      * 更新角色菜单权限
@@ -47,7 +47,7 @@ export const usePatch = (http: YoungHttp) => {
           create: add,
           delete: del,
         },
-      });
+      })
     },
     /**
      * 更新角色接口权限
@@ -59,7 +59,7 @@ export const usePatch = (http: YoungHttp) => {
           create: add,
           delete: del,
         },
-      });
+      })
     },
     /**
      * 更新用户信息
@@ -68,7 +68,7 @@ export const usePatch = (http: YoungHttp) => {
       await AuthReq({
         url: `/user/update/${id}`,
         data,
-      });
+      })
     },
-  };
-};
+  }
+}

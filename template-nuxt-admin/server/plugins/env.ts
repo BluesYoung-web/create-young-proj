@@ -4,12 +4,12 @@
  * @LastEditTime: 2023-07-31 17:52:20
  * @Description:
  */
-import { resolve } from 'node:path';
-import { loadConfig } from 'c12';
-import { useYoungLogger } from '@bluesyoung/logger';
+import { resolve } from 'node:path'
+import { loadConfig } from 'c12'
+import { useYoungLogger } from '@bluesyoung/logger'
 
 export default defineNitroPlugin(async (nitroApp) => {
-  const env = (process.env.DEPLOY_ENV as 'dev' | 'test' | 'online') || 'dev';
+  const env = (process.env.DEPLOY_ENV as 'dev' | 'test' | 'online') || 'dev'
   const { config } = await loadConfig<Record<string, any>>({
     name: env,
     cwd: resolve(process.cwd(), 'config'),
@@ -26,7 +26,7 @@ export default defineNitroPlugin(async (nitroApp) => {
         'https://dogefs.s3.ladydaily.com/~/source/unsplash/photo-1688380692117-63178554d76d?ixid=M3wyNjY4NDZ8MHwxfHRvcGljfHxhZXU2ckwtajZld3x8fHx8Mnx8MTY5MDAxMDMzNnw&ixlib=rb-4.0.3&w=1920&h=1080&fmt=webp',
       NUXT_PUBLIC_LOGIN_LOGO: 'https://api.iconify.design/logos:nuxt-icon.svg?color=%23f74d49',
     },
-  });
+  })
 
   for (const key in config) {
     if (process.env[key]) {
@@ -39,24 +39,23 @@ export default defineNitroPlugin(async (nitroApp) => {
         config[key],
         ' -> ',
         '覆盖',
-      );
-      config[key] = process.env[key];
-    } else {
-      process.env[key] = config[key];
+      )
+      config[key] = process.env[key]
     }
-    if (!(key.indexOf('NUXT_PUBLIC_') === 0)) {
-      delete config[key];
+    else {
+      process.env[key] = config[key]
     }
+    if (!(key.indexOf('NUXT_PUBLIC_') === 0))
+      delete config[key]
   }
 
-  console.log('------------------------读取配置文件------------------------');
-  console.log(config);
-  console.log('-------------------------------------------------------------');
+  console.log('------------------------读取配置文件------------------------')
+  console.log(config)
+  console.log('-------------------------------------------------------------')
 
   // 仅打包之后格式化日志
-  if (process.env.NODE_ENV !== 'development') {
-    useYoungLogger();
-  }
+  if (process.env.NODE_ENV !== 'development')
+    useYoungLogger()
 
   nitroApp.hooks.hook('render:html', (html, { event }) => {
     // 直接注入环境变量到前端
@@ -76,7 +75,7 @@ export default defineNitroPlugin(async (nitroApp) => {
         });
     }, 6e4);
     </script>
-    `);
+    `)
 
     // 移动端调试控制台，需要使用就放开下面的注释
     // if (process.env.NODE_ENV === 'development' || process.env.NUXT_PUBLIC_ENABLE_CONSOLE) {
@@ -85,5 +84,5 @@ export default defineNitroPlugin(async (nitroApp) => {
     //   <script>eruda.init();</script>
     //   `);
     // }
-  });
-});
+  })
+})

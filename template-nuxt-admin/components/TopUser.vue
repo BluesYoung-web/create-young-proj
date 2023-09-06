@@ -5,20 +5,21 @@
  * @Description:
 -->
 <script lang="ts" setup>
-const { avatar, nick, cookie } = storeToRefs(useUserStore());
+const { avatar, nick, cookie } = storeToRefs(useUserStore())
 
-const loginOut = () => {
+function loginOut() {
   showDialog({
     title: '温馨提示',
     message: '确认退出登录？',
-    showCancelButton: true
+    showCancelButton: true,
   }).then(() => {
-    // @ts-ignore
-    cookie.value = undefined;
-    navigateTo(`/login?redirect=${encodeURIComponent(location.href.replace(location.origin, ''))}`);
-  }).catch(() => null);
-};
+    // @ts-expect-error
+    cookie.value = undefined
+    navigateTo(`/login?redirect=${encodeURIComponent(location.href.replace(location.origin, ''))}`)
+  }).catch(() => null)
+}
 </script>
+
 <template>
   <ElDropdown class="avatar-container" trigger="click">
     <div class="inline-flex justify-center items-center mx-2 hover:cursor-pointer">
@@ -27,7 +28,9 @@ const loginOut = () => {
         <div class="text-xl i-noto-v1-man-technologist-light-skin-tone" />
       </ElAvatar>
 
-      <div class="text-sm ml-2">{{ nick }}</div>
+      <div class="text-sm ml-2">
+        {{ nick }}
+      </div>
       <div class="mr-2 text-sm i-ion-md-arrow-dropdown" />
     </div>
     <template #dropdown>

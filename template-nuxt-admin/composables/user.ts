@@ -5,14 +5,14 @@
  * @Description:
  */
 export const useUserStore = defineStore('useUserStore', () => {
-  const cookie = useLocalStorage<UserLoginRes>('token', {} as UserLoginRes);
+  const cookie = useLocalStorage<UserLoginRes>('token', {} as UserLoginRes)
 
-  const hasLogin = computed(() => !!cookie.value?.uuid);
-  const avatar = computed(() => cookie.value?.headimgurl);
-  const nick = computed(() => cookie.value?.nickname);
-  const token = computed(() => cookie.value?.token);
+  const hasLogin = computed(() => !!cookie.value?.uuid)
+  const avatar = computed(() => cookie.value?.headimgurl)
+  const nick = computed(() => cookie.value?.nickname)
+  const token = computed(() => cookie.value?.token)
 
-  const SaveFlag = useLocalStorage('n天免登', true);
+  const SaveFlag = useLocalStorage('n天免登', true)
 
   return {
     cookie,
@@ -21,9 +21,8 @@ export const useUserStore = defineStore('useUserStore', () => {
     nick,
     token,
     SaveFlag,
-  };
-});
+  }
+})
 
-if (import.meta.hot) {
-  import.meta.hot.accept(acceptHMRUpdate(useUserStore, import.meta.hot));
-}
+if (import.meta.hot)
+  import.meta.hot.accept(acceptHMRUpdate(useUserStore, import.meta.hot))
