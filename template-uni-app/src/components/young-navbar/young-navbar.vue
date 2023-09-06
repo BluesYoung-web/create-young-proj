@@ -1,7 +1,7 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-19 09:03:51
- * @LastEditTime: 2023-07-20 15:18:33
+ * @LastEditTime: 2023-09-06 19:43:01
  * @Description:
 -->
 <script lang="ts" setup>
@@ -9,35 +9,35 @@ interface Props {
   /**
    * 是否是自定义导航
    */
-  custom?: boolean;
+  custom?: boolean
   /**
    * 是否返回
    */
-  isback?: boolean;
+  isback?: boolean
   /**
    * 标题
    */
-  title?: string;
+  title?: string
   /**
    * 标题颜色
    */
-  color?: string;
+  color?: string
   /**
    * 背景色
    */
-  bgcolor?: string;
+  bgcolor?: string
   /**
    * 是否固定
    */
-  fixed?: boolean;
+  fixed?: boolean
   /**
    * 等高的占位元素
    */
-  placeholder?: boolean;
+  placeholder?: boolean
   /**
    * 设置层级
    */
-  zIndex?: number;
+  zIndex?: number
   /**
    * 是否展示
    */
@@ -53,53 +53,54 @@ withDefaults(defineProps<Props>(), {
   fixed: true,
   placeholder: true,
   zIndex: 2,
-  ishow: true
-});
+  ishow: true,
+})
 
-const navHeight = getNavbarHeihgt();
+const navHeight = getNavbarHeihgt()
 
 // 页面数量 当只有一个页面且不是主页面的时候 back 图标变成 home 图标
 const pagesCount = computed(() => {
-  return getCurrentPages().length;
-});
+  return getCurrentPages().length
+})
 
 const pagesTitle = computed(() => {
-  const page = getCurrentPages()[pagesCount.value - 1];
-  let res = '';
+  const page = getCurrentPages()[pagesCount.value - 1]
+  let res = ''
   for (const key in Pages) {
-    const val = Pages[key as keyof typeof Pages]?.slice(1);
-    const route = page.route;
+    const val = Pages[key as keyof typeof Pages]?.slice(1)
+    const route = page.route
     if (route === val) {
-      res = key;
-      break;
+      res = key
+      break
     }
   }
-  return res;
-});
+  return res
+})
 
-const handleLeftClick = () => {
-  if (pagesCount.value === 1) {
-    relaunch(Pages.首页);
-  } else {
-    back();
-  }
-};
+function handleLeftClick() {
+  if (pagesCount.value === 1)
+    relaunch(Pages.首页)
+  else
+    back()
+}
 </script>
 
 <template>
   <view v-if="ishow">
     <view class="y__navbar">
-      <view class="y__navbar-wrap flex items-center relative box-border left-0"
-        :class="{ 'custom': custom, 'fixed': fixed || placeholder }"
-        :style="{ 'height': navHeight.customBarH + 'px', 'padding-top': navHeight.statusBarH + 'px', 'background': bgcolor, 'color': color, 'z-index': zIndex }">
+      <view
+        class="y__navbar-wrap flex items-center relative box-border left-0"
+        :class="{ custom, fixed: fixed || placeholder }"
+        :style="{ 'height': `${navHeight.customBarH}px`, 'padding-top': `${navHeight.statusBarH}px`, 'background': bgcolor, 'color': color, 'z-index': zIndex }"
+      >
         <!-- 返回  -->
-        <view class="action navbar-action__left" v-if="isback" @click="handleLeftClick">
+        <view v-if="isback" class="action navbar-action__left" @click="handleLeftClick">
           <template v-if="$slots.back">
             <slot name="back" />
           </template>
           <template v-else>
-            <image v-if="pagesCount === 1" src="@/static/h.png" class="w20px h20px"></image>
-            <image v-else src="@/static/back.png" class="w20px h20px"></image>
+            <image v-if="pagesCount === 1" src="@/static/h.png" class="w20px h20px" />
+            <image v-else src="@/static/back.png" class="w20px h20px" />
           </template>
           <slot name="backText" />
         </view>
@@ -110,7 +111,11 @@ const handleLeftClick = () => {
           <template v-if="$slots.title">
             <slot name="title" />
           </template>
-          <template v-else><text :style="{ 'color': color }">{{ title || pagesTitle }}</text></template>
+          <template v-else>
+            <text :style="{ color }">
+              {{ title || pagesTitle }}
+            </text>
+          </template>
         </view>
 
         <!-- //右侧 -->
@@ -119,10 +124,9 @@ const handleLeftClick = () => {
         </view>
       </view>
     </view>
-    <view :style="{ 'height': navHeight.customBarH + 'px' }" v-if="placeholder"></view>
+    <view v-if="placeholder" :style="{ height: `${navHeight.customBarH}px` }" />
   </view>
 </template>
-
 
 <style lang="scss" scoped>
 .nvuefont {
@@ -204,11 +208,6 @@ const handleLeftClick = () => {
   left: 50%;
   transform: translateX(-50%);
 }
-
-// .y__navbar-wrap .navbar-title:first-child {
-// 	font-size: 36rpx;
-// 	margin-left: 24rpx;
-// }
 
 .y__navbar-wrap .navbar-title.center {
   /* #ifdef APP-NVUE */

@@ -5,61 +5,65 @@
  * @Description:
 -->
 <script lang="ts" setup>
-import { Pages } from '@/config';
-import home from '@/static/home.png';
-import home_active from '@/static/home_active.png';
-import my from '@/static/my.png';
-import my_active from '@/static/my_active.png';
+import { Pages } from '@/config'
+import home from '@/static/home.png'
+import home_active from '@/static/home_active.png'
+import my from '@/static/my.png'
+import my_active from '@/static/my_active.png'
 
-type Tabbar = {
-  selectedIconPath: string;
-  iconPath: string;
-  text: string;
-  pagePath: Pages;
-};
+interface Tabbar {
+  selectedIconPath: string
+  iconPath: string
+  text: string
+  pagePath: Pages
+}
 
-withDefaults(defineProps<{ z?: number }>(), { z: 99 });
+withDefaults(defineProps<{ z?: number }>(), { z: 99 })
 
 const list = ref<Tabbar[]>([
   {
     text: '首页',
     iconPath: home,
     selectedIconPath: home_active,
-    pagePath: Pages.首页
+    pagePath: Pages.首页,
   },
   {
     text: '我的',
     iconPath: my,
     selectedIconPath: my_active,
-    pagePath: Pages.个人中心
-  }
-]);
+    pagePath: Pages.个人中心,
+  },
+])
 
 const current = computed(() => {
-  const [page] = getCurrentPages();
-  const route = page.route;
-  const index = list.value.findIndex(path => path.pagePath === '/' + route);
-  return index;
-});
+  const [page] = getCurrentPages()
+  const route = page.route
+  const index = list.value.findIndex(path => path.pagePath === `/${route}`)
+  return index
+})
 
-const tabChange = (index: number) => {
-  if (index === current.value) {
-    return;
-  }
-  tabbar(list.value[index].pagePath);
-};
+function tabChange(index: number) {
+  if (index === current.value)
+    return
 
-uni.hideTabBar();
+  tabbar(list.value[index].pagePath)
+}
+
+uni.hideTabBar()
 </script>
 
 <template>
   <view class="t-tabbar" :style="{ zIndex: z }">
-    <view @click="tabChange(index)" v-for="(item, index) in list" :key="index" class="t-tabbar__item"
-      :class="{ 't-bar__item_on': index === current }">
+    <view
+      v-for="(item, index) in list" :key="index" class="t-tabbar__item" :class="{ 't-bar__item_on': index === current }"
+      @click="tabChange(index)"
+    >
       <view style="position: relative;display:inline-block;">
-        <image :src="current === index ? item.selectedIconPath : item.iconPath" class="t-tabbar__icon"></image>
+        <image :src="current === index ? item.selectedIconPath : item.iconPath" class="t-tabbar__icon" />
       </view>
-      <view class="t-tabbar__label">{{ item.text }}</view>
+      <view class="t-tabbar__label">
+        {{ item.text }}
+      </view>
     </view>
   </view>
 </template>

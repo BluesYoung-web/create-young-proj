@@ -42,6 +42,6 @@ export enum Pages {
 /**
  * tabbar 页面
  */
-export const TabbarArr = [Pages.首页, Pages.个人中心];
+export const TabbarArr = [Pages.首页, Pages.个人中心]
 
 export enum UIEvents {}

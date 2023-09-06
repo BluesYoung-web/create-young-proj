@@ -8,8 +8,8 @@
  * 获取地图 API Key
  * todo: 秘钥替换
  */
-export const getMapApiKey = () => {
-  const MAP_API_KEY = '我是腾讯地图秘钥';
+export function getMapApiKey() {
+  const MAP_API_KEY = '我是腾讯地图秘钥'
 
-  return MAP_API_KEY;
-};
+  return MAP_API_KEY
+}

@@ -5,32 +5,32 @@
  * @Description:
 -->
 <script setup lang="ts">
-import { pages } from 'virtual:uni-pages';
+import { pages } from 'virtual:uni-pages'
 
 onLaunch(async () => {
-  console.log('App Launch');
-  console.log('环境变量：', import.meta.env);
-  const { pagesInfo } = storeToRefs(useSystemInfo());
-  pagesInfo.value = pages;
+  console.log('App Launch')
+  console.log('环境变量：', import.meta.env)
+  const { pagesInfo } = storeToRefs(useSystemInfo())
+  pagesInfo.value = pages
 
-  if (!getUuid()) {
-    setUuid();
-  }
-  await getSystemInfo();
-});
+  if (!getUuid())
+    setUuid()
+
+  await getSystemInfo()
+})
 
 onShow(async () => {
   /**
    * 自动更新
    */
-  const updateManager = uni.getUpdateManager();
+  const updateManager = uni.getUpdateManager()
 
-  updateManager.onCheckForUpdate(function (res) {
+  updateManager.onCheckForUpdate((res) => {
     // 请求完新版本信息的回调
     console.log(res.hasUpdate, 'onCheckForUpdate hasUpdate')
-  });
+  })
 
-  updateManager.onUpdateReady(function () {
+  updateManager.onUpdateReady(() => {
     showModal({
       title: '更新提示',
       content: '新版本已经准备好，是否重启应用？',
@@ -39,20 +39,19 @@ onShow(async () => {
           // 新的版本已经下载好，调用 applyUpdate 应用新版本并重启
           updateManager.applyUpdate()
         }
-      }
-    });
-  });
-  updateManager.onUpdateFailed(function () {
+      },
+    })
+  })
+  updateManager.onUpdateFailed(() => {
     // 新版本下载失败
-    showModal({ title: '更新提示', content: '新版本下载失败', showCancel: false });
-  });
-  console.log('App Show');
-});
+    showModal({ title: '更新提示', content: '新版本下载失败', showCancel: false })
+  })
+  console.log('App Show')
+})
 
 onHide(() => {
-  console.log('App Hide');
-});
-
+  console.log('App Hide')
+})
 </script>
 
 <style lang="scss">
@@ -61,7 +60,6 @@ onHide(() => {
 page {
   background-color: #f6f7fb;
 }
-
 
 .font-pf {
   font-family: PingFangSC-Semibold, PingFang SC;

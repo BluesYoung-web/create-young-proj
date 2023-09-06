@@ -4,9 +4,9 @@
  * @LastEditTime: 2023-07-19 14:32:28
  * @Description:
  */
-import type { Plugin } from 'vite';
+import type { Plugin } from 'vite'
 
-export const polyfillFormData = () => {
+export function polyfillFormData() {
   return {
     name: 'vite-plugin-uni-axios',
     transform(code, id) {
@@ -14,19 +14,19 @@ export const polyfillFormData = () => {
         if (id.includes('/form-data/lib/browser.js')) {
           return {
             code: code.replace('window', 'globalThis'),
-          };
+          }
         }
         if (id.includes('/axios/lib/platform/browser/classes/FormData.js')) {
           return {
-            code: `import FormData from 'miniprogram-formdata';\nexport default FormData;`,
-          };
+            code: 'import FormData from \'miniprogram-formdata\';\nexport default FormData;',
+          }
         }
         if (id.includes('/axios/lib/platform/browser/classes/Blob.js')) {
           return {
-            code: `import Blob from 'miniprogram-blob';\nexport default Blob;`,
-          };
+            code: 'import Blob from \'miniprogram-blob\';\nexport default Blob;',
+          }
         }
       }
     },
-  } as Plugin;
-};
+  } as Plugin
+}

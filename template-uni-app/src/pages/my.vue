@@ -15,14 +15,16 @@
 </route>
 
 <script lang="ts" setup>
-const { fullscreenLoading } = storeToRefs(useHttpLoading());
-fullscreenLoading.value = true;
+const { fullscreenLoading } = storeToRefs(useHttpLoading())
+fullscreenLoading.value = true
 
 setTimeout(() => {
-  fullscreenLoading.value = false;
-}, 3e3);
+  fullscreenLoading.value = false
+}, 3e3)
 </script>
 
 <template>
-  <h1 class="text-32">我是个人中心</h1>
+  <h1 class="text-32">
+    我是个人中心
+  </h1>
 </template>

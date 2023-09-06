@@ -4,15 +4,15 @@
  * @LastEditTime: 2023-07-20 12:42:02
  * @Description:
  */
-import { defineManifestConfig } from '@uni-helper/vite-plugin-uni-manifest';
+import { defineManifestConfig } from '@uni-helper/vite-plugin-uni-manifest'
 
 export default defineManifestConfig({
-  name: '',
-  appid: '',
-  description: '',
-  versionName: '1.0.0',
-  versionCode: '100',
-  transformPx: false,
+  'name': '',
+  'appid': '',
+  'description': '',
+  'versionName': '1.0.0',
+  'versionCode': '100',
+  'transformPx': false,
   /* 5+App特有相关 */
   'app-plus': {
     usingComponents: true,
@@ -55,7 +55,7 @@ export default defineManifestConfig({
     },
   },
   /* 快应用特有相关 */
-  quickapp: {},
+  'quickapp': {},
   /* 小程序特有相关 */
   'mp-weixin': {
     appid: '',
@@ -81,8 +81,8 @@ export default defineManifestConfig({
   'mp-toutiao': {
     usingComponents: true,
   },
-  uniStatistics: {
+  'uniStatistics': {
     enable: false,
   },
-  vueVersion: '3',
-});
+  'vueVersion': '3',
+})

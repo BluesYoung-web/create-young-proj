@@ -4,5 +4,5 @@
  * @LastEditTime: 2023-07-18 17:00:49
  * @Description:
  */
-export * from './get';
-export * from './post';
+export * from './get'
+export * from './post'

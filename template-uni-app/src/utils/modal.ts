@@ -1,12 +1,12 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-07-18 14:12:25
- * @LastEditTime: 2023-08-25 16:22:55
+ * @LastEditTime: 2023-09-06 19:42:19
  * @Description: ui 交互，弹窗之类的
  */
-import { sleep } from '@bluesyoung/utils';
+import { sleep } from '@bluesyoung/utils'
 
-let loadingCount = 0;
+let loadingCount = 0
 
 /**
  * 显示loading
@@ -14,21 +14,21 @@ let loadingCount = 0;
  * @param title - 提示文本
  */
 export function showLoading(title = '加载中...', mask = true) {
-  const { fullscreenLoading, smallLoading } = storeToRefs(useHttpLoading());
+  const { fullscreenLoading, smallLoading } = storeToRefs(useHttpLoading())
 
-  if (fullscreenLoading.value) {
-    return;
-  }
+  if (fullscreenLoading.value)
+    return
 
-  loadingCount++;
+  loadingCount++
 
   if (import.meta.env.VITE_CUSTOM_LOADING) {
-    smallLoading.value = true;
-  } else {
+    smallLoading.value = true
+  }
+  else {
     uni.showLoading({
       mask,
       title,
-    });
+    })
   }
 }
 
@@ -36,18 +36,16 @@ export function showLoading(title = '加载中...', mask = true) {
  * 隐藏loading
  */
 export function hideLoading() {
-  const { smallLoading, fullscreenLoading } = storeToRefs(useHttpLoading());
+  const { smallLoading, fullscreenLoading } = storeToRefs(useHttpLoading())
 
-  if (fullscreenLoading.value) {
-    return;
-  }
+  if (fullscreenLoading.value)
+    return
 
   if (--loadingCount === 0) {
-    if (import.meta.env.VITE_CUSTOM_LOADING) {
-      smallLoading.value = false;
-    } else {
-      uni.hideLoading();
-    }
+    if (import.meta.env.VITE_CUSTOM_LOADING)
+      smallLoading.value = false
+    else
+      uni.hideLoading()
   }
 }
 
@@ -55,61 +53,62 @@ export function hideLoading() {
  * 展示 toast
  */
 export function showToast(options?: UniApp.ShowToastOptions) {
-  const { icon = 'none', mask = false } = options || {};
+  const { icon = 'none', mask = false } = options || {}
 
   uni.showToast({
     icon,
     mask,
     ...options,
-  });
+  })
 }
 
-let hasModel = false;
-const modalPage = new Set<string>();
+let hasModel = false
+const modalPage = new Set<string>()
 /**
  * 显示弹窗
  * ! 全局一次只展示一个弹窗，其他的往后排
  */
 export async function showModal(options: UniApp.ShowModalOptions) {
-  const page = getCurrentPages();
-  const route = page[page.length - 1]?.route || '';
+  const page = getCurrentPages()
+  const route = page[page.length - 1]?.route || ''
   if (modalPage.has(route)) {
-    hasModel = true;
-  } else {
-    hasModel = false;
-    modalPage.add(route);
+    hasModel = true
   }
-  const { title = '提示', showCancel = true, complete } = options;
-  while (hasModel) {
-    await sleep(0.5);
+  else {
+    hasModel = false
+    modalPage.add(route)
   }
+  const { title = '提示', showCancel = true, complete } = options
+  // eslint-disable-next-line no-unmodified-loop-condition
+  while (hasModel)
+    await sleep(0.5)
+
   return new Promise((resolve, reject) => {
-    hasModel = true;
+    hasModel = true
     uni.showModal({
       title,
       showCancel,
       success(res) {
-        hasModel = false;
-        modalPage.delete(route);
-        if (res.confirm) {
-          resolve(res);
-        } else if (res.cancel) {
-          reject(res);
-        }
+        hasModel = false
+        modalPage.delete(route)
+        if (res.confirm)
+          resolve(res)
+        else if (res.cancel)
+          reject(res)
       },
       fail(err) {
-        hasModel = false;
-        modalPage.delete(route);
-        reject(err);
+        hasModel = false
+        modalPage.delete(route)
+        reject(err)
       },
       ...options,
       complete: (res) => {
-        hasModel = false;
-        modalPage.delete(route);
-        complete?.(res);
+        hasModel = false
+        modalPage.delete(route)
+        complete?.(res)
       },
-    });
-  });
+    })
+  })
 }
 
 /**
@@ -117,5 +116,5 @@ export async function showModal(options: UniApp.ShowModalOptions) {
  * @param errMsg - 错误信息
  */
 export function showErrorModal(errMsg: string) {
-  return showModal({ content: errMsg, showCancel: false });
+  return showModal({ content: errMsg, showCancel: false })
 }

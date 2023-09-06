@@ -4,9 +4,9 @@
  * @LastEditTime: 2023-02-14 12:09:16
  * @Description:
  */
-import presetWeapp from 'unocss-preset-weapp';
-import { transformerAttributify, transformerClass } from 'unocss-preset-weapp/transformer';
-import { defineConfig, transformerDirectives } from 'unocss';
+import presetWeapp from 'unocss-preset-weapp'
+import { transformerAttributify, transformerClass } from 'unocss-preset-weapp/transformer'
+import { defineConfig, transformerDirectives } from 'unocss'
 
 export default defineConfig({
   presets: [
@@ -27,4 +27,4 @@ export default defineConfig({
     // https://github.com/MellowCo/unocss-preset-weapp/tree/main/src/transformer/transformerClass
     transformerClass(),
   ],
-});
+})

@@ -4,23 +4,23 @@
  * @LastEditTime: 2023-07-20 14:10:56
  * @Description:
  */
-import { resolve } from 'node:path';
-import { defineConfig } from 'vite';
-import type { ConfigEnv } from 'vite';
-import Uni from '@dcloudio/vite-plugin-uni';
-import UniPages from '@uni-helper/vite-plugin-uni-pages';
-import UniLayouts from '@uni-helper/vite-plugin-uni-layouts';
-import UniManifest from '@uni-helper/vite-plugin-uni-manifest';
+import { resolve } from 'node:path'
+import { defineConfig } from 'vite'
+import type { ConfigEnv } from 'vite'
+import Uni from '@dcloudio/vite-plugin-uni'
+import UniPages from '@uni-helper/vite-plugin-uni-pages'
+import UniLayouts from '@uni-helper/vite-plugin-uni-layouts'
+import UniManifest from '@uni-helper/vite-plugin-uni-manifest'
 
-import Unocss from 'unocss/vite';
-import AutoImport from 'unplugin-auto-import/vite';
-import AutoComponents from 'unplugin-vue-components/vite';
-import { polyfillFormData, multiConf } from './custom-plugins';
+import Unocss from 'unocss/vite'
+import AutoImport from 'unplugin-auto-import/vite'
+import AutoComponents from 'unplugin-vue-components/vite'
+import { multiConf, polyfillFormData } from './custom-plugins'
 
 // https://vitejs.dev/config/
 export default ({ command, mode }: ConfigEnv) => {
-  console.log('🚀 ~ file: vite.config.ts:18 ~ mode:', mode);
-  console.log('🚀 ~ file: vite.config.ts:18 ~ command:', command);
+  console.log('🚀 ~ file: vite.config.ts:18 ~ mode:', mode)
+  console.log('🚀 ~ file: vite.config.ts:18 ~ command:', command)
   return defineConfig({
     resolve: {
       alias: {
@@ -60,5 +60,5 @@ export default ({ command, mode }: ConfigEnv) => {
 
       multiConf(mode),
     ],
-  });
-};
+  })
+}

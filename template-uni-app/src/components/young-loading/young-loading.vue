@@ -9,23 +9,28 @@ withDefaults(defineProps<{
   /**
    * 加载中的动图
    */
-  loadingGif?: string;
+  loadingGif?: string
   /**
    * 文本提示
    */
-  tip?: string;
+  tip?: string
 }>(), {
-  // @ts-ignore
+  // @ts-expect-error
   loadingGif: __wxConfig.accountInfo.icon,
-  tip: '加载中...'
-});
+  tip: '加载中...',
+})
 
-const { fullscreenLoading } = storeToRefs(useHttpLoading());
+const { fullscreenLoading } = storeToRefs(useHttpLoading())
 </script>
+
 <template>
-  <view v-show="fullscreenLoading"
-    class="w100vw h100vh fixed left-0 top-0 z-999999 bg-white flex flex-col items-center justify-center">
+  <view
+    v-show="fullscreenLoading"
+    class="w100vw h100vh fixed left-0 top-0 z-999999 bg-white flex flex-col items-center justify-center"
+  >
     <image :src="loadingGif" class="w140rpx h140rpx mb-32rpx" />
-    <text class="text-[#999] text-24rpx leading-36rpx">{{ tip }}</text>
+    <text class="text-[#999] text-24rpx leading-36rpx">
+      {{ tip }}
+    </text>
   </view>
 </template>

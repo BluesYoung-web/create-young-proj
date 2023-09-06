@@ -4,5 +4,5 @@
  * @LastEditTime: 2023-07-19 14:40:50
  * @Description:
  */
-export * from './polyfill';
-export * from './multiconf';
+export * from './polyfill'
+export * from './multiconf'

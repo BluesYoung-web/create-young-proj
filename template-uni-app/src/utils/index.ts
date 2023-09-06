@@ -4,8 +4,8 @@
  * @LastEditTime: 2023-07-18 15:30:03
  * @Description:
  */
-export * from './modal';
-export * from './auth';
-export * from './map';
-export * from './system';
-export * from './route';
+export * from './modal'
+export * from './auth'
+export * from './map'
+export * from './system'
+export * from './route'

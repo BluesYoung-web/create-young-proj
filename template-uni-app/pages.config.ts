@@ -4,7 +4,7 @@
  * @LastEditTime: 2023-07-20 12:02:37
  * @Description:
  */
-import { defineUniPages } from '@uni-helper/vite-plugin-uni-pages';
+import { defineUniPages } from '@uni-helper/vite-plugin-uni-pages'
 
 export default defineUniPages({
   lazyCodeLoading: 'requiredComponents',
@@ -31,18 +31,18 @@ export default defineUniPages({
     ],
   },
   globalStyle: {
-    pageOrientation: 'portrait',
-    navigationBarTitleText: 'demo',
-    navigationBarTextStyle: 'white',
-    navigationBarBackgroundColor: '#0D0D0D',
-    navigationStyle: 'custom',
-    backgroundColor: '#F2EAE0',
-    backgroundColorTop: '#F2EAE0',
-    backgroundColorBottom: '#F4F5F6',
+    'pageOrientation': 'portrait',
+    'navigationBarTitleText': 'demo',
+    'navigationBarTextStyle': 'white',
+    'navigationBarBackgroundColor': '#0D0D0D',
+    'navigationStyle': 'custom',
+    'backgroundColor': '#F2EAE0',
+    'backgroundColorTop': '#F2EAE0',
+    'backgroundColorBottom': '#F4F5F6',
     'mp-360': {
       navigationStyle: 'custom',
     },
-    h5: {
+    'h5': {
       maxWidth: 1190,
       navigationBarTextStyle: 'black',
       navigationBarBackgroundColor: '#FFFFFF',
@@ -55,4 +55,4 @@ export default defineUniPages({
       '^uni-(.*)': '@dcloudio/uni-ui/lib/uni-$1/uni-$1.vue',
     },
   },
-});
+})
