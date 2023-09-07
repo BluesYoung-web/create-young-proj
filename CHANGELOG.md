@@ -1,6 +1,31 @@
 # Changelog
 
 
+## v0.9.0
+
+[compare changes](https://github.com/BluesYoung-web/create-young-proj/compare/v0.8.0...v0.9.0)
+
+### 🚀 Enhancements
+
+- 🚀 代码优化 & 代码格式化 ([3690fbc](https://github.com/BluesYoung-web/create-young-proj/commit/3690fbc))
+- 🚀 代码格式化 & 代码优化 ([5f99e37](https://github.com/BluesYoung-web/create-young-proj/commit/5f99e37))
+
+### 🏡 Chore
+
+- ⚠️  🏡 代码格式化工具调整 ([f167ab8](https://github.com/BluesYoung-web/create-young-proj/commit/f167ab8))
+- ⚠️  🏡 修改 lint 工具 ([fa2bd72](https://github.com/BluesYoung-web/create-young-proj/commit/fa2bd72))
+- ⚠️  🏡 change rome to eslint ([ccd2f2e](https://github.com/BluesYoung-web/create-young-proj/commit/ccd2f2e))
+
+#### ⚠️ Breaking Changes
+
+- ⚠️  🏡 代码格式化工具调整 ([f167ab8](https://github.com/BluesYoung-web/create-young-proj/commit/f167ab8))
+- ⚠️  🏡 修改 lint 工具 ([fa2bd72](https://github.com/BluesYoung-web/create-young-proj/commit/fa2bd72))
+- ⚠️  🏡 change rome to eslint ([ccd2f2e](https://github.com/BluesYoung-web/create-young-proj/commit/ccd2f2e))
+
+### ❤️ Contributors
+
+- 张扬 <bluesyoung_web@163.com>
+
 ## v0.8.0
 
 [compare changes](https://github.com/BluesYoung-web/create-young-proj/compare/v0.7.0...v0.8.0)
