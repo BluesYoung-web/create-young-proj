@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.10.1
+
+[compare changes](https://github.com/BluesYoung-web/create-young-proj/compare/v0.10.0...v0.10.1)
+
+### 🩹 Fixes
+
+- 🩹 try to fix lint caused bug ([eeb2038](https://github.com/BluesYoung-web/create-young-proj/commit/eeb2038))
+
+### ❤️ Contributors
+
+- 张扬 <bluesyoung_web@163.com>
+
 ## v0.10.0
 
 [compare changes](https://github.com/BluesYoung-web/create-young-proj/compare/v0.9.0...v0.10.0)
