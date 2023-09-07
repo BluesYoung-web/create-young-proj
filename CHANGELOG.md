@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.10.0
+
+[compare changes](https://github.com/BluesYoung-web/create-young-proj/compare/v0.9.0...v0.10.0)
+
+### 🩹 Fixes
+
+- 🩹 fix lint caused bug ([b85a5f0](https://github.com/BluesYoung-web/create-young-proj/commit/b85a5f0))
+
+### ❤️ Contributors
+
+- 张扬 <bluesyoung_web@163.com>
+
 ## v0.9.0
 
 [compare changes](https://github.com/BluesYoung-web/create-young-proj/compare/v0.8.0...v0.9.0)
