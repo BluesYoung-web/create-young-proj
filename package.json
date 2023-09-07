@@ -2,6 +2,22 @@
   "name": "create-young-proj",
   "version": "0.8.0",
   "description": "create project from template",
+  "author": "BluesYoung-web",
+  "license": "MIT",
+  "homepage": "https://github.com/BluesYoung-web/create-young-proj/tree/main/packages/create-vite#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BluesYoung-web/create-young-proj.git"
+  },
+  "bugs": {
+    "url": "https://github.com/BluesYoung-web/create-young-proj/issues"
+  },
+  "keywords": [
+    "cli",
+    "project template",
+    "young project",
+    "vue"
+  ],
   "main": "index.mjs",
   "bin": {
     "create-young-proj": "index.mjs",
@@ -16,34 +32,29 @@
     "node": "^14.18.0 || >=16.0.0"
   },
   "scripts": {
-    "dev": "unbuild --stub",
+    "dev": "jiti ./src/index.ts",
     "build": "unbuild",
-    "format": "rome format . --write",
-    "push": "pnpm publish --access public"
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "postinstall": "simple-git-hooks"
   },
-  "keywords": [
-    "cli",
-    "project template",
-    "young project",
-    "vue"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/BluesYoung-web/create-young-proj.git"
-  },
-  "bugs": {
-    "url": "https://github.com/BluesYoung-web/create-young-proj/issues"
-  },
-  "homepage": "https://github.com/BluesYoung-web/create-young-proj/tree/main/packages/create-vite#readme",
-  "author": "BluesYoung-web",
-  "license": "MIT",
   "devDependencies": {
+    "@antfu/eslint-config": "^0.41.0",
     "@types/node": "16",
     "cross-spawn": "^7.0.3",
+    "eslint": "^8.48.0",
+    "jiti": "^1.19.3",
     "kolorist": "^1.6.0",
+    "lint-staged": "^14.0.1",
     "minimist": "^1.2.7",
     "prompts": "^2.4.2",
-    "rome": "^10.0.1",
+    "simple-git-hooks": "^2.9.0",
     "unbuild": "^1.0.1"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
   }
 }

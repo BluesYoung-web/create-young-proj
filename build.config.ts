@@ -4,7 +4,7 @@
  * @LastEditTime: 2022-12-03 16:46:53
  * @Description:
  */
-import { defineBuildConfig } from 'unbuild';
+import { defineBuildConfig } from 'unbuild'
 
 export default defineBuildConfig({
   entries: ['src/index'],
@@ -19,4 +19,4 @@ export default defineBuildConfig({
     // we can always use non-transpiled code since we support 14.18.0+
     prompts: 'prompts/lib/index.js',
   },
-});
+})
