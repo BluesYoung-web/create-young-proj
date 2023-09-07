@@ -24,7 +24,8 @@
     "cyp": "index.mjs"
   },
   "files": [
-    "index.js",
+    "index.mjs",
+    "init.mjs",
     "template-*",
     "dist"
   ],
@@ -36,13 +37,14 @@
     "build": "unbuild",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "postinstall": "simple-git-hooks"
+    "postinstall": "node ./init.mjs"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.41.0",
     "@types/node": "16",
     "cross-spawn": "^7.0.3",
     "eslint": "^8.48.0",
+    "execa": "^8.0.1",
     "jiti": "^1.19.3",
     "kolorist": "^1.6.0",
     "lint-staged": "^14.0.1",
