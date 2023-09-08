@@ -1,6 +1,27 @@
 # Changelog
 
 
+## v0.10.2
+
+[compare changes](https://github.com/BluesYoung-web/create-young-proj/compare/v0.10.1...v0.10.2)
+
+### 🚀 Enhancements
+
+- 🚀 统一提示 & 实现 n 天免登 ([5cfe018](https://github.com/BluesYoung-web/create-young-proj/commit/5cfe018))
+
+### 🩹 Fixes
+
+- 🩹 fix git hook not init ([666794f](https://github.com/BluesYoung-web/create-young-proj/commit/666794f))
+- 🩹 fix left nav height incorrect ([c0680e3](https://github.com/BluesYoung-web/create-young-proj/commit/c0680e3))
+
+### 📖 Documentation
+
+- 📖 update readme ([c98e03b](https://github.com/BluesYoung-web/create-young-proj/commit/c98e03b))
+
+### ❤️ Contributors
+
+- 张扬 <bluesyoung_web@163.com>
+
 ## v0.10.1
 
 [compare changes](https://github.com/BluesYoung-web/create-young-proj/compare/v0.10.0...v0.10.1)
