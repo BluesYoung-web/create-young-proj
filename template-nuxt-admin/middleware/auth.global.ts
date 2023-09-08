@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-07-21 10:02:19
- * @LastEditTime: 2023-08-02 14:57:03
+ * @LastEditTime: 2023-09-08 10:10:28
  * @Description:
  */
 export default defineNuxtRouteMiddleware(async (to, from) => {
@@ -30,12 +30,19 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
 
   if (!hasLogin.value && to.path !== '/login') {
     // 页面需要登录，但是未登录
-    showFailToast('未登录或登录过期，请重新登录')
-    return navigateTo(`/login?redirect=${encodeURIComponent(to.fullPath)}`)
+    showNotify({
+      type: 'danger',
+      message: '未登录或登录过期，请重新登录',
+    })
+    return navigateTo(`/login?redirect=${encodeURIComponent(to.fullPath)}`, {
+      replace: true,
+    })
   }
   else if (hasLogin.value && to.path === '/login') {
     // 已登录进入登录页
-    return navigateTo('/')
+    return navigateTo('/', {
+      replace: true,
+    })
   }
   else {
     nav_arr.value.length === 0 && (await generateNavData())

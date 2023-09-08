@@ -1,7 +1,7 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-21 10:03:11
- * @LastEditTime: 2023-08-02 10:39:05
+ * @LastEditTime: 2023-09-08 10:03:40
  * @Description:
 -->
 <script lang="ts" setup>
@@ -24,7 +24,7 @@ const {
   NUXT_PUBLIC_CURRENT_VERSION: Version,
 } = window.__YOUNG_ENV__
 
-const { SaveFlag, hasLogin, cookie } = storeToRefs(useUserStore())
+const { SaveFlag, hasLogin, cookie, Exptime } = storeToRefs(useUserStore())
 
 const loginType = ref<'account' | 'code'>('account')
 
@@ -46,6 +46,8 @@ function loginHandler() {
         const data = await apis.post.login(form)
         if (data) {
           cookie.value = data
+          // 三天后过期
+          Exptime.value = Date.now() + 1000 * 60 * 60 * 24 * 3
           height.value > width.value && enter()
           showSuccessToast('登录成功！')
           navigateTo('/')

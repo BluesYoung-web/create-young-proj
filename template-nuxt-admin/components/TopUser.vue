@@ -1,11 +1,12 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-21 16:31:41
- * @LastEditTime: 2023-07-24 15:04:21
+ * @LastEditTime: 2023-09-08 10:35:46
  * @Description:
 -->
 <script lang="ts" setup>
-const { avatar, nick, cookie } = storeToRefs(useUserStore())
+const user = useUserStore()
+const { avatar, nick } = storeToRefs(user)
 
 function loginOut() {
   showDialog({
@@ -13,8 +14,7 @@ function loginOut() {
     message: '确认退出登录？',
     showCancelButton: true,
   }).then(() => {
-    // @ts-expect-error
-    cookie.value = undefined
+    user.removeToken()
     navigateTo(`/login?redirect=${encodeURIComponent(location.href.replace(location.origin, ''))}`)
   }).catch(() => null)
 }

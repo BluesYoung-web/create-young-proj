@@ -1,18 +1,34 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-06-21 12:03:42
- * @LastEditTime: 2023-07-24 14:05:13
+ * @LastEditTime: 2023-09-08 10:33:28
  * @Description:
  */
 export const useUserStore = defineStore('useUserStore', () => {
   const cookie = useLocalStorage<UserLoginRes>('token', {} as UserLoginRes)
 
-  const hasLogin = computed(() => !!cookie.value?.uuid)
   const avatar = computed(() => cookie.value?.headimgurl)
   const nick = computed(() => cookie.value?.nickname)
-  const token = computed(() => cookie.value?.token)
+  const token = computed(() => {
+    if (!validateToken())
+      removeToken()
+
+    return cookie.value?.token
+  })
+  const hasLogin = computed(() => !!token.value)
 
   const SaveFlag = useLocalStorage('n天免登', true)
+  const Exptime = useLocalStorage('token过期时间', 0)
+
+  function validateToken() {
+    const now = Date.now()
+    const exp = Exptime.value
+    return now < exp
+  }
+
+  function removeToken() {
+    cookie.value = undefined
+  }
 
   return {
     cookie,
@@ -21,6 +37,8 @@ export const useUserStore = defineStore('useUserStore', () => {
     nick,
     token,
     SaveFlag,
+    Exptime,
+    removeToken,
   }
 })
 

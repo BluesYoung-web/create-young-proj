@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-06-20 17:14:58
- * @LastEditTime: 2023-07-26 11:56:53
+ * @LastEditTime: 2023-09-08 10:09:03
  * @Description:
  */
 import { useHttp } from '@bluesyoung/http'
@@ -29,25 +29,10 @@ const http = useHttp<{
   },
   fail: (err: any) => {
     console.log('🚀 ~ file: api.ts:28 ~ err:', err)
-    const { cookie } = storeToRefs(useUserStore())
+    const user = useUserStore()
     if (err?.response?.status === 401) {
-      showDialog({
-        title: '温馨提示',
-        message: '未登录或登录过期，请登录后再继续！',
-        showCancelButton: true,
-      })
-        .then(() => {
-          cookie.value && (cookie.value.uuid = '')
-          navigateTo(
-            `/login?redirect=${encodeURIComponent(location.href.replace(location.origin, ''))}`,
-          )
-        })
-        .catch(() => {
-          navigateTo({
-            path: '/',
-            replace: true,
-          })
-        })
+      user.removeToken()
+      checkLogin(true)
 
       throw err
     }

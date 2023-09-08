@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-05-28 16:01:24
- * @LastEditTime: 2023-07-31 14:45:23
+ * @LastEditTime: 2023-09-08 10:12:37
  * @Description:
  */
 import { randomId } from '@bluesyoung/utils'
@@ -56,16 +56,6 @@ export const WindowSize = reactive({
 })
 
 /**
- * 分页是否超过一页
- */
-export function moreThanOnePage(query: {
-  total: number
-  limit: number
-}) {
-  return query.total > query.limit
-}
-
-/**
  * 当前浏览器是否支持下载
  */
 export function isSupportDownload() {
@@ -81,23 +71,16 @@ export function checkLogin(force = true) {
   const { hasLogin } = storeToRefs(useUserStore())
 
   if (!hasLogin.value) {
-    force
-      && showDialog({
-        title: '温馨提示',
-        message: '未登录，请登录后再继续！',
-        showCancelButton: true,
+    if (force) {
+      showNotify({
+        type: 'danger',
+        message: '未登录或登录过期，请登录后再试',
       })
-        .then(() => {
-          navigateTo(
-            `/login?redirect=${encodeURIComponent(location.href.replace(location.origin, ''))}`,
-          )
-        })
-        .catch(() => {
-          navigateTo({
-            path: '/',
-            replace: true,
-          })
-        })
+
+      navigateTo(`/login?redirect=${encodeURIComponent(location.href.replace(location.origin, ''))}`, {
+        replace: true,
+      })
+    }
     return false
   }
   else {
@@ -122,61 +105,54 @@ export function useScrollOver(distance = 40) {
  */
 export async function generateNavData() {
   const { hasLogin } = storeToRefs(useUserStore())
-  if (!hasLogin.value) {
-    showNotify({
-      type: 'danger',
-      message: '登录过期，请重新登录！',
-    })
-
-    return navigateTo('/login')
-  }
-
-  // 清除没有子元素的children
-  const clearChildren = (arr: NavArrItem[]) => {
-    for (const item of arr) {
-      if (
-        item?.children?.length === 0
+  if (checkLogin(true)) {
+    // 清除没有子元素的children
+    const clearChildren = (arr: NavArrItem[]) => {
+      for (const item of arr) {
+        if (
+          item?.children?.length === 0
         || item.children?.filter(n => +n.visible === 1).length === 0
-      )
-        delete item.children
-      else if (item.children)
-        clearChildren(item.children)
-    }
-    return arr
-  }
-
-  const { nav_arr, flat_nav_arr, auth_routes } = storeToRefs(useNavStore())
-
-  const tree = await apis.get.getUserMenuTree()
-  const menu = Object.values(tree)
-
-  let role_route: string[] = []
-  const generateRoleRoute = (arr: NavArrItem[], num?: number): string[] => {
-    if (num === 1) {
-      role_route = []
-      flat_nav_arr.value = []
-    }
-    for (const item of arr) {
-      if (item.component) {
-        role_route.push(item.component);
-        +item.visible === 1 && flat_nav_arr.value.push(item)
+        )
+          delete item.children
+        else if (item.children)
+          clearChildren(item.children)
       }
-      // 子节点递归遍历
-      if (Array.isArray(item.children) && item.children.length > 0) {
-        const part = JSON.parse(JSON.stringify(item.children))
-        // 尾递归优化
-        generateRoleRoute(part)
-      }
+      return arr
     }
-    return role_route
-  }
 
-  auth_routes.value = generateRoleRoute(menu, 1)
+    const { nav_arr, flat_nav_arr, auth_routes } = storeToRefs(useNavStore())
 
-  /**
+    const tree = await apis.get.getUserMenuTree()
+    const menu = Object.values(tree)
+
+    let role_route: string[] = []
+    const generateRoleRoute = (arr: NavArrItem[], num?: number): string[] => {
+      if (num === 1) {
+        role_route = []
+        flat_nav_arr.value = []
+      }
+      for (const item of arr) {
+        if (item.component) {
+          role_route.push(item.component);
+          +item.visible === 1 && flat_nav_arr.value.push(item)
+        }
+        // 子节点递归遍历
+        if (Array.isArray(item.children) && item.children.length > 0) {
+          const part = JSON.parse(JSON.stringify(item.children))
+          // 尾递归优化
+          generateRoleRoute(part)
+        }
+      }
+      return role_route
+    }
+
+    auth_routes.value = generateRoleRoute(menu, 1)
+
+    /**
    * 最终导航数组
    */
-  nav_arr.value = clearChildren(menu.filter(item => +item.visible === 1))
+    nav_arr.value = clearChildren(menu.filter(item => +item.visible === 1))
+  }
 }
 
 /**

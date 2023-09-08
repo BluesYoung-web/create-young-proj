@@ -1,7 +1,7 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-24 14:21:55
- * @LastEditTime: 2023-08-02 10:38:16
+ * @LastEditTime: 2023-09-08 10:34:56
  * @Description:
 -->
 <script lang="ts" setup>
@@ -33,7 +33,7 @@ const form = reactive<LoginForm>({
   password: '',
 })
 
-const { cookie } = storeToRefs(useUserStore())
+const user = useUserStore()
 
 const formRef = ref<FormInstance>()
 function sure() {
@@ -41,11 +41,11 @@ function sure() {
     if (valid) {
       await apis.post.changePassword(form)
       hide()
-      await showDialog({
+      showNotify({
         message: '密码修改成功，请重新登录',
+        type: 'success',
       })
-      // @ts-expect-error
-      cookie.value = undefined
+      user.removeToken()
       const redirect = location.pathname === '/login' ? '/' : encodeURIComponent(location.href.replace(location.origin, ''))
       navigateTo(`/login?redirect=${redirect}`)
     }
