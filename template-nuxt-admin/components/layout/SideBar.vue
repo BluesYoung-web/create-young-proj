@@ -1,7 +1,7 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-21 12:25:23
- * @LastEditTime: 2023-09-04 09:24:44
+ * @LastEditTime: 2023-09-08 09:11:37
  * @Description:
 -->
 <script lang="ts" setup>
@@ -68,6 +68,7 @@ const { isCollapse, nav_arr } = storeToRefs(useNavStore())
 
   :deep(.el-scrollbar__wrap) {
     overflow-x: hidden;
+    height: calc(100vh - $base-nav-bar-height);
 
     .el-menu {
       border: 0;
