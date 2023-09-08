@@ -1,5 +1,11 @@
 # 从现有模板快速创建工程
 
+```bash
+npm create young-proj@latest
+yarn create young-proj@latest
+pnpm create young-proj@latest
+```
+
 🚧 WIP
 
 - [x] template-vue-thin
