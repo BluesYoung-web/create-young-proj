@@ -1,10 +1,12 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-06-20 17:14:58
- * @LastEditTime: 2023-09-08 10:09:03
+ * @LastEditTime: 2023-09-08 17:33:20
  * @Description:
  */
 import { useHttp } from '@bluesyoung/http'
+import type { LoadingInstance } from 'element-plus/es/components/loading/src/loading'
+import { ElLoadingService } from 'element-plus'
 import { useDelete, useGet, usePatch, usePost } from './apis'
 
 export function startLoading() {
@@ -17,6 +19,18 @@ export function endLoading() {
   isLoading.value = false
 }
 
+let loading: LoadingInstance
+
+export function ajaxStartLoading() {
+  loading = ElLoadingService({
+    lock: true,
+    text: '拼命加载中...',
+    background: 'rgba(0, 0, 0, 0.7)',
+  })
+}
+
+export const ajaxEndLoading = () => loading?.close?.()
+
 const http = useHttp<{
   code: number
   data: any
@@ -24,8 +38,8 @@ const http = useHttp<{
 }>({
   timeout: -1,
   loading: {
-    start: startLoading,
-    end: endLoading,
+    start: ajaxStartLoading,
+    end: ajaxEndLoading,
   },
   fail: (err: any) => {
     console.log('🚀 ~ file: api.ts:28 ~ err:', err)
