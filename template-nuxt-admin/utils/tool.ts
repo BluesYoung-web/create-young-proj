@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-05-28 16:01:24
- * @LastEditTime: 2023-09-08 10:12:37
+ * @LastEditTime: 2023-09-12 19:50:41
  * @Description:
  */
 import { randomId } from '@bluesyoung/utils'
@@ -180,4 +180,20 @@ export function useChangePassword() {
   document.body.appendChild(appendTo)
 
   vnode.component!.exposed?.show()
+}
+
+/**
+ * 修改状态二次确认
+ */
+export function useConfirm(cbk: () => Promise<any>, tip = '确定修改状态嘛？', successTip?: string) {
+  ElMessageBox.confirm(tip, '提示', {
+    type: 'warning',
+    confirmButtonText: '确定',
+    cancelButtonText: '取消',
+  })
+    .then(async () => {
+      await cbk()
+      successTip && ElMessage.success(successTip)
+    })
+    .catch(() => null)
 }
