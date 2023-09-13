@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-07-21 10:02:19
- * @LastEditTime: 2023-09-08 10:10:28
+ * @LastEditTime: 2023-09-13 09:45:34
  * @Description:
  */
 export default defineNuxtRouteMiddleware(async (to, from) => {
@@ -9,12 +9,24 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
     throw createError({ message: '页面不存在', statusCode: 404 })
 
   const { hasLogin } = storeToRefs(useUserStore())
-  const { nav_arr, flat_nav_arr } = storeToRefs(useNavStore())
+  const { nav_arr, flat_nav_arr, nodeMap, breadcrumb_arr } = storeToRefs(useNavStore())
 
   const changeTitle = () => {
-    const nav = flat_nav_arr.value.find(item => item.component === to.path)
-    if (nav && nav.title)
+    let nav = flat_nav_arr.value.find(item => item.component === to.path)
+
+    breadcrumb_arr.value.length = 0
+
+    if (nav && nav.title) {
       to.meta.title = nav.title
+
+      while (nav) {
+        breadcrumb_arr.value.unshift(nav.title!)
+        if (nav.parent_id)
+          nav = nodeMap.value.get(nav.parent_id.toString())
+        else
+          break
+      }
+    }
 
     document.title = (to.meta.title as string) || window.__YOUNG_ENV__.NUXT_PUBLIC_TITLE
   }

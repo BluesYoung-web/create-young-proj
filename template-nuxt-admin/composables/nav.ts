@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-06-01 12:03:44
- * @LastEditTime: 2023-07-28 17:43:00
+ * @LastEditTime: 2023-09-13 09:44:56
  * @Description:
  */
 export const useNavStore = defineStore('useNavStore', () => {
@@ -19,6 +19,20 @@ export const useNavStore = defineStore('useNavStore', () => {
    * 拥有权限的路由
    */
   const auth_routes = ref<string[]>([])
+
+  const breadcrumb_arr = ref<string[]>([])
+
+  /**
+   * 生成节点映射
+   */
+  const nodeMap = ref<Map<string, NavArrItem>>(new Map())
+  const generateNodeMap = (list: NavArrItem[]) => {
+    for (const node of list) {
+      nodeMap.value.set(node.id.toString(), node)
+      if (node.children && node.children?.length > 0)
+        generateNodeMap(node.children)
+    }
+  }
 
   const active_nav = ref('')
 
@@ -51,6 +65,9 @@ export const useNavStore = defineStore('useNavStore', () => {
     auth_routes,
     isLoading,
     isCollapse,
+    nodeMap,
+    breadcrumb_arr,
+    generateNodeMap,
   }
 })
 

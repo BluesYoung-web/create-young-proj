@@ -1,11 +1,11 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-21 16:38:20
- * @LastEditTime: 2023-07-28 16:37:04
+ * @LastEditTime: 2023-09-13 09:46:18
  * @Description:
 -->
 <script lang="ts" setup>
-const { isCollapse } = storeToRefs(useNavStore())
+const { isCollapse, breadcrumb_arr } = storeToRefs(useNavStore())
 
 function collapseHandler() {
   if (WindowSize['lt-lg']) {
@@ -36,6 +36,15 @@ function collapseHandler() {
         class="fold-unfold i-ep-expand" :class="[isCollapse ? '' : 'rotate-180']"
         :title="`${(isCollapse ? '展开' : '收起')}菜单`" @click="collapseHandler"
       />
+
+      <ElBreadcrumb separator="/" class="ml-10px" lt-md="hidden">
+        <ElBreadcrumbItem :to="{ path: '/' }">
+          首页
+        </ElBreadcrumbItem>
+        <ElBreadcrumbItem v-for="(title, index) in breadcrumb_arr" :key="`${index}fsdakjroe`">
+          {{ title }}
+        </ElBreadcrumbItem>
+      </ElBreadcrumb>
     </div>
     <div class="right-panel">
       <TopSearch />
