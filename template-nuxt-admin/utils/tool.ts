@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-05-28 16:01:24
- * @LastEditTime: 2023-09-12 19:50:41
+ * @LastEditTime: 2023-09-13 09:43:52
  * @Description:
  */
 import { randomId } from '@bluesyoung/utils'
@@ -185,7 +185,7 @@ export function useChangePassword() {
 /**
  * 修改状态二次确认
  */
-export function useConfirm(cbk: () => Promise<any>, tip = '确定修改状态嘛？', successTip?: string) {
+export function useConfirm(cbk: Function, tip = '确定修改状态嘛？', successTip?: string) {
   ElMessageBox.confirm(tip, '提示', {
     type: 'warning',
     confirmButtonText: '确定',
