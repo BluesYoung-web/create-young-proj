@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-06-01 12:03:44
- * @LastEditTime: 2023-09-13 09:44:56
+ * @LastEditTime: 2023-09-15 15:23:04
  * @Description:
  */
 export const useNavStore = defineStore('useNavStore', () => {
@@ -34,7 +34,7 @@ export const useNavStore = defineStore('useNavStore', () => {
     }
   }
 
-  const active_nav = ref('')
+  const nav_index_map = ref<Map<string, string>>(new Map())
 
   const isLoading = ref(false)
   const isCollapse = ref(false)
@@ -60,7 +60,7 @@ export const useNavStore = defineStore('useNavStore', () => {
     title,
     sub_title,
     nav_arr,
-    active_nav,
+    nav_index_map,
     flat_nav_arr,
     auth_routes,
     isLoading,

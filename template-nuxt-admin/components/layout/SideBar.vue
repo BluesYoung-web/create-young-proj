@@ -1,11 +1,14 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-21 12:25:23
- * @LastEditTime: 2023-09-08 09:11:37
+ * @LastEditTime: 2023-09-15 15:25:15
  * @Description:
 -->
 <script lang="ts" setup>
-const { isCollapse, nav_arr } = storeToRefs(useNavStore())
+const { isCollapse, nav_arr, nav_index_map } = storeToRefs(useNavStore())
+
+const route = useRoute()
+const active = computed(() => nav_index_map.value.get(route.path))
 </script>
 
 <template>
@@ -14,6 +17,7 @@ const { isCollapse, nav_arr } = storeToRefs(useNavStore())
 
     <ElScrollbar>
       <ElMenu
+        :default-active="active"
         background-color="#001529" text-color="hsla(0,0%,100%,.65)" active-text-color="#fff" unique-opened
         :collapse="isCollapse || WindowSize['lt-lg']" menu-trigger="click" :collapse-transition="false"
       >

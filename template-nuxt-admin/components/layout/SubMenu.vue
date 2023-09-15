@@ -1,7 +1,7 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-21 14:06:48
- * @LastEditTime: 2023-07-28 15:59:48
+ * @LastEditTime: 2023-09-15 15:24:33
  * @Description:
 -->
 <script lang="ts" setup>
@@ -15,7 +15,14 @@ const props = withDefaults(defineProps<{
 
 const randomKey = randomId()
 const visibleMenu = computed(() => props.menuList.filter(n => +n.visible === 1))
-const { isCollapse } = storeToRefs(useNavStore())
+const { isCollapse, nav_index_map } = storeToRefs(useNavStore())
+
+watch(() => visibleMenu.value, (v) => {
+  v.forEach((n, i) => {
+    nav_index_map.value.set(n.component, (n.component + randomKey + i))
+  })
+}, { immediate: true, deep: true })
+
 function collapseMenu() {
   if (WindowSize['lt-lg'])
     isCollapse.value = true
