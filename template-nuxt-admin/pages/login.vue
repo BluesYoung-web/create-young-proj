@@ -1,7 +1,7 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-21 10:03:11
- * @LastEditTime: 2023-09-08 10:03:40
+ * @LastEditTime: 2023-09-15 15:19:59
  * @Description:
 -->
 <script lang="ts" setup>
@@ -63,7 +63,7 @@ function loginHandler() {
   })
 }
 
-onMounted(() => {
+useTabNoCache(() => {
   if (SaveFlag.value && hasLogin.value) {
     navigateTo({
       path: '/',

@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-07-21 17:13:59
- * @LastEditTime: 2023-09-06 16:09:39
+ * @LastEditTime: 2023-09-11 10:51:08
  * @Description:
  */
 import type { RouteLocationNormalized } from 'vue-router'
@@ -13,6 +13,21 @@ export function useTabReOpen(cbk: Function = () => console.log('this tab page is
 
   tagState.$onAction(({ name, args, after }) => {
     if (name === 'addToCache') {
+      if (args[0].name === route.name)
+        after(() => cbk())
+    }
+  })
+
+  cbk()
+}
+
+// 不缓存
+export function useTabNoCache(cbk: Function = () => console.log('this tab page is no cache')) {
+  const tagState = useTagsStore()
+  const route = useRoute()
+
+  tagState.$onAction(({ name, args, after }) => {
+    if (name === 'addView') {
       if (args[0].name === route.name)
         after(() => cbk())
     }

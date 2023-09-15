@@ -28,6 +28,14 @@ npm i -g young-commit
 
 接口需要传递数组数据的，需要序列化为逗号拼接的字符串之后再传递！！！
 
+### 所有的页面都是默认缓存的
+
+- 原有的 route 代码块，使用 definePageMeta 宏进行定义
+
+- 所有需要 keep-alive 的页面，setup 里面直接执行的函数或者 onMounted 包裹的函数，全部替换为 useTabReOpen 进行包裹
+
+- 所有不需要 keep-alive 的页面，setup 里面直接执行的函数或者 onMounted 包裹的函数，全部替换为 useTabNoCache 进行包裹
+
 ## 使用响应式布局
 
 兼容 `PC` 端与移动端

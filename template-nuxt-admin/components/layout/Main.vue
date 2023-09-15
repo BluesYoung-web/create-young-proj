@@ -1,12 +1,12 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-21 11:55:27
- * @LastEditTime: 2023-09-06 16:03:36
+ * @LastEditTime: 2023-09-15 15:18:09
  * @Description:
 -->
 <template>
   <main class="app-main-height w-full">
-    <NuxtPage :keepalive="!$route.meta.noCache" />
+    <NuxtPage keepalive />
   </main>
 </template>
 
