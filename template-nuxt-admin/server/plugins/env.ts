@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2022-12-30 17:19:42
- * @LastEditTime: 2023-07-31 17:52:20
+ * @LastEditTime: 2023-09-16 16:27:56
  * @Description:
  */
 import { resolve } from 'node:path'
@@ -22,9 +22,8 @@ export default defineNitroPlugin(async (nitroApp) => {
       NUXT_PUBLIC_TITLE: 'XXX-后台管理系统',
       NUXT_PUBLIC_SUB_TITLE: '做XXX我们是认真的！',
       NUXT_PUBLIC_SLOGAN: 'XXXXX, XXXXX',
-      NUXT_PUBLIC_LOGIN_BG:
-        'https://dogefs.s3.ladydaily.com/~/source/unsplash/photo-1688380692117-63178554d76d?ixid=M3wyNjY4NDZ8MHwxfHRvcGljfHxhZXU2ckwtajZld3x8fHx8Mnx8MTY5MDAxMDMzNnw&ixlib=rb-4.0.3&w=1920&h=1080&fmt=webp',
-      NUXT_PUBLIC_LOGIN_LOGO: 'https://api.iconify.design/logos:nuxt-icon.svg?color=%23f74d49',
+      NUXT_PUBLIC_LOGIN_BG: '/bg.webp',
+      NUXT_PUBLIC_LOGIN_LOGO: '/logo.svg',
     },
   })
 

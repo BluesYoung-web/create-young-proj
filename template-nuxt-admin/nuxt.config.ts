@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-05-25 19:45:20
- * @LastEditTime: 2023-09-06 16:13:06
+ * @LastEditTime: 2023-09-16 16:34:29
  * @Description:
  */
 import { resolve } from 'node:path'
@@ -21,6 +21,10 @@ export default defineNuxtConfig({
         { name: 'creator', content: 'BluesYoung-web' },
       ],
       link: [
+        {
+          rel: 'icon',
+          href: '/favicon.svg',
+        },
         {
           rel: 'preload',
           as: 'image',

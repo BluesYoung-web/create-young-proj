@@ -284,7 +284,6 @@ useTabReOpen(getList)
         新建菜单
       </ElButton>
     </div>
-    <br>
     <!-- 节点列表 -->
     <YoungTablePro
       :table-data="tableData" :table-head="tableHead" :tree-props="{ children: 'children' }" row-key="id"
