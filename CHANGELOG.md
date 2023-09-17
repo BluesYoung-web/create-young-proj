@@ -1,6 +1,37 @@
 # Changelog
 
 
+## v0.11.0
+
+[compare changes](https://github.com/BluesYoung-web/create-young-proj/compare/v0.10.2...v0.11.0)
+
+### 🚀 Enhancements
+
+- 🚀 ajax loading ([dcdc971](https://github.com/BluesYoung-web/create-young-proj/commit/dcdc971))
+- 🚀 add tool ([6840c74](https://github.com/BluesYoung-web/create-young-proj/commit/6840c74))
+- 🚀 面包屑导航 ([88b2177](https://github.com/BluesYoung-web/create-young-proj/commit/88b2177))
+- 🚀 tag 联动菜单 ([9749524](https://github.com/BluesYoung-web/create-young-proj/commit/9749524))
+
+### 🩹 Fixes
+
+- ⚠️  🩹 完善 keep-alive 机制 ([5b3f22d](https://github.com/BluesYoung-web/create-young-proj/commit/5b3f22d))
+
+### 🌊 Types
+
+- 🌊 change type ([c90de37](https://github.com/BluesYoung-web/create-young-proj/commit/c90de37))
+
+### 🏡 Chore
+
+- 🏡 move bg to local & change ico ([0ee4cdd](https://github.com/BluesYoung-web/create-young-proj/commit/0ee4cdd))
+
+#### ⚠️ Breaking Changes
+
+- ⚠️  🩹 完善 keep-alive 机制 ([5b3f22d](https://github.com/BluesYoung-web/create-young-proj/commit/5b3f22d))
+
+### ❤️ Contributors
+
+- 张扬 <bluesyoung_web@163.com>
+
 ## v0.10.2
 
 [compare changes](https://github.com/BluesYoung-web/create-young-proj/compare/v0.10.1...v0.10.2)
