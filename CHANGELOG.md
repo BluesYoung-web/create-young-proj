@@ -1,6 +1,28 @@
 # Changelog
 
 
+## v0.12.0
+
+[compare changes](https://github.com/BluesYoung-web/create-young-proj/compare/v0.11.0...v0.12.0)
+
+### 🚀 Enhancements
+
+- 🚀 tab close cbk ([47f1f77](https://github.com/BluesYoung-web/create-young-proj/commit/47f1f77))
+- 🚀 完善 tabs bar 逻辑 ([a11f423](https://github.com/BluesYoung-web/create-young-proj/commit/a11f423))
+
+### 📖 Documentation
+
+- 📖 update readme ([1ecf817](https://github.com/BluesYoung-web/create-young-proj/commit/1ecf817))
+
+### 🏡 Chore
+
+- 🏡 删除废弃模板 ([e5b23f9](https://github.com/BluesYoung-web/create-young-proj/commit/e5b23f9))
+- 🏡 删除废弃选项 ([59b004e](https://github.com/BluesYoung-web/create-young-proj/commit/59b004e))
+
+### ❤️ Contributors
+
+- 张扬 <bluesyoung_web@163.com>
+
 ## v0.11.0
 
 [compare changes](https://github.com/BluesYoung-web/create-young-proj/compare/v0.10.2...v0.11.0)
