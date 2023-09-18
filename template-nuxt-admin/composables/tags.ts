@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-07-21 17:13:59
- * @LastEditTime: 2023-09-11 10:51:08
+ * @LastEditTime: 2023-09-18 14:11:18
  * @Description:
  */
 import type { RouteLocationNormalized } from 'vue-router'
@@ -34,6 +34,19 @@ export function useTabNoCache(cbk: Function = () => console.log('this tab page i
   })
 
   cbk()
+}
+
+// 关闭，用于替换 onUnmounted
+export function useTabClose(cbk: Function = () => console.log('this tab page is close')) {
+  const tagState = useTagsStore()
+  const route = useRoute()
+
+  tagState.$onAction(({ name, args, after }) => {
+    if (name === 'delView') {
+      if (args[0].name === route.name)
+        after(() => cbk())
+    }
+  })
 }
 
 export const useTagsStore = defineStore('useTagsStore', {
