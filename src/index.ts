@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2022-12-03 15:14:08
- * @LastEditTime: 2023-08-01 14:23:20
+ * @LastEditTime: 2023-09-18 14:06:13
  * @Description:
  */
 import fs from 'node:fs'
@@ -90,12 +90,6 @@ const FRAMEWORKS: Framework[] = [
         display: 'SolidJS + TS + Pinia + Unocss',
         color: blue,
         wip: true,
-      },
-      {
-        name: 'vue-admin',
-        display: 'Vue3 + ElementPlus + TS + Pinia + Unocss',
-        color: blue,
-        deprecated: true,
       },
     ],
   },
