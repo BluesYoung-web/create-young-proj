@@ -2,6 +2,48 @@
 
 [![code style](https://antfu.me/badge-code-style.svg)](https://github.com/antfu/eslint-config)
 
+## 与旧版的区别
+
+### 所有的页面都是默认缓存的
+
+- 原有的 route 代码块，使用 definePageMeta 宏进行定义
+
+- 所有需要 keep-alive 的页面，setup 里面直接执行的函数或者 onMounted 包裹的函数，全部替换为 useTabReOpen 进行包裹
+
+- 所有不需要 keep-alive 的页面，setup 里面直接执行的函数或者 onMounted 包裹的函数，全部替换为 useTabNoCache 进行包裹
+
+- onUnmounted 包裹的函数，全部替换为 useTabClose 进行包裹
+
+### 组件库(@bluesyoung/ui-vue3-element-plus)
+
+> 自 0.13.0 开始，YoungDialog 默认表现为 Drawer !!!, 可通过设置 as='dialog' 改为 Dialog
+
+### 其他
+
+- 路由跳转，使用 navigateTo 替换 router
+
+- 二次确认弹窗，统一使用 useConfirm(自带汉化，代码更精简)
+
+- prompt 情况更复杂，需自行汉化
+
+- alert 使用频率不高，自行汉化
+
+- 使用 tsx 代替 h:
+  - hooks 直接修改扩展名为 .tsx
+  - vue 内修改 lang 为 tsx
+
+- stores/* 已经被删除了，需要取数据，使用 pinia
+
+- 一些存在于 keep-alive 页面内的组件，需要在例如 @focus 内 getList()，或者使用 useTabReOpen 替换 onMounted
+
+- 尽量使用 YoungTablePro 而不是 YoungTable
+
+- 保持页面美观，页面内容全部使用 ElCard 进行包裹
+
+- **SelectOption 的值不要给 null ！！！**
+
+- **所有非原生的标签，统一使用大驼峰书写**
+
 ## 配套 git 提交工具
 
 ### 安装
@@ -12,7 +54,6 @@ npm i -g young-commit
 
 ### 使用
 
-> **依赖 which 命令，Windows 环境请在 git bash 内执行！！！**
 
 - 正常使用 `git add` 将要提交的文件添加到暂存区
 
@@ -27,14 +68,6 @@ npm i -g young-commit
 ## ⚠️ 注意
 
 接口需要传递数组数据的，需要序列化为逗号拼接的字符串之后再传递！！！
-
-### 所有的页面都是默认缓存的
-
-- 原有的 route 代码块，使用 definePageMeta 宏进行定义
-
-- 所有需要 keep-alive 的页面，setup 里面直接执行的函数或者 onMounted 包裹的函数，全部替换为 useTabReOpen 进行包裹
-
-- 所有不需要 keep-alive 的页面，setup 里面直接执行的函数或者 onMounted 包裹的函数，全部替换为 useTabNoCache 进行包裹
 
 ## 使用响应式布局
 
