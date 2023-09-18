@@ -1,7 +1,7 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-21 17:05:40
- * @LastEditTime: 2023-09-06 16:07:49
+ * @LastEditTime: 2023-09-18 14:14:12
  * @Description:
 -->
 <script lang="ts" setup>
@@ -21,7 +21,7 @@ function tabClick(e: any) {
 }
 
 const isActive = (view: RouteLocationNormalized) => view.path === route.path
-const isAffix = (route: RouteLocationNormalized | RouteRecordRaw) => route?.meta?.affix ?? false
+const isAffix = (route: RouteLocationNormalized | RouteRecordRaw) => visitedViews.value.length === 1 || (route?.meta?.affix ?? false)
 
 function toLastView(visitedViews: RouteLocationNormalized[]) {
   const lastView = visitedViews.slice(-1)[0]
@@ -74,8 +74,8 @@ function closeAllTab() {
       </ElTabs>
     </div>
     <div class="tabs-action">
-      <ElDropdown trigger="click">
-        <ElIcon color="rgba(0, 0, 0, 0.65)" :size="20">
+      <ElDropdown trigger="click" :disabled="visitedViews.length <= 1">
+        <ElIcon color="rgba(0, 0, 0, 0.65)" :size="20" :class="[visitedViews.length <= 1 ? '!cursor-not-allowed' : '!cursor-pointer']">
           <div class="i-ep-menu" />
         </ElIcon>
         <template #dropdown>
@@ -108,7 +108,6 @@ function closeAllTab() {
 <style lang="scss" scoped>
 .tabs-action {
   padding-bottom: 5px;
-  cursor: pointer;
 
   :deep(.el-icon) {
     transition: all 0.3s;
