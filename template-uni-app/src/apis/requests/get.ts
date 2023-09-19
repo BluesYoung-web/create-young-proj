@@ -1,14 +1,14 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-07-18 16:50:32
- * @LastEditTime: 2023-07-18 17:08:14
+ * @LastEditTime: 2023-09-19 10:19:44
  * @Description:
  */
-import type { Http } from '../lib'
+import type { YoungHttp, YoungHttpAuthReq, YoungHttpFreeReq } from '@bluesyoung/http'
 
-export function useGet(http: Http) {
-  const FreeReq: Http['freeReq'] = args => http.freeReq({ method: 'GET', ...args })
-  const AuthReq: Http['authReq'] = args => http.authReq({ method: 'GET', ...args })
+export function useGet(http: YoungHttp) {
+  const FreeReq: YoungHttpFreeReq = args => http.freeReq({ method: 'GET', ...args })
+  const AuthReq: YoungHttpAuthReq = args => http.authReq({ method: 'GET', ...args })
 
   return {
     getByUserName: (name: string) =>

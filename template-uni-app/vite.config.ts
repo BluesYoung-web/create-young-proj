@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-07-18 11:03:01
- * @LastEditTime: 2023-07-20 14:10:56
+ * @LastEditTime: 2023-09-19 10:18:06
  * @Description:
  */
 import { resolve } from 'node:path'
@@ -15,7 +15,7 @@ import UniManifest from '@uni-helper/vite-plugin-uni-manifest'
 import Unocss from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import AutoComponents from 'unplugin-vue-components/vite'
-import { multiConf, polyfillFormData } from './custom-plugins'
+import { multiConf } from './custom-plugins'
 
 // https://vitejs.dev/config/
 export default ({ command, mode }: ConfigEnv) => {
@@ -28,7 +28,6 @@ export default ({ command, mode }: ConfigEnv) => {
       },
     },
     plugins: [
-      polyfillFormData(),
       // 仅用于增加语法提示，实际导入依靠 uni-app 的 easycom
       AutoComponents({
         dts: true,

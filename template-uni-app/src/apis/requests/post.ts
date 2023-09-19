@@ -1,14 +1,14 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-07-18 16:59:34
- * @LastEditTime: 2023-07-18 16:59:35
+ * @LastEditTime: 2023-09-19 10:20:17
  * @Description:
  */
-import type { Http } from '../lib'
+import type { YoungHttp, YoungHttpAuthReq, YoungHttpFreeReq } from '@bluesyoung/http'
 
-export function usePost(http: Http) {
-  const FreeReq: Http['freeReq'] = args => http.freeReq({ method: 'POST', ...args })
-  const AuthReq: Http['authReq'] = args => http.authReq({ method: 'POST', ...args })
+export function usePost(http: YoungHttp) {
+  const FreeReq: YoungHttpFreeReq = args => http.freeReq({ method: 'GET', ...args })
+  const AuthReq: YoungHttpAuthReq = args => http.authReq({ method: 'GET', ...args })
 
   return {
     createRepo: async (name: string) => {

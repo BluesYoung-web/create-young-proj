@@ -1,10 +1,10 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-07-18 15:35:24
- * @LastEditTime: 2023-09-06 19:39:50
+ * @LastEditTime: 2023-09-19 10:19:08
  * @Description:
  */
-import { useHttp } from './lib'
+import { useHttp } from '@bluesyoung/http/uni'
 import { useGet, usePost } from './requests'
 
 /**

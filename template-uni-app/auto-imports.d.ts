@@ -11,12 +11,12 @@ declare global {
   const SubscribeMessage: typeof import('./src/config/enum')['SubscribeMessage']
   const TabbarArr: typeof import('./src/config/enum')['TabbarArr']
   const UIEvents: typeof import('./src/config/enum')['UIEvents']
-  const UsefulContentTypes: typeof import('./src/apis/lib/index')['UsefulContentTypes']
   const YoungStorageKeys: typeof import('./src/config/enum')['YoungStorageKeys']
   const acceptHMRUpdate: typeof import('pinia')['acceptHMRUpdate']
   const apis: typeof import('./src/apis/index')['apis']
   const authLocation: typeof import('./src/utils/auth')['authLocation']
   const back: typeof import('./src/utils/route')['back']
+  const checkFingerPrint: typeof import('./src/utils/auth')['checkFingerPrint']
   const computed: typeof import('vue')['computed']
   const createApp: typeof import('vue')['createApp']
   const createPinia: typeof import('pinia')['createPinia']
@@ -25,8 +25,10 @@ declare global {
   const defineComponent: typeof import('vue')['defineComponent']
   const defineStore: typeof import('pinia')['defineStore']
   const effectScope: typeof import('vue')['effectScope']
+  const fingerPrintAuth: typeof import('./src/utils/auth')['fingerPrintAuth']
   const geocoderLocation: typeof import('./src/utils/map')['geocoderLocation']
   const getActivePinia: typeof import('pinia')['getActivePinia']
+  const getAuthInfo: typeof import('./src/utils/auth')['getAuthInfo']
   const getCurrentInstance: typeof import('vue')['getCurrentInstance']
   const getCurrentScope: typeof import('vue')['getCurrentScope']
   const getLocationInfo: typeof import('./src/store/local/index')['getLocationInfo']
@@ -125,7 +127,6 @@ declare global {
   const useCssModule: typeof import('vue')['useCssModule']
   const useCssVars: typeof import('vue')['useCssVars']
   const useGet: typeof import('./src/apis/requests/get')['useGet']
-  const useHttp: typeof import('./src/apis/lib/index')['useHttp']
   const useHttpLoading: typeof import('./src/store/system')['useHttpLoading']
   const usePost: typeof import('./src/apis/requests/post')['usePost']
   const useSlots: typeof import('vue')['useSlots']
@@ -150,12 +151,12 @@ declare module 'vue' {
     readonly SubscribeMessage: UnwrapRef<typeof import('./src/config/enum')['SubscribeMessage']>
     readonly TabbarArr: UnwrapRef<typeof import('./src/config/enum')['TabbarArr']>
     readonly UIEvents: UnwrapRef<typeof import('./src/config/enum')['UIEvents']>
-    readonly UsefulContentTypes: UnwrapRef<typeof import('./src/apis/lib/index')['UsefulContentTypes']>
     readonly YoungStorageKeys: UnwrapRef<typeof import('./src/config/enum')['YoungStorageKeys']>
     readonly acceptHMRUpdate: UnwrapRef<typeof import('pinia')['acceptHMRUpdate']>
     readonly apis: UnwrapRef<typeof import('./src/apis/index')['apis']>
     readonly authLocation: UnwrapRef<typeof import('./src/utils/auth')['authLocation']>
     readonly back: UnwrapRef<typeof import('./src/utils/route')['back']>
+    readonly checkFingerPrint: UnwrapRef<typeof import('./src/utils/auth')['checkFingerPrint']>
     readonly computed: UnwrapRef<typeof import('vue')['computed']>
     readonly createApp: UnwrapRef<typeof import('vue')['createApp']>
     readonly createPinia: UnwrapRef<typeof import('pinia')['createPinia']>
@@ -164,8 +165,10 @@ declare module 'vue' {
     readonly defineComponent: UnwrapRef<typeof import('vue')['defineComponent']>
     readonly defineStore: UnwrapRef<typeof import('pinia')['defineStore']>
     readonly effectScope: UnwrapRef<typeof import('vue')['effectScope']>
+    readonly fingerPrintAuth: UnwrapRef<typeof import('./src/utils/auth')['fingerPrintAuth']>
     readonly geocoderLocation: UnwrapRef<typeof import('./src/utils/map')['geocoderLocation']>
     readonly getActivePinia: UnwrapRef<typeof import('pinia')['getActivePinia']>
+    readonly getAuthInfo: UnwrapRef<typeof import('./src/utils/auth')['getAuthInfo']>
     readonly getCurrentInstance: UnwrapRef<typeof import('vue')['getCurrentInstance']>
     readonly getCurrentScope: UnwrapRef<typeof import('vue')['getCurrentScope']>
     readonly getLocationInfo: UnwrapRef<typeof import('./src/store/local/index')['getLocationInfo']>
@@ -264,7 +267,6 @@ declare module 'vue' {
     readonly useCssModule: UnwrapRef<typeof import('vue')['useCssModule']>
     readonly useCssVars: UnwrapRef<typeof import('vue')['useCssVars']>
     readonly useGet: UnwrapRef<typeof import('./src/apis/requests/get')['useGet']>
-    readonly useHttp: UnwrapRef<typeof import('./src/apis/lib/index')['useHttp']>
     readonly useHttpLoading: UnwrapRef<typeof import('./src/store/system')['useHttpLoading']>
     readonly usePost: UnwrapRef<typeof import('./src/apis/requests/post')['usePost']>
     readonly useSlots: UnwrapRef<typeof import('vue')['useSlots']>
@@ -283,12 +285,12 @@ declare module '@vue/runtime-core' {
     readonly SubscribeMessage: UnwrapRef<typeof import('./src/config/enum')['SubscribeMessage']>
     readonly TabbarArr: UnwrapRef<typeof import('./src/config/enum')['TabbarArr']>
     readonly UIEvents: UnwrapRef<typeof import('./src/config/enum')['UIEvents']>
-    readonly UsefulContentTypes: UnwrapRef<typeof import('./src/apis/lib/index')['UsefulContentTypes']>
     readonly YoungStorageKeys: UnwrapRef<typeof import('./src/config/enum')['YoungStorageKeys']>
     readonly acceptHMRUpdate: UnwrapRef<typeof import('pinia')['acceptHMRUpdate']>
     readonly apis: UnwrapRef<typeof import('./src/apis/index')['apis']>
     readonly authLocation: UnwrapRef<typeof import('./src/utils/auth')['authLocation']>
     readonly back: UnwrapRef<typeof import('./src/utils/route')['back']>
+    readonly checkFingerPrint: UnwrapRef<typeof import('./src/utils/auth')['checkFingerPrint']>
     readonly computed: UnwrapRef<typeof import('vue')['computed']>
     readonly createApp: UnwrapRef<typeof import('vue')['createApp']>
     readonly createPinia: UnwrapRef<typeof import('pinia')['createPinia']>
@@ -297,8 +299,10 @@ declare module '@vue/runtime-core' {
     readonly defineComponent: UnwrapRef<typeof import('vue')['defineComponent']>
     readonly defineStore: UnwrapRef<typeof import('pinia')['defineStore']>
     readonly effectScope: UnwrapRef<typeof import('vue')['effectScope']>
+    readonly fingerPrintAuth: UnwrapRef<typeof import('./src/utils/auth')['fingerPrintAuth']>
     readonly geocoderLocation: UnwrapRef<typeof import('./src/utils/map')['geocoderLocation']>
     readonly getActivePinia: UnwrapRef<typeof import('pinia')['getActivePinia']>
+    readonly getAuthInfo: UnwrapRef<typeof import('./src/utils/auth')['getAuthInfo']>
     readonly getCurrentInstance: UnwrapRef<typeof import('vue')['getCurrentInstance']>
     readonly getCurrentScope: UnwrapRef<typeof import('vue')['getCurrentScope']>
     readonly getLocationInfo: UnwrapRef<typeof import('./src/store/local/index')['getLocationInfo']>
@@ -397,7 +401,6 @@ declare module '@vue/runtime-core' {
     readonly useCssModule: UnwrapRef<typeof import('vue')['useCssModule']>
     readonly useCssVars: UnwrapRef<typeof import('vue')['useCssVars']>
     readonly useGet: UnwrapRef<typeof import('./src/apis/requests/get')['useGet']>
-    readonly useHttp: UnwrapRef<typeof import('./src/apis/lib/index')['useHttp']>
     readonly useHttpLoading: UnwrapRef<typeof import('./src/store/system')['useHttpLoading']>
     readonly usePost: UnwrapRef<typeof import('./src/apis/requests/post')['usePost']>
     readonly useSlots: UnwrapRef<typeof import('vue')['useSlots']>
