@@ -1,6 +1,23 @@
 # Changelog
 
 
+## v0.13.0
+
+[compare changes](https://github.com/BluesYoung-web/create-young-proj/compare/v0.12.0...v0.13.0)
+
+### 🏡 Chore
+
+- 🏡 依赖升级 ([989e44b](https://github.com/BluesYoung-web/create-young-proj/commit/989e44b))
+- ⚠️  🏡 use @bluesyoung/http to replace local lib ([1b73e32](https://github.com/BluesYoung-web/create-young-proj/commit/1b73e32))
+
+#### ⚠️ Breaking Changes
+
+- ⚠️  🏡 use @bluesyoung/http to replace local lib ([1b73e32](https://github.com/BluesYoung-web/create-young-proj/commit/1b73e32))
+
+### ❤️ Contributors
+
+- 张扬 <bluesyoung_web@163.com>
+
 ## v0.12.0
 
 [compare changes](https://github.com/BluesYoung-web/create-young-proj/compare/v0.11.0...v0.12.0)
