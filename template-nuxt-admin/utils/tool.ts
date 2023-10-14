@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-05-28 16:01:24
- * @LastEditTime: 2023-09-13 09:43:52
+ * @LastEditTime: 2023-09-21 11:01:33
  * @Description:
  */
 import { randomId } from '@bluesyoung/utils'
@@ -104,7 +104,6 @@ export function useScrollOver(distance = 40) {
  * 生成用户导航栏
  */
 export async function generateNavData() {
-  const { hasLogin } = storeToRefs(useUserStore())
   if (checkLogin(true)) {
     // 清除没有子元素的children
     const clearChildren = (arr: NavArrItem[]) => {

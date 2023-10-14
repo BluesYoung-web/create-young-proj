@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-07-18 14:12:25
- * @LastEditTime: 2023-09-06 19:42:19
+ * @LastEditTime: 2023-09-19 10:48:01
  * @Description: ui 交互，弹窗之类的
  */
 import { sleep } from '@bluesyoung/utils'
@@ -10,8 +10,8 @@ let loadingCount = 0
 
 /**
  * 显示loading
- * @param mask - 是否显示遮罩
  * @param title - 提示文本
+ * @param mask - 是否显示遮罩
  */
 export function showLoading(title = '加载中...', mask = true) {
   const { fullscreenLoading, smallLoading } = storeToRefs(useHttpLoading())
