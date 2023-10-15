@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-05-25 19:45:20
- * @LastEditTime: 2023-09-16 16:34:29
+ * @LastEditTime: 2023-10-15 17:31:38
  * @Description:
  */
 import { resolve } from 'node:path'
@@ -68,6 +68,8 @@ export default defineNuxtConfig({
     output: {
       dir: resolve(__dirname, './dist'),
     },
+    sourceMap: false,
+    minify: true,
   },
 
   // 开发调试工具，按需启用
