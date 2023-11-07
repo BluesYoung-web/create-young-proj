@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-05-25 19:45:20
- * @LastEditTime: 2023-10-15 17:31:38
+ * @LastEditTime: 2023-11-07 14:44:22
  * @Description:
  */
 import { resolve } from 'node:path'
@@ -11,6 +11,9 @@ export default defineNuxtConfig({
   ssr: false,
   app: {
     head: {
+      htmlAttrs: {
+        lang: 'zh-CN',
+      },
       viewport: 'width=device-width,initial-scale=1.0,user-scalable=no,shrink-to-fit=no',
       meta: [
         { name: 'theme-color', content: '#ffffff' },
@@ -54,14 +57,8 @@ export default defineNuxtConfig({
     },
   },
 
-  lazyLoad: {
-    audio: false,
-    // 默认使用原生的 loading="lazy"
-    // native: true,
-    // js 实现，仅指令生效 v-lazy-load
-    // directiveOnly: true,
-    // @ts-expect-error js 实现的占位图
-    defaultImage: '/image_placeholder.svg',
+  imports: {
+    dirs: ['utils/**/*.{ts,tsx}'],
   },
 
   nitro: {
@@ -72,23 +69,14 @@ export default defineNuxtConfig({
     minify: true,
   },
 
-  // 开发调试工具，按需启用
-  // devtools: {
-  //   enabled: true,
-  // },
-
   modules: [
     '@vueuse/nuxt',
     '@unocss/nuxt',
     '@element-plus/nuxt',
     '@pinia/nuxt',
     '@vant/nuxt',
-    'nuxt-lazy-load',
+    '@bluesyoung/ui-vue3-element-plus/nuxt',
   ],
-
-  pinia: {
-    autoImports: ['defineStore', 'storeToRefs', 'acceptHMRUpdate'],
-  },
 
   vite: {
     build: {
