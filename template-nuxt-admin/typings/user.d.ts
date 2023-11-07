@@ -4,16 +4,16 @@
  * @LastEditTime: 2023-07-24 10:36:06
  * @Description:
  */
-type UserLoginRes = {
-  uuid: string;
-  nickname: string;
-  headimgurl: string;
-  phone: string;
-  token: string;
-};
+interface UserLoginRes {
+  uuid: string
+  nickname: string
+  headimgurl: string
+  phone: string
+  token: string
+}
 
-type LoginForm = {
-  mobile: string;
-  password: string;
-  vercode: string;
-};
+interface LoginForm {
+  mobile: string
+  password: string
+  vercode: string
+}

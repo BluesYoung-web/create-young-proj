@@ -5,12 +5,12 @@
  * @Description:
  */
 interface BaseQuery {
-  pageNum: number;
-  pageSize: number;
-  total: number;
-  noPagination?: boolean;
+  pageNum: number
+  pageSize: number
+  total: number
+  noPagination?: boolean
 }
 
 type PagesData = {
-  list: any[];
-} & BaseQuery;
+  list: any[]
+} & BaseQuery
