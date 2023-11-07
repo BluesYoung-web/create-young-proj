@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2022-12-30 17:19:42
- * @LastEditTime: 2023-09-16 16:27:56
+ * @LastEditTime: 2023-11-07 14:38:26
  * @Description:
  */
 import { resolve } from 'node:path'
@@ -63,11 +63,12 @@ export default defineNitroPlugin(async (nitroApp) => {
     <script>window.__YOUNG_ENV__=${JSON.stringify(config)}</script>
     <!-- 更新检测，每分钟一次 -->
     <script>
-    setInterval(() => {
+    const YOUNG_UPDATE_INTERVAL = setInterval(() => {
       fetch('/get/env')
         .then((res) => res.json())
         .then(({ NUXT_PUBLIC_CURRENT_VERSION }) => {
           if (NUXT_PUBLIC_CURRENT_VERSION !== window.__YOUNG_ENV__.NUXT_PUBLIC_CURRENT_VERSION) {
+            clearInterval(YOUNG_UPDATE_INTERVAL);
             alert('版本已更新，请重新加载页面！');
             window.location.reload();
           }
