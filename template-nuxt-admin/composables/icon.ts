@@ -1,12 +1,10 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-07-21 15:20:01
- * @LastEditTime: 2023-07-21 15:49:22
+ * @LastEditTime: 2023-11-07 14:48:21
  * @Description:
  * @unocss-include
  */
-import type { SelectOptionItem } from '@bluesyoung/ui-vue3-element-plus'
-
 export const MenuIcons = [
   'i-icon-park-solid-analysis',
   'i-ant-design-account-book-outlined',

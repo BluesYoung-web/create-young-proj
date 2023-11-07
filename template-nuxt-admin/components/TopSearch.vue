@@ -1,11 +1,10 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-21 17:01:21
- * @LastEditTime: 2023-07-28 17:32:46
+ * @LastEditTime: 2023-11-07 14:47:37
  * @Description:
 -->
 <script lang="ts" setup>
-import type { SelectOptionItem } from '@bluesyoung/ui-vue3-element-plus'
 import { YoungCmdPopup } from '@bluesyoung/ui-vue3'
 import { isHttpUrl } from '@bluesyoung/utils'
 

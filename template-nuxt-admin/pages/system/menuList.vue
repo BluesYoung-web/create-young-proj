@@ -1,12 +1,10 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-25 16:45:17
- * @LastEditTime: 2023-08-25 16:55:00
+ * @LastEditTime: 2023-11-07 14:42:06
  * @Description:
 -->
 <script lang="ts" setup>
-import { YoungDialog, YoungSelect, YoungTablePro, useFormMode } from '@bluesyoung/ui-vue3-element-plus'
-import type { TableHeadItem } from '@bluesyoung/ui-vue3-element-plus'
 import { deepClone, isArray } from '@bluesyoung/utils'
 import { ElButton } from 'element-plus'
 
@@ -225,13 +223,13 @@ const tableHead: TableHeadItem<NavArrItem>[] = [
     render: row => h(YoungSelect, {
       'modelValue': row.visible,
       'options': [{ label: '显示', value: 1 }, { label: '隐藏', value: 0 }],
-      'onUpdate:modelValue': async (e: number) => {
+      'onUpdate:modelValue': async (e) => {
         // 状态未修改
         if (e === row.visible)
           return
 
-        row.visible = e
-        await apis.patch.changeMenuItem({ ...row, visible: e })
+        row.visible = +e
+        await apis.patch.changeMenuItem({ ...row, visible: +e })
         ElMessage.success('菜单修改成功！')
       },
     }),

@@ -4,7 +4,7 @@
  * @LastEditTime: 2023-06-17 16:20:40
  * @Description:
  */
-import { type ServerOptions as HTTPProxyOptions } from 'http-proxy'
+import type { ServerOptions as HTTPProxyOptions } from 'http-proxy'
 import ProxyModule from 'http-proxy'
 import type { H3Event } from 'h3'
 

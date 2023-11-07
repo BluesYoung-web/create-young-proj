@@ -1,11 +1,10 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-25 16:45:39
- * @LastEditTime: 2023-08-25 16:55:10
+ * @LastEditTime: 2023-11-07 14:41:43
  * @Description:
 -->
 <script lang="ts" setup>
-import { YoungDialog, YoungPagination, YoungSearchForm, YoungTablePro } from '@bluesyoung/ui-vue3-element-plus'
 import { useRoleApi, useRoleBase, useRoleMenu } from './hooks/useRole'
 
 definePageMeta({

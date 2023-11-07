@@ -1,12 +1,11 @@
 <!--
  * @Author: zhangyang
  * @Date: 2022-08-19 13:52:58
- * @LastEditTime: 2023-07-24 11:57:12
+ * @LastEditTime: 2023-11-07 14:47:52
  * @Description:
 -->
 <script lang="ts" setup>
 import { YoungSlideVerify } from '@bluesyoung/ui-vue3'
-import { useVerifyCode } from '@bluesyoung/ui-vue3-element-plus'
 import { isNumber } from '@bluesyoung/utils'
 
 interface Props {

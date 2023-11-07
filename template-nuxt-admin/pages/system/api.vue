@@ -1,12 +1,10 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-25 16:44:56
- * @LastEditTime: 2023-08-25 16:54:08
+ * @LastEditTime: 2023-11-07 14:42:48
  * @Description:
 -->
 <script lang="ts" setup>
-import { YoungDialog, YoungPagination, YoungSearchForm, YoungSelect, YoungTablePro, useFormMode, useQuery } from '@bluesyoung/ui-vue3-element-plus'
-import type { SelectOptionItem, TableDataItem, TableHeadItem, YoungSearchScheme } from '@bluesyoung/ui-vue3-element-plus'
 import { deepClone } from '@bluesyoung/utils'
 import { ElButton, ElTag } from 'element-plus'
 
