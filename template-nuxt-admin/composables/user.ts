@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-06-21 12:03:42
- * @LastEditTime: 2023-09-08 10:33:28
+ * @LastEditTime: 2023-11-07 16:41:48
  * @Description:
  */
 export const useUserStore = defineStore('useUserStore', () => {
@@ -9,6 +9,7 @@ export const useUserStore = defineStore('useUserStore', () => {
 
   const avatar = computed(() => cookie.value?.headimgurl)
   const nick = computed(() => cookie.value?.nickname)
+  const userId = computed(() => cookie.value?.uuid)
   const token = computed(() => {
     if (!validateToken())
       removeToken()
@@ -39,6 +40,7 @@ export const useUserStore = defineStore('useUserStore', () => {
     SaveFlag,
     Exptime,
     removeToken,
+    userId,
   }
 })
 

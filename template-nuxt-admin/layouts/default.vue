@@ -1,7 +1,7 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-21 11:49:00
- * @LastEditTime: 2023-11-07 16:02:46
+ * @LastEditTime: 2023-11-07 16:58:16
  * @Description:
 -->
 <script lang="ts" setup>
@@ -9,6 +9,10 @@ const { isCollapse, zen_mode, zen_mode_helper } = storeToRefs(useNavStore())
 const { enter, isSupported } = useFullscreen()
 
 const fullTip = useLocalStorage('全屏提示', false)
+
+const { userId, nick } = storeToRefs(useUserStore())
+
+const waterTxt = computed(() => `${userId.value}\n${nick.value}`)
 
 onMounted(() => {
   const { innerWidth, innerHeight } = window
@@ -46,6 +50,15 @@ onMounted(() => {
 
 <template>
   <div class="layout-admin-wrapper">
+    <!-- 全局水印, 按需启用 -->
+    <!-- <VanWatermark
+      v-if="waterTxt"
+      :content="waterTxt"
+      :gap-x="30"
+      :gap-y="10"
+      full-page
+      text-color="#eee"
+    /> -->
     <!-- SubMenu -->
     <LayoutSideBar v-show="!zen_mode" />
     <div
