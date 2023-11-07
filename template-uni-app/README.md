@@ -1,5 +1,10 @@
 # 基于 uni-app + vue3 + ts + pinia + unocss 的小程序模板
 
+
+[![](https://img.shields.io/badge/Author-BluesYoung--web-blue)](https://gitee.com/BluesYoung-web)
+
+[![code style](https://antfu.me/badge-code-style.svg)](https://github.com/antfu/eslint-config)
+
 ## 配套 git 提交工具
 
 ### 安装

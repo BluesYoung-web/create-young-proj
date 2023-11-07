@@ -4,4 +4,4 @@
  * @LastEditTime: 2023-08-25 16:36:22
  * @Description:
  */
-type ParamsObj = Record<string, any>;
+type ParamsObj = Record<string, any>
