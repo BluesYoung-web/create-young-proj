@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-06-20 17:14:58
- * @LastEditTime: 2023-09-08 17:33:20
+ * @LastEditTime: 2023-11-07 14:55:10
  * @Description:
  */
 import { useHttp } from '@bluesyoung/http'
@@ -53,22 +53,14 @@ const http = useHttp<{
 
     if (typeof err === 'string') {
       // 通用失败，弹出提示信息
-      showNotify({
-        type: 'danger',
-        message: err,
-      })
+      ElMessage.error(err)
     }
     if ((err as any) instanceof Error) {
-      showNotify({
-        type: 'danger',
-        // 接口出错
-        message:
-          err?.response?.data?.message
-          || err?.response?.data?.msg
-          || err?.response?.data
-          || err.message
-          || '网络错误！',
-      })
+      ElMessage.error(err?.response?.data?.message
+        || err?.response?.data?.msg
+        || err?.response?.data
+        || err.message
+        || '网络错误！')
     }
 
     throw err

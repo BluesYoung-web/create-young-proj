@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-07-21 10:02:19
- * @LastEditTime: 2023-09-13 09:45:34
+ * @LastEditTime: 2023-11-07 14:55:45
  * @Description:
  */
 export default defineNuxtRouteMiddleware(async (to, from) => {
@@ -42,10 +42,7 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
 
   if (!hasLogin.value && to.path !== '/login') {
     // 页面需要登录，但是未登录
-    showNotify({
-      type: 'danger',
-      message: '未登录或登录过期，请重新登录',
-    })
+    ElMessage.error('未登录或登录过期，请重新登录')
     return navigateTo(`/login?redirect=${encodeURIComponent(to.fullPath)}`, {
       replace: true,
     })

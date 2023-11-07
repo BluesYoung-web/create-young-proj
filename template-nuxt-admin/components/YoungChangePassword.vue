@@ -1,7 +1,7 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-24 14:21:55
- * @LastEditTime: 2023-09-08 10:34:56
+ * @LastEditTime: 2023-11-07 14:56:32
  * @Description:
 -->
 <script lang="ts" setup>
@@ -41,10 +41,7 @@ function sure() {
     if (valid) {
       await apis.post.changePassword(form)
       hide()
-      showNotify({
-        message: '密码修改成功，请重新登录',
-        type: 'success',
-      })
+      ElMessage.success('密码修改成功，请重新登录')
       user.removeToken()
       const redirect = location.pathname === '/login' ? '/' : encodeURIComponent(location.href.replace(location.origin, ''))
       navigateTo(`/login?redirect=${redirect}`)

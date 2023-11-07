@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-05-28 16:01:24
- * @LastEditTime: 2023-09-21 11:01:33
+ * @LastEditTime: 2023-11-07 14:56:03
  * @Description:
  */
 import { randomId } from '@bluesyoung/utils'
@@ -72,10 +72,7 @@ export function checkLogin(force = true) {
 
   if (!hasLogin.value) {
     if (force) {
-      showNotify({
-        type: 'danger',
-        message: '未登录或登录过期，请登录后再试',
-      })
+      ElMessage.error('未登录或登录过期，请登录后再试')
 
       navigateTo(`/login?redirect=${encodeURIComponent(location.href.replace(location.origin, ''))}`, {
         replace: true,
@@ -148,8 +145,8 @@ export async function generateNavData() {
     auth_routes.value = generateRoleRoute(menu, 1)
 
     /**
-   * 最终导航数组
-   */
+     * 最终导航数组
+     */
     nav_arr.value = clearChildren(menu.filter(item => +item.visible === 1))
   }
 }
