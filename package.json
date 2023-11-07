@@ -1,5 +1,6 @@
 {
   "name": "create-young-proj",
+  "type": "module",
   "version": "0.13.0",
   "description": "create project from template",
   "author": "BluesYoung-web",
@@ -24,10 +25,10 @@
     "cyp": "index.mjs"
   },
   "files": [
+    "dist",
     "index.mjs",
     "init.mjs",
-    "template-*",
-    "dist"
+    "template-*"
   ],
   "engines": {
     "node": "^14.18.0 || >=16.0.0"
@@ -40,17 +41,17 @@
     "postinstall": "node ./init.mjs"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.41.0",
-    "@types/node": "16",
+    "@antfu/eslint-config": "^1.1.0",
+    "@types/node": "^20.8.10",
     "cross-spawn": "^7.0.3",
-    "eslint": "^8.48.0",
-    "jiti": "^1.19.3",
-    "kolorist": "^1.6.0",
-    "lint-staged": "^14.0.1",
-    "minimist": "^1.2.7",
+    "eslint": "^8.53.0",
+    "jiti": "^1.21.0",
+    "kolorist": "^1.8.0",
+    "lint-staged": "^15.0.2",
+    "minimist": "^1.2.8",
     "prompts": "^2.4.2",
     "simple-git-hooks": "^2.9.0",
-    "unbuild": "^1.0.1"
+    "unbuild": "^2.0.0"
   },
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged"
