@@ -1,11 +1,11 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-21 16:38:20
- * @LastEditTime: 2023-09-13 09:46:18
+ * @LastEditTime: 2023-11-07 16:01:17
  * @Description:
 -->
 <script lang="ts" setup>
-const { isCollapse, breadcrumb_arr } = storeToRefs(useNavStore())
+const { isCollapse, breadcrumb_arr, zen_mode } = storeToRefs(useNavStore())
 
 function collapseHandler() {
   if (WindowSize['lt-lg']) {
@@ -47,6 +47,7 @@ function collapseHandler() {
       </ElBreadcrumb>
     </div>
     <div class="right-panel">
+      <ZenMode />
       <TopSearch />
       <ScreenFull />
       <TopUser />

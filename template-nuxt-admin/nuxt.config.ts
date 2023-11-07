@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-05-25 19:45:20
- * @LastEditTime: 2023-11-07 14:44:22
+ * @LastEditTime: 2023-11-07 15:56:03
  * @Description:
  */
 import { resolve } from 'node:path'
@@ -29,12 +29,12 @@ export default defineNuxtConfig({
           href: '/favicon.svg',
         },
         {
-          rel: 'preload',
+          rel: 'prefetch',
           as: 'image',
           href: '/image_placeholder.svg',
         },
         {
-          rel: 'preload',
+          rel: 'prefetch',
           as: 'image',
           href: '/tabbar_bg.png',
         },
@@ -52,6 +52,10 @@ export default defineNuxtConfig({
               window.alert(e);
             }
           `,
+        },
+        {
+          src: '/index.umd.js',
+          async: true,
         },
       ],
     },
@@ -91,6 +95,12 @@ export default defineNuxtConfig({
           additionalData: '@import "~/styles/variable.scss";',
         },
       },
+    },
+  },
+
+  vue: {
+    compilerOptions: {
+      isCustomElement: tag => ['young-float-ball'].includes(tag),
     },
   },
 })

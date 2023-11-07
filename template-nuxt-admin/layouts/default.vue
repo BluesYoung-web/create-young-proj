@@ -1,11 +1,11 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-21 11:49:00
- * @LastEditTime: 2023-07-28 17:41:44
+ * @LastEditTime: 2023-11-07 16:02:46
  * @Description:
 -->
 <script lang="ts" setup>
-const { isCollapse } = storeToRefs(useNavStore())
+const { isCollapse, zen_mode, zen_mode_helper } = storeToRefs(useNavStore())
 const { enter, isSupported } = useFullscreen()
 
 const fullTip = useLocalStorage('全屏提示', false)
@@ -47,13 +47,24 @@ onMounted(() => {
 <template>
   <div class="layout-admin-wrapper">
     <!-- SubMenu -->
-    <LayoutSideBar />
-    <div class="layout-container-vertical" :class="{ 'is-collapse': isCollapse }">
+    <LayoutSideBar v-show="!zen_mode" />
+    <div
+      class="layout-container-vertical" :class="{
+        'is-collapse': isCollapse,
+        'is-zen-mode': zen_mode,
+        'is-zen-mode-helper': zen_mode_helper,
+      }"
+    >
       <div class="layout-main">
         <!-- Header -->
-        <div class="layout-header" :class="{ 'is-collapse': isCollapse }">
-          <LayoutNavBar />
-          <LayoutTabsBar lt-lg="!hidden" />
+        <div
+          class="layout-header" :class="{
+            'is-collapse': isCollapse,
+            'is-zen-mode': zen_mode,
+          }"
+        >
+          <LayoutNavBar v-show="!zen_mode || zen_mode_helper" />
+          <LayoutTabsBar v-show="!zen_mode || zen_mode_helper" lt-lg="!hidden" />
         </div>
         <div class="app-main-container">
           <!-- Main -->
@@ -82,6 +93,16 @@ onMounted(() => {
       border-right: 0;
     }
 
+    &.is-zen-mode {
+      margin-left: 0 !important;
+      margin-top: 0;
+      border-right: 0;
+    }
+
+    &.is-zen-mode-helper {
+      margin-top: $base-header-height;
+    }
+
     .layout-main {
       min-height: 100%;
 
@@ -95,6 +116,10 @@ onMounted(() => {
 
         &.is-collapse {
           width: calc(100% - $base-left-menu-width-min);
+        }
+
+        &.is-zen-mode {
+          width: 100% !important;
         }
       }
     }

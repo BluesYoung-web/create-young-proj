@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-06-01 12:03:44
- * @LastEditTime: 2023-09-15 15:23:04
+ * @LastEditTime: 2023-11-07 15:50:47
  * @Description:
  */
 export const useNavStore = defineStore('useNavStore', () => {
@@ -56,6 +56,14 @@ export const useNavStore = defineStore('useNavStore', () => {
       document.body.style.overflow = 'auto'
   })
 
+  /**
+   * 工作区全屏控制
+   */
+  const zen_mode = ref(false)
+  /**
+   * 工作区全屏时，临时显示顶部导航栏
+   */
+  const zen_mode_helper = ref(false)
   return {
     title,
     sub_title,
@@ -68,6 +76,8 @@ export const useNavStore = defineStore('useNavStore', () => {
     nodeMap,
     breadcrumb_arr,
     generateNodeMap,
+    zen_mode,
+    zen_mode_helper,
   }
 })
 
