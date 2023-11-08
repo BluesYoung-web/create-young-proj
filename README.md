@@ -6,9 +6,13 @@
 
 
 ```bash
-npm create young-proj@latest
-yarn create young-proj@latest
-pnpm create young-proj@latest
+# 推荐，每次都执行最新的版本
+npx create-young-proj@latest
+
+# 会优先执行本地的，本地没有再去拉取线上的
+npm create young-proj
+yarn create young-proj
+pnpm create young-proj
 ```
 
 🚧 WIP
