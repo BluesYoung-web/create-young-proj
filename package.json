@@ -24,12 +24,6 @@
     "create-young-proj": "index.mjs",
     "cyp": "index.mjs"
   },
-  "files": [
-    "dist",
-    "index.mjs",
-    "init.mjs",
-    "template-*"
-  ],
   "engines": {
     "node": "^14.18.0 || >=16.0.0"
   },
