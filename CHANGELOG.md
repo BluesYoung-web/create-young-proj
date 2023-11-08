@@ -1,6 +1,56 @@
 # Changelog
 
 
+## v1.0.0
+
+[compare changes](https://github.com/BluesYoung-web/create-young-proj/compare/v0.13.0...v1.0.0)
+
+### 🚀 Enhancements
+
+- 🚀 change typo ([3efa387](https://github.com/BluesYoung-web/create-young-proj/commit/3efa387))
+- 🚀 新增富文本编辑器组件 ([0ed1193](https://github.com/BluesYoung-web/create-young-proj/commit/0ed1193))
+- 🚀 change tip ([8f822aa](https://github.com/BluesYoung-web/create-young-proj/commit/8f822aa))
+- 🚀 删除冗余的导入 ([3784b85](https://github.com/BluesYoung-web/create-young-proj/commit/3784b85))
+- 🚀 新增禅模式—工作区全屏 ([200a0b9](https://github.com/BluesYoung-web/create-young-proj/commit/200a0b9))
+- 🚀 水印 ([f976c80](https://github.com/BluesYoung-web/create-young-proj/commit/f976c80))
+- 🚀 add website template ([be918e7](https://github.com/BluesYoung-web/create-young-proj/commit/be918e7))
+- 🚀 add .nvmrc ([e35473b](https://github.com/BluesYoung-web/create-young-proj/commit/e35473b))
+- 🚀 change cli ([21bdc0f](https://github.com/BluesYoung-web/create-young-proj/commit/21bdc0f))
+
+### 🔥 Performance
+
+- 🔥 优化打包配置 ([27e776e](https://github.com/BluesYoung-web/create-young-proj/commit/27e776e))
+- 🔥 更新检测优化 ([bcb24e0](https://github.com/BluesYoung-web/create-young-proj/commit/bcb24e0))
+
+### 📖 Documentation
+
+- 📖 update readme ([bafc472](https://github.com/BluesYoung-web/create-young-proj/commit/bafc472))
+- 📖 update readme ([5bbc697](https://github.com/BluesYoung-web/create-young-proj/commit/5bbc697))
+
+### 🏡 Chore
+
+- ⚠️  🏡 依赖升级 & 修改 lint 配置 ([b9e40a2](https://github.com/BluesYoung-web/create-young-proj/commit/b9e40a2))
+- ⚠️  🏡 依赖升级 & change lint config ([dd5b514](https://github.com/BluesYoung-web/create-young-proj/commit/dd5b514))
+- ⚠️  🏡 依赖升级 & change lint config ([8f16b5f](https://github.com/BluesYoung-web/create-young-proj/commit/8f16b5f))
+
+### 🎨 Styles
+
+- 🎨 lint fix ([d4443bd](https://github.com/BluesYoung-web/create-young-proj/commit/d4443bd))
+
+### 🤖 CI
+
+- 🤖 update dockerfile ([39c7062](https://github.com/BluesYoung-web/create-young-proj/commit/39c7062))
+
+#### ⚠️ Breaking Changes
+
+- ⚠️  🏡 依赖升级 & 修改 lint 配置 ([b9e40a2](https://github.com/BluesYoung-web/create-young-proj/commit/b9e40a2))
+- ⚠️  🏡 依赖升级 & change lint config ([dd5b514](https://github.com/BluesYoung-web/create-young-proj/commit/dd5b514))
+- ⚠️  🏡 依赖升级 & change lint config ([8f16b5f](https://github.com/BluesYoung-web/create-young-proj/commit/8f16b5f))
+
+### ❤️ Contributors
+
+- 张扬 <bluesyoung_web@163.com>
+
 ## v0.13.0
 
 [compare changes](https://github.com/BluesYoung-web/create-young-proj/compare/v0.12.0...v0.13.0)
