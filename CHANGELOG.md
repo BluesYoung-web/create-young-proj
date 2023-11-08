@@ -1,6 +1,10 @@
 # Changelog
 
 
+## v1.1.0
+
+[compare changes](https://github.com/BluesYoung-web/create-young-proj/compare/v1.1.0-alpha.0...v1.1.0)
+
 ## v1.1.0-alpha.0
 
 [compare changes](https://github.com/BluesYoung-web/create-young-proj/compare/v1.0.0...v1.1.0-alpha.0)
