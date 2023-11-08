@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2022-12-03 15:14:08
- * @LastEditTime: 2023-09-18 14:06:13
+ * @LastEditTime: 2023-11-08 11:27:47
  * @Description:
  */
 import fs from 'node:fs'
@@ -49,47 +49,34 @@ const FRAMEWORKS: Framework[] = [
     color: green,
     variants: [
       {
-        name: 'vue-thin',
-        display: 'Vue3 + TS + Pinia + Unocss',
-        color: green,
-      },
-      {
         name: 'nuxt-admin',
-        display: 'Nuxt3 + ElementPlus + Vant + TS + Pinia + Unocss',
+        display: 'Nuxt3 Admin',
         color: blue,
       },
       {
-        name: 'admin-server',
-        display: 'Node Server Based on Midwayjs',
+        name: 'nuxt-website',
+        display: 'Nuxt3 Website',
         color: blue,
       },
       {
         name: 'vue-mobile',
-        display: 'Vue3 + Vant4 + TS + Pinia + Unocss',
+        display: 'Vue3 Mobile',
         color: blue,
       },
       {
         name: 'uni-app',
-        display: 'Vue3 + uni-app + TS + Pinia + Unocss',
+        display: 'Vue3 uni-app',
         color: blue,
       },
       {
-        name: 'nuxt3',
-        display: 'Nuxt3 + TS + Pinia + Unocss',
-        color: blue,
-        wip: true,
+        name: 'vue-thin',
+        display: 'Vue3 mini demo',
+        color: green,
       },
       {
-        name: 'ssr',
-        display: 'NestJS + TS + Pinia + Tailwindcss',
-        color: blue,
-        wip: true,
-      },
-      {
-        name: 'solidjs-ssr',
-        display: 'SolidJS + TS + Pinia + Unocss',
-        color: blue,
-        wip: true,
+        name: 'admin-server',
+        display: 'Node Server Based on Midwayjs',
+        color: green,
       },
     ],
   },
@@ -128,7 +115,7 @@ const TEMPLATES = FRAMEWORKS.map(
 const renameFiles: Record<string, string | undefined> = {
   _gitignore: '.gitignore',
   _npmrc: '.npmrc',
-  // _env: '.env',
+  _nvmrc: '.nvmrc',
 }
 
 const renameEnvBatch = /_env.*/
