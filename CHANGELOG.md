@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v1.2.0
+
+[compare changes](https://github.com/BluesYoung-web/create-young-proj/compare/v1.1.0...v1.2.0)
+
+### 🩹 Fixes
+
+- ⚠️  🩹 fix file missing ([c7925cd](https://github.com/BluesYoung-web/create-young-proj/commit/c7925cd))
+
+#### ⚠️ Breaking Changes
+
+- ⚠️  🩹 fix file missing ([c7925cd](https://github.com/BluesYoung-web/create-young-proj/commit/c7925cd))
+
+### ❤️ Contributors
+
+- 张扬 <bluesyoung_web@163.com>
+
 ## v1.1.0
 
 [compare changes](https://github.com/BluesYoung-web/create-young-proj/compare/v1.1.0-alpha.0...v1.1.0)
