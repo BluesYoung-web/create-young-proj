@@ -1,6 +1,30 @@
 # Changelog
 
 
+## v1.1.0-alpha.0
+
+[compare changes](https://github.com/BluesYoung-web/create-young-proj/compare/v1.0.0...v1.1.0-alpha.0)
+
+### 🩹 Fixes
+
+- ⚠️  🩹 try to fix files missing ([0f19dde](https://github.com/BluesYoung-web/create-young-proj/commit/0f19dde))
+
+### 📖 Documentation
+
+- 📖 update readme ([7ac9297](https://github.com/BluesYoung-web/create-young-proj/commit/7ac9297))
+
+### 🏡 Chore
+
+- 🏡 add _nvmrc ([77e2235](https://github.com/BluesYoung-web/create-young-proj/commit/77e2235))
+
+#### ⚠️ Breaking Changes
+
+- ⚠️  🩹 try to fix files missing ([0f19dde](https://github.com/BluesYoung-web/create-young-proj/commit/0f19dde))
+
+### ❤️ Contributors
+
+- 张扬 <bluesyoung_web@163.com>
+
 ## v1.0.0
 
 [compare changes](https://github.com/BluesYoung-web/create-young-proj/compare/v0.13.0...v1.0.0)
