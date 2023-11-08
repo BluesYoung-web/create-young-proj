@@ -1,0 +1,11 @@
+VITE_WEBSITE_PC = https://intranet-dev-web-new2.laiyouxi.com:1443
+VITE_WEBSITE_MOBILE = https://intranet-dev-mweb-new2.laiyouxi.com:1443
+
+/**
+  * todo 管理后台，后端接口地址，ssr 数据获取
+  */
+VITE_BACKEND_SERVER = https://ssr.api.com
+/**
+  * todo 管理后台，后端接口地址，浏览器端调用
+  */
+VITE_BACKEND_SERVER_CLIENT = https://client.api.com

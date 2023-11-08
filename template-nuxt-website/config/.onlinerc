@@ -1,0 +1,13 @@
+// 日志等级
+CONSOLA_LEVEL = 2
+VITE_WEBSITE_PC = https://www.laiyouxi.com
+VITE_WEBSITE_MOBILE = https://m.laiyouxi.com
+
+/**
+  * todo 管理后台，后端接口地址，ssr 数据获取
+  */
+VITE_BACKEND_SERVER = https://ssr.api.com
+/**
+  * todo 管理后台，后端接口地址，浏览器端调用
+  */
+VITE_BACKEND_SERVER_CLIENT = https://client.api.com
