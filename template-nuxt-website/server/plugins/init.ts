@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2022-12-30 17:19:42
- * @LastEditTime: 2023-11-08 10:52:46
+ * @LastEditTime: 2023-11-10 14:59:37
  * @Description:
  */
 import { resolve } from 'node:path'
@@ -9,6 +9,9 @@ import { loadConfig } from 'c12'
 import { useYoungLogger } from '@bluesyoung/logger'
 
 export default defineNitroPlugin(async (nitroApp) => {
+  const IS_PROD = process.env.NODE_ENV !== 'development'
+  console.log('🚀 ~ file: init.ts:13 ~ IS_PROD:', IS_PROD)
+
   const env = (process.env.DEPLOY_ENV as 'dev' | 'test' | 'online') || 'dev'
   const { config } = await loadConfig<Record<string, any>>({
     name: env,
@@ -17,7 +20,7 @@ export default defineNitroPlugin(async (nitroApp) => {
       // 优先读取环境变量中的版本信息(自己打的 Tag)
       NUXT_PUBLIC_CURRENT_VERSION: process.env.PROJECT_VERSION || 'v0.0.1',
       // 日志等级
-      CONSOLA_LEVEL: 1,
+      CONSOLA_LEVEL: 3,
       // 此处可以放置通用的环境变量
       VITE_WECHAT_APPID: 'todo: 微信公众号appid',
       VITE_OSS_URL: `https://master-web-cdn.laiyouxi.com/platform_index/${env}/`,
@@ -45,23 +48,16 @@ export default defineNitroPlugin(async (nitroApp) => {
       delete config[key]
   }
 
+  if (IS_PROD) {
+    // 格式化日志
+    useYoungLogger()
+  }
+
   console.log('------------------------读取配置文件------------------------')
   console.log(config)
   console.log('-------------------------------------------------------------')
 
-  const IS_PROD = process.env.NODE_ENV !== 'development'
-  console.log('🚀 ~ file: init.ts:53 ~ IS_PROD:', IS_PROD)
-
-  if (IS_PROD) {
-    // 格式化日志
-    const { consola } = useYoungLogger()
-    const logger = consola.create({
-      level: +process.env.CONSOLA_LEVEL!,
-    })
-    logger.wrapConsole()
-  }
-
-  nitroApp.hooks.hook('render:html', async (html, { event }) => {
+  nitroApp.hooks.hook('request', (event) => {
     const ua = event.node.req.headers['user-agent']
 
     console.log('jump status: ', !config!.DISABLE_AUTO_LOCATION, typeof !config!.DISABLE_AUTO_LOCATION)
@@ -76,18 +72,19 @@ export default defineNitroPlugin(async (nitroApp) => {
         console.log('🚀 ~ file: init.ts:64 ~ nitroApp.hooks.hook ~ 手机访问 PC 网址:')
         event.node.res.setHeader('Location', process.env.VITE_WEBSITE_MOBILE! + event.node.req.url)
         event.node.res.statusCode = 301
-        return
+        event.node.res.end()
       }
       else if (!isMobile && fromMobile) {
         // PC 访问手机网址
         console.log('🚀 ~ file: init.ts:72 ~ nitroApp.hooks.hook ~ PC 访问手机网址:')
         event.node.res.setHeader('Location', process.env.VITE_WEBSITE_PC! + event.node.req.url)
         event.node.res.statusCode = 301
-        return
+        event.node.res.end()
       }
     }
+  })
 
-    // 网站置灰
+  nitroApp.hooks.hook('render:html', async (html, { event }) => {
     try {
       const {
         is_gray,
