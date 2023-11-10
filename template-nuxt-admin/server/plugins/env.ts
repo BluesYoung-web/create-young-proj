@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2022-12-30 17:19:42
- * @LastEditTime: 2023-11-07 14:38:26
+ * @LastEditTime: 2023-11-10 16:09:24
  * @Description:
  */
 import { resolve } from 'node:path'
@@ -48,13 +48,19 @@ export default defineNitroPlugin(async (nitroApp) => {
       delete config[key]
   }
 
+  // 仅打包之后格式化日志
+  if (process.env.NODE_ENV !== 'development')
+    useYoungLogger()
+
   console.log('------------------------读取配置文件------------------------')
   console.log(config)
   console.log('-------------------------------------------------------------')
 
-  // 仅打包之后格式化日志
-  if (process.env.NODE_ENV !== 'development')
-    useYoungLogger()
+  nitroApp.hooks.hook('request', (event) => {
+    const headers = event.node.req.headers
+    console.log('ua', headers['user-agent'], 'x-forwarded-for', headers['x-forwarded-for'], 'x-real-ip', headers['x-real-ip'])
+  })
+
 
   nitroApp.hooks.hook('render:html', (html, { event }) => {
     // 直接注入环境变量到前端
