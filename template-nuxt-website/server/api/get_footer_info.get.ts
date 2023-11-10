@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-10-07 16:02:03
- * @LastEditTime: 2023-11-08 10:32:38
+ * @LastEditTime: 2023-11-10 15:02:38
  * @Description:
  */
 import { NUXT_PUBLIC_CACHE_TIME } from '~~/composables/config'
@@ -47,6 +47,6 @@ export default cachedEventHandler(async () => {
     return false
   }
 }, {
-  maxAge: NUXT_PUBLIC_CACHE_TIME,
+  maxAge: NUXT_PUBLIC_CACHE_TIME * 10,
   swr: true,
 })

@@ -60,6 +60,7 @@ export default defineNitroPlugin(async (nitroApp) => {
   nitroApp.hooks.hook('request', (event) => {
     const ua = event.node.req.headers['user-agent']
 
+    console.log('ua', ua, 'x-forwarded-for', event.node.req.headers['x-forwarded-for'], 'x-real-ip', event.node.req.headers['x-real-ip'])
     console.log('jump status: ', !config!.DISABLE_AUTO_LOCATION, typeof !config!.DISABLE_AUTO_LOCATION)
 
     if (ua && (IS_PROD && !config!.DISABLE_AUTO_LOCATION)) {

@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-06-07 14:29:59
- * @LastEditTime: 2023-11-08 09:51:06
+ * @LastEditTime: 2023-11-10 15:03:09
  * @Description:
  */
 import { NUXT_PUBLIC_CACHE_TIME } from '~~/composables/config'

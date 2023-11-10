@@ -27,6 +27,14 @@ navigateTo({
 
 **`asstes` 内的图片不得大于 4k**，超过大小的图片需要转换为 `webp` 后上传至 `cdn`
 
+### 接口缓存基准时间
+
+开发时可以修改 `nuxt.config.ts -> runtimeConfig -> public -> cacheTime` 的值
+
+部署时调整 `boot.mjs` 中 `NUXT_PUBLIC_CACHE_TIME` 的默认值
+
+**系统环境变量 `NUXT_PUBLIC_CACHE_TIME` 优先级最高！！！**
+
 ## 特性
 
 - 基于 [@nuxtjs/device](https://github.com/nuxt-modules/device) 的设备判断

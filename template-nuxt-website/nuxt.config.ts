@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-09-21 15:57:55
- * @LastEditTime: 2023-11-08 10:56:04
+ * @LastEditTime: 2023-11-10 14:55:01
  * @Description:
  */
 
@@ -88,11 +88,27 @@ export default defineNuxtConfig({
     defaultImage: '/svg/image_placeholder.svg',
   },
 
+  'routeRules': {
+    /**
+     * 页面缓存，配置具体数值会被作为 max-age 的值，不过貌似 true 就足够了
+     * 根据具体情况自行调整各个路径的对应配置
+     */
+    '*': { swr: true },
+  },
+
   'vite': {
     build: {
       // 兼容钉钉浏览器
       target: 'es2015',
       sourcemap: false,
+    },
+  },
+  'runtimeConfig': {
+    public: {
+      /**
+       * 接口缓存基准时间，会被 NUXT_PUBLIC_CACHE_TIME 环境变量覆盖
+       */
+      cacheTime: 10,
     },
   },
 })
