@@ -1,6 +1,24 @@
 # Changelog
 
 
+## v1.2.1
+
+[compare changes](https://github.com/BluesYoung-web/create-young-proj/compare/v1.2.0...v1.2.1)
+
+### 🚀 Enhancements
+
+- 🚀 日志 & 自适应跳转优化 ([1325277](https://github.com/BluesYoung-web/create-young-proj/commit/1325277))
+- 🚀 打印请求者 ua, ip ([59fc41d](https://github.com/BluesYoung-web/create-young-proj/commit/59fc41d))
+- 🚀 缓存配置 ([3573531](https://github.com/BluesYoung-web/create-young-proj/commit/3573531))
+
+### 🔥 Performance
+
+- 🔥 缓存机制优化 ([cbe8bb5](https://github.com/BluesYoung-web/create-young-proj/commit/cbe8bb5))
+
+### ❤️ Contributors
+
+- 张扬 <bluesyoung_web@163.com>
+
 ## v1.2.0
 
 [compare changes](https://github.com/BluesYoung-web/create-young-proj/compare/v1.1.0...v1.2.0)
