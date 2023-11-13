@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-11-01 10:13:50
- * @LastEditTime: 2023-11-07 17:16:11
+ * @LastEditTime: 2023-11-13 09:47:21
  * @Description:
  */
 import antfu from '@antfu/eslint-config'
@@ -25,11 +25,13 @@ export default antfu({
     'no-throw-literal': 'off',
     'antfu/consistent-list-newline': 'off',
     'style/jsx-indent': 'off',
+    'style/no-tabs': 'off',
     'prefer-promise-reject-errors': 'off',
     'no-async-promise-executor': 'off',
   },
 }, {
   ignores: [
     'src/uni_modules',
+    'src/*.json',
   ],
 })
