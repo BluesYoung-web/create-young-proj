@@ -1,17 +1,14 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-18 17:53:43
- * @LastEditTime: 2023-08-25 16:39:28
+ * @LastEditTime: 2023-11-13 12:13:47
  * @Description:
 -->
-<route lang="json">
-{
-  "needLogin": true,
-  "layout": "tabbar",
-  "navbar": {
-    "isback": false
-  }
-}
+<route lang="yaml">
+needLogin: true
+layout: tabbar
+navbar:
+  isback: false
 </route>
 
 <script lang="ts" setup>

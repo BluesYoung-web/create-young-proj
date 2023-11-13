@@ -667,13 +667,8 @@
   },
   "route": {
     "body": [
-      "<route lang=\"json\">",
-      "{",
-      "  \"needLogin\": false,",
-      "  \"style\": {",
-          "",
-      "  }",
-      "}",
+      "<route lang=\"yaml\">",
+      "needLogin: false",
       "</route>"
     ],
     "prefix": "<route",
