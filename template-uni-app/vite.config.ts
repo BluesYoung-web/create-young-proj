@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-07-18 11:03:01
- * @LastEditTime: 2023-09-19 10:18:06
+ * @LastEditTime: 2023-11-13 11:46:57
  * @Description:
  */
 import { resolve } from 'node:path'
@@ -40,7 +40,9 @@ export default ({ command, mode }: ConfigEnv) => {
       UniLayouts(),
       // https://uni-helper.js.org/vite-plugin-uni-manifest
       UniManifest(),
-      Uni(),
+      // hack
+      // @ts-expect-error packages.json 中 type: "module" 会造成这里解析的不同
+      Uni.default(),
       // https://github.com/antfu/unocss
       Unocss(),
 
