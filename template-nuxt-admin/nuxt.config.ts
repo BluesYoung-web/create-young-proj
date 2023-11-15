@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
- * @Date: 2023-05-25 19:45:20
- * @LastEditTime: 2023-11-07 15:56:03
+ * @Date: 2023-09-21 15:57:55
+ * @LastEditTime: 2023-11-15 11:52:33
  * @Description:
  */
 import { resolve } from 'node:path'
@@ -87,6 +87,8 @@ export default defineNuxtConfig({
       // 兼容钉钉浏览器
       target: 'es2015',
       sourcemap: false,
+      /* hack fix 360 极速浏览器 13.5 不支持 inset */
+      cssTarget: 'chrome61',
     },
     css: {
       preprocessorOptions: {

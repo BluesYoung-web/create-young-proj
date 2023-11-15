@@ -1,10 +1,9 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-09-21 15:57:55
- * @LastEditTime: 2023-11-15 10:29:28
+ * @LastEditTime: 2023-11-15 11:53:36
  * @Description:
  */
-
 import { resolve } from 'node:path'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
@@ -25,21 +24,6 @@ export default defineNuxtConfig({
         { 'http-equiv': 'X-UA-Compatible', 'content': 'IE=edge,chrome=1' },
         { id: 'viewportMeta', name: 'viewport', content: 'maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0' },
         { name: 'format-detection', content: 'telephone=no,email=no,date=no,address=no' },
-      ],
-      style: [
-        { innerHTML: `
-        /* hack fix 360 极速浏览器 13.5 不支持 inset */
-        .el-overlay {
-          position: fixed;
-          left: 0 !important;
-          top: 0 !important;
-          right: 0 !important;
-          bottom: 0 !important;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-        ` },
       ],
       script: [
         {
@@ -116,6 +100,8 @@ export default defineNuxtConfig({
       // 兼容钉钉浏览器
       target: 'es2015',
       sourcemap: false,
+      /* hack fix 360 极速浏览器 13.5 不支持 inset */
+      cssTarget: 'chrome61',
     },
   },
   'runtimeConfig': {
