@@ -33,6 +33,8 @@ npm i -g young-commit
 
 - 🛠️ `pinia` 状态管理, 简单易用
 
+- 🛠️ 便捷的工具函数库 [@uni-helper/uni-use](https://www.npmjs.com/package/@uni-helper/uni-use) 以及 [@vueuse/core](https://vueuse.org/functions.html)
+
 - 📦 自动按需导入组件和 `API`, 减少冗余代码, 自定义的组件和方法亦可自动导入
   
   - 方法自动导入，基于 [unplugin-auto-import](https://www.npmjs.com/package/unplugin-auto-import)

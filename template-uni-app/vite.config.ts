@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-07-18 11:03:01
- * @LastEditTime: 2023-11-13 11:46:57
+ * @LastEditTime: 2023-11-15 11:08:28
  * @Description:
  */
 import { resolve } from 'node:path'
@@ -15,6 +15,7 @@ import UniManifest from '@uni-helper/vite-plugin-uni-manifest'
 import Unocss from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import AutoComponents from 'unplugin-vue-components/vite'
+import { UniUseAutoImports } from '@uni-helper/uni-use'
 import { multiConf } from './custom-plugins'
 
 // https://vitejs.dev/config/
@@ -48,7 +49,7 @@ export default ({ command, mode }: ConfigEnv) => {
 
       // https://github.com/antfu/unplugin-auto-import
       AutoImport({
-        imports: ['vue', 'uni-app', 'pinia'],
+        imports: ['vue', 'uni-app', 'pinia', '@vueuse/core', UniUseAutoImports],
         dts: true,
         vueTemplate: true,
         dirs: [

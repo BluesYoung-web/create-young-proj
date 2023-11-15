@@ -1,7 +1,7 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-18 11:23:36
- * @LastEditTime: 2023-11-13 12:13:40
+ * @LastEditTime: 2023-11-15 11:04:49
  * @Description:
 -->
 <route lang="yaml">
@@ -23,6 +23,8 @@ async function testPost() {
 
 const { fullscreenLoading } = storeToRefs(useHttpLoading())
 fullscreenLoading.value = true
+
+const netWorkStatus = useNetwork()
 
 setTimeout(() => {
   fullscreenLoading.value = false
@@ -52,6 +54,10 @@ setTimeout(() => {
   <button @click="testPost">
     点我测试 Post 请求
   </button>
+
+  {{
+    netWorkStatus
+  }}
 
   <uni-card
     title="基础卡片" sub-title="副标题" extra="额外信息"
