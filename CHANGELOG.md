@@ -1,6 +1,40 @@
 # Changelog
 
 
+## v1.3.0
+
+[compare changes](https://github.com/BluesYoung-web/create-young-proj/compare/v1.2.1...v1.3.0)
+
+### 🚀 Enhancements
+
+- 🚀 route json -> route yaml ([3ab111c](https://github.com/BluesYoung-web/create-young-proj/commit/3ab111c))
+- 🚀 add missing /get/env api ([a48d2c1](https://github.com/BluesYoung-web/create-young-proj/commit/a48d2c1))
+- 🚀 add @uni-helper/uni-use & @vueuse/core ([bd2d2cf](https://github.com/BluesYoung-web/create-young-proj/commit/bd2d2cf))
+- ⚠️  🚀 360 极速浏览器 13.5 定向兼容-css better ([51d9b33](https://github.com/BluesYoung-web/create-young-proj/commit/51d9b33))
+
+### 🩹 Fixes
+
+- ⚠️  🩹 fix build error ([1a7ad50](https://github.com/BluesYoung-web/create-young-proj/commit/1a7ad50))
+- ⚠️  🩹 360 极速浏览器 13.5 定向兼容 ([e5cefc8](https://github.com/BluesYoung-web/create-young-proj/commit/e5cefc8))
+
+### 🏡 Chore
+
+- 🏡 依赖升级 ([c3bc4b6](https://github.com/BluesYoung-web/create-young-proj/commit/c3bc4b6))
+
+### 🎨 Styles
+
+- 🎨 lint fix ([96c1a4e](https://github.com/BluesYoung-web/create-young-proj/commit/96c1a4e))
+
+#### ⚠️ Breaking Changes
+
+- ⚠️  🚀 360 极速浏览器 13.5 定向兼容-css better ([51d9b33](https://github.com/BluesYoung-web/create-young-proj/commit/51d9b33))
+- ⚠️  🩹 fix build error ([1a7ad50](https://github.com/BluesYoung-web/create-young-proj/commit/1a7ad50))
+- ⚠️  🩹 360 极速浏览器 13.5 定向兼容 ([e5cefc8](https://github.com/BluesYoung-web/create-young-proj/commit/e5cefc8))
+
+### ❤️ Contributors
+
+- 张扬 <bluesyoung_web@163.com>
+
 ## v1.2.1
 
 [compare changes](https://github.com/BluesYoung-web/create-young-proj/compare/v1.2.0...v1.2.1)
