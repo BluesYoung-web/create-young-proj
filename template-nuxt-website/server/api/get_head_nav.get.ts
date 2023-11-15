@@ -14,7 +14,7 @@ export default cachedEventHandler(async () => {
       { title: '首页', href: '/' },
       { title: '资讯', href: '/news.html' },
       { title: '赛事', href: '/match.html' },
-      { title: '商城', href: '/shop.html' }
+      { title: '商城', href: '/shop.html' },
     ]
     const fromMobile = process.env.PROJECT_NAME === 'mobile'
 

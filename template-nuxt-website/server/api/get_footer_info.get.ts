@@ -13,12 +13,12 @@ export default cachedEventHandler(async () => {
     const friend_links: FriendLinkItem[] = [
       {
         title: '来游戏',
-        href: 'https://www.laiyouxi.com'
+        href: 'https://www.laiyouxi.com',
       },
       {
         title: '🌾',
-        href: 'https://mi.com'
-      }
+        href: 'https://mi.com',
+      },
     ]
     const follow_us: FollowItem[] = []
     const about_nav: AboutNavItem[] = []

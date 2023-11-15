@@ -34,8 +34,6 @@ export function closeWindow() {
   window.close()
 }
 
-
-
 export async function showLoading() {
   if (process.server)
     return
@@ -80,5 +78,3 @@ export function injectComponent(El: ReturnType<typeof defineComponent>) {
 
   return onDestroy
 }
-
-

@@ -5,6 +5,7 @@
  * @Description:
  */
 import { NUXT_PUBLIC_CACHE_TIME } from '~~/composables/config'
+
 /**
  * @example 服务端请求示例
  */

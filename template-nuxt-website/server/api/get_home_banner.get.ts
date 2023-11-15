@@ -12,8 +12,8 @@ export default cachedEventHandler(async (event) => {
   try {
     const banners: BannerItem[] = [
       {
-        img_url: 'https://master-web-cdn.laiyouxi.com/platform_index/online/files/banner-pc.png'
-      }
+        img_url: 'https://master-web-cdn.laiyouxi.com/platform_index/online/files/banner-pc.png',
+      },
     ]
 
     return banners
