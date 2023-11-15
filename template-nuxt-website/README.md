@@ -35,6 +35,10 @@ navigateTo({
 
 **系统环境变量 `NUXT_PUBLIC_CACHE_TIME` 优先级最高！！！**
 
+### 垃圾浏览器
+
+[**360 极速浏览器 13.5 ！！！mdzz**](https://bbs.360.cn/thread-15913525-1-1.html)
+
 ## 特性
 
 - 基于 [@nuxtjs/device](https://github.com/nuxt-modules/device) 的设备判断
