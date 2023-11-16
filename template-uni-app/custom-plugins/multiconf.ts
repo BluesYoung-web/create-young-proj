@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-07-19 14:32:45
- * @LastEditTime: 2023-09-06 19:39:10
+ * @LastEditTime: 2023-11-16 09:57:41
  * @Description:
  */
 import type { Plugin } from 'vite'
@@ -21,7 +21,7 @@ export function multiConf(env: string) {
       configEnv = config.env as ImportMetaEnv
     },
     generateBundle(options, bundle) {
-      const appid = configEnv.VITE_APP_ID
+      const appid = configEnv.VITE_APPID
       const json = bundle['project.config.json'] as OutputAsset
       if (json?.source && typeof json.source === 'string') {
         const jsonConf = JSON.parse(json.source)
@@ -68,6 +68,17 @@ export function multiConf(env: string) {
 
         json.source = JSON.stringify(jsonConf, null, 2)
         // console.log("🚀 ~ file: multiconf.ts:72 ~ generateBundle ~ jsonConf:", jsonConf);
+      }
+
+      const app = bundle['app.json'] as OutputAsset
+      if (app?.source && typeof app.source === 'string') {
+        const appConf = JSON.parse(app.source)
+        // 隐私权限校验
+        appConf.__usePrivacyCheck__ = true
+        // 微信官方的组件懒加载 2.11.1+
+        appConf.lazyCodeLoading = 'requiredComponents'
+
+        app.source = JSON.stringify(appConf, null, 2)
       }
     },
   } as Plugin
