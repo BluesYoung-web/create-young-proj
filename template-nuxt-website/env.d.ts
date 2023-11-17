@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-05-26 11:50:06
- * @LastEditTime: 2023-11-08 10:44:03
+ * @LastEditTime: 2023-11-17 10:23:54
  * @Description:
  */
 declare global {
@@ -52,4 +52,21 @@ declare global {
      */
     YOUNG_WECHAT_OPENID: string
   };
+}
+
+declare module '#app' {
+  interface PageMeta {
+    /**
+     * 是否展示为移动端的顶部标题
+     */
+    name?: string
+    /**
+     * 不受 container 的宽度限制
+     */
+    full?: boolean
+    /**
+     * main 背景色
+     */
+    bgColor?: string
+  }
 }
