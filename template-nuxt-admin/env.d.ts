@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-05-26 11:50:06
- * @LastEditTime: 2023-07-24 10:31:33
+ * @LastEditTime: 2023-11-17 10:13:52
  * @Description:
  */
 
@@ -45,3 +45,21 @@ declare interface Window {
    */
   __YOUNG_ENV__: ImportMetaEnv
 };
+
+declare module '#app' {
+  interface PageMeta {
+    /**
+     * 页面需要鉴权
+     * @default true
+     */
+    auth?: boolean
+    /**
+     * 页面标题
+     */
+    title?: string
+    /**
+     * 页面不缓存
+     */
+    noCache?: boolean
+  }
+}

@@ -61,7 +61,6 @@ export default defineNitroPlugin(async (nitroApp) => {
     console.log('ua', headers['user-agent'], 'x-forwarded-for', headers['x-forwarded-for'], 'x-real-ip', headers['x-real-ip'])
   })
 
-
   nitroApp.hooks.hook('render:html', (html, { event }) => {
     // 直接注入环境变量到前端
     html.bodyPrepend.push(`
