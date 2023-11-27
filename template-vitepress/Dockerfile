@@ -13,9 +13,14 @@ ENV WORK_DIR=/app
 # 工作目录
 WORKDIR /app
 
+# 上次修改时间，依赖 git 环境
+# 换源，安装 git
+RUN sed -i 's@/deb.debian.org@/mirrors.aliyun.com@g' /etc/apt/sources.list \
+    && apt-get update && apt-get install -y git
+
 # 没有压缩包，首选 COPY，如果需要自动解包或下载，则使用 ADD
 
-# 对比依赖是否变更
+# 对比依赖是否变更(todo: 按需修改)
 COPY package.json yarn.lock /app/
 
 # 设置npm仓库 + 下载依赖，上面的文件如果没有变化则跳过下载，直接使用缓存
@@ -34,7 +39,6 @@ FROM intranet-harbor.laiyouxi.com/base/alpine/node:20.9.0
 WORKDIR /app
 # 复制源码
 COPY boot.mjs /app/
-COPY config /app/config
 # 复制编译后的代码
 COPY --from=builder /app/.output /app/.output
 
