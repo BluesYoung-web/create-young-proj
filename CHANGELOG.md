@@ -1,6 +1,33 @@
 # Changelog
 
 
+## v1.4.0
+
+[compare changes](https://github.com/BluesYoung-web/create-young-proj/compare/v1.3.0...v1.4.0)
+
+### 🚀 Enhancements
+
+- 🚀 uni-app 优化 ([63bc618](https://github.com/BluesYoung-web/create-young-proj/commit/63bc618))
+- 🚀 add template-vitepress ([68aeb33](https://github.com/BluesYoung-web/create-young-proj/commit/68aeb33))
+- 🚀 增加 vitepress 的选项 ([111680e](https://github.com/BluesYoung-web/create-young-proj/commit/111680e))
+
+### 🩹 Fixes
+
+- 🩹 fix tsconfig.json missing ([4638dca](https://github.com/BluesYoung-web/create-young-proj/commit/4638dca))
+
+### 📖 Documentation
+
+- 📖 update README ([3dcb3b5](https://github.com/BluesYoung-web/create-young-proj/commit/3dcb3b5))
+
+### 🌊 Types
+
+- 🌊 后台 definePageMeta 提示 ([dd52222](https://github.com/BluesYoung-web/create-young-proj/commit/dd52222))
+- 🌊 官网 definePageMeta 提示 ([7103335](https://github.com/BluesYoung-web/create-young-proj/commit/7103335))
+
+### ❤️ Contributors
+
+- 张扬 <bluesyoung_web@163.com>
+
 ## v1.3.0
 
 [compare changes](https://github.com/BluesYoung-web/create-young-proj/compare/v1.2.1...v1.3.0)
