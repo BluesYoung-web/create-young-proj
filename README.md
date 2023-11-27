@@ -23,6 +23,7 @@ pnpm create young-proj
 - [x] template-vue-mobile
 - [x] template-uni-app
 - [x] template-nuxt3-website
+- [x] template-vitepress
 
 ## template-nuxt-admin
 
@@ -65,3 +66,7 @@ pnpm create young-proj
 ## template-admin-server
 
 后端服务程序，基于 [midwayjs](https://www.midwayjs.org/) 开发
+
+## template-vitepress
+
+基于 [vitepress](https://vitepress.dev/) 开发，附带基本的汉化配置及部署相关的脚本
