@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2022-12-03 15:14:08
- * @LastEditTime: 2023-11-08 11:27:47
+ * @LastEditTime: 2023-11-27 15:22:27
  * @Description:
  */
 import fs from 'node:fs'
@@ -66,6 +66,11 @@ const FRAMEWORKS: Framework[] = [
       {
         name: 'uni-app',
         display: 'Vue3 uni-app',
+        color: blue,
+      },
+      {
+        name: 'vitepress',
+        display: 'Vitepress docs template',
         color: blue,
       },
       {
