@@ -4,7 +4,8 @@
     "docs:dev": "vitepress dev",
     "docs:build": "vitepress build",
     "docs:preview": "vitepress preview",
-    "build": "vitepress build && nitropack build"
+    "build": "vitepress build && nitropack build",
+    "postinstall": "nitropack prepare"
   },
   "devDependencies": {
     "@iconify/json": "^2.2.139",
