@@ -42,7 +42,6 @@
     "@unocss/nuxt": "^0.57.2",
     "@vant/nuxt": "^1.0.2",
     "@vueuse/nuxt": "^10.2.1",
-    "add": "^2.0.6",
     "dayjs": "^1.11.9",
     "element-plus": "^2.3.8",
     "eslint": "^8.48.0",
