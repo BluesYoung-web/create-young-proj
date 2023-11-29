@@ -62,6 +62,14 @@ export default defineNitroPlugin(async (nitroApp) => {
   })
 
   nitroApp.hooks.hook('render:html', (html, { event }) => {
+    // 设定视口高度，防止软键盘影响布局
+    html.bodyPrepend.push(`
+    <script>
+    const metaElement = document.querySelector('#viewportMeta');
+    metaElement.setAttribute('content', \`maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0,height=\${window.innerHeight}\`);
+    </script>
+    `)
+
     // 直接注入环境变量到前端
     html.bodyPrepend.push(`
     <!-- 注入环境变量 -->
