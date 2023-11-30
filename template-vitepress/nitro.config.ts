@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2022-12-28 11:59:56
- * @LastEditTime: 2023-11-14 09:18:38
+ * @LastEditTime: 2023-11-30 12:08:40
  * @Description:
  */
 export default defineNitroConfig({
@@ -14,6 +14,5 @@ export default defineNitroConfig({
       dir: '.vitepress/dist',
     },
   ],
-  preset: 'bun'
 });
 
