@@ -1,6 +1,26 @@
 # Changelog
 
 
+## v1.6.0
+
+[compare changes](https://github.com/BluesYoung-web/create-young-proj/compare/v1.5.0...v1.6.0)
+
+### 🚀 Enhancements
+
+- 🚀 优化后台移动端表现 ([7895259](https://github.com/BluesYoung-web/create-young-proj/commit/7895259))
+- 🚀 template-nuxt-mobile ([664dcdb](https://github.com/BluesYoung-web/create-young-proj/commit/664dcdb))
+
+### 🏡 Chore
+
+- 🏡 后台无用依赖删除 ([48ce806](https://github.com/BluesYoung-web/create-young-proj/commit/48ce806))
+- 🏡 remove template-vue-mobile ([df30f76](https://github.com/BluesYoung-web/create-young-proj/commit/df30f76))
+- 🏡 后台模板兼容配置调整 ([f662f94](https://github.com/BluesYoung-web/create-young-proj/commit/f662f94))
+- 🏡 官网模板兼容配置调整 ([3138569](https://github.com/BluesYoung-web/create-young-proj/commit/3138569))
+
+### ❤️ Contributors
+
+- 张扬 <bluesyoung_web@163.com>
+
 ## v1.5.0
 
 [compare changes](https://github.com/BluesYoung-web/create-young-proj/compare/v1.4.0...v1.5.0)
