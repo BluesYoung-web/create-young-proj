@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-09-21 15:57:55
- * @LastEditTime: 2023-11-15 11:53:36
+ * @LastEditTime: 2023-11-30 11:05:04
  * @Description:
  */
 import { resolve } from 'node:path'
@@ -97,11 +97,10 @@ export default defineNuxtConfig({
 
   'vite': {
     build: {
-      // 兼容钉钉浏览器
-      target: 'es2015',
       sourcemap: false,
-      /* hack fix 360 极速浏览器 13.5 不支持 inset */
-      cssTarget: 'chrome61',
+      // 兼容旧浏览器
+      target: ['chrome58'],
+      cssTarget: ['chrome58'],
     },
   },
   'runtimeConfig': {
