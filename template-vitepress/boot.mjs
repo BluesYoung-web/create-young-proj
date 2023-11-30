@@ -5,13 +5,12 @@
  * @Description:
  */
 (async () => {
-  const env = process.env.DEPLOY_ENV || 'dev';
-  const listenPort = process.env.LISTEN_PORT || 3333;
-  console.log('当前环境：', env);
-  console.log('服务监听端口：', listenPort);
+  const env = process.env.DEPLOY_ENV || 'dev'
+  const listenPort = process.env.LISTEN_PORT || 3333
+  console.log('当前环境：', env)
+  console.log('服务监听端口：', listenPort)
 
-  process.env.NITRO_PORT = listenPort;
+  process.env.NITRO_PORT = listenPort
 
-  await import('./.output/server/index.mjs');
-})();
-
+  await import('./.output/server/index.mjs')
+})()
