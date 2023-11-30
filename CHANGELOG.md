@@ -1,6 +1,19 @@
 # Changelog
 
 
+## v1.6.1
+
+[compare changes](https://github.com/BluesYoung-web/create-young-proj/compare/v1.6.0...v1.6.1)
+
+### 🎨 Styles
+
+- 🎨 add lint ([7c1538a](https://github.com/BluesYoung-web/create-young-proj/commit/7c1538a))
+- 🎨 lint fix ([0ab6e4d](https://github.com/BluesYoung-web/create-young-proj/commit/0ab6e4d))
+
+### ❤️ Contributors
+
+- 张扬 <bluesyoung_web@163.com>
+
 ## v1.6.0
 
 [compare changes](https://github.com/BluesYoung-web/create-young-proj/compare/v1.5.0...v1.6.0)
