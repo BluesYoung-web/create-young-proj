@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-09-21 15:57:55
- * @LastEditTime: 2023-11-30 11:03:49
+ * @LastEditTime: 2023-12-22 09:31:07
  * @Description:
  */
 import { resolve } from 'node:path'
@@ -22,6 +22,8 @@ export default defineNuxtConfig({
         { name: 'renderer', content: 'webkit' },
         { name: 'mobile-web-app-capable', content: 'yes' },
         { name: 'creator', content: 'BluesYoung-web' },
+        { 'http-equiv': 'X-UA-Compatible', 'content': 'IE=edge,chrome=1' },
+        { id: 'viewportMeta', name: 'viewport', content: 'maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0' },
       ],
       link: [
         {
