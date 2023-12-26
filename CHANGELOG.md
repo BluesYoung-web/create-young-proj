@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v1.6.2
+
+[compare changes](https://github.com/BluesYoung-web/create-young-proj/compare/v1.6.1...v1.6.2)
+
+### 🩹 Fixes
+
+- 🩹 fix element missing ([0c5cbca](https://github.com/BluesYoung-web/create-young-proj/commit/0c5cbca))
+
+### ❤️ Contributors
+
+- 张扬 <bluesyoung_web@163.com>
+
 ## v1.6.1
 
 [compare changes](https://github.com/BluesYoung-web/create-young-proj/compare/v1.6.0...v1.6.1)
