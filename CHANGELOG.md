@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v1.7.0
+
+[compare changes](https://github.com/BluesYoung-web/create-young-proj/compare/v1.6.2...v1.7.0)
+
+### 🚀 Enhancements
+
+- 🚀 多段兼容增强 ([7d2ad5f](https://github.com/BluesYoung-web/create-young-proj/commit/7d2ad5f))
+
+### 🏡 Chore
+
+- 🏡 uni-app 依赖升级 ([c514c7b](https://github.com/BluesYoung-web/create-young-proj/commit/c514c7b))
+
+### ❤️ Contributors
+
+- 张扬 <bluesyoung_web@163.com>
+
 ## v1.6.2
 
 [compare changes](https://github.com/BluesYoung-web/create-young-proj/compare/v1.6.1...v1.6.2)
