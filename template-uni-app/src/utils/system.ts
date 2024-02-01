@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-07-18 14:24:35
- * @LastEditTime: 2023-09-06 19:42:33
+ * @LastEditTime: 2024-02-01 10:26:40
  * @Description:
  */
 import type { SubscribeMessage } from '@/config'
@@ -10,6 +10,7 @@ import type { SubscribeMessage } from '@/config'
  * 订阅指定的消息
  */
 export function subscribeMessage(tmplIds: SubscribeMessage[]) {
+  // #ifdef MP-WEIXIN
   return new Promise((resolve) => {
     uni.requestSubscribeMessage({
       tmplIds,
@@ -22,6 +23,10 @@ export function subscribeMessage(tmplIds: SubscribeMessage[]) {
       complete: () => resolve(true),
     })
   })
+  // #endif
+  // #ifndef MP-WEIXIN
+  throw new Error('subscribeMessage 仅微信小程序支持')
+  // #endif
 }
 
 /**

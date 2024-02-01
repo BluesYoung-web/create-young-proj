@@ -94,3 +94,8 @@ npm i -g young-commit
 2. 创建对应的 `.env.{mode}` 文件
 
 3. 代码中使用 `import.meta.env.{变量名}` 直接读取使用
+
+
+## 注意！！！
+
+**`APP` 必须配置 `VITE_API_BASE_URL` 的环境变量用以接口请求**

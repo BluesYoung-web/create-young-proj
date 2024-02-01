@@ -1,7 +1,7 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-02-13 14:58:26
- * @LastEditTime: 2023-07-20 15:31:59
+ * @LastEditTime: 2024-02-01 11:09:23
  * @Description:
 -->
 <script setup lang="ts">
@@ -17,9 +17,17 @@ onLaunch(async () => {
     setUuid()
 
   await getSystemInfo()
+
+  // #ifdef APP-PLUS
+  /**
+   * App 热更新
+   * 参见：https://ask.dcloud.net.cn/article/35667
+   */
+  // #endif
 })
 
 onShow(async () => {
+  // #ifdef MP
   /**
    * 自动更新
    */
@@ -46,6 +54,8 @@ onShow(async () => {
     // 新版本下载失败
     showModal({ title: '更新提示', content: '新版本下载失败', showCancel: false })
   })
+  // #endif
+
   console.log('App Show')
 })
 

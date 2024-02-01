@@ -1,3 +1,4 @@
 # 此处存放公共配置
-VITE_APPID = tochangetowxappid_dev
+VITE_APPID = tochangetoappid_dev
+VITE_APPNAME = tochangetoappname
 VITE_CUSTOM_LOADING = true

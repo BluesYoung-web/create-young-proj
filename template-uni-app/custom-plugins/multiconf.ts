@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-07-19 14:32:45
- * @LastEditTime: 2023-11-16 09:57:41
+ * @LastEditTime: 2024-02-01 11:29:08
  * @Description:
  */
 import type { Plugin } from 'vite'
@@ -22,6 +22,9 @@ export function multiConf(env: string) {
     },
     generateBundle(options, bundle) {
       const appid = configEnv.VITE_APPID
+      const appname = configEnv.VITE_APPNAME
+
+      // 微信小程序
       const json = bundle['project.config.json'] as OutputAsset
       if (json?.source && typeof json.source === 'string') {
         const jsonConf = JSON.parse(json.source)
@@ -79,6 +82,15 @@ export function multiConf(env: string) {
         appConf.lazyCodeLoading = 'requiredComponents'
 
         app.source = JSON.stringify(appConf, null, 2)
+      }
+
+      // APP
+      const manifest = bundle['manifest.json'] as OutputAsset
+      if (manifest?.source && typeof manifest.source === 'string') {
+        const manifestConf = JSON.parse(manifest.source)
+        manifestConf.id = appid
+        manifestConf.name = appname
+        manifest.source = JSON.stringify(manifestConf, null, 2)
       }
     },
   } as Plugin

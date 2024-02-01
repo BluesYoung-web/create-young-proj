@@ -1,7 +1,7 @@
 <!--
  * @Author: zhangyang
  * @Date: 2023-07-19 12:12:29
- * @LastEditTime: 2023-08-25 16:26:53
+ * @LastEditTime: 2024-02-01 11:15:49
  * @Description:
 -->
 <script lang="ts" setup>
@@ -15,8 +15,10 @@ withDefaults(defineProps<{
    */
   tip?: string
 }>(), {
+  // #ifdef MP-WEIXIN
   // @ts-expect-error
   loadingGif: __wxConfig.accountInfo.icon,
+  // #endif
   tip: '加载中...',
 })
 
@@ -28,7 +30,7 @@ const { fullscreenLoading } = storeToRefs(useHttpLoading())
     v-show="fullscreenLoading"
     class="w100vw h100vh fixed left-0 top-0 z-999999 bg-white flex flex-col items-center justify-center"
   >
-    <image :src="loadingGif" class="w140rpx h140rpx mb-32rpx" />
+    <image v-if="loadingGif" :src="loadingGif" class="w140rpx h140rpx mb-32rpx" />
     <text class="text-[#999] text-24rpx leading-36rpx">
       {{ tip }}
     </text>

@@ -423,7 +423,6 @@ declare module 'vue' {
     readonly effectScope: UnwrapRef<typeof import('vue')['effectScope']>
     readonly extendRef: UnwrapRef<typeof import('@vueuse/core')['extendRef']>
     readonly fingerPrintAuth: UnwrapRef<typeof import('./src/utils/auth')['fingerPrintAuth']>
-    readonly geocoderLocation: UnwrapRef<typeof import('./src/utils/map')['geocoderLocation']>
     readonly getActivePinia: UnwrapRef<typeof import('pinia')['getActivePinia']>
     readonly getAuthInfo: UnwrapRef<typeof import('./src/utils/auth')['getAuthInfo']>
     readonly getCurrentInstance: UnwrapRef<typeof import('vue')['getCurrentInstance']>
@@ -516,7 +515,6 @@ declare module 'vue' {
     readonly resolveRef: UnwrapRef<typeof import('@vueuse/core')['resolveRef']>
     readonly resolveUnref: UnwrapRef<typeof import('@vueuse/core')['resolveUnref']>
     readonly route: UnwrapRef<typeof import('./src/utils/route')['route']>
-    readonly searchLoaction: UnwrapRef<typeof import('./src/utils/map')['searchLoaction']>
     readonly setActivePinia: UnwrapRef<typeof import('pinia')['setActivePinia']>
     readonly setLocationInfo: UnwrapRef<typeof import('./src/store/local/index')['setLocationInfo']>
     readonly setMapStoreSuffix: UnwrapRef<typeof import('pinia')['setMapStoreSuffix']>
@@ -796,7 +794,6 @@ declare module '@vue/runtime-core' {
     readonly effectScope: UnwrapRef<typeof import('vue')['effectScope']>
     readonly extendRef: UnwrapRef<typeof import('@vueuse/core')['extendRef']>
     readonly fingerPrintAuth: UnwrapRef<typeof import('./src/utils/auth')['fingerPrintAuth']>
-    readonly geocoderLocation: UnwrapRef<typeof import('./src/utils/map')['geocoderLocation']>
     readonly getActivePinia: UnwrapRef<typeof import('pinia')['getActivePinia']>
     readonly getAuthInfo: UnwrapRef<typeof import('./src/utils/auth')['getAuthInfo']>
     readonly getCurrentInstance: UnwrapRef<typeof import('vue')['getCurrentInstance']>
@@ -889,7 +886,6 @@ declare module '@vue/runtime-core' {
     readonly resolveRef: UnwrapRef<typeof import('@vueuse/core')['resolveRef']>
     readonly resolveUnref: UnwrapRef<typeof import('@vueuse/core')['resolveUnref']>
     readonly route: UnwrapRef<typeof import('./src/utils/route')['route']>
-    readonly searchLoaction: UnwrapRef<typeof import('./src/utils/map')['searchLoaction']>
     readonly setActivePinia: UnwrapRef<typeof import('pinia')['setActivePinia']>
     readonly setLocationInfo: UnwrapRef<typeof import('./src/store/local/index')['setLocationInfo']>
     readonly setMapStoreSuffix: UnwrapRef<typeof import('pinia')['setMapStoreSuffix']>

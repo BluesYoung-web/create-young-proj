@@ -17,8 +17,15 @@ const EnvConfig = {
 }
 
 export function getReqUrl(): string {
-  // @ts-expect-error
-  return import.meta.env.VITE_API_BASE_URL || EnvConfig[__wxConfig.envVersion]
+  let url = import.meta.env.VITE_API_BASE_URL
+
+  // #ifdef MP-WEIXIN
+  if (__wxConfig && __wxConfig.envVersion && EnvConfig[__wxConfig.envVersion])
+    url = EnvConfig[__wxConfig.envVersion]
+
+  // #endif
+
+  return url
 }
 
 const http = useHttp({

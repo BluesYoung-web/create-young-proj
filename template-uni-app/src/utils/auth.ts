@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-07-18 14:28:16
- * @LastEditTime: 2023-08-29 10:22:48
+ * @LastEditTime: 2024-02-01 10:31:14
  * @Description: 权限相关
  */
 /**
@@ -66,6 +66,7 @@ export function locate(cancelback = true) {
  */
 export async function authLocation(cancelback = true, isShowModal = true) {
   return new Promise<UniApp.GetLocationSuccess>(async (resolve, reject) => {
+    // #ifdef MP
     uni.getSetting({
       withSubscriptions: true,
       success: async (conf) => {
@@ -128,6 +129,11 @@ export async function authLocation(cancelback = true, isShowModal = true) {
         reject(false)
       },
     })
+    // #endif
+    // #ifndef MP
+    console.error('this method can only used in miniprogram !')
+    reject(false)
+    // #endif
   })
 }
 
@@ -137,6 +143,7 @@ export async function authLocation(cancelback = true, isShowModal = true) {
 export async function getAuthInfo() {
   return new Promise<UniApp.CheckIsSupportSoterAuthenticationRes['supportMode'] | false>(
     (resolve) => {
+      // #ifdef APP-PLUS || MP-WEIXIN
       uni.checkIsSupportSoterAuthentication({
         success(res) {
           resolve(res.supportMode)
@@ -146,6 +153,12 @@ export async function getAuthInfo() {
           resolve(false)
         },
       })
+      // #endif
+
+      // #ifndef APP-PLUS || MP-WEIXIN
+      resolve(false)
+      console.error('this method can only used in app and mp-weixin !')
+      // #endif
     },
   )
 }
@@ -155,11 +168,16 @@ export async function getAuthInfo() {
  */
 export async function checkFingerPrint() {
   return new Promise<boolean>((resolve) => {
+    // #ifdef APP-PLUS || MP-WEIXIN
     uni.checkIsSoterEnrolledInDevice({
       checkAuthMode: 'fingerPrint',
       success: () => resolve(true),
       fail: () => resolve(false),
     })
+    // #endif
+    // #ifndef APP-PLUS || MP-WEIXIN
+    resolve(false)
+    // #endif
   })
 }
 
@@ -168,6 +186,7 @@ export async function checkFingerPrint() {
  */
 export async function fingerPrintAuth(signStr: string, authContent = '请验证本机指纹') {
   return new Promise<boolean>(async (resolve) => {
+    // #ifdef APP-PLUS || MP-WEIXIN
     const authMethods = await getAuthInfo()
     if (authMethods && authMethods.includes('fingerPrint')) {
       uni.checkIsSupportSoterAuthentication({
@@ -200,5 +219,9 @@ export async function fingerPrintAuth(signStr: string, authContent = '请验证�
     else {
       resolve(false)
     }
+    // #endif
+    // #ifndef APP-PLUS || MP-WEIXIN
+    resolve(false)
+    // #endif
   })
 }

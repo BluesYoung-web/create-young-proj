@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2023-07-19 08:41:05
- * @LastEditTime: 2023-11-07 17:14:47
+ * @LastEditTime: 2024-02-01 11:28:01
  * @Description:
  */
 /// <reference types="vite/client" />
@@ -25,9 +25,14 @@ declare interface ImportMetaEnv {
   VITE_CUSTOM_LOADING: boolean
 
   /**
-   * 微信小程序 appid
+   * appid
    */
   VITE_APPID: string
+
+  /**
+   * 应用名称
+   */
+  VITE_APPNAME: string
 
   /**
    * 接口请求地址
