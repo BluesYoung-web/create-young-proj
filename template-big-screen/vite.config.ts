@@ -2,10 +2,11 @@
  * @Author: Leo l024983409@qq.com
  * @Date: 2023-09-19 20:22:55
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2024-02-02 15:29:24
+ * @LastEditTime: 2024-02-02 16:15:07
  * @Description:
  */
-import path from 'node:path'
+import { URL, fileURLToPath } from 'node:url'
+import { networkInterfaces } from 'node:os'
 import { defineConfig } from 'vite'
 import Vue from '@vitejs/plugin-vue'
 import Pages from 'vite-plugin-pages'
@@ -16,10 +17,24 @@ import Inspect from 'vite-plugin-inspect'
 import Unocss from 'unocss/vite'
 import legacy from '@vitejs/plugin-legacy'
 
+function getLocalIP() {
+  const ips = networkInterfaces()
+
+  for (const name of Object.keys(ips)) {
+    const networkInterface = ips[name]
+    for (const ip of networkInterface!) {
+      if (ip.family === 'IPv4' && !ip.internal)
+        return ip.address
+    }
+  }
+
+  return '127.0.0.1'
+}
+
 export default defineConfig({
   resolve: {
     alias: {
-      '~/': `${path.resolve(__dirname, 'src')}/`,
+      '~': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
   server: {
@@ -30,6 +45,24 @@ export default defineConfig({
     cssTarget: ['chrome58'],
   },
   plugins: [
+    (function () {
+      const moduleId = 'virtual:local-server'
+      const localServer = `http://${getLocalIP()}:3000`
+      console.log('🚀 ~ load ~ localServer:', localServer)
+      return {
+        name: moduleId.split(':')[1],
+        resolveId(id: string) {
+          if (id === moduleId)
+            return moduleId
+        },
+        load(id: string) {
+          if (id === moduleId)
+
+            return `export const server = '${localServer}'`
+        },
+      }
+    })(),
+
     Vue(),
 
     // https://github.com/hannoeru/vite-plugin-pages

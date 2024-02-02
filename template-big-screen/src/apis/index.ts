@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2024-01-18 09:36:06
- * @LastEditTime: 2024-02-01 17:16:07
+ * @LastEditTime: 2024-02-02 15:54:25
  * @Description:
  */
 import { useHttp } from '@bluesyoung/http'
@@ -18,7 +18,7 @@ export function ajaxEndLoading() {
 
 export const http = useHttp<IResult>({
   timeout: -1,
-  // lazyBaseURL: () => window.__YOUNG_ENV__.NUXT_PUBLIC_API_BASE,
+  lazyBaseURL: () => window.__YOUNG_ENV__.NUXT_PUBLIC_API_BASE,
   loading: {
     start: ajaxStartLoading,
     end: ajaxEndLoading,
