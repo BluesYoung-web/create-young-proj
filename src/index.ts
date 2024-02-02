@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2022-12-03 15:14:08
- * @LastEditTime: 2023-11-27 15:22:27
+ * @LastEditTime: 2024-02-02 16:27:39
  * @Description:
  */
 import fs from 'node:fs'
@@ -66,6 +66,11 @@ const FRAMEWORKS: Framework[] = [
       {
         name: 'uni-app',
         display: 'Vue3 uni-app',
+        color: blue,
+      },
+      {
+        name: 'big-screen',
+        display: 'Vue3 Big Screen',
         color: blue,
       },
       {
