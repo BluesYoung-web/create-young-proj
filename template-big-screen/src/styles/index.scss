@@ -1,0 +1,82 @@
+:root{
+  --text-color:#92b1bb
+}
+
+html,
+body,
+#app {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  color:#07cfc2;
+}
+
+html.light{
+  background: #f9f9f9;
+  color-scheme: light;
+}
+
+html.dark {
+  background: #101521;
+  color-scheme: dark;
+}
+
+#nprogress {
+  pointer-events: none;
+}
+
+#nprogress .bar {
+  background: rgb(13,148,136);
+  opacity: 0.75;
+  position: fixed;
+  z-index: 1031;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+}
+
+
+//dark transition
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+::view-transition-old(root) {
+  z-index: 1;
+}
+::view-transition-new(root) {
+  z-index: 2147483646;
+}
+.dark::view-transition-old(root) {
+  z-index: 2147483646;
+}
+.dark::view-transition-new(root) {
+  z-index: 1;
+}
+
+.ellipsis-container {
+  width: 200px; /* 设置文本容器的宽度 */
+  overflow: hidden; /* 隐藏溢出的文本内容 */
+  white-space: nowrap; /* 防止文本换行 */
+}
+
+.scrolling-text {
+  display: inline-block; /* 将文本作为内联块元素显示 */
+  animation: scrollText 10s linear infinite; /* 应用滚动动画 */
+}
+
+@keyframes scrollText {
+  0% {
+    transform: translateX(0%); /* 开始位置：文本在容器右侧 */
+  }
+  30% {
+    transform: translateX(0%); /* 开始位置：文本在容器右侧 */
+  }
+  100% {
+    transform: translateX(-100%); /* 结束位置：文本在容器左侧 */
+  }
+}
+
+
