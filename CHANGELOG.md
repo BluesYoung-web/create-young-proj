@@ -1,6 +1,29 @@
 # Changelog
 
 
+## v1.8.0
+
+[compare changes](https://github.com/BluesYoung-web/create-young-proj/compare/v1.7.0...v1.8.0)
+
+### 🚀 Enhancements
+
+- 🚀 init ([86da991](https://github.com/BluesYoung-web/create-young-proj/commit/86da991))
+- 🚀 add options ([0f2c5ea](https://github.com/BluesYoung-web/create-young-proj/commit/0f2c5ea))
+
+### 📖 Documentation
+
+- 📖 fix typo ([1c13ab5](https://github.com/BluesYoung-web/create-young-proj/commit/1c13ab5))
+- 📖 update readme ([61c39d7](https://github.com/BluesYoung-web/create-young-proj/commit/61c39d7))
+- 📖 update readme ([1cbf4a9](https://github.com/BluesYoung-web/create-young-proj/commit/1cbf4a9))
+
+### 🏡 Chore
+
+- 🏡 Docker 部署调整 ([d2a14db](https://github.com/BluesYoung-web/create-young-proj/commit/d2a14db))
+
+### ❤️ Contributors
+
+- 张扬 <bluesyoung_web@163.com>
+
 ## v1.7.0
 
 [compare changes](https://github.com/BluesYoung-web/create-young-proj/compare/v1.6.2...v1.7.0)
