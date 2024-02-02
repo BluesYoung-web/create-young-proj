@@ -24,6 +24,7 @@ pnpm create young-proj
 - [x] template-uni-app
 - [x] template-nuxt3-website
 - [x] template-vitepress
+- [x] template-big-screen
 
 ## template-nuxt-admin
 
@@ -70,3 +71,7 @@ pnpm create young-proj
 ## template-vitepress
 
 基于 [vitepress](https://vitepress.dev/) 开发，附带基本的汉化配置及部署相关的脚本
+
+## template-big-screen
+
+大屏模板，[详见](./template-big-screen/README.md)
