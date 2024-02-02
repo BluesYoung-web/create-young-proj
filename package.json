@@ -1,7 +1,7 @@
 {
   "name": "create-young-proj",
   "type": "module",
-  "version": "1.8.0",
+  "version": "1.8.1",
   "description": "create project from template",
   "author": "BluesYoung-web",
   "license": "MIT",

@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v1.8.1
+
+[compare changes](https://github.com/BluesYoung-web/create-young-proj/compare/v1.8.0...v1.8.1)
+
+### 🩹 Fixes
+
+- ⚠️  🩹 fix build server address ([b722bf0](https://github.com/BluesYoung-web/create-young-proj/commit/b722bf0))
+
+#### ⚠️ Breaking Changes
+
+- ⚠️  🩹 fix build server address ([b722bf0](https://github.com/BluesYoung-web/create-young-proj/commit/b722bf0))
+
+### ❤️ Contributors
+
+- 张扬 <bluesyoung_web@163.com>
+
 ## v1.8.0
 
 [compare changes](https://github.com/BluesYoung-web/create-young-proj/compare/v1.7.0...v1.8.0)
