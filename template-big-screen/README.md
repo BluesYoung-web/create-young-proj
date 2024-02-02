@@ -1,5 +1,9 @@
 ## 大屏系统
 
+[![](https://img.shields.io/badge/Author-BluesYoung--web-blue)](https://gitee.com/BluesYoung-web)
+
+[![code style](https://antfu.me/badge-code-style.svg)](https://github.com/antfu/eslint-config)
+
 ### 组件库
 
 > 可以预先提供给 `UI` 进行参考，减少双方工作量
