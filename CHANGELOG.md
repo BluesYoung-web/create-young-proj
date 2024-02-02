@@ -7,7 +7,7 @@
 
 ### 🚀 Enhancements
 
-- 🚀 多段兼容增强 ([7d2ad5f](https://github.com/BluesYoung-web/create-young-proj/commit/7d2ad5f))
+- 🚀 多端兼容增强 ([7d2ad5f](https://github.com/BluesYoung-web/create-young-proj/commit/7d2ad5f))
 
 ### 🏡 Chore
 
