@@ -22,6 +22,7 @@
     "@wangeditor/editor-for-vue": "^5.1.12",
     "c12": "^1.4.2",
     "file-saver": "^2.0.5",
+    "h3-proxy": "^1.12.0",
     "http-proxy": "^1.18.1",
     "jszip": "^3.10.1",
     "md5": "^2.3.0",
