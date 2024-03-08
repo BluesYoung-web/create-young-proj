@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v1.9.0
+
+[compare changes](https://github.com/BluesYoung-web/create-young-proj/compare/v1.8.1...v1.9.0)
+
+### 🏡 Chore
+
+- ⚠️  🏡 change proxy method ([dc4abb2](https://github.com/BluesYoung-web/create-young-proj/commit/dc4abb2))
+
+#### ⚠️ Breaking Changes
+
+- ⚠️  🏡 change proxy method ([dc4abb2](https://github.com/BluesYoung-web/create-young-proj/commit/dc4abb2))
+
+### ❤️ Contributors
+
+- 张扬 <bluesyoung_web@163.com>
+
 ## v1.8.1
 
 [compare changes](https://github.com/BluesYoung-web/create-young-proj/compare/v1.8.0...v1.8.1)
